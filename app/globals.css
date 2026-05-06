@@ -1,26 +1,221 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/container-queries";
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@theme {
+  --color-secondary: #5e5e5e;
+  --color-surface-container-lowest: #ffffff;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-fixed: #dae1ff;
+  --color-error: #ba1a1a;
+  --color-tertiary: #00286e;
+  --color-on-surface: #1a1c1c;
+  --color-inverse-primary: #ffb4aa;
+  --color-surface-variant: #e2e2e2;
+  --color-primary-fixed-dim: #ffb4aa;
+  --color-on-background: #1a1c1c;
+  --color-surface-container-low: #f3f3f3;
+  --color-primary-container: #8b090a;
+  --color-on-primary-container: #ff9385;
+  --color-secondary-fixed-dim: #c6c6c6;
+  --color-on-primary: #ffffff;
+  --color-on-surface-variant: #5a413d;
+  --color-on-secondary-fixed: #1b1b1b;
+  --color-surface-bright: #f9f9f9;
+  --color-secondary-fixed: #e2e2e2;
+  --color-on-tertiary-fixed: #001849;
+  --color-surface-container-high: #e8e8e8;
+  --color-on-secondary: #ffffff;
+  --color-surface-tint: #b22a22;
+  --color-surface-container: #eeeeee;
+  --color-surface-container-highest: #e2e2e2;
+  --color-surface: #f9f9f9;
+  --color-on-error: #ffffff;
+  --color-on-tertiary-fixed-variant: #0940a0;
+  --color-inverse-on-surface: #f1f1f1;
+  --color-on-secondary-fixed-variant: #474747;
+  --color-primary-fixed: #ffdad5;
+  --color-outline: #8e706c;
+  --color-on-secondary-container: #646464;
+  --color-on-primary-fixed: #410001;
+  --color-secondary-container: #e2e2e2;
+  --color-error-container: #ffdad6;
+  --color-outline-variant: #e2beba;
+  --color-on-primary-fixed-variant: #900e0d;
+  --color-surface-dim: #dadada;
+  --color-primary: #630003;
+  --color-inverse-surface: #2f3131;
+  --color-background: #f9f9f9;
+  --color-tertiary-fixed-dim: #b3c5ff;
+  --color-on-error-container: #93000a;
+  --color-tertiary-container: #003c9d;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --radius-custom: 12px;
+  --radius-round-four: 4px;
+
+  --font-headline: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-label: "Inter", sans-serif;
+
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-marquee-fast: marquee 20s linear infinite;
+  --animate-marquee-slow: marquee 80s linear infinite;
+  --animate-scroll-up: scroll-up 15s linear infinite;
+  --animate-scroll-down: scroll-down 15s linear infinite;
+  --animate-glyph-rain: glyph-rain 10s linear infinite;
+
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+  @keyframes scroll-up {
+    0% { transform: translateY(0%); }
+    100% { transform: translateY(-50%); }
+  }
+  @keyframes scroll-down {
+    0% { transform: translateY(-50%); }
+    100% { transform: translateY(0%); }
+  }
+  @keyframes glyph-rain {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom CSS from the HTML provided */
+@layer utilities {
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+  .gutter-line {
+    @apply absolute top-0 bottom-0 w-[1.3px] bg-gray-300 z-0 pointer-events-none;
+  }
+  .center-line-full {
+    @apply absolute top-0 bottom-0 left-1/2 w-[1.3px] bg-gray-300 z-0 pointer-events-none;
+  }
+  .gutter-left { left: 7rem; }
+  .gutter-right { right: 7rem; }
+  .content-width {
+    margin-left: 7rem;
+    margin-right: 7rem;
+  }
+  .bento-card {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255,255,255,0.05);
+  }
+  .bento-card:hover {
+    border-color: rgba(139, 9, 10, 0.4);
+    box-shadow: 0 0 40px rgba(139, 9, 10, 0.15);
+  }
+  .wireframe-overlay {
+    background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
+    background-size: 24px 24px;
+  }
+  .technical-grid-red {
+    background-image: 
+        linear-gradient(to right, rgba(139, 9, 10, 0.1) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(139, 9, 10, 0.1) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  .blueprint-circuit {
+    background-image: 
+        linear-gradient(90deg, rgba(139, 9, 10, 0.25) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(139, 9, 10, 0.25) 1px, transparent 1px);
+    background-size: 80px 80px;
+    background-position: center;
+  }
+  .blueprint-circuit::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(90deg, rgba(139, 9, 10, 0.1) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(139, 9, 10, 0.1) 1px, transparent 1px);
+    background-size: 16px 16px;
+    pointer-events: none;
+  }
+  .diagonal-blueprint {
+    background: 
+        linear-gradient(45deg, rgba(139, 9, 10, 0.05) 25%, transparent 25%, transparent 50%, rgba(139, 9, 10, 0.05) 50%, rgba(139, 9, 10, 0.05) 75%, transparent 75%, transparent);
+    background-size: 20px 20px;
+  }
+  .glyph-rain-container {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    opacity: 0.15;
+    pointer-events: none;
+    display: flex;
+    justify-content: space-around;
+  }
+  .glyph-column {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 1;
+    color: #8B090A;
+    animation: glyph-rain 15s linear infinite;
+  }
+  .glass-red {
+    background: rgba(139, 9, 10, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(139, 9, 10, 0.2);
+  }
+}
+
+/* Custom Cursor CSS */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background-color: var(--color-primary-container);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s, background-color 0.3s;
+  mix-blend-mode: difference;
+}
+.custom-cursor.hovering {
+  width: 60px;
+  height: 60px;
+  background-color: white;
+}
+
+/* Portfolio Page Specifics */
+@layer utilities {
+  .service-grid-line {
+    @apply absolute bg-gray-300 pointer-events-none z-20;
+  }
+  .vertical-text-up {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
+  .vertical-text-label {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
+  .snap-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .snap-container::-webkit-scrollbar {
+    display: none;
+  }
+  .snap-section {
+    flex: 0 0 100vw;
+    height: 100vh;
+    scroll-snap-align: start;
+    overflow: hidden;
+    position: relative;
+  }
 }
