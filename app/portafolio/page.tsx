@@ -3,6 +3,7 @@ import Image from "next/image";
 import HeroImageCarousel from "@/components/portafolio/HeroImageCarousel";
 
 import GridLines from "@/components/ui/GridLines";
+import AnimatedButton from "@/components/ui/AnimatedButton";
 
 export const metadata = {
   title: "BLACKCHERRY IT | PORTAFOLIO",
@@ -75,9 +76,13 @@ export default function PortafolioPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#1F1F1F]/90 via-transparent to-transparent z-10"></div>
               {/* Interaction Layer at Bottom */}
               <div className="absolute bottom-12 left-6 md:left-12 right-6 md:right-12 z-50 flex items-center">
-                <div className="bg-primary-container text-white font-headline font-bold text-[10px] md:text-xs tracking-[0.2em] px-8 py-3 uppercase rounded-round-four opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                <AnimatedButton 
+                  asDiv 
+                  theme="primary" 
+                  className="opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0"
+                >
                   VER PROYECTO
-                </div>
+                </AnimatedButton>
               </div>
               {/* Absolute Vertical Titles and Labels */}
               <div className="absolute top-0 right-0 bottom-0 py-4 flex items-center justify-center z-30 pointer-events-none">
@@ -112,8 +117,8 @@ export default function PortafolioPage() {
               {/* Video Hover Placeholder */}
               <div className="absolute inset-0 flex items-center justify-center z-40 pointer-events-none">
                 <div className="w-[80%] h-[50%] rounded-custom overflow-hidden opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-700 ease-out bg-black shadow-2xl">
-                  <video className="w-full h-full object-cover" loop muted playsInline autoPlay>
-                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4"/>
+                  <video className="w-full h-full object-cover object-left" loop muted playsInline autoPlay>
+                    <source src="/projects/gpamex/video.mp4" type="video/mp4"/>
                   </video>
                 </div>
               </div>
@@ -128,9 +133,13 @@ export default function PortafolioPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1F1F1F]/90 via-transparent to-transparent z-10"></div>
               <div className="absolute bottom-12 left-6 md:left-12 right-6 md:right-12 z-50 flex items-center">
-                <div className="bg-primary-container text-white font-headline font-bold text-[10px] md:text-xs tracking-[0.2em] px-8 py-3 uppercase rounded-round-four opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                <AnimatedButton 
+                  asDiv 
+                  theme="primary" 
+                  className="opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0"
+                >
                   VER PROYECTO
-                </div>
+                </AnimatedButton>
               </div>
               <div className="absolute top-0 right-0 bottom-0 py-4 flex items-center justify-center z-30 pointer-events-none">
                 <div className="flex items-center h-full">
@@ -163,8 +172,8 @@ export default function PortafolioPage() {
               <div className="absolute top-8 left-8 text-white/30 font-headline font-black text-xl md:text-2xl z-10">02</div>
               <div className="absolute inset-0 flex items-center justify-center z-40 pointer-events-none">
                 <div className="w-[80%] h-[50%] rounded-custom overflow-hidden opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-700 ease-out bg-black shadow-2xl">
-                  <video className="w-full h-full object-cover" loop muted playsInline autoPlay>
-                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4"/>
+                  <video className="w-full h-full object-cover object-left" loop muted playsInline autoPlay>
+                    <source src="/projects/grupo-cosiam/video.mp4" type="video/mp4"/>
                   </video>
                 </div>
               </div>
@@ -179,9 +188,13 @@ export default function PortafolioPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1F1F1F]/90 via-transparent to-transparent z-10"></div>
               <div className="absolute bottom-12 left-6 md:left-12 right-6 md:right-12 z-50 flex items-center">
-                <div className="bg-primary-container text-white font-headline font-bold text-[10px] md:text-xs tracking-[0.2em] px-8 py-3 uppercase rounded-round-four opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                <AnimatedButton 
+                  asDiv 
+                  theme="primary" 
+                  className="opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0"
+                >
                   VER PROYECTO
-                </div>
+                </AnimatedButton>
               </div>
               <div className="absolute top-0 right-0 bottom-0 py-4 flex items-center justify-center z-30 pointer-events-none">
                 <div className="flex items-center h-full">
@@ -214,8 +227,8 @@ export default function PortafolioPage() {
               <div className="absolute top-8 left-8 text-white/30 font-headline font-black text-xl md:text-2xl z-10">03</div>
               <div className="absolute inset-0 flex items-center justify-center z-40 pointer-events-none">
                 <div className="w-[80%] h-[50%] rounded-custom overflow-hidden opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-700 ease-out bg-black shadow-2xl">
-                  <video className="w-full h-full object-cover" loop muted playsInline autoPlay>
-                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4"/>
+                  <video className="w-full h-full object-cover object-left" loop muted playsInline autoPlay>
+                    <source src="/projects/adelai/video.mp4" type="video/mp4"/>
                   </video>
                 </div>
               </div>
@@ -230,9 +243,13 @@ export default function PortafolioPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1F1F1F]/90 via-transparent to-transparent z-10"></div>
               <div className="absolute bottom-12 left-6 md:left-12 right-6 md:right-12 z-50 flex items-center">
-                <div className="bg-primary-container text-white font-headline font-bold text-[10px] md:text-xs tracking-[0.2em] px-8 py-3 uppercase rounded-round-four opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                <AnimatedButton 
+                  asDiv 
+                  theme="primary" 
+                  className="opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0"
+                >
                   VER PROYECTO
-                </div>
+                </AnimatedButton>
               </div>
               <div className="absolute top-0 right-0 bottom-0 py-4 flex items-center justify-center z-30 pointer-events-none">
                 <div className="flex items-center h-full">
@@ -265,8 +282,8 @@ export default function PortafolioPage() {
               <div className="absolute top-8 left-8 text-white/30 font-headline font-black text-xl md:text-2xl z-10">04</div>
               <div className="absolute inset-0 flex items-center justify-center z-40 pointer-events-none">
                 <div className="w-[80%] h-[50%] rounded-custom overflow-hidden opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-700 ease-out bg-black shadow-2xl">
-                  <video className="w-full h-full object-cover" loop muted playsInline autoPlay>
-                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4"/>
+                  <video className="w-full h-full object-cover object-left" loop muted playsInline autoPlay>
+                    <source src="/projects/cerato/video.mp4" type="video/mp4"/>
                   </video>
                 </div>
               </div>
@@ -281,9 +298,13 @@ export default function PortafolioPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1F1F1F]/90 via-transparent to-transparent z-10"></div>
               <div className="absolute bottom-12 left-6 md:left-12 right-6 md:right-12 z-50 flex items-center">
-                <div className="bg-primary-container text-white font-headline font-bold text-[10px] md:text-xs tracking-[0.2em] px-8 py-3 uppercase rounded-round-four opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                <AnimatedButton 
+                  asDiv 
+                  theme="primary" 
+                  className="opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0"
+                >
                   VER PROYECTO
-                </div>
+                </AnimatedButton>
               </div>
               <div className="absolute top-0 right-0 bottom-0 py-4 flex items-center justify-center z-30 pointer-events-none">
                 <div className="flex items-center h-full">
@@ -316,8 +337,8 @@ export default function PortafolioPage() {
               <div className="absolute top-8 left-8 text-white/30 font-headline font-black text-xl md:text-2xl z-10">05</div>
               <div className="absolute inset-0 flex items-center justify-center z-40 pointer-events-none">
                 <div className="w-[80%] h-[50%] rounded-custom overflow-hidden opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-700 ease-out bg-black shadow-2xl">
-                  <video className="w-full h-full object-cover" loop muted playsInline autoPlay>
-                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4"/>
+                  <video className="w-full h-full object-cover object-left" loop muted playsInline autoPlay>
+                    <source src="/projects/dani-suacha/video.mp4" type="video/mp4"/>
                   </video>
                 </div>
               </div>
@@ -332,9 +353,13 @@ export default function PortafolioPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1F1F1F]/90 via-transparent to-transparent z-10"></div>
               <div className="absolute bottom-12 left-6 md:left-12 right-6 md:right-12 z-50 flex items-center">
-                <div className="bg-primary-container text-white font-headline font-bold text-[10px] md:text-xs tracking-[0.2em] px-8 py-3 uppercase rounded-round-four opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                <AnimatedButton 
+                  asDiv 
+                  theme="primary" 
+                  className="opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0"
+                >
                   VER PROYECTO
-                </div>
+                </AnimatedButton>
               </div>
               <div className="absolute top-0 right-0 bottom-0 py-4 flex items-center justify-center z-30 pointer-events-none">
                 <div className="flex items-center h-full">
@@ -367,8 +392,8 @@ export default function PortafolioPage() {
               <div className="absolute top-8 left-8 text-white/30 font-headline font-black text-xl md:text-2xl z-10">06</div>
               <div className="absolute inset-0 flex items-center justify-center z-40 pointer-events-none">
                 <div className="w-[80%] h-[50%] rounded-custom overflow-hidden opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-700 ease-out bg-black shadow-2xl">
-                  <video className="w-full h-full object-cover" loop muted playsInline autoPlay>
-                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4"/>
+                  <video className="w-full h-full object-cover object-left" loop muted playsInline autoPlay>
+                    <source src="/projects/guermar/video.mp4" type="video/mp4"/>
                   </video>
                 </div>
               </div>
@@ -383,9 +408,13 @@ export default function PortafolioPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1F1F1F]/90 via-transparent to-transparent z-10"></div>
               <div className="absolute bottom-12 left-6 md:left-12 right-6 md:right-12 z-50 flex items-center">
-                <div className="bg-primary-container text-white font-headline font-bold text-[10px] md:text-xs tracking-[0.2em] px-8 py-3 uppercase rounded-round-four opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                <AnimatedButton 
+                  asDiv 
+                  theme="primary" 
+                  className="opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0"
+                >
                   VER PROYECTO
-                </div>
+                </AnimatedButton>
               </div>
               <div className="absolute top-0 right-0 bottom-0 py-4 flex items-center justify-center z-30 pointer-events-none">
                 <div className="flex items-center h-full">
@@ -418,8 +447,8 @@ export default function PortafolioPage() {
               <div className="absolute top-8 left-8 text-white/30 font-headline font-black text-xl md:text-2xl z-10">07</div>
               <div className="absolute inset-0 flex items-center justify-center z-40 pointer-events-none">
                 <div className="w-[80%] h-[50%] rounded-custom overflow-hidden opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-700 ease-out bg-black shadow-2xl">
-                  <video className="w-full h-full object-cover" loop muted playsInline autoPlay>
-                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4"/>
+                  <video className="w-full h-full object-cover object-left" loop muted playsInline autoPlay>
+                    <source src="/projects/lars-dynamics/video.mp4" type="video/mp4"/>
                   </video>
                 </div>
               </div>

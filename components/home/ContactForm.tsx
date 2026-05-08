@@ -3,6 +3,8 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import GridLines from "@/components/ui/GridLines";
+import AnimatedButton from "@/components/ui/AnimatedButton";
+import { BeamInputWrapper } from "@/components/ui/BeamInputWrapper";
 
 export default function ContactForm() {
   const [loading, setLoading] = useState(false);
@@ -102,51 +104,58 @@ export default function ContactForm() {
                 <label className="block text-[10px] uppercase tracking-[0.2em] font-black mb-2 group-focus-within:text-primary-container transition-colors text-black">
                   Nombre Completo
                 </label>
-                <input 
-                  name="user_name"
-                  className="w-full bg-white border border-black py-3 focus:outline-none focus:border-primary-container transition-all text-black font-headline text-lg placeholder:text-black/80 rounded-xl px-4 min-h-[44px]" 
-                  placeholder="IDENTIFICACIÓN DEL OPERADOR" 
-                  type="text" 
-                  required
-                />
+                <BeamInputWrapper rounded="rounded-xl">
+                  <input 
+                    name="user_name"
+                    className="w-full bg-white py-3 focus:outline-none transition-all text-black font-headline text-lg placeholder:text-black/80 rounded-xl px-4 min-h-[44px]" 
+                    placeholder="IDENTIFICACIÓN DEL OPERADOR" 
+                    type="text" 
+                    required
+                  />
+                </BeamInputWrapper>
               </div>
               
               <div className="relative group">
                 <label className="block text-[10px] uppercase tracking-[0.2em] font-black mb-2 group-focus-within:text-primary-container transition-colors text-black">
                   Email Corporativo
                 </label>
-                <input 
-                  name="user_email"
-                  className="w-full bg-white border border-black py-3 focus:outline-none focus:border-primary-container transition-all text-black font-headline text-lg placeholder:text-black/80 rounded-xl px-4 min-h-[44px]" 
-                  placeholder="CANAL@COMUNICACION.IT" 
-                  type="email" 
-                  required
-                />
+                <BeamInputWrapper rounded="rounded-xl">
+                  <input 
+                    name="user_email"
+                    className="w-full bg-white py-3 focus:outline-none transition-all text-black font-headline text-lg placeholder:text-black/80 rounded-xl px-4 min-h-[44px]" 
+                    placeholder="CANAL@COMUNICACION.IT" 
+                    type="email" 
+                    required
+                  />
+                </BeamInputWrapper>
               </div>
               
               <div className="relative group">
                 <label className="block text-[10px] uppercase tracking-[0.2em] font-black mb-2 group-focus-within:text-primary-container transition-colors text-black">
                   Mensaje / HABLANOS DE TU PROYECTO
                 </label>
-                <textarea 
-                  name="message"
-                  className="w-full bg-white border border-black py-3 focus:outline-none focus:border-primary-container transition-all text-black font-headline text-lg placeholder:text-black/80 rounded-xl px-4 min-h-[44px]" 
-                  placeholder="DESCRIBA LA INFRAESTRUCTURA..." 
-                  rows={4} 
-                  required
-                ></textarea>
+                <BeamInputWrapper rounded="rounded-xl">
+                  <textarea 
+                    name="message"
+                    className="w-full bg-white py-3 focus:outline-none transition-all text-black font-headline text-lg placeholder:text-black/80 rounded-xl px-4 min-h-[44px]" 
+                    placeholder="DESCRIBA LA INFRAESTRUCTURA..." 
+                    rows={4} 
+                    required
+                  ></textarea>
+                </BeamInputWrapper>
               </div>
 
               {error && <p className="text-red-600 font-bold text-sm">{error}</p>}
               {success && <p className="text-green-600 font-bold text-sm uppercase tracking-wider">¡Mensaje enviado exitosamente!</p>}
               
-              <button 
+              <AnimatedButton 
                 disabled={loading}
-                className="w-full bg-black hover:bg-stone-900 text-white font-headline font-black py-6 px-10 text-xs uppercase tracking-[0.4em] transition-all transform hover:-translate-y-1 shadow-2xl mt-8 rounded-xl disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px]" 
+                theme="light"
+                className="mt-8 w-full justify-center"
                 type="submit"
               >
                 {loading ? "TRANSMITIENDO..." : "ENVIAR CONSULTA"}
-              </button>
+              </AnimatedButton>
             </form>
           </div>
         </div>

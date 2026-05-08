@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import AnimatedButton from "@/components/ui/AnimatedButton";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import GridLines from "@/components/ui/GridLines";
@@ -99,12 +100,9 @@ export default function HeroSection() {
             <p className="font-headline font-light text-xl md:text-2xl text-white leading-tight mb-8 tracking-tight text-left">
               Elevando marcas mediante experiencias digitales de alto rendimiento.
             </p>
-            <Link className="bg-white hover:bg-stone-100 text-black font-headline font-bold text-sm tracking-tight transition-all rounded-round-four flex items-center gap-4 group shadow-xl px-6 py-2 uppercase" href="/portafolio">
+            <AnimatedButton href="/portafolio" theme="dark">
               VER NUESTRO TRABAJO
-              <span className="w-8 h-8 rounded-full flex items-center justify-center bg-[#8B090A]">
-                <span className="material-symbols-outlined text-sm group-hover:translate-x-0.5 transition-transform font-bold text-white">arrow_forward</span>
-              </span>
-            </Link>
+            </AnimatedButton>
           </div>
         </div>
       </div>

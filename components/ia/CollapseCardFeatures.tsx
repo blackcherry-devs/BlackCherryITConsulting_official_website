@@ -41,13 +41,13 @@ const CollapseCardFeatures = () => {
           </h2>
           <div className="flex gap-2">
             <button
-              className="h-fit bg-black p-4 text-2xl text-white transition-colors hover:bg-primary-container"
+              className="w-12 h-12 flex items-center justify-center bg-black text-2xl text-white transition-colors hover:bg-primary-container rounded-full"
               onClick={shiftLeft}
             >
               <FiChevronLeft />
             </button>
             <button
-              className="h-fit bg-black p-4 text-2xl text-white transition-colors hover:bg-primary-container"
+              className="w-12 h-12 flex items-center justify-center bg-black text-2xl text-white transition-colors hover:bg-primary-container rounded-full"
               onClick={shiftRight}
             >
               <FiChevronRight />
@@ -89,7 +89,7 @@ const Feature = ({
         ease: "easeInOut",
         duration: 0.35,
       }}
-      className={`relative flex min-h-[250px] w-10/12 max-w-lg shrink-0 flex-col justify-between overflow-hidden p-8 shadow-xl md:w-3/5 border border-black/5 rounded-xl ${
+      className={`relative flex min-h-[250px] w-10/12 max-w-lg shrink-0 flex-col justify-between overflow-hidden p-8 shadow-xl md:w-3/5 border-2 border-primary-container rounded-xl ${
         index % 2 ? "bg-black text-white" : " bg-stone-100 text-black"
       }`}
     >
