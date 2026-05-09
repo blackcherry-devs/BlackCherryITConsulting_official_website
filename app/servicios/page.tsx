@@ -42,7 +42,7 @@ export default function ServiciosPage() {
           <div className="bg-[#1F1F1F] w-full border-left border-l-[1.3px] border-white h-[160px] flex flex-col justify-center relative overflow-hidden pr-6 md:pr-12 z-20">
             <div className="flex flex-col items-start justify-center max-w-4xl h-full relative z-20 pt-4 pl-6 md:pl-4">
               <p className="font-headline font-light text-xl md:text-2xl text-white leading-tight mb-0 tracking-tight text-left">
-                Elevando marcas mediante experiencias digitales de alto rendimiento.
+                Diseñando el núcleo tecnológico que impulsa la eficiencia de las empresas modernas.
               </p>
             </div>
           </div>

@@ -50,13 +50,13 @@ const servicesData = {
     sub2Desc: "Entrenamos modelos con tus datos corporativos para respuestas precisas y contextualmente conscientes."
   },
   wa: {
-    subtitle: "COMUNICACIÓN ESCALABLE",
-    title: "WA\nAUTOMATIZACIÓN",
-    desc: "Transformamos WhatsApp en un motor de ventas y servicio automatizado. Chatbots que atienden a miles de clientes simultáneamente.",
-    sub1Title: "FLUJOS CONVERSACIONALES",
-    sub1Desc: "Árboles de decisión dinámicos diseñados para calificar leads y resolver consultas al instante.",
-    sub2Title: "INTEGRACIÓN CRM",
-    sub2Desc: "Conectamos los chats directamente con tus sistemas internos para un seguimiento omnicanal perfecto."
+    subtitle: "INTERACCIÓN AUTÓNOMA",
+    title: "INTELIGENCIA\nCONVERSACIONAL",
+    desc: "Diseñamos ecosistemas de mensajería que operan con la precisión de un humano y la escala de un algoritmo. Automatización de grado industrial para WhatsApp y canales directos.",
+    sub1Title: "ARQUITECTURA DE FLUJOS",
+    sub1Desc: "Diseño de árboles de decisión de alta complejidad para una calificación de leads quirúrgica.",
+    sub2Title: "OMNICANALIDAD CRÍTICA",
+    sub2Desc: "Sincronización total con tu infraestructura interna para una trazabilidad absoluta del cliente."
   },
   seo: {
     subtitle: "DOMINIO DE BÚSQUEDA",
@@ -95,9 +95,9 @@ export default function ServicesSection() {
             onMouseEnter={() => setActiveService("web")}
           >
             <img 
-              alt="Tecnología Industrial" 
+              alt="Desarrollo Web de Alto Rendimiento" 
               className="absolute inset-0 w-full h-full object-cover grayscale brightness-[0.3] group-hover:grayscale-0 group-hover:brightness-50 transition-all duration-700" 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMLkdMQk79PFyBNjIrv1vubo2RMq2nwLbc9POqHn-R8dYreFcYAkIrvbAr_fT0gDFBkAlqRmVAum3IcWC2rdqYPu1BHERzqMzEsLO55OTLVauR93VePLuu6qeClnB0_XFco1zBUE9_TyIXmqqlhe1AFjGhKcRPG0QdQH30HiMAQSsrGF3NGcBoQtUFMBFEopTlgDA_mcs7wT9Gab1V-NAM3q-Eeu2yyEccsrwsdTabKClKHRwwie2Br9MdEi0FqB1XZ1FNKQsNborp" 
+              src="/services/web_dev.png" 
             />
             <div className="absolute inset-0 p-8 md:p-12 flex items-end">
               <h3 className="font-headline font-black text-2xl md:text-3xl lg:text-4xl text-white leading-none tracking-tighter uppercase break-words">
@@ -110,9 +110,9 @@ export default function ServicesSection() {
             onMouseEnter={() => setActiveService("backend")}
           >
             <img 
-              alt="Centro de Datos" 
+              alt="Infraestructura de Sistemas Backend" 
               className="absolute inset-0 w-full h-full object-cover grayscale brightness-[0.3] group-hover:grayscale-0 group-hover:brightness-50 transition-all duration-700" 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuyVGD6sPck3VMfPz7uyQrkY7JbFjNmFGquR8kOWJXMQ9QzJoP6aRi-YBoKxn34liISGDGNptdvVxpjASSZTn_FrPRZa2UAuUjrsCT-mHC9rdmhVu3nROT0mQuq6lnjcRJ2GBt36C8AhQJ4ru-xinb-YW40LfnwFh_We0nAw4U8zqNvw2nEAUzfFW4jsuBSBVC0BUxvWx56YHx7pFzKAGHx2AcOLjO1U-F7lxDOUlrjUUUDvQ7JEwg1A051OerN1O-6VfFZwX1OKk4" 
+              src="/services/backend.png" 
             />
             <div className="absolute inset-0 p-8 md:p-12 flex items-end">
               <h3 className="font-headline font-black text-2xl md:text-3xl lg:text-4xl text-white leading-none tracking-tighter uppercase break-words">
@@ -126,9 +126,9 @@ export default function ServicesSection() {
             onMouseEnter={() => setActiveService("uiux")}
           >
             <img 
-              alt="Laboratorio de Diseño" 
+              alt="Diseño de Interfaces de Precisión" 
               className="absolute inset-0 w-full h-full object-cover grayscale brightness-[0.3] group-hover:grayscale-0 group-hover:brightness-50 transition-all duration-700" 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYu_vXX1OjkmWglodnptWz5x5ekEhxewB2x4Q6H4acKuceh_Hb8QwAS5NP9V_zRuUaJ1X2h2_33V55FfLLBdj1xmQ4AFv-VF364Y8HuJ7S8KnVierz4eHT_Sg9MyAkw4K-0MURLpWykvkupf5pHu224dSWkBvYwU-tDyn3QrOImEQTI2VoL63_F7NvJiOYP0u6ebnis7fDoHQremTSi0o9wNH115_v-ic2giv553uocrUvYSeQB57qVwKEoixvx3CjzmLrjlIJWcsb" 
+              src="/services/uiux.png" 
             />
             <div className="absolute inset-0 p-8 md:p-12 flex items-end">
               <h3 className="font-headline font-black text-2xl md:text-3xl lg:text-4xl text-white leading-none tracking-tighter uppercase break-words">
@@ -141,9 +141,9 @@ export default function ServicesSection() {
             onMouseEnter={() => setActiveService("ia")}
           >
             <img 
-              alt="Red Neuronal" 
+              alt="Arquitectura de Inteligencia Artificial" 
               className="absolute inset-0 w-full h-full object-cover grayscale brightness-[0.3] group-hover:grayscale-0 group-hover:brightness-50 transition-all duration-700" 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzEy7Vci4B0xbgbRCSOh9_5Llx8xL7WPsQRQIdAGjaBn43C0OVrb6_ql0VDJf2jlCKDweK6OCoRCyzwWvgMAu0fnIEtwuubF4W4ejJn8oceew1FzmON90SpealEdtNDGBRzGaT1a9xY98hMC8P1y2Xo3AdYgSVoF_tGQUSqA4VAX0sUS2gmN-7cEfHSo2kvUrW3W8NuxtN0ak8zmOTFtZ1ENENmPCe_b2XCL_RPxF2hDgH2m97NoCY8CohWNsfB-mZtMGL88uxs2lx" 
+              src="/services/ai.png" 
             />
             <div className="absolute inset-0 p-8 md:p-12 flex items-end">
               <h3 className="font-headline font-black text-2xl md:text-3xl lg:text-4xl text-white leading-none tracking-tighter uppercase break-words">
@@ -157,13 +157,13 @@ export default function ServicesSection() {
             onMouseEnter={() => setActiveService("wa")}
           >
             <img 
-              alt="Consola de Automatización" 
+              alt="Ecosistemas de Inteligencia Conversacional" 
               className="absolute inset-0 w-full h-full object-cover grayscale brightness-[0.3] group-hover:grayscale-0 group-hover:brightness-50 transition-all duration-700" 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpN535JcSfGzbKZsUOaB5RSM4T6dzUSKuiAZO3stQJYOrpTATC9bKFHdKjkijXLWsa0SAPDmwK-sr0hhYswGnyL0ZcURU_r2McFw4lxB-5wD2tUYJwzLJsT8_U7U-PIdO1w0iewAFxPuqPXr9HDaDmdcGAoi85J-MY1lcBWiRAiBf-HKfONb5vAcBjdAWdmtQrXztRVXDnDZL3hBa10-CAwk-PBHY7sOv3EPen3Ef9qtCvuf6laCWqvDcSoHU7SwMwCkdobLDje8iv" 
+              src="https://images.unsplash.com/photo-1553390774-b4822481c894?q=80&w=1944&auto=format&fit=crop" 
             />
             <div className="absolute inset-0 p-8 md:p-12 flex items-end">
               <h3 className="font-headline font-black text-2xl md:text-3xl lg:text-4xl text-white leading-none tracking-tighter uppercase break-words">
-                WA <br /> AUTOMATIZACIÓN
+                INTELIGENCIA <br /> CONVERSACIONAL
               </h3>
             </div>
           </div>
@@ -172,9 +172,9 @@ export default function ServicesSection() {
             onMouseEnter={() => setActiveService("seo")}
           >
             <img 
-              alt="Analítica Digital" 
+              alt="Estrategia de Optimización SEO" 
               className="absolute inset-0 w-full h-full object-cover grayscale brightness-[0.3] group-hover:grayscale-0 group-hover:brightness-50 transition-all duration-700" 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2XMUhceKvhNl5lmQIDtqfcdsZ3TfNf6HTI_GVSfkbZCPwiiYe4AKYPbh52WVO7KcH3VDs7phWHNLMSKOgtqRS672TDkYarkzsDJ-1-Vd-Ndf2ruiO9OjfpLJXfF7WctSX4lB82Rf5UKsKZGYlb9XzhP4xYotNXJVwERxIMJnne8vnDvNsQldM8JJWlT-vtUz0FKS3DVavmKNdKb1rwe6lOZNq4J6ySox6OX07FrER7SOeqzG9cUW3dEVWHlAWagI8G1Uyhbw0GIUY" 
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" 
             />
             <div className="absolute inset-0 p-8 md:p-12 flex items-end">
               <h3 className="font-headline font-black text-2xl md:text-3xl lg:text-4xl text-white leading-none tracking-tighter uppercase break-words">
@@ -193,7 +193,7 @@ export default function ServicesSection() {
             {data.subtitle}
           </span>
           <h2 
-            className="font-headline font-black text-3xl md:text-4xl lg:text-[3.5rem] leading-[0.9] tracking-tighter uppercase text-white mb-8 overflow-hidden break-words whitespace-pre-line transition-all duration-300"
+            className="font-headline font-black text-3xl md:text-4xl lg:text-5xl leading-[0.9] tracking-tighter uppercase text-white mb-8 overflow-hidden break-words whitespace-pre-line transition-all duration-300"
             key={`title-${activeService}`}
           >
             {data.title}

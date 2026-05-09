@@ -81,6 +81,10 @@ export default function AboutSection() {
                 <span className="font-headline font-black text-white text-sm uppercase tracking-wider">Desarrollo de eCommerce</span>
                 <span className="material-symbols-outlined text-white/40 text-xs" style={{ fontVariationSettings: '"FILL" 1' }}>circle</span>
                 <span className="font-headline font-black text-white text-sm uppercase tracking-wider">Optimización SEO</span>
+                <span className="material-symbols-outlined text-white/40 text-xs" style={{ fontVariationSettings: '"FILL" 1' }}>circle</span>
+                <span className="font-headline font-black text-white text-sm uppercase tracking-wider">INTEGRACIÓN DE IA</span>
+                <span className="material-symbols-outlined text-white/40 text-xs" style={{ fontVariationSettings: '"FILL" 1' }}>circle</span>
+                <span className="font-headline font-black text-white text-sm uppercase tracking-wider">INTELIGENCIA CONVERSACIONAL</span>
               </div>
             ))}
           </div>
