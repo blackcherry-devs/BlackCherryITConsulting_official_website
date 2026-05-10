@@ -29,6 +29,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "BLACKCHERRY IT | THE MONOLITH",
     description: "Architectural IT solutions engineered with surgical precision for the next industrial era.",
+  },
+  icons: {
+    icon: "/cherry-icon.png",
   }
 };
 

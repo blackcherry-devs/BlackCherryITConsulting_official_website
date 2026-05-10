@@ -1,55 +1,83 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useRef } from "react";
+import Image from "next/image";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const images = [
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuB2XMUhceKvhNl5lmQIDtqfcdsZ3TfNf6HTI_GVSfkbZCPwiiYe4AKYPbh52WVO7KcH3VDs7phWHNLMSKOgtqRS672TDkYarkzsDJ-1-Vd-Ndf2ruiO9OjfpLJXfF7WctSX4lB82Rf5UKsKZGYlb9XzhP4xYotNXJVwERxIMJnne8vnDvNsQldM8JJWlT-vtUz0FKS3DVavmKNdKb1rwe6lOZNq4J6ySox6OX07FrER7SOeqzG9cUW3dEVWHlAWagI8G1Uyhbw0GIUY",
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuAMLkdMQk79PFyBNjIrv1vubo2RMq2nwLbc9POqHn-R8dYreFcYAkIrvbAr_fT0gDFBkAlqRmVAum3IcWC2rdqYPu1BHERzqMzEsLO55OTLVauR93VePLuu6qeClnB0_XFco1zBUE9_TyIXmqqlhe1AFjGhKcRPG0QdQH30HiMAQSsrGF3NGcBoQtUFMBFEopTlgDA_mcs7wT9Gab1V-NAM3q-Eeu2yyEccsrwsdTabKClKHRwwie2Br9MdEi0FqB1XZ1FNKQsNborp"
+  "/hero-portfolio/slide-1.png",
+  "/hero-portfolio/slide-2.png",
+  "/hero-portfolio/slide-3.png"
 ];
 
-export default function HeroImageCarousel() {
-  const [activeIndex, setActiveIndex] = useState(0);
+// Double the images for infinite loop logic similar to home hero
+const carouselImages = [...images, ...images];
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % images.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
+export default function HeroImageCarousel() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    // Portfolio Carousel: Moves left in steps, similar to the Home hero logic
+    // We start at 0% and move in increments of 100% of a slide
+    const slideCount = images.length;
+    const tl = gsap.timeline({ repeat: -1 });
+
+    // For each slide, we move the track by one slide width
+    // 100 / (slideCount * 2) is the % width of one slide in the doubled track
+    const stepSize = 100 / (slideCount * 2);
+
+    tl.to(trackRef.current, { 
+      x: `-${stepSize * 1}%`, 
+      duration: 1.5, 
+      ease: "expo.inOut", 
+      delay: 4.5,
+      force3D: true
+    })
+    .to(trackRef.current, { 
+      x: `-${stepSize * 2}%`, 
+      duration: 1.5, 
+      ease: "expo.inOut", 
+      delay: 4.5,
+      force3D: true
+    })
+    .to(trackRef.current, { 
+      x: `-${stepSize * 3}%`, 
+      duration: 1.5, 
+      ease: "expo.inOut", 
+      delay: 4.5,
+      force3D: true
+    });
+
+  }, { scope: containerRef });
 
   return (
-    <div className="relative w-full h-[400px] md:h-[700px] overflow-hidden group">
+    <div ref={containerRef} className="relative w-full h-[400px] md:h-[700px] overflow-hidden bg-black">
+      {/* Track Container */}
       <div 
-        className="flex h-full transition-transform duration-700 ease-in-out"
-        style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+        ref={trackRef} 
+        className="flex h-full w-max absolute top-0 left-0 will-change-transform"
       >
-        {images.map((src, index) => (
-          <div key={index} className="min-w-full h-full relative">
-            <img 
-              alt={`Slide ${index + 1}`} 
-              className="w-full h-full object-cover grayscale" 
+        {carouselImages.map((src, idx) => (
+          <div 
+            key={`img-${idx}`} 
+            className="w-[100vw] md:w-[calc(50vw-7rem)] h-full flex-shrink-0 relative"
+          >
+            <Image 
               src={src} 
+              alt={`Hero Portfolio ${idx}`} 
+              fill 
+              priority 
+              className="object-cover brightness-75" 
             />
             <div className="absolute inset-0 bg-black/20"></div>
           </div>
         ))}
       </div>
       
-      {/* Carousel Nav */}
-      <div className="absolute bottom-12 left-6 md:left-12 flex gap-4 z-20">
-        {images.map((_, index) => (
-          <button 
-            key={index}
-            onClick={() => setActiveIndex(index)}
-            aria-label={`Go to slide ${index + 1}`}
-            className={`w-12 h-1 transition-colors duration-300 ${
-              index === activeIndex ? "bg-white" : "bg-white/30 hover:bg-white/50"
-            }`}
-          />
-        ))}
-      </div>
-      
-      <div className="absolute inset-0 pointer-events-none technical-grid-red opacity-20 z-10"></div>
+      {/* Visual Overlay Grid */}
+      <div className="absolute inset-0 pointer-events-none technical-grid-red opacity-10 z-10"></div>
     </div>
   );
 }

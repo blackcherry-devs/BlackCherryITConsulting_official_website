@@ -1,6 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import GridLines from "@/components/ui/GridLines";
+import AnimatedButton from "@/components/ui/AnimatedButton";
+import { BeamInputWrapper } from "@/components/ui/BeamInputWrapper";
 
 export const metadata = {
   title: "BLACKCHERRY IT | CONTACTO",
@@ -56,12 +58,12 @@ export default function ContactoPage() {
           </div>
         </nav>
         <div className="w-1/2 flex items-center justify-end px-12 h-full pointer-events-auto">
-          <Link
-            className="bg-primary-container hover:bg-primary text-white font-headline font-bold text-[10px] md:text-xs tracking-[0.2em] uppercase px-8 py-3 transition-all rounded-round-four"
+          <AnimatedButton 
             href="/contacto"
+            theme="primary"
           >
             TRABAJA CON NOSOTROS
-          </Link>
+          </AnimatedButton>
         </div>
       </div>
 
@@ -116,35 +118,42 @@ export default function ContactoPage() {
                 <p className="font-headline text-primary font-black text-[10px] tracking-[0.4em] uppercase mb-4">NUEVA CONSULTA</p>
                 <form className="space-y-6">
                   <div className="relative">
-                    <input 
-                      className="w-full bg-transparent border-b border-stone-300 py-2 font-headline font-bold text-[10px] tracking-widest uppercase focus:outline-none focus:border-primary transition-colors placeholder:text-stone-400 text-black" 
-                      placeholder="NOMBRE COMPLETO" 
-                      type="text"
-                      required
-                    />
+                    <BeamInputWrapper rounded="rounded-none" className="group border-b border-stone-300">
+                      <input 
+                        className="w-full bg-transparent py-2 font-headline font-bold text-[10px] tracking-widest uppercase focus:outline-none transition-colors placeholder:text-stone-400 text-black px-1" 
+                        placeholder="NOMBRE COMPLETO" 
+                        type="text"
+                        required
+                      />
+                    </BeamInputWrapper>
                   </div>
                   <div className="relative">
-                    <input 
-                      className="w-full bg-transparent border-b border-stone-300 py-2 font-headline font-bold text-[10px] tracking-widest uppercase focus:outline-none focus:border-primary transition-colors placeholder:text-stone-400 text-black" 
-                      placeholder="EMAIL CORPORATIVO" 
-                      type="email"
-                      required
-                    />
+                    <BeamInputWrapper rounded="rounded-none" className="group border-b border-stone-300">
+                      <input 
+                        className="w-full bg-transparent py-2 font-headline font-bold text-[10px] tracking-widest uppercase focus:outline-none transition-colors placeholder:text-stone-400 text-black px-1" 
+                        placeholder="EMAIL CORPORATIVO" 
+                        type="email"
+                        required
+                      />
+                    </BeamInputWrapper>
                   </div>
                   <div className="relative">
-                    <textarea 
-                      className="w-full bg-transparent border-b border-stone-300 py-2 font-headline font-bold text-[10px] tracking-widest uppercase focus:outline-none focus:border-primary transition-colors placeholder:text-stone-400 resize-none text-black" 
-                      placeholder="MENSAJE" 
-                      rows={2}
-                      required
-                    ></textarea>
+                    <BeamInputWrapper rounded="rounded-none" className="group border-b border-stone-300">
+                      <textarea 
+                        className="w-full bg-transparent py-2 font-headline font-bold text-[10px] tracking-widest uppercase focus:outline-none transition-colors placeholder:text-stone-400 resize-none text-black px-1" 
+                        placeholder="MENSAJE" 
+                        rows={2}
+                        required
+                      ></textarea>
+                    </BeamInputWrapper>
                   </div>
-                  <button 
-                    className="bg-primary-container text-white px-4 py-4 font-headline font-black text-[10px] tracking-[0.3em] uppercase hover:bg-black transition-all mt-6 w-full" 
+                  <AnimatedButton 
+                    className="mt-6 w-full justify-center" 
                     type="submit"
+                    theme="primary"
                   >
                     ENVIAR
-                  </button>
+                  </AnimatedButton>
                 </form>
               </div>
             </div>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import AnimatedButton from "@/components/ui/AnimatedButton";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -79,12 +80,12 @@ export default function Navbar() {
 
         {/* Floating Right CTA */}
         <div className="w-1/2 flex items-center justify-end px-12 h-full pointer-events-auto">
-          <Link 
-            className="bg-primary-container hover:bg-primary text-white font-headline font-bold text-[10px] md:text-xs tracking-[0.2em] uppercase px-8 py-3 transition-all rounded-round-four" 
+          <AnimatedButton 
             href="/contacto"
+            theme="primary"
           >
             TRABAJA CON NOSOTROS
-          </Link>
+          </AnimatedButton>
         </div>
       </div>
     </>

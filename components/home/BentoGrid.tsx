@@ -43,7 +43,7 @@ export default function BentoGrid() {
           <div className="absolute inset-0 wireframe-overlay opacity-20 pointer-events-none"></div>
           <div className="absolute inset-0 opacity-0 group-hover:opacity-60 transition-opacity duration-1000">
             <Image 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzEy7Vci4B0xbgbRCSOh9_5Llx8xL7WPsQRQIdAGjaBn43C0OVrb6_ql0VDJf2jlCKDweK6OCoRCyzwWvgMAu0fnIEtwuubF4W4ejJn8oceew1FzmON90SpealEdtNDGBRzGaT1a9xY98hMC8P1y2Xo3AdYgSVoF_tGQUSqA4VAX0sUS2gmN-7cEfHSo2kvUrW3W8NuxtN0ak8zmOTFtZ1ENENmPCe_b2XCL_RPxF2hDgH2m97NoCY8CohWNsfB-mZtMGL88uxs2lx" 
+              src="/sectors/industrial.png" 
               alt="industrial complex" 
               fill
               className="object-cover"
@@ -53,7 +53,7 @@ export default function BentoGrid() {
             <span className="material-symbols-outlined text-primary-container text-4xl mb-8 block transition-transform duration-500 group-hover:-translate-y-3 group-hover:scale-110">precision_manufacturing</span>
             <h3 className="font-headline font-black text-4xl md:text-6xl tracking-tighter uppercase leading-none">Industria</h3>
           </div>
-          <p className="relative z-10 font-body text-white/40 max-w-sm text-xs md:text-sm uppercase tracking-widest leading-relaxed group-hover:text-white/70 transition-colors mt-8">Optimización predictiva y automatización de procesos de manufactura.</p>
+          <p className="relative z-10 font-body text-white/40 max-w-sm text-xs md:text-sm uppercase tracking-widest leading-relaxed group-hover:text-white/70 transition-colors mt-8">Asistencia por voz y chatbots de soporte técnico integrados para maximizar la eficiencia operativa.</p>
         </div>
         
         {/* E-Commerce */}
@@ -62,7 +62,7 @@ export default function BentoGrid() {
             <span className="material-symbols-outlined text-primary-container text-4xl mb-8 block transition-transform duration-500 group-hover:-translate-y-3 group-hover:scale-110">shopping_bag</span>
             <h3 className="font-headline font-black text-4xl md:text-6xl tracking-tighter uppercase leading-none">Retail</h3>
           </div>
-          <p className="font-body text-white/40 text-xs md:text-sm uppercase tracking-widest leading-relaxed group-hover:text-white/70 transition-colors mt-8">Experiencias hiper-personalizadas y logística inteligente en tiempo real.</p>
+          <p className="font-body text-white/40 text-xs md:text-sm uppercase tracking-widest leading-relaxed group-hover:text-white/70 transition-colors mt-8">Ventas automatizadas y atención al cliente 24/7 mediante agentes conversacionales inteligentes.</p>
         </div>
         
         {/* E-learning */}
@@ -71,7 +71,7 @@ export default function BentoGrid() {
             <span className="material-symbols-outlined text-primary-container text-4xl mb-8 block transition-transform duration-500 group-hover:-translate-y-3 group-hover:scale-110">school</span>
             <h3 className="font-headline font-black text-4xl md:text-6xl tracking-tighter uppercase leading-none">EdTech</h3>
           </div>
-          <p className="font-body text-white/40 text-xs md:text-sm uppercase tracking-widest leading-relaxed group-hover:text-white/70 transition-colors mt-8">Plataformas adaptativas con agentes de IA para aprendizaje dinámico.</p>
+          <p className="font-body text-white/40 text-xs md:text-sm uppercase tracking-widest leading-relaxed group-hover:text-white/70 transition-colors mt-8">Experiencias de aprendizaje con audio de alta fidelidad y asistencia automatizada para estudiantes.</p>
         </div>
         
         {/* Real Estate */}
@@ -93,7 +93,7 @@ export default function BentoGrid() {
           </div>
           <div className="relative z-10 flex gap-4 items-center mt-8 mix-blend-difference text-white">
             <span className="w-12 h-[1.3px] bg-white/40 group-hover:bg-primary-container group-hover:w-24 transition-all duration-500"></span>
-            <p className="font-body text-white/60 uppercase tracking-widest text-[10px] font-black">EXPLORANDO NUEVAS FRONTERAS</p>
+            <p className="font-body text-white/60 uppercase tracking-widest text-[10px] font-black">CAPTACIÓN DE LEADS Y NARRACIÓN DE PROPIEDADES CON VOCES HUMANAS</p>
           </div>
         </div>
         
@@ -103,7 +103,7 @@ export default function BentoGrid() {
             <span className="material-symbols-outlined text-primary-container text-4xl group-hover:rotate-45 transition-transform duration-700">gavel</span>
             <h3 className="font-headline font-black text-3xl md:text-5xl uppercase tracking-tighter">Legal & Consultoría</h3>
           </div>
-          <p className="font-body text-white/30 max-w-xs text-left md:text-right uppercase tracking-widest text-[10px] font-bold group-hover:text-white/60 transition-colors">Automatización de análisis documental y soporte jurídico de alta precisión.</p>
+          <p className="font-body text-white/30 max-w-xs text-left md:text-right uppercase tracking-widest text-[10px] font-bold group-hover:text-white/60 transition-colors">Sistemas de agendamiento y triage de clientes automatizado para despachos y consultorías.</p>
         </div>
       </div>
     </section>

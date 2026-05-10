@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import GridLines from "@/components/ui/GridLines";
 import Link from "next/link";
+import AnimatedButton from "@/components/ui/AnimatedButton";
 
 const ShuffleHero = () => {
   return (
@@ -24,9 +25,9 @@ const ShuffleHero = () => {
           <p className="max-w-md font-body text-xs md:text-sm text-black/60 uppercase tracking-widest leading-relaxed mb-8">
             BlackCherry IT integra inteligencia avanzada para optimizar la infraestructura empresarial, transformando datos en decisiones estratégicas y procesos autónomos de alta fidelidad.
           </p>
-          <Link href="/contacto" className="inline-block bg-primary-container text-white px-8 py-4 font-headline font-bold text-[9px] md:text-[11px] tracking-[0.3em] uppercase hover:bg-primary transition-all rounded-xl">
+          <AnimatedButton href="/contacto" theme="primary" className="mt-4">
             SOLICITAR DEMOSTRACIÓN
-          </Link>
+          </AnimatedButton>
         </div>
 
         {/* Shuffle Grid Section */}

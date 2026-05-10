@@ -3,6 +3,7 @@ import Image from "next/image";
 import HeroImageCarousel from "@/components/portafolio/HeroImageCarousel";
 
 import GridLines from "@/components/ui/GridLines";
+import AnimatedButton from "@/components/ui/AnimatedButton";
 
 export const metadata = {
   title: "BLACKCHERRY IT | PORTAFOLIO",
@@ -28,15 +29,15 @@ export default function PortafolioPage() {
         <div className="w-full md:w-1/2 relative flex flex-col md:pr-[7rem] pt-0 z-20">
           <div className="relative w-full bg-[#1F1F1F] overflow-hidden h-[400px] md:h-[620px] flex flex-col justify-center px-6 md:px-12">
             <div className="absolute inset-0 opacity-5 pointer-events-none technical-grid-red"></div>
-            <h1 className="font-headline font-black text-[12vw] md:text-[6.5vw] leading-[0.8] tracking-tighter uppercase text-white mb-10 relative z-10">
+            <h1 className="font-headline font-black text-[10vw] md:text-[5vw] leading-[0.9] tracking-tighter uppercase text-white mb-8 relative z-10">
               PORTAFOLIO
             </h1>
             <div className="max-w-xl relative z-10">
               <p className="font-headline font-light text-2xl md:text-3xl text-white/90 uppercase tracking-tight leading-none mb-4 border-l-4 border-primary-container pl-6">
-                MÁQUINAS DIGITALES <br/> QUE IMPULSAN EL <br/> CRECIMIENTO
+                TRANSFORMANDO IDEAS EN <br/> INFRAESTRUCTURA <br/> DE ÉXITO
               </p>
               <p className="font-body text-white/40 text-[10px] md:text-xs uppercase tracking-[0.3em] font-medium">
-                Sistemas Críticos • Arquitectura Robusta • Rendimiento Óptimo
+                Estrategia Digital • Innovación Tecnológica • Rendimiento Garantizado
               </p>
             </div>
           </div>
@@ -44,7 +45,7 @@ export default function PortafolioPage() {
           <div className="bg-[#8B090A] w-full border-left border-l-[1.3px] border-white h-[160px] flex flex-col justify-center relative overflow-hidden pr-6 md:pr-12">
             <div className="flex flex-col items-start justify-center max-w-4xl h-full relative z-20 pt-4 pl-6 md:pl-4">
               <p className="font-headline font-light text-xl md:text-2xl text-white leading-tight mb-0 tracking-tight text-left">
-                Elevando marcas mediante experiencias digitales de alto rendimiento.
+                Materializando visiones complejas en estructuras digitales robustas y escalables.
               </p>
             </div>
           </div>
@@ -69,15 +70,19 @@ export default function PortafolioPage() {
             <Link href="/portafolio/gpamex" className="relative block h-[70vh] md:h-[95vh] group overflow-hidden border-b md:border-b-0 md:border-r border-transparent cursor-pointer">
               <img 
                 alt="GPAMEX" 
-                className="absolute inset-0 w-full h-full object-cover grayscale brightness-50 group-hover:brightness-25 group-hover:scale-110 transition-all duration-700" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMLkdMQk79PFyBNjIrv1vubo2RMq2nwLbc9POqHn-R8dYreFcYAkIrvbAr_fT0gDFBkAlqRmVAum3IcWC2rdqYPu1BHERzqMzEsLO55OTLVauR93VePLuu6qeClnB0_XFco1zBUE9_TyIXmqqlhe1AFjGhKcRPG0QdQH30HiMAQSsrGF3NGcBoQtUFMBFEopTlgDA_mcs7wT9Gab1V-NAM3q-Eeu2yyEccsrwsdTabKClKHRwwie2Br9MdEi0FqB1XZ1FNKQsNborp"
+                className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 brightness-50 group-hover:brightness-25 group-hover:scale-110 transition-all duration-700" 
+                src="/projects/gpamex/gpamex_5.jpg"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1F1F1F]/90 via-transparent to-transparent z-10"></div>
               {/* Interaction Layer at Bottom */}
               <div className="absolute bottom-12 left-6 md:left-12 right-6 md:right-12 z-50 flex items-center">
-                <div className="bg-primary-container text-white font-headline font-bold text-[10px] md:text-xs tracking-[0.2em] px-8 py-3 uppercase rounded-round-four opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                <AnimatedButton 
+                  asDiv 
+                  theme="primary" 
+                  className="opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0"
+                >
                   VER PROYECTO
-                </div>
+                </AnimatedButton>
               </div>
               {/* Absolute Vertical Titles and Labels */}
               <div className="absolute top-0 right-0 bottom-0 py-4 flex items-center justify-center z-30 pointer-events-none">
@@ -112,8 +117,8 @@ export default function PortafolioPage() {
               {/* Video Hover Placeholder */}
               <div className="absolute inset-0 flex items-center justify-center z-40 pointer-events-none">
                 <div className="w-[80%] h-[50%] rounded-custom overflow-hidden opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-700 ease-out bg-black shadow-2xl">
-                  <video className="w-full h-full object-cover" loop muted playsInline autoPlay>
-                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4"/>
+                  <video className="w-full h-full object-cover object-left" loop muted playsInline autoPlay>
+                    <source src="/projects/gpamex/video.mp4" type="video/mp4"/>
                   </video>
                 </div>
               </div>
@@ -123,14 +128,18 @@ export default function PortafolioPage() {
             <Link href="/portafolio/grupo-cosiam" className="relative block h-[70vh] md:h-[95vh] group overflow-hidden border-b md:border-b-0 md:border-r border-transparent cursor-pointer">
               <img 
                 alt="GRUPO COSIAM" 
-                className="absolute inset-0 w-full h-full object-cover grayscale brightness-50 group-hover:brightness-25 group-hover:scale-110 transition-all duration-700" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuyVGD6sPck3VMfPz7uyQrkY7JbFjNmFGquR8kOWJXMQ9QzJoP6aRi-YBoKxn34liISGDGNptdvVxpjASSZTn_FrPRZa2UAuUjrsCT-mHC9rdmhVu3nROT0mQuq6lnjcRJ2GBt36C8AhQJ4ru-xinb-YW40LfnwFh_We0nAw4U8zqNvw2nEAUzfFW4jsuBSBVC0BUxvWx56YHx7pFzKAGHx2AcOLjO1U-F7lxDOUlrjUUUDvQ7JEwg1A051OerN1O-6VfFZwX1OKk4"
+                className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 brightness-50 group-hover:brightness-25 group-hover:scale-110 transition-all duration-700" 
+                src="/projects/grupo-cosiam/cosiam5.webp"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1F1F1F]/90 via-transparent to-transparent z-10"></div>
               <div className="absolute bottom-12 left-6 md:left-12 right-6 md:right-12 z-50 flex items-center">
-                <div className="bg-primary-container text-white font-headline font-bold text-[10px] md:text-xs tracking-[0.2em] px-8 py-3 uppercase rounded-round-four opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                <AnimatedButton 
+                  asDiv 
+                  theme="primary" 
+                  className="opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0"
+                >
                   VER PROYECTO
-                </div>
+                </AnimatedButton>
               </div>
               <div className="absolute top-0 right-0 bottom-0 py-4 flex items-center justify-center z-30 pointer-events-none">
                 <div className="flex items-center h-full">
@@ -163,8 +172,8 @@ export default function PortafolioPage() {
               <div className="absolute top-8 left-8 text-white/30 font-headline font-black text-xl md:text-2xl z-10">02</div>
               <div className="absolute inset-0 flex items-center justify-center z-40 pointer-events-none">
                 <div className="w-[80%] h-[50%] rounded-custom overflow-hidden opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-700 ease-out bg-black shadow-2xl">
-                  <video className="w-full h-full object-cover" loop muted playsInline autoPlay>
-                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4"/>
+                  <video className="w-full h-full object-cover object-left" loop muted playsInline autoPlay>
+                    <source src="/projects/grupo-cosiam/video.mp4" type="video/mp4"/>
                   </video>
                 </div>
               </div>
@@ -174,14 +183,18 @@ export default function PortafolioPage() {
             <Link href="/portafolio/adelai" className="relative block h-[70vh] md:h-[95vh] group overflow-hidden border-b md:border-b-0 cursor-pointer">
               <img 
                 alt="ADELAI" 
-                className="absolute inset-0 w-full h-full object-cover grayscale brightness-50 group-hover:brightness-25 group-hover:scale-110 transition-all duration-700" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYu_vXX1OjkmWglodnptWz5x5ekEhxewB2x4Q6H4acKuceh_Hb8QwAS5NP9V_zRuUaJ1X2h2_33V55FfLLBdj1xmQ4AFv-VF364Y8HuJ7S8KnVierz4eHT_Sg9MyAkw4K-0MURLpWykvkupf5pHu224dSWkBvYwU-tDyn3QrOImEQTI2VoL63_F7NvJiOYP0u6ebnis7fDoHQremTSi0o9wNH115_v-ic2giv553uocrUvYSeQB57qVwKEoixvx3CjzmLrjlIJWcsb"
+                className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 brightness-50 group-hover:brightness-25 group-hover:scale-110 transition-all duration-700" 
+                src="/projects/adelai/adelai1.jpeg"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1F1F1F]/90 via-transparent to-transparent z-10"></div>
               <div className="absolute bottom-12 left-6 md:left-12 right-6 md:right-12 z-50 flex items-center">
-                <div className="bg-primary-container text-white font-headline font-bold text-[10px] md:text-xs tracking-[0.2em] px-8 py-3 uppercase rounded-round-four opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                <AnimatedButton 
+                  asDiv 
+                  theme="primary" 
+                  className="opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0"
+                >
                   VER PROYECTO
-                </div>
+                </AnimatedButton>
               </div>
               <div className="absolute top-0 right-0 bottom-0 py-4 flex items-center justify-center z-30 pointer-events-none">
                 <div className="flex items-center h-full">
@@ -214,8 +227,8 @@ export default function PortafolioPage() {
               <div className="absolute top-8 left-8 text-white/30 font-headline font-black text-xl md:text-2xl z-10">03</div>
               <div className="absolute inset-0 flex items-center justify-center z-40 pointer-events-none">
                 <div className="w-[80%] h-[50%] rounded-custom overflow-hidden opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-700 ease-out bg-black shadow-2xl">
-                  <video className="w-full h-full object-cover" loop muted playsInline autoPlay>
-                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4"/>
+                  <video className="w-full h-full object-cover object-left" loop muted playsInline autoPlay>
+                    <source src="/projects/adelai/video.mp4" type="video/mp4"/>
                   </video>
                 </div>
               </div>
@@ -225,14 +238,18 @@ export default function PortafolioPage() {
             <Link href="/portafolio/cerato" className="relative block h-[70vh] md:h-[95vh] group overflow-hidden border-b md:border-b-0 md:border-r border-transparent cursor-pointer">
               <img 
                 alt="CERATO ARTE FLORAL" 
-                className="absolute inset-0 w-full h-full object-cover grayscale brightness-50 group-hover:brightness-25 group-hover:scale-110 transition-all duration-700" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzEy7Vci4B0xbgbRCSOh9_5Llx8xL7WPsQRQIdAGjaBn43C0OVrb6_ql0VDJf2jlCKDweK6OCoRCyzwWvgMAu0fnIEtwuubF4W4ejJn8oceew1FzmON90SpealEdtNDGBRzGaT1a9xY98hMC8P1y2Xo3AdYgSVoF_tGQUSqA4VAX0sUS2gmN-7cEfHSo2kvUrW3W8NuxtN0ak8zmOTFtZ1ENENmPCe_b2XCL_RPxF2hDgH2m97NoCY8CohWNsfB-mZtMGL88uxs2lx"
+                className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 brightness-50 group-hover:brightness-25 group-hover:scale-110 transition-all duration-700" 
+                src="/projects/cerato/cerato2.jpg"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1F1F1F]/90 via-transparent to-transparent z-10"></div>
               <div className="absolute bottom-12 left-6 md:left-12 right-6 md:right-12 z-50 flex items-center">
-                <div className="bg-primary-container text-white font-headline font-bold text-[10px] md:text-xs tracking-[0.2em] px-8 py-3 uppercase rounded-round-four opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                <AnimatedButton 
+                  asDiv 
+                  theme="primary" 
+                  className="opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0"
+                >
                   VER PROYECTO
-                </div>
+                </AnimatedButton>
               </div>
               <div className="absolute top-0 right-0 bottom-0 py-4 flex items-center justify-center z-30 pointer-events-none">
                 <div className="flex items-center h-full">
@@ -265,8 +282,8 @@ export default function PortafolioPage() {
               <div className="absolute top-8 left-8 text-white/30 font-headline font-black text-xl md:text-2xl z-10">04</div>
               <div className="absolute inset-0 flex items-center justify-center z-40 pointer-events-none">
                 <div className="w-[80%] h-[50%] rounded-custom overflow-hidden opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-700 ease-out bg-black shadow-2xl">
-                  <video className="w-full h-full object-cover" loop muted playsInline autoPlay>
-                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4"/>
+                  <video className="w-full h-full object-cover object-left" loop muted playsInline autoPlay>
+                    <source src="/projects/cerato/video.mp4" type="video/mp4"/>
                   </video>
                 </div>
               </div>
@@ -276,14 +293,18 @@ export default function PortafolioPage() {
             <Link href="/portafolio/dani-suacha" className="relative block h-[70vh] md:h-[95vh] group overflow-hidden border-b md:border-b-0 md:border-r border-transparent cursor-pointer">
               <img 
                 alt="DANI SUACHÁ" 
-                className="absolute inset-0 w-full h-full object-cover grayscale brightness-50 group-hover:brightness-25 group-hover:scale-110 transition-all duration-700" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpN535JcSfGzbKZsUOaB5RSM4T6dzUSKuiAZO3stQJYOrpTATC9bKFHdKjkijXLWsa0SAPDmwK-sr0hhYswGnyL0ZcURU_r2McFw4lxB-5wD2tUYJwzLJsT8_U7U-PIdO1w0iewAFxPuqPXr9HDaDmdcGAoi85J-MY1lcBWiRAiBf-HKfONb5vAcBjdAWdmtQrXztRVXDnDZL3hBa10-CAwk-PBHY7sOv3EPen3Ef9qtCvuf6laCWqvDcSoHU7SwMwCkdobLDje8iv"
+                className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 brightness-50 group-hover:brightness-25 group-hover:scale-110 transition-all duration-700" 
+                src="/projects/dani-suacha/danisuacha2.jpg"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1F1F1F]/90 via-transparent to-transparent z-10"></div>
               <div className="absolute bottom-12 left-6 md:left-12 right-6 md:right-12 z-50 flex items-center">
-                <div className="bg-primary-container text-white font-headline font-bold text-[10px] md:text-xs tracking-[0.2em] px-8 py-3 uppercase rounded-round-four opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                <AnimatedButton 
+                  asDiv 
+                  theme="primary" 
+                  className="opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0"
+                >
                   VER PROYECTO
-                </div>
+                </AnimatedButton>
               </div>
               <div className="absolute top-0 right-0 bottom-0 py-4 flex items-center justify-center z-30 pointer-events-none">
                 <div className="flex items-center h-full">
@@ -316,8 +337,8 @@ export default function PortafolioPage() {
               <div className="absolute top-8 left-8 text-white/30 font-headline font-black text-xl md:text-2xl z-10">05</div>
               <div className="absolute inset-0 flex items-center justify-center z-40 pointer-events-none">
                 <div className="w-[80%] h-[50%] rounded-custom overflow-hidden opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-700 ease-out bg-black shadow-2xl">
-                  <video className="w-full h-full object-cover" loop muted playsInline autoPlay>
-                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4"/>
+                  <video className="w-full h-full object-cover object-left" loop muted playsInline autoPlay>
+                    <source src="/projects/dani-suacha/video.mp4" type="video/mp4"/>
                   </video>
                 </div>
               </div>
@@ -327,14 +348,18 @@ export default function PortafolioPage() {
             <Link href="/portafolio/guermar" className="relative block h-[70vh] md:h-[95vh] group overflow-hidden cursor-pointer">
               <img 
                 alt="GUERMAR" 
-                className="absolute inset-0 w-full h-full object-cover grayscale brightness-50 group-hover:brightness-25 group-hover:scale-110 transition-all duration-700" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2XMUhceKvhNl5lmQIDtqfcdsZ3TfNf6HTI_GVSfkbZCPwiiYe4AKYPbh52WVO7KcH3VDs7phWHNLMSKOgtqRS672TDkYarkzsDJ-1-Vd-Ndf2ruiO9OjfpLJXfF7WctSX4lB82Rf5UKsKZGYlb9XzhP4xYotNXJVwERxIMJnne8vnDvNsQldM8JJWlT-vtUz0FKS3DVavmKNdKb1rwe6lOZNq4J6ySox6OX07FrER7SOeqzG9cUW3dEVWHlAWagI8G1Uyhbw0GIUY"
+                className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 brightness-50 group-hover:brightness-25 group-hover:scale-110 transition-all duration-700" 
+                src="/projects/guermar/guermar3.jpg"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1F1F1F]/90 via-transparent to-transparent z-10"></div>
               <div className="absolute bottom-12 left-6 md:left-12 right-6 md:right-12 z-50 flex items-center">
-                <div className="bg-primary-container text-white font-headline font-bold text-[10px] md:text-xs tracking-[0.2em] px-8 py-3 uppercase rounded-round-four opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                <AnimatedButton 
+                  asDiv 
+                  theme="primary" 
+                  className="opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0"
+                >
                   VER PROYECTO
-                </div>
+                </AnimatedButton>
               </div>
               <div className="absolute top-0 right-0 bottom-0 py-4 flex items-center justify-center z-30 pointer-events-none">
                 <div className="flex items-center h-full">
@@ -367,8 +392,8 @@ export default function PortafolioPage() {
               <div className="absolute top-8 left-8 text-white/30 font-headline font-black text-xl md:text-2xl z-10">06</div>
               <div className="absolute inset-0 flex items-center justify-center z-40 pointer-events-none">
                 <div className="w-[80%] h-[50%] rounded-custom overflow-hidden opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-700 ease-out bg-black shadow-2xl">
-                  <video className="w-full h-full object-cover" loop muted playsInline autoPlay>
-                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4"/>
+                  <video className="w-full h-full object-cover object-left" loop muted playsInline autoPlay>
+                    <source src="/projects/guermar/video.mp4" type="video/mp4"/>
                   </video>
                 </div>
               </div>
@@ -378,14 +403,18 @@ export default function PortafolioPage() {
             <Link href="/portafolio/lars-dynamics" className="relative block h-[70vh] md:h-[95vh] group overflow-hidden border-b md:border-b-0 md:border-r border-transparent cursor-pointer">
               <img 
                 alt="LARS DYNAMICS" 
-                className="absolute inset-0 w-full h-full object-cover grayscale brightness-50 group-hover:brightness-25 group-hover:scale-110 transition-all duration-700" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMLkdMQk79PFyBNjIrv1vubo2RMq2nwLbc9POqHn-R8dYreFcYAkIrvbAr_fT0gDFBkAlqRmVAum3IcWC2rdqYPu1BHERzqMzEsLO55OTLVauR93VePLuu6qeClnB0_XFco1zBUE9_TyIXmqqlhe1AFjGhKcRPG0QdQH30HiMAQSsrGF3NGcBoQtUFMBFEopTlgDA_mcs7wT9Gab1V-NAM3q-Eeu2yyEccsrwsdTabKClKHRwwie2Br9MdEi0FqB1XZ1FNKQsNborp"
+                className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 brightness-50 group-hover:brightness-25 group-hover:scale-110 transition-all duration-700" 
+                src="/projects/lars-dynamics/lars_3.png"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1F1F1F]/90 via-transparent to-transparent z-10"></div>
               <div className="absolute bottom-12 left-6 md:left-12 right-6 md:right-12 z-50 flex items-center">
-                <div className="bg-primary-container text-white font-headline font-bold text-[10px] md:text-xs tracking-[0.2em] px-8 py-3 uppercase rounded-round-four opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                <AnimatedButton 
+                  asDiv 
+                  theme="primary" 
+                  className="opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0"
+                >
                   VER PROYECTO
-                </div>
+                </AnimatedButton>
               </div>
               <div className="absolute top-0 right-0 bottom-0 py-4 flex items-center justify-center z-30 pointer-events-none">
                 <div className="flex items-center h-full">
@@ -418,8 +447,8 @@ export default function PortafolioPage() {
               <div className="absolute top-8 left-8 text-white/30 font-headline font-black text-xl md:text-2xl z-10">07</div>
               <div className="absolute inset-0 flex items-center justify-center z-40 pointer-events-none">
                 <div className="w-[80%] h-[50%] rounded-custom overflow-hidden opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-700 ease-out bg-black shadow-2xl">
-                  <video className="w-full h-full object-cover" loop muted playsInline autoPlay>
-                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4"/>
+                  <video className="w-full h-full object-cover object-left" loop muted playsInline autoPlay>
+                    <source src="/projects/lars-dynamics/video.mp4" type="video/mp4"/>
                   </video>
                 </div>
               </div>

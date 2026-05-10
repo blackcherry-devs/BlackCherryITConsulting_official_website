@@ -5,6 +5,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import GridLines from "@/components/ui/GridLines";
 import { portfolioData } from "@/lib/data/portfolio";
+import AnimatedButton from "@/components/ui/AnimatedButton";
 
 export default function ProjectDetail({ params }: { params: Promise<{ id: string }> }) {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -88,12 +89,12 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
           </div>
         </nav>
         <div className="w-1/2 flex items-center justify-end px-12 h-full pointer-events-auto border-b border-white/10">
-          <Link
-            className="bg-primary-container hover:bg-primary text-white font-headline font-bold text-[10px] md:text-xs tracking-[0.2em] uppercase px-8 py-3 transition-all rounded-round-four"
-            href="/contacto"
+          <AnimatedButton 
+            href="/contacto" 
+            theme="primary"
           >
             TRABAJA CON NOSOTROS
-          </Link>
+          </AnimatedButton>
         </div>
       </div>
 
@@ -105,19 +106,16 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
         {/* SECTION 1: HERO */}
         <section className="flex-none w-screen h-screen relative flex">
           {/* Left: Red Narrative */}
-          <div className="w-1/2 h-full bg-[#8B090A] relative flex flex-col items-center justify-center">
+          <div className="w-1/2 h-full relative flex flex-col items-center justify-center" style={{ backgroundColor: project.heroBgOverride || project.color || "#8B090A" }}>
             <div className="absolute inset-0 technical-grid-red opacity-10"></div>
-            <div className="z-10 bg-white/10 p-8 backdrop-blur-sm border border-white/20">
+            <div 
+              className={`relative z-20 flex items-center justify-center ${project.logoContainerClass || "w-40 h-40 md:w-64 md:h-64"} ${project.logoBg === "white" ? `bg-white ${project.logoPadding || "p-6"} rounded-2xl shadow-xl` : ""}`}
+            >
               <img
                 alt={`${project.title} Logo`}
-                className="w-32 h-auto invert brightness-0"
+                className="max-w-full max-h-full object-contain"
                 src={project.logo}
               />
-            </div>
-            <div className="absolute bottom-20 left-12 md:left-28 z-20">
-              <h1 className="font-headline font-black text-[12vw] leading-none tracking-tighter text-white uppercase select-none">
-                {project.title}
-              </h1>
             </div>
           </div>
           {/* Right: Industrial Image */}
@@ -134,15 +132,18 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
         {/* SECTION 2: PROJECT NARRATIVE */}
         <section className="flex-none w-screen h-screen relative flex">
           {/* Left: Narrative Text */}
-          <div className="w-1/2 h-full bg-white px-12 md:px-28 flex flex-col justify-center">
+          <div className="w-1/2 h-full bg-white px-12 md:px-28 flex flex-col justify-start pt-24">
             <div className="max-w-xl">
-              <p className="font-headline text-primary-container text-xs tracking-[0.5em] uppercase mb-8">
+              <p 
+                className="font-headline text-xs tracking-[0.5em] uppercase mb-4"
+                style={{ color: project.color || "var(--primary-container)" }}
+              >
                 02 / PROTOCOLO DE DISEÑO
               </p>
-              <h2 className="font-headline font-black text-3xl md:text-4xl lg:text-5xl text-[#1F1F1F] tracking-tighter uppercase mb-6 md:mb-8 leading-[1.1]">
+              <h2 className="font-headline font-black text-2xl md:text-3xl lg:text-4xl text-[#1F1F1F] tracking-tighter uppercase mb-6 md:mb-8 leading-[1.1]">
                 {project.narrativeTitle}
               </h2>
-              <p className="font-body text-stone-500 text-sm md:text-lg leading-relaxed mb-12">
+              <p className="font-body text-stone-500 text-sm md:text-lg leading-relaxed mb-6">
                 {project.narrativeText}
               </p>
               <div className="grid grid-cols-2 gap-8 pt-8 border-t border-stone-200">
@@ -163,6 +164,18 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
                   </span>
                 </div>
               </div>
+
+              {project.url && (
+                <div className="mt-6">
+                  <AnimatedButton
+                    href={project.url}
+                    theme="primary"
+                    style={{ backgroundColor: project.color || "#8B090A" }}
+                  >
+                    VISITAR SITIO
+                  </AnimatedButton>
+                </div>
+              )}
             </div>
           </div>
           {/* Right: Technical Render */}
@@ -172,7 +185,7 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
               className="w-full h-full object-cover grayscale"
               src={project.technicalImage}
             />
-            <div className="absolute inset-0 bg-[#8B090A]/10"></div>
+            <div className="absolute inset-0 opacity-10" style={{ backgroundColor: project.color || "#8B090A" }}></div>
             <div className="absolute inset-0 technical-grid-red opacity-20 pointer-events-none"></div>
           </div>
         </section>
@@ -183,21 +196,21 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
             <div className="col-span-8 row-span-6 overflow-hidden relative group">
               <img
                 alt="Detail 1"
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                className="w-full h-full object-cover transition-all duration-700"
                 src={project.galleryImages[0]}
               />
             </div>
             <div className="col-span-4 row-span-3 overflow-hidden relative group">
               <img
                 alt="Detail 2"
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                className="w-full h-full object-cover transition-all duration-700"
                 src={project.galleryImages[1]}
               />
             </div>
             <div className="col-span-4 row-span-3 overflow-hidden relative group">
               <img
                 alt="Detail 3"
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                className="w-full h-full object-cover transition-all duration-700"
                 src={project.galleryImages[2]}
               />
             </div>
