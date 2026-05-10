@@ -18,7 +18,7 @@ export default function Portfolio() {
       id: "adelai",
       name: "Adelai",
       tags: "DISEÑO / E-COMMERCE / 2026",
-      image: "/projects/adelai/adelai1.jpg",
+      image: "/projects/adelai/adelai1.jpeg",
       bgClass: "hover:bg-on-surface",
       hoverText: "group-hover:text-white",
       video: "/projects/adelai/video.mp4"

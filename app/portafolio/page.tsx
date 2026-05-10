@@ -184,7 +184,7 @@ export default function PortafolioPage() {
               <img 
                 alt="ADELAI" 
                 className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 brightness-50 group-hover:brightness-25 group-hover:scale-110 transition-all duration-700" 
-                src="/projects/adelai/adelai1.jpg"
+                src="/projects/adelai/adelai1.jpeg"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1F1F1F]/90 via-transparent to-transparent z-10"></div>
               <div className="absolute bottom-12 left-6 md:left-12 right-6 md:right-12 z-50 flex items-center">

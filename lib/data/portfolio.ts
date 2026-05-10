@@ -106,8 +106,8 @@ export const portfolioData: ProjectData[] = [
     id: "adelai",
     title: "ADELAI",
     category: "TECNOLOGÍA",
-    logo: "https://lh3.googleusercontent.com/aida/ADBb0ug9Rf_ygu5y3C53O8uazzOJjOuSV2A_7Fb82MSHffrUi5hUu0bHe0LGjjV7ET027gzVg-xWIEhK7V-EuKPer46VdD6QPEb36sN0LxliM07cRJwiTZ7b_9g4rAUrsqxGQm4nISquasokBU-fN-MU4b0IcvL7N9Pltzlsba0iIHXZuf0yWT7Kn1LHGqANbLatvUQ-LeGuAvQ0ch2j0lAWl4gYZXe_PVWvoej9IWdyvYt07ZVTWYO1AjTq24teaY2Qx2RJq1OZHHjuHcE", // Placeholder
-    heroImage: "/projects/adelai/adelai1.jpg",
+    logo: "/projects/adelai/adelai_logo.jpeg",
+    heroImage: "/projects/adelai/adelai1.jpeg",
     narrativeTitle: "INTELIGENCIA ARTIFICIAL",
     narrativeText: "Adelai es el producto de integrar tecnología avanzada de lenguaje natural con bases de datos operacionales. Una solución que aprende y automatiza interacciones complejas, diseñada con una arquitectura resiliente y rápida.",
     stats: {
@@ -116,15 +116,18 @@ export const portfolioData: ProjectData[] = [
       perfLabel: "LATENCIA",
       perfValue: "< 200ms"
     },
-    technicalImage: "/projects/adelai/adelai2.jpg",
+    technicalImage: "/projects/adelai/adelai2.jpeg",
     galleryImages: [
-      "/projects/adelai/adelai3.jpg",
-      "/projects/adelai/adelai4.webp",
+      "/projects/adelai/adelai3.jpeg",
+      "/projects/adelai/adelai4.jpeg",
       "/projects/adelai/adelai5.jpg"
     ],
-    color: "#8B090A",
+    color: "#000000",
     url: "#",
-    video: "/projects/adelai/video.mp4"
+    video: "/projects/adelai/video.mp4",
+    heroBgOverride: "#FFFFFF",
+    logoPadding: "p-4",
+    logoContainerClass: "w-64 h-64 md:w-[28rem] md:h-[28rem]"
   },
   {
     id: "dani-suacha",
