@@ -55,8 +55,8 @@ export default function IAPage() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
             {/* Left: AI Image with Overlapping Card */}
             <div className="md:col-span-5 relative order-2 md:order-1 mt-12 md:mt-0 pl-4 md:pl-8">
-              <div className="relative w-full aspect-[4/5] border border-white/10 overflow-hidden bg-black rounded-xl">
-                <img alt="Neural AI Head" className="w-full h-full object-cover grayscale opacity-90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLy0bRGVxVwelbx8mQFh82PJcN2TGgNY4-UiyvA7SFTSUZUEkzm05eAjHLWZnOMHgdwjyXYFilfaGx1Biv2-3795_Z_gteH7U_x5Vb26oTFFLrhHve6e0YweV4xEfWr7e9KrDsABlqHb2Ayar_XNNFXEugTOSmYDYHPtdPYmxT1Y5GqX2dGLvjSx7iAemUdWPWCP97m1DAXE6M18bOPOacVugzir68NnkUbKnYPuF-M8-5iSImAvhW5X_O83q-uoORtg5Fkl-ou-86" />
+              <div className="relative w-full aspect-[4/5] border border-white/10 overflow-hidden bg-black rounded-xl shadow-2xl">
+                <img alt="Neural AI Voice Technology" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 opacity-90 scale-105 hover:scale-100" src="https://images.unsplash.com/photo-1589254065878-42c9da997008?auto=format&fit=crop&w=800&q=80" />
               </div>
               {/* Overlapping Red Card */}
               <div className="absolute bottom-8 md:bottom-16 right-[-1rem] md:right-[-2rem] bg-primary-container p-6 md:p-10 text-white shadow-2xl z-20 min-w-[200px] md:min-w-[240px] rounded-xl">
@@ -70,7 +70,7 @@ export default function IAPage() {
               <div className="space-y-12">
                 <div className="space-y-2">
                   <span className="font-headline font-bold text-[10px] md:text-xs text-white/40 tracking-[0.4em] uppercase">SISTEMAS DE AUDIO AVANZADO</span>
-                  <h2 className="font-headline font-black text-white text-5xl md:text-6xl lg:text-8xl uppercase leading-[0.9] tracking-tighter bg-[#1F1F1F] relative z-20 inline-block pr-8 py-2">
+                  <h2 className="font-headline font-black text-white text-4xl md:text-5xl lg:text-7xl uppercase leading-[0.9] tracking-tighter bg-[#1F1F1F] relative z-20 inline-block pr-8 py-2">
                     SISTEMAS DE <br />VOZ NEURAL
                   </h2>
                 </div>

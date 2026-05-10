@@ -52,6 +52,16 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
         </div>
       </div>
 
+      {/* Back to Portfolio Button (Fixed in Gutter) */}
+      <div className="fixed bottom-12 left-0 w-[7rem] hidden md:flex flex-col items-center justify-center z-[100]">
+        <Link href="/portafolio" className="group flex flex-col items-center gap-6">
+          <span className="font-headline font-black text-[11px] tracking-[0.5em] uppercase vertical-text-up text-primary-container transition-all duration-500 group-hover:scale-110">
+            VOLVER AL PORTAFOLIO
+          </span>
+          <div className="w-[1.5px] h-16 bg-primary-container transition-all duration-500 group-hover:h-28"></div>
+        </Link>
+      </div>
+
       {/* Navbar Wrapper */}
       <div className="fixed top-0 left-[7rem] right-[7rem] h-20 z-[60] flex pointer-events-none">
         <nav className="w-1/2 bg-black/10 backdrop-blur-md flex items-center px-12 h-full pointer-events-auto border-b border-white/10">
@@ -132,7 +142,7 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
         {/* SECTION 2: PROJECT NARRATIVE */}
         <section className="flex-none w-screen h-screen relative flex">
           {/* Left: Narrative Text */}
-          <div className="w-1/2 h-full bg-white px-12 md:px-28 flex flex-col justify-start pt-24">
+          <div className="w-1/2 h-full bg-white px-12 md:px-28 flex flex-col justify-start pt-28 pb-12">
             <div className="max-w-xl">
               <p 
                 className="font-headline text-xs tracking-[0.5em] uppercase mb-4"
@@ -140,13 +150,13 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
               >
                 02 / PROTOCOLO DE DISEÑO
               </p>
-              <h2 className="font-headline font-black text-2xl md:text-3xl lg:text-4xl text-[#1F1F1F] tracking-tighter uppercase mb-6 md:mb-8 leading-[1.1]">
+              <h2 className="font-headline font-black text-2xl md:text-3xl lg:text-4xl text-[#1F1F1F] tracking-tighter uppercase mb-3 md:mb-4 leading-[1.1]">
                 {project.narrativeTitle}
               </h2>
-              <p className="font-body text-stone-500 text-sm md:text-lg leading-relaxed mb-6">
+              <p className="font-body text-stone-500 text-sm md:text-base leading-relaxed mb-4">
                 {project.narrativeText}
               </p>
-              <div className="grid grid-cols-2 gap-8 pt-8 border-t border-stone-200">
+              <div className="grid grid-cols-2 gap-4 pt-6 border-t border-stone-200">
                 <div>
                   <span className="block font-headline font-bold text-[10px] text-stone-400 uppercase tracking-widest mb-2">
                     {project.stats.techLabel}
@@ -166,7 +176,7 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
               </div>
 
               {project.url && (
-                <div className="mt-6">
+                <div className="mt-4">
                   <AnimatedButton
                     href={project.url}
                     theme="primary"
