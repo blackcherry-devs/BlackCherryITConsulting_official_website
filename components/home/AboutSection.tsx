@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import Link from "next/link";
+import AnimatedButton from "@/components/ui/AnimatedButton";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import GridLines from "@/components/ui/GridLines";
@@ -50,12 +51,9 @@ export default function AboutSection() {
             </h2>
           </div>
           <div className="pt-16">
-            <Link className="inline-flex bg-white hover:bg-stone-100 text-black font-headline font-bold text-sm tracking-tight transition-all rounded-round-four items-center gap-4 group shadow-xl px-6 py-2 uppercase min-h-[44px]" href="/servicios">
-              VER NUESTROS SERVICIOS 
-              <span className="w-8 h-8 rounded-full flex items-center justify-center bg-[#8B090A]">
-                <span className="material-symbols-outlined text-sm group-hover:translate-x-0.5 transition-transform font-bold text-white">arrow_forward</span>
-              </span>
-            </Link>
+            <AnimatedButton href="/servicios" theme="dark">
+              VER NUESTROS SERVICIOS
+            </AnimatedButton>
           </div>
         </div>
         
@@ -83,6 +81,10 @@ export default function AboutSection() {
                 <span className="font-headline font-black text-white text-sm uppercase tracking-wider">Desarrollo de eCommerce</span>
                 <span className="material-symbols-outlined text-white/40 text-xs" style={{ fontVariationSettings: '"FILL" 1' }}>circle</span>
                 <span className="font-headline font-black text-white text-sm uppercase tracking-wider">Optimización SEO</span>
+                <span className="material-symbols-outlined text-white/40 text-xs" style={{ fontVariationSettings: '"FILL" 1' }}>circle</span>
+                <span className="font-headline font-black text-white text-sm uppercase tracking-wider">INTEGRACIÓN DE IA</span>
+                <span className="material-symbols-outlined text-white/40 text-xs" style={{ fontVariationSettings: '"FILL" 1' }}>circle</span>
+                <span className="font-headline font-black text-white text-sm uppercase tracking-wider">INTELIGENCIA CONVERSACIONAL</span>
               </div>
             ))}
           </div>
