@@ -30,13 +30,13 @@ export const portfolioData: ProjectData[] = [
     category: "E-COMMERCE",
     logo: "/projects/cerato/cerato_logo.jpg",
     heroImage: "/projects/cerato/cerato1.jpg",
-    narrativeTitle: "EL ARTE DE LA LOGÍSTICA DIGITAL",
-    narrativeText: "Cerato Arte Floral requería una infraestructura que fusionara la delicadeza de su producto con la robustez de un sistema de e-commerce de alto tráfico. Desarrollamos una plataforma basada en microservicios que optimiza la cadena de suministro en tiempo real.",
+    narrativeTitle: "ARTE FLORAL Y E-COMMERCE DE ALTA GAMA",
+    narrativeText: "Redefinimos la experiencia de regalar lujo a través de una plataforma floral sofisticada. Desarrollamos un ecosistema digital de alta conversión con búsqueda inteligente y una arquitectura optimizada (Performance 100) que traduce la fragilidad y belleza de las flores en una experiencia de compra impecable y fluida.",
     stats: {
-      techLabel: "TECNOLOGÍA",
-      techValue: "Next.js + Shopify Plus",
-      perfLabel: "RENDIMIENTO",
-      perfValue: "99.9% Uptime Global"
+      techLabel: "PERFORMANCE",
+      techValue: "Lighthouse 100/100",
+      perfLabel: "UX/UI",
+      perfValue: "Conversión Premium"
     },
     technicalImage: "/projects/cerato/cerato2.jpg",
     galleryImages: [
@@ -54,16 +54,16 @@ export const portfolioData: ProjectData[] = [
   {
     id: "gpamex",
     title: "GPAMEX",
-    category: "CONSTRUCCIÓN",
+    category: "INDUSTRIAL",
     logo: "/projects/gpamex/gpamex_logo.png",
     heroImage: "/projects/gpamex/gpamex_1.jpg",
-    narrativeTitle: "INGENIERÍA ESTRUCTURAL DIGITAL",
-    narrativeText: "Para GPAMEX diseñamos un sistema de control logístico y de proyectos que unifica el trabajo en campo y oficina. Implementamos arquitecturas escalables para mantener la sincronización y seguimiento de obras masivas.",
+    narrativeTitle: "PRECISIÓN INDUSTRIAL EN LA ERA DIGITAL",
+    narrativeText: "Para Grupo GPA, líderes en la Industria 4.0 con más de 30 años de trayectoria, materializamos una infraestructura digital que refleja su precisión técnica. Diseñamos una plataforma que actúa como el gemelo digital de su excelencia operativa, transformando procesos industriales complejos en una experiencia web intuitiva y de alto impacto que proyecta su autoridad en el mercado global.",
     stats: {
-      techLabel: "STACK",
-      techValue: "React + Node.js",
-      perfLabel: "PROYECTOS",
-      perfValue: "Gestión simultánea"
+      techLabel: "PROTOCOLO",
+      techValue: "UX Industrial 4.0",
+      perfLabel: "IMPACTO",
+      perfValue: "Conversión Global B2B"
     },
     technicalImage: "/projects/gpamex/gpamex_2.jpg",
     galleryImages: [
@@ -83,13 +83,13 @@ export const portfolioData: ProjectData[] = [
     category: "INFRAESTRUCTURA",
     logo: "/projects/grupo-cosiam/logo.png",
     heroImage: "/projects/grupo-cosiam/cosiam1.jpg",
-    narrativeTitle: "TECNOLOGÍA DE ALTO IMPACTO",
-    narrativeText: "Desarrollamos el sitio web corporativo, diseño de identidad digital e implementación de Inteligencia Artificial avanzada para eficientar la atención al cliente y optimizar los procesos operativos del grupo.",
+    narrativeTitle: "MANTENIMIENTO INDUSTRIAL E IA CONVERSACIONAL",
+    narrativeText: "Para Grupo COSIAM, integramos Inteligencia Artificial conversacional con síntesis de voz hiperrealista para optimizar la asistencia técnica de su red global. Desarrollamos una plataforma que fusiona la fiabilidad de su ingeniería con una interfaz intuitiva, asegurando la continuidad operativa de clientes como Ford y Live Aqua mediante tecnología predictiva y asistencia digital avanzada.",
     stats: {
       techLabel: "SISTEMA",
-      techValue: "Arquitectura Cloud",
-      perfLabel: "DISPONIBILIDAD",
-      perfValue: "Redundancia 24/7"
+      techValue: "IA Conversacional Premium",
+      perfLabel: "CLIENTES",
+      perfValue: "Marcas Globales B2B"
     },
     technicalImage: "/projects/grupo-cosiam/cosiam2.webp",
     galleryImages: [
@@ -105,16 +105,16 @@ export const portfolioData: ProjectData[] = [
   {
     id: "adelai",
     title: "ADELAI",
-    category: "TECNOLOGÍA",
+    category: "LUJO / E-COMMERCE",
     logo: "/projects/adelai/adelai_logo.jpeg",
     heroImage: "/projects/adelai/adelai1.jpeg",
-    narrativeTitle: "INTELIGENCIA ARTIFICIAL",
-    narrativeText: "Adelai es el producto de integrar tecnología avanzada de lenguaje natural con bases de datos operacionales. Una solución que aprende y automatiza interacciones complejas, diseñada con una arquitectura resiliente y rápida.",
+    narrativeTitle: "E-COMMERCE DE LUJO Y LEGADO ARTESANAL",
+    narrativeText: "Traducimos el legado artesanal de Adelai en un ecosistema e-commerce de lujo. Desarrollamos una infraestructura digital sofisticada que convierte su catálogo en una herramienta de ventas inmersiva, consolidando su autoridad comercial mediante una experiencia de usuario fluida que proyecta la distinción de la alta gama.",
     stats: {
-      techLabel: "MOTOR",
-      techValue: "AI + LLMs",
-      perfLabel: "LATENCIA",
-      perfValue: "< 200ms"
+      techLabel: "SISTEMA",
+      techValue: "E-commerce Luxury UI",
+      perfLabel: "RESULTADO",
+      perfValue: "Expansión Comercial de Lujo"
     },
     technicalImage: "/projects/adelai/adelai2.jpeg",
     galleryImages: [
@@ -132,16 +132,16 @@ export const portfolioData: ProjectData[] = [
   {
     id: "dani-suacha",
     title: "DANI SUACHÁ",
-    category: "DISEÑO",
+    category: "BIENESTAR",
     logo: "/projects/dani-suacha/logo.png",
     heroImage: "/projects/dani-suacha/perfil_dani_suacha.jpg",
-    narrativeTitle: "PORTAFOLIO CREATIVO",
-    narrativeText: "Un espacio digital enfocado en resaltar la identidad y la estética de las piezas artísticas. Optimizamos el renderizado visual y la fluidez de las animaciones para entregar una experiencia inmersiva sin comprometer la velocidad.",
+    narrativeTitle: "EMPATÍA Y PROFESIONALISMO DIGITAL",
+    narrativeText: "Para Dani Suachá, transformamos la complejidad de la sanación emocional en una experiencia digital serena y profesional. Desarrollamos una plataforma bilingüe que no solo educa, sino que construye un puente de confianza inmediato. Al optimizar el flujo de agendamiento, logramos que la tecnología actúe como un facilitador silencioso de la conexión humana.",
     stats: {
-      techLabel: "FRONTEND",
-      techValue: "WebGL + Framer Motion",
-      perfLabel: "OPTIMIZACIÓN",
-      perfValue: "Carga diferida 100%"
+      techLabel: "PROTOCOLO",
+      techValue: "UX Empática Bilingüe",
+      perfLabel: "CONVERSIÓN",
+      perfValue: "Agendamiento Global"
     },
     technicalImage: "/projects/dani-suacha/danisuacha2.jpg",
     galleryImages: [
@@ -162,13 +162,13 @@ export const portfolioData: ProjectData[] = [
     category: "INDUSTRIAL",
     logo: "/projects/guermar/guermar_logo.webp",
     heroImage: "/projects/guermar/guermar1.jpg",
-    narrativeTitle: "LOGÍSTICA PESADA",
-    narrativeText: "Solución tecnológica para gestionar los activos y operaciones industriales de Guermar. Implementamos paneles de control en tiempo real, integrando bases de datos de inventario y seguimiento satelital de la flota.",
+    narrativeTitle: "SOLIDEZ E INFRAESTRUCTURA LOGÍSTICA",
+    narrativeText: "Para Racks Guermar, materializamos la escala de sus soluciones de almacenamiento en un ecosistema digital de alto impacto visual. Convertimos su portafolio en una herramienta de ventas inmersiva que proyecta la fiabilidad necesaria para cerrar ciclos B2B complejos, consolidando su autoridad en el sector de logística y warehousing.",
     stats: {
-      techLabel: "INFRAESTRUCTURA",
-      techValue: "Microservicios",
-      perfLabel: "SEGURIDAD",
-      perfValue: "Encriptación AES-256"
+      techLabel: "SISTEMA",
+      techValue: "Visual B2B Inmersivo",
+      perfLabel: "RESULTADO",
+      perfValue: "Autoridad en Infraestructura"
     },
     technicalImage: "/projects/guermar/guermar2.jpg",
     galleryImages: [
@@ -187,13 +187,13 @@ export const portfolioData: ProjectData[] = [
     category: "INDUSTRIAL",
     logo: "/projects/lars-dynamics/logo.png",
     heroImage: "/projects/lars-dynamics/lars_1.png",
-    narrativeTitle: "INGENIERÍA WEB",
-    narrativeText: "Creación de la presencia digital para Lars Dynamics, enfocada en proyectar la solidez técnica de la empresa. El diseño resalta su experiencia en el sector y garantiza compatibilidad en dispositivos móviles para el campo.",
+    narrativeTitle: "AUTORIDAD TÉCNICA INDUSTRIAL",
+    narrativeText: "Elevamos la presencia digital de Lars Dynamics para reflejar la precisión de sus componentes de alto rendimiento. Diseñamos una interfaz robusta que posiciona a la marca como un aliado estratégico en ingeniería. La integración de sistemas de cotización ágil traduce la complejidad técnica de su catálogo en una experiencia de usuario eficiente y profesional.",
     stats: {
-      techLabel: "CORE",
-      techValue: "Arquitectura Híbrida",
-      perfLabel: "SEO",
-      perfValue: "Puntuación 100/100"
+      techLabel: "ESTÁNDAR",
+      techValue: "Performance Industrial",
+      perfLabel: "ALCANCE",
+      perfValue: "Liderazgo en Distribución"
     },
     technicalImage: "/projects/lars-dynamics/lars_2.png",
     galleryImages: [
