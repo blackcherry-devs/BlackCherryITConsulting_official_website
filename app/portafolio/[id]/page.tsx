@@ -230,3 +230,4 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
     </div>
   );
 }
+                
