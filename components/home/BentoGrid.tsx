@@ -10,22 +10,37 @@ export default function BentoGrid() {
   const containerRef = useRef<HTMLElement>(null);
 
   useGSAP(() => {
-    // Stagger reveal for the bento cards
-    gsap.fromTo(".bento-card-anim", 
-      { opacity: 0, y: 50, scale: 0.95 },
-      {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        stagger: 0.15,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 70%",
+    const cards = gsap.utils.toArray(".bento-card");
+    
+    cards.forEach((card: any) => {
+      // 1. Fluid opacity fade independently so it doesn't "flicker/bounce"
+      gsap.fromTo(card, 
+        { opacity: 0 }, 
+        {
+          opacity: 1,
+          duration: 0.5,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 80%",
+          }
         }
-      }
-    );
+      );
+
+      // 2. Bouncing spring applied ONLY to the scale
+      gsap.fromTo(card,
+        { scale: 0.2 },
+        {
+          scale: 1,
+          duration: 0.6, 
+          ease: "back.out(2.5)", 
+          scrollTrigger: {
+            trigger: card,
+            start: "top 80%",
+          }
+        }
+      );
+    });
   }, { scope: containerRef });
 
   return (

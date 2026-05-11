@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import GridLines from "@/components/ui/GridLines";
 
 const servicesData = {
@@ -73,11 +75,35 @@ type ServiceKey = keyof typeof servicesData;
 
 export default function ServicesSection() {
   const [activeService, setActiveService] = useState<ServiceKey>("default");
+  const containerRef = useRef<HTMLElement>(null);
+
+  const { contextSafe } = useGSAP(() => {
+    // Animate IN from right side
+    gsap.fromTo(".info-text",
+      { x: 50, opacity: 0 },
+      { x: 0, opacity: 1, duration: 0.5, stagger: 0.05, ease: "back.out(1.5)" }
+    );
+  }, { scope: containerRef, dependencies: [activeService] });
+
+  const handleServiceChange = contextSafe((newService: ServiceKey) => {
+    if (newService === activeService) return;
+
+    // Kill existing animations and animate OUT to the left side
+    gsap.killTweensOf(".info-text");
+    gsap.to(".info-text", {
+      x: -50,
+      opacity: 0,
+      duration: 0.25,
+      stagger: 0.04,
+      ease: "power2.in",
+      onComplete: () => setActiveService(newService)
+    });
+  });
 
   const data = servicesData[activeService];
 
   return (
-    <section className="w-full py-20 md:py-32 px-6 md:px-[7rem] relative bg-[#1F1F1F]" style={{ clipPath: 'inset(0)' }}>
+    <section ref={containerRef} className="w-full py-20 md:py-32 px-6 md:px-[7rem] relative bg-[#1F1F1F]" style={{ clipPath: 'inset(0)' }}>
       <GridLines />
       {/* Overriding Left Line to appear above cards */}
       <div className="hidden md:block absolute top-0 bottom-0 left-[7rem] w-[1.3px] bg-white/20 z-30 pointer-events-none"></div>
@@ -87,12 +113,12 @@ export default function ServicesSection() {
         {/* Left Side: 2x3 Grid of Service Cards */}
         <div 
           className="w-full lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-4 relative z-20"
-          onMouseLeave={() => setActiveService("default")}
+          onMouseLeave={() => handleServiceChange("default")}
         >
           {/* Row 1 */}
           <div 
-            className="relative h-[400px] md:h-[800px] overflow-hidden group cursor-pointer"
-            onMouseEnter={() => setActiveService("web")}
+            className="relative h-[400px] md:h-[800px] overflow-hidden group service-card"
+            onMouseEnter={() => handleServiceChange("web")}
           >
             <img 
               alt="Desarrollo Web de Alto Rendimiento" 
@@ -106,8 +132,8 @@ export default function ServicesSection() {
             </div>
           </div>
           <div 
-            className="relative h-[400px] md:h-[800px] md:mt-32 overflow-hidden group cursor-pointer"
-            onMouseEnter={() => setActiveService("backend")}
+            className="relative h-[400px] md:h-[800px] md:mt-32 overflow-hidden group service-card"
+            onMouseEnter={() => handleServiceChange("backend")}
           >
             <img 
               alt="Infraestructura de Sistemas Backend" 
@@ -122,8 +148,8 @@ export default function ServicesSection() {
           </div>
           {/* Row 2 */}
           <div 
-            className="relative h-[400px] md:h-[800px] md:-mt-16 overflow-hidden group cursor-pointer"
-            onMouseEnter={() => setActiveService("uiux")}
+            className="relative h-[400px] md:h-[800px] md:-mt-16 overflow-hidden group service-card"
+            onMouseEnter={() => handleServiceChange("uiux")}
           >
             <img 
               alt="Diseño de Interfaces de Precisión" 
@@ -137,8 +163,8 @@ export default function ServicesSection() {
             </div>
           </div>
           <div 
-            className="relative h-[400px] md:h-[800px] md:mt-16 overflow-hidden group cursor-pointer"
-            onMouseEnter={() => setActiveService("ia")}
+            className="relative h-[400px] md:h-[800px] md:mt-16 overflow-hidden group service-card"
+            onMouseEnter={() => handleServiceChange("ia")}
           >
             <img 
               alt="Arquitectura de Inteligencia Artificial" 
@@ -153,8 +179,8 @@ export default function ServicesSection() {
           </div>
           {/* Row 3 */}
           <div 
-            className="relative h-[400px] md:h-[800px] overflow-hidden group cursor-pointer"
-            onMouseEnter={() => setActiveService("wa")}
+            className="relative h-[400px] md:h-[800px] overflow-hidden group service-card"
+            onMouseEnter={() => handleServiceChange("wa")}
           >
             <img 
               alt="Ecosistemas de Inteligencia Conversacional" 
@@ -168,8 +194,8 @@ export default function ServicesSection() {
             </div>
           </div>
           <div 
-            className="relative h-[400px] md:h-[800px] md:mt-48 overflow-hidden group cursor-pointer"
-            onMouseEnter={() => setActiveService("seo")}
+            className="relative h-[400px] md:h-[800px] md:mt-48 overflow-hidden group service-card"
+            onMouseEnter={() => handleServiceChange("seo")}
           >
             <img 
               alt="Estrategia de Optimización SEO" 
@@ -186,30 +212,18 @@ export default function ServicesSection() {
         
         {/* Right Side: Content Block */}
         <div className="w-full lg:w-1/3 min-w-0 lg:sticky lg:top-24 self-start relative transition-all duration-500 min-h-[500px]">
-          <span 
-            className="font-headline font-black text-white text-[10px] tracking-[0.4em] uppercase mb-4 block transition-all duration-300"
-            key={`sub-${activeService}`}
-          >
+          <span className="info-text font-headline font-black text-white text-[10px] tracking-[0.4em] uppercase mb-4 block">
             {data.subtitle}
           </span>
-          <h2 
-            className="font-headline font-black text-3xl md:text-4xl lg:text-5xl leading-[0.9] tracking-tighter uppercase text-white mb-8 overflow-hidden break-words whitespace-pre-line transition-all duration-300"
-            key={`title-${activeService}`}
-          >
+          <h2 className="info-text font-headline font-black text-3xl md:text-4xl lg:text-5xl leading-[0.9] tracking-tighter uppercase text-white mb-8 overflow-hidden break-words whitespace-pre-line">
             {data.title}
           </h2>
           <div className="max-w-md space-y-8">
-            <p 
-              className="font-body text-white/50 text-[10px] lg:text-xs uppercase tracking-widest leading-relaxed transition-all duration-300"
-              key={`desc-${activeService}`}
-            >
+            <p className="info-text font-body text-white/50 text-[10px] lg:text-xs uppercase tracking-widest leading-relaxed">
               {data.desc}
             </p>
             <div className="space-y-6">
-              <div 
-                className="border-l border-primary-container pl-6 transition-all duration-300"
-                key={`sub1-${activeService}`}
-              >
+              <div className="info-text border-l border-primary-container pl-6">
                 <span className="font-headline font-black text-[10px] text-white tracking-widest uppercase block mb-1">
                   {data.sub1Title}
                 </span>
@@ -217,10 +231,7 @@ export default function ServicesSection() {
                   {data.sub1Desc}
                 </p>
               </div>
-              <div 
-                className="border-l border-primary-container pl-6 transition-all duration-300"
-                key={`sub2-${activeService}`}
-              >
+              <div className="info-text border-l border-primary-container pl-6">
                 <span className="font-headline font-black text-[10px] text-white tracking-widest uppercase block mb-1">
                   {data.sub2Title}
                 </span>

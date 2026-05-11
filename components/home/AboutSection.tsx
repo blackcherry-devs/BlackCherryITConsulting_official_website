@@ -5,7 +5,12 @@ import Link from "next/link";
 import AnimatedButton from "@/components/ui/AnimatedButton";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { TextPlugin } from "gsap/TextPlugin";
 import GridLines from "@/components/ui/GridLines";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(TextPlugin);
+}
 
 export default function AboutSection() {
   const containerRef = useRef<HTMLElement>(null);
@@ -24,18 +29,35 @@ export default function AboutSection() {
       },
     });
 
-    // Reveal text
-    gsap.from(textRef.current?.children || [], {
-      opacity: 0.1,
-      y: 20,
-      stagger: 0.2,
-      duration: 1,
-      ease: "power2.out",
+    // Cursor blinking animation
+    gsap.to(".cursor", {
+      opacity: 1,
+      ease: "steps(1)",
+      repeat: -1,
+      duration: 0.4,
+    });
+
+    const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: textRef.current,
+        trigger: ".writing-machine",
         start: "top 80%",
       }
     });
+
+    tl.set(".cursor-1", { display: "inline" })
+      .set(".cursor-2", { display: "none" })
+      .to(".type-text-1", {
+        duration: 3, 
+        text: "Creamos experiencias digitales que captan la atención del público y hacen que las marcas destaquen. Forjamos infraestructuras de alto impacto mediante un proceso de consultoría técnica riguroso y personalizado.",
+        ease: "none"
+      })
+      .set(".cursor-1", { display: "none" })
+      .set(".cursor-2", { display: "inline" })
+      .to(".type-text-2", {
+        duration: 1.5,
+        text: "Transformamos visiones audaces y creativas en resultados concretos.",
+        ease: "none"
+      });
 
   }, { scope: containerRef });
 
@@ -57,10 +79,22 @@ export default function AboutSection() {
           </div>
         </div>
         
-        <div className="md:w-2/3 flex flex-col justify-start">
-          <p ref={textRef} className="font-headline font-light leading-snug relative z-[110] pr-4 text-xl md:text-2xl">
-            <span className="text-white block mb-6">Creamos experiencias digitales que captan la atención del público y hacen que las marcas destaquen. Forjamos infraestructuras de alto impacto mediante un proceso de consultoría técnica riguroso y personalizado.</span>
-            <span className="text-white/60 block">Transformamos visiones audaces y creativas en resultados concretos.</span>
+        <div className="md:w-2/3 flex flex-col justify-start writing-machine relative">
+          {/* Sizer for layout to prevent jumping */}
+          <p className="font-headline font-light leading-snug pr-4 text-xl md:text-2xl opacity-0 pointer-events-none select-none" aria-hidden="true">
+            <span className="block mb-6">Creamos experiencias digitales que captan la atención del público y hacen que las marcas destaquen. Forjamos infraestructuras de alto impacto mediante un proceso de consultoría técnica riguroso y personalizado.</span>
+            <span className="block">Transformamos visiones audaces y creativas en resultados concretos.</span>
+          </p>
+
+          <p ref={textRef} className="font-headline font-light leading-snug absolute top-0 left-0 w-full z-[110] pr-4 text-xl md:text-2xl">
+            <span className="text-white block mb-6">
+              <span className="type-text-1"></span>
+              <span className="cursor cursor-1 font-bold text-white opacity-0">_</span>
+            </span>
+            <span className="text-white/60 block">
+              <span className="type-text-2"></span>
+              <span className="cursor cursor-2 font-bold text-white/60 opacity-0">_</span>
+            </span>
           </p>
         </div>
       </div>
