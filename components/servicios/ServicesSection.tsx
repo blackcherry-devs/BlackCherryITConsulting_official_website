@@ -91,7 +91,7 @@ export default function ServicesSection() {
         >
           {/* Row 1 */}
           <div 
-            className="relative h-[400px] md:h-[800px] overflow-hidden group cursor-pointer"
+            className="relative h-[400px] md:h-[800px] overflow-hidden group"
             onMouseEnter={() => setActiveService("web")}
           >
             <img 
@@ -106,7 +106,7 @@ export default function ServicesSection() {
             </div>
           </div>
           <div 
-            className="relative h-[400px] md:h-[800px] md:mt-32 overflow-hidden group cursor-pointer"
+            className="relative h-[400px] md:h-[800px] md:mt-32 overflow-hidden group"
             onMouseEnter={() => setActiveService("backend")}
           >
             <img 
@@ -122,7 +122,7 @@ export default function ServicesSection() {
           </div>
           {/* Row 2 */}
           <div 
-            className="relative h-[400px] md:h-[800px] md:-mt-16 overflow-hidden group cursor-pointer"
+            className="relative h-[400px] md:h-[800px] md:-mt-16 overflow-hidden group"
             onMouseEnter={() => setActiveService("uiux")}
           >
             <img 
@@ -137,7 +137,7 @@ export default function ServicesSection() {
             </div>
           </div>
           <div 
-            className="relative h-[400px] md:h-[800px] md:mt-16 overflow-hidden group cursor-pointer"
+            className="relative h-[400px] md:h-[800px] md:mt-16 overflow-hidden group"
             onMouseEnter={() => setActiveService("ia")}
           >
             <img 
@@ -153,7 +153,7 @@ export default function ServicesSection() {
           </div>
           {/* Row 3 */}
           <div 
-            className="relative h-[400px] md:h-[800px] overflow-hidden group cursor-pointer"
+            className="relative h-[400px] md:h-[800px] overflow-hidden group"
             onMouseEnter={() => setActiveService("wa")}
           >
             <img 
@@ -168,7 +168,7 @@ export default function ServicesSection() {
             </div>
           </div>
           <div 
-            className="relative h-[400px] md:h-[800px] md:mt-48 overflow-hidden group cursor-pointer"
+            className="relative h-[400px] md:h-[800px] md:mt-48 overflow-hidden group"
             onMouseEnter={() => setActiveService("seo")}
           >
             <img 

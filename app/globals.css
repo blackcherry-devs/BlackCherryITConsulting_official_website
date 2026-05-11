@@ -83,6 +83,11 @@
   }
 }
 
+/* Base interactive elements cursor */
+a, button, [role="button"] {
+  cursor: pointer;
+}
+
 /* Custom CSS from the HTML provided */
 @layer utilities {
   .material-symbols-outlined {
