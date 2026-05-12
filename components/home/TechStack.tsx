@@ -1,46 +1,111 @@
-import GridLines from "@/components/ui/GridLines";
+'use client';
+
+import GridLines from '@/components/ui/GridLines';
+import { useRef } from 'react';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function TechStack() {
-  const stackTop = ["NEXT.JS", "REACT.JS", "NODE.JS", "TYPESCRIPT"];
-  const stackBottom = ["TAILWIND", "GSAP", "POSTGRES", "FIGMA"];
+  const containerRef = useRef<HTMLElement>(null);
+
+  useGSAP(
+    () => {
+      const mm = gsap.matchMedia();
+      mm.add('(min-width: 768px)', () => {
+        ScrollTrigger.create({
+          trigger: containerRef.current,
+          start: 'top top',
+          pin: true,
+          pinSpacing: false, // Allows ContactForm to slide over this section
+        });
+      });
+    },
+    { scope: containerRef },
+  );
+  const stackTop = ['NEXT.JS', 'REACT.JS', 'NODE.JS', 'TYPESCRIPT'];
+  const stackBottom = ['TAILWIND', 'GSAP', 'POSTGRES', 'FIGMA'];
 
   return (
-    <section id="tecnologias" className="w-full py-32 md:py-48 px-4 md:px-[7rem] bg-[#1a1a1a] text-white relative overflow-hidden">
+    <section
+      id="tecnologias"
+      ref={containerRef}
+      className="w-full py-32 md:py-48 px-4 md:px-[7rem] bg-[#1a1a1a] text-white relative overflow-hidden"
+    >
       <GridLines />
       {/* Glyph Rain Background */}
       <div className="glyph-rain-container">
-        <div className="glyph-column" style={{ animationDelay: "0s" }}>01011101010110101010101111010101010111010101101010101011110101</div>
-        <div className="glyph-column" style={{ animationDelay: "2s" }}>IT_SYSTEMS_BLACKCHERRY_REDUX_01010101101010101011110101</div>
-        <div className="glyph-column" style={{ animationDelay: "5s" }}>1010111010101101010101011110101010111010101101010101011110101</div>
-        <div className="glyph-column" style={{ animationDelay: "1s" }}>0001101010101101010101011110101010111010101101010101011110101</div>
-        <div className="glyph-column" style={{ animationDelay: "4s" }}>MONOLITH_ARCHITECTURE_STABLE_10101010111101010101110101011</div>
-        <div className="glyph-column" style={{ animationDelay: "3s" }}>1110101010111010101101010101011110101010111010101101010101011110101</div>
+        <div className="glyph-column" style={{ animationDelay: '0s' }}>
+          01011101010110101010101111010101010111010101101010101011110101
+        </div>
+        <div className="glyph-column" style={{ animationDelay: '2s' }}>
+          IT_SYSTEMS_BLACKCHERRY_REDUX_01010101101010101011110101
+        </div>
+        <div className="glyph-column" style={{ animationDelay: '5s' }}>
+          1010111010101101010101011110101010111010101101010101011110101
+        </div>
+        <div className="glyph-column" style={{ animationDelay: '1s' }}>
+          0001101010101101010101011110101010111010101101010101011110101
+        </div>
+        <div className="glyph-column" style={{ animationDelay: '4s' }}>
+          MONOLITH_ARCHITECTURE_STABLE_10101010111101010101110101011
+        </div>
+        <div className="glyph-column" style={{ animationDelay: '3s' }}>
+          1110101010111010101101010101011110101010111010101101010101011110101
+        </div>
       </div>
 
       {/* HUD Background Patterns */}
       <div className="absolute inset-0 blueprint-circuit opacity-[0.08] pointer-events-none z-0"></div>
       <div className="absolute inset-0 diagonal-blueprint opacity-[0.04] pointer-events-none z-0"></div>
-      
+
       <div className="flex flex-col md:flex-row relative z-10 items-stretch min-h-[600px]">
         {/* Left Side: Content Centered on axis */}
         <div className="md:w-[35%] flex flex-col justify-center items-start text-left pl-0 md:pl-4 mb-16 md:mb-0">
-          <span className="font-headline font-black text-white text-xs tracking-[0.3em] uppercase mb-6">04 / STACK</span>
+          <span className="font-headline font-black text-white text-xs tracking-[0.3em] uppercase mb-6">
+            04 / STACK
+          </span>
           <h2 className="font-headline font-black text-5xl md:text-7xl tracking-tighter leading-[0.85] uppercase">
             TECNOLOGÍAS
           </h2>
           <p className="mt-10 font-body text-white/50 max-w-sm text-sm uppercase tracking-widest leading-relaxed">
-            Utilizamos las herramientas más avanzadas y robustas del mercado para garantizar un rendimiento excepcional y una escalabilidad sin límites en cada proyecto.
+            Utilizamos las herramientas más avanzadas y robustas del mercado
+            para garantizar un rendimiento excepcional y una escalabilidad sin
+            límites en cada proyecto.
           </p>
         </div>
 
         {/* Right Side: Staggered Carousels */}
-        <div className="md:w-[65%] flex gap-4 md:gap-8 items-start h-[400px] md:h-[700px] overflow-hidden pr-0 md:pr-4 relative py-10 md:py-20 w-full">
+        <div
+          className="md:w-[65%] flex gap-4 md:gap-8 items-start h-[400px] md:h-[700px] overflow-hidden pr-0 md:pr-4 relative py-10 md:py-20 w-full"
+          style={{
+            WebkitMaskImage:
+              'linear-gradient(to bottom, transparent, black 30%, black 70%, transparent)',
+            maskImage:
+              'linear-gradient(to bottom, transparent, black 30%, black 70%, transparent)',
+          }}
+        >
           {/* Carousel 1 (Scrolls UP) */}
-          <div className="flex-[1.4] relative h-[400px] md:h-[600px] overflow-hidden bg-transparent -mt-10 md:-mt-20">
+          <div
+            className="fade-container flex-[1.4] relative h-[400px] md:h-[600px] overflow-hidden bg-transparent -mt-10 md:-mt-20"
+            style={{
+              WebkitMaskImage:
+                'linear-gradient(to bottom, transparent, black 30%, black 70%, transparent)',
+              maskImage:
+                'linear-gradient(to bottom, transparent, black 30%, black 70%, transparent)',
+            }}
+          >
             <div className="flex flex-col gap-0 py-0 animate-scroll-up">
               {/* Render twice for seamless loop */}
               {[...stackTop, ...stackTop].map((tech, i) => (
-                <div key={i} className="h-[100px] md:h-[150px] flex items-center justify-start">
+                <div
+                  key={i}
+                  className="h-[100px] md:h-[150px] flex items-center justify-start"
+                >
                   <span className="font-headline font-black text-4xl md:text-7xl tracking-tighter uppercase opacity-20 hover:opacity-100 hover:text-primary-container transition-all cursor-default whitespace-nowrap">
                     {tech}
                   </span>
@@ -50,11 +115,22 @@ export default function TechStack() {
           </div>
 
           {/* Carousel 2 (Scrolls DOWN) */}
-          <div className="flex-1 relative h-[400px] md:h-[600px] overflow-hidden bg-transparent mt-10 md:mt-20">
+          <div
+            className="fade-container flex-1 relative h-[400px] md:h-[600px] overflow-hidden bg-transparent mt-10 md:mt-20"
+            style={{
+              WebkitMaskImage:
+                'linear-gradient(to bottom, transparent, black 30%, black 70%, transparent)',
+              maskImage:
+                'linear-gradient(to bottom, transparent, black 30%, black 70%, transparent)',
+            }}
+          >
             <div className="flex flex-col gap-0 py-0 animate-scroll-down">
               {/* Render twice for seamless loop */}
               {[...stackBottom, ...stackBottom].map((tech, i) => (
-                <div key={i} className="h-[100px] md:h-[150px] flex items-center justify-start">
+                <div
+                  key={i}
+                  className="h-[100px] md:h-[150px] flex items-center justify-start"
+                >
                   <span className="font-headline font-black text-4xl md:text-7xl tracking-tighter uppercase opacity-20 hover:opacity-100 hover:text-primary-container transition-all cursor-default whitespace-nowrap">
                     {tech}
                   </span>

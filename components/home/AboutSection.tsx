@@ -80,22 +80,54 @@ export default function AboutSection() {
         </div>
         
         <div className="md:w-2/3 flex flex-col justify-start writing-machine relative">
-          {/* Sizer for layout to prevent jumping */}
-          <p className="font-headline font-light leading-snug pr-4 text-xl md:text-2xl opacity-0 pointer-events-none select-none" aria-hidden="true">
-            <span className="block mb-6">Creamos experiencias digitales que captan la atención del público y hacen que las marcas destaquen. Forjamos infraestructuras de alto impacto mediante un proceso de consultoría técnica riguroso y personalizado.</span>
-            <span className="block">Transformamos visiones audaces y creativas en resultados concretos.</span>
-          </p>
+          <div className="bg-[#0f0f0f] rounded-xl border border-white/10 shadow-2xl overflow-hidden w-full backdrop-blur-md">
+            {/* Mac Terminal Header */}
+            <div className="flex items-center px-4 py-3 bg-white/5 border-b border-white/10">
+              <div className="flex gap-2 w-20">
+                <div className="w-3 h-3 rounded-full bg-[#FF5F56] opacity-90 shadow-sm"></div>
+                <div className="w-3 h-3 rounded-full bg-[#FFBD2E] opacity-90 shadow-sm"></div>
+                <div className="w-3 h-3 rounded-full bg-[#27C93F] opacity-90 shadow-sm"></div>
+              </div>
+              <div className="flex-1 text-center font-mono text-[13px] text-white/40 select-none tracking-wide">
+                bash -- administrador
+              </div>
+              <div className="w-20"></div> {/* Spacer */}
+            </div>
+            
+            {/* Terminal Body Container */}
+            <div className="p-6 md:p-8 relative">
+              {/* Sizer for layout to prevent jumping */}
+              <p className="font-mono font-light leading-relaxed pr-4 text-base md:text-lg opacity-0 pointer-events-none select-none" aria-hidden="true">
+                <span className="block mb-6">
+                  <span className="font-bold mr-2">➜</span>
+                  <span className="font-bold mr-2">~</span>
+                  Creamos experiencias digitales que captan la atención del público y hacen que las marcas destaquen. Forjamos infraestructuras de alto impacto mediante un proceso de consultoría técnica riguroso y personalizado.
+                  <span className="font-bold ml-1">_</span>
+                </span>
+                <span className="block">
+                  <span className="font-bold mr-2">➜</span>
+                  <span className="font-bold mr-2">~</span>
+                  Transformamos visiones audaces y creativas en resultados concretos.
+                  <span className="font-bold ml-1">_</span>
+                </span>
+              </p>
 
-          <p ref={textRef} className="font-headline font-light leading-snug absolute top-0 left-0 w-full z-[110] pr-4 text-xl md:text-2xl">
-            <span className="text-white block mb-6">
-              <span className="type-text-1"></span>
-              <span className="cursor cursor-1 font-bold text-white opacity-0">_</span>
-            </span>
-            <span className="text-white/60 block">
-              <span className="type-text-2"></span>
-              <span className="cursor cursor-2 font-bold text-white/60 opacity-0">_</span>
-            </span>
-          </p>
+              <p ref={textRef} className="font-mono font-light leading-relaxed absolute top-6 left-6 md:top-8 md:left-8 right-6 md:right-8 z-10 pr-4 text-base md:text-lg">
+                <span className="text-[#E6E6E6] block mb-6">
+                  <span className="text-[#33C331] font-bold mr-2">➜</span>
+                  <span className="text-[#42AAC7] font-bold mr-2">~</span>
+                  <span className="type-text-1"></span>
+                  <span className="cursor cursor-1 font-bold text-[#E6E6E6] opacity-0 ml-1">_</span>
+                </span>
+                <span className="text-[#E6E6E6]/60 block">
+                  <span className="text-[#33C331] font-bold mr-2">➜</span>
+                  <span className="text-[#42AAC7] font-bold mr-2">~</span>
+                  <span className="type-text-2"></span>
+                  <span className="cursor cursor-2 font-bold text-[#E6E6E6]/60 opacity-0 ml-1">_</span>
+                </span>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
