@@ -25,7 +25,7 @@ export default function HeroVideoCarousel() {
   };
 
   return (
-    <div className="relative w-full bg-stone-100 overflow-hidden h-[400px] md:h-[620px]">
+    <div className="relative w-full bg-stone-100 overflow-hidden h-full lg:h-[620px]">
       {videos.map((src, index) => (
         <video
           key={src}
