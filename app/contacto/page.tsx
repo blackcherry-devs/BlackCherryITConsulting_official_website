@@ -12,70 +12,16 @@ export const metadata = {
 export default function ContactoPage() {
   return (
     <div className="w-full bg-white relative">
-      {/* Brand Icon (Outside Margin) - Transparent for Contact Page */}
-      <div className="fixed top-0 left-0 w-[7rem] h-20 flex items-center justify-center z-[100]">
-        <div className="relative flex flex-col items-center">
-          <Link href="/">
-            <img src="/cherry-icon.png" alt="BlackCherry Icon" className="w-10 h-10 object-contain" />
-          </Link>
-        </div>
-      </div>
-
-      {/* Navbar Wrapper - Glass Effect */}
-      <div className="fixed top-0 left-[7rem] right-[7rem] h-20 z-[60] flex pointer-events-none">
-        <nav className="w-1/2 bg-white/10 backdrop-blur-md flex items-center px-12 h-full pointer-events-auto border-r border-white/5">
-          <div className="flex gap-12 items-center w-full justify-start">
-            <Link
-              className="font-headline tracking-tighter uppercase font-bold text-[10px] md:text-xs text-white/70 hover:text-white transition-colors"
-              href="/"
-            >
-              INICIO
-            </Link>
-            <Link
-              className="font-headline tracking-tighter uppercase font-bold text-[10px] md:text-xs text-white/70 hover:text-white transition-colors"
-              href="/servicios"
-            >
-              SERVICIOS
-            </Link>
-            <Link
-              className="font-headline tracking-tighter uppercase font-bold text-[10px] md:text-xs text-white/70 hover:text-white transition-colors"
-              href="/portafolio"
-            >
-              PORTAFOLIO
-            </Link>
-            <Link
-              className="font-headline tracking-tighter uppercase font-bold text-[10px] md:text-xs text-white/70 hover:text-white transition-colors"
-              href="/ia"
-            >
-              IA
-            </Link>
-            <Link
-              className="font-headline tracking-tighter uppercase font-black text-[10px] md:text-xs text-white border-b-2 border-white pb-1"
-              href="/contacto"
-            >
-              CONTACTO
-            </Link>
-          </div>
-        </nav>
-        <div className="w-1/2 flex items-center justify-end px-12 h-full pointer-events-auto">
-          <AnimatedButton 
-            href="/contacto"
-            theme="primary"
-          >
-            TRABAJA CON NOSOTROS
-          </AnimatedButton>
-        </div>
-      </div>
 
       {/* 
         The global layout already provides the Footer and SmoothScroll.
         We render the main 50/50 contact section as a full 100vh screen.
         The footer will be visible only upon scrolling down.
       */}
-      <section className="flex flex-col md:flex-row w-full relative h-screen">
+      <section className="flex flex-col lg:flex-row w-full relative min-h-screen">
         
         {/* Left Side: Industrial Image */}
-        <div className="w-full md:w-1/2 relative overflow-hidden h-[50vh] md:h-full">
+        <div className="w-full lg:w-1/2 relative overflow-hidden h-[40vh] lg:h-screen">
           <img 
             alt="Industrial Architecture" 
             className="absolute inset-0 w-full h-full object-cover grayscale contrast-125" 
@@ -85,7 +31,7 @@ export default function ContactoPage() {
         </div>
 
         {/* Right Side: Solid Deep Cherry Red */}
-        <div className="w-full md:w-1/2 bg-[#8B090A] flex flex-col items-center justify-center relative p-6 md:p-12 h-[50vh] md:h-full">
+        <div className="w-full lg:w-1/2 bg-[#8B090A] flex flex-col items-center justify-center relative p-6 lg:p-12 h-auto lg:h-screen min-h-[400px]">
           <div className="absolute inset-0 technical-grid-red opacity-10 pointer-events-none"></div>
         </div>
 
@@ -95,26 +41,26 @@ export default function ContactoPage() {
         </div>
 
         {/* CENTRAL OVERLAPPING CONTAINER */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20 pt-20">
+        <div className="relative lg:absolute inset-0 flex items-center justify-center pointer-events-none z-20 pt-20 pb-12 lg:pb-0">
           <div className="flex flex-col xl:flex-row items-center gap-8 xl:gap-12 pointer-events-auto w-full max-w-5xl px-6">
             
             {/* The resized central card, straddling the center */}
             <div className="flex flex-col md:flex-row shadow-2xl w-full max-w-4xl relative min-h-[250px] xl:ml-32">
               {/* Dual-colored border effect (Hidden on mobile for better UX) */}
-              <div className="hidden md:block absolute inset-0 pointer-events-none z-30">
+              <div className="hidden lg:block absolute inset-0 pointer-events-none z-30">
                 <div className="absolute top-0 left-0 bottom-0 w-1/2 border-l-2 border-t-2 border-b-2 border-white"></div>
                 <div className="absolute top-0 right-0 bottom-0 w-1/2 border-r-2 border-t-2 border-b-2 border-black"></div>
               </div>
               
               {/* Left half of container (Over Image) */}
-              <div className="w-full md:w-1/2 bg-black/40 md:bg-white/5 backdrop-blur-xl flex items-center p-6 md:p-8 border-2 md:border-none border-white">
+              <div className="w-full md:w-1/2 bg-black/40 md:bg-white/5 backdrop-blur-xl flex items-center p-6 md:p-8 border-2 lg:border-none border-white">
                 <h2 className="font-headline font-black text-white tracking-tighter uppercase leading-[1.1] text-lg md:text-xl lg:text-2xl">
                   HABLEMOS DEL FUTURO DE TU INFRAESTRUCTURA
                 </h2>
               </div>
               
               {/* Right half of container (Over Red) */}
-              <div className="w-full md:w-1/2 bg-white flex flex-col justify-center p-6 md:p-8 py-4 border-2 md:border-none border-black md:border-l-0 border-t-0 md:border-t-2">
+              <div className="w-full md:w-1/2 bg-white flex flex-col justify-center p-6 md:p-8 py-4 border-2 lg:border-none border-black lg:border-l-0 border-t-0 lg:border-t-2">
                 <p className="font-headline text-primary font-black text-[10px] tracking-[0.4em] uppercase mb-4">NUEVA CONSULTA</p>
                 <form className="space-y-6">
                   <div className="relative">
@@ -159,12 +105,12 @@ export default function ContactoPage() {
             </div>
 
             {/* Repositioned Contact Info */}
-            <div className="flex flex-col gap-2 items-start bg-black/40 md:bg-transparent p-6 md:p-0 backdrop-blur-md md:backdrop-blur-none mt-8 xl:mt-0">
-              <h3 className="font-headline font-black text-2xl text-white tracking-tighter uppercase mb-2">Pongámonos en contacto</h3>
-              <a className="font-headline font-medium text-sm text-white/80 hover:text-white transition-colors tracking-widest uppercase" href="mailto:blackcherrydevs@gmail.com">
+            <div className="flex flex-col gap-2 items-center lg:items-start bg-black/40 lg:bg-transparent p-6 lg:p-0 backdrop-blur-md lg:backdrop-blur-none mt-4 lg:mt-8 xl:mt-0 w-full lg:w-auto">
+              <h3 className="font-headline font-black text-xl lg:text-2xl text-white tracking-tighter uppercase mb-2 text-center lg:text-left">Pongámonos en contacto</h3>
+              <a className="font-headline font-medium text-xs lg:text-sm text-white/80 hover:text-white transition-colors tracking-widest uppercase text-center lg:text-left" href="mailto:blackcherrydevs@gmail.com">
                 blackcherrydevs@gmail.com
               </a>
-              <div className="flex gap-6 mt-6 text-white/60">
+              <div className="flex gap-6 mt-6 text-white/60 justify-center lg:justify-start">
                 <a className="hover:text-white transition-colors" href="https://www.facebook.com/people/Blackcherry-Devs/61587561059170/" target="_blank" rel="noreferrer">
                   <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/>
@@ -191,3 +137,4 @@ export default function ContactoPage() {
     </div>
   );
 }
+               

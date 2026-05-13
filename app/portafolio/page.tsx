@@ -19,32 +19,32 @@ export default function PortafolioPage() {
       </div>
 
       {/* Hero Section */}
-      <header className="relative w-full flex flex-col md:flex-row items-stretch overflow-hidden bg-white">
+      <header className="relative w-full flex flex-col lg:flex-row items-stretch overflow-hidden bg-white">
         {/* Left: Image Carousel */}
-        <div className="w-full md:w-1/2 relative z-20 md:pl-[7rem] pt-20">
+        <div className="w-full lg:w-1/2 relative z-20 px-6 lg:px-0 lg:pl-[var(--gutter-width)] pt-20">
           <HeroImageCarousel />
         </div>
         
         {/* Right: Title Container */}
-        <div className="w-full md:w-1/2 relative flex flex-col md:pr-[7rem] pt-0 z-20">
-          <div className="relative w-full bg-[#1F1F1F] overflow-hidden h-[400px] md:h-[620px] flex flex-col justify-center px-6 md:px-12">
+        <div className="w-full lg:w-1/2 relative flex flex-col px-6 lg:px-0 lg:pr-[var(--gutter-width)] pt-0 z-20">
+          <div className="relative w-full bg-[#1F1F1F] overflow-hidden h-[350px] md:h-[500px] lg:h-[620px] flex flex-col justify-center px-6 md:px-12">
             <div className="absolute inset-0 opacity-5 pointer-events-none technical-grid-red"></div>
-            <h1 className="font-headline font-black text-[10vw] md:text-[5vw] leading-[0.9] tracking-tighter uppercase text-white mb-8 relative z-10">
+            <h1 className="font-headline font-black text-5xl md:text-[5vw] leading-[0.9] tracking-tighter uppercase text-white mb-8 relative z-10">
               PORTAFOLIO
             </h1>
             <div className="max-w-xl relative z-10">
-              <p className="font-headline font-light text-2xl md:text-3xl text-white/90 uppercase tracking-tight leading-none mb-4 border-l-4 border-primary-container pl-6">
+              <p className="font-headline font-light text-xl md:text-3xl text-white/90 uppercase tracking-tight leading-none mb-4 border-l-4 border-primary-container pl-6">
                 TRANSFORMANDO IDEAS EN <br/> INFRAESTRUCTURA <br/> DE ÉXITO
               </p>
-              <p className="font-body text-white/40 text-[10px] md:text-xs uppercase tracking-[0.3em] font-medium">
+              <p className="font-body text-white/40 text-[9px] md:text-xs uppercase tracking-[0.3em] font-medium">
                 Estrategia Digital • Innovación Tecnológica • Rendimiento Garantizado
               </p>
             </div>
           </div>
           {/* Transition div */}
-          <div className="bg-[#8B090A] w-full border-left border-l-[1.3px] border-white h-[160px] flex flex-col justify-center relative overflow-hidden pr-6 md:pr-12">
-            <div className="flex flex-col items-start justify-center max-w-4xl h-full relative z-20 pt-4 pl-6 md:pl-4">
-              <p className="font-headline font-light text-xl md:text-2xl text-white leading-tight mb-0 tracking-tight text-left">
+          <div className="bg-[#8B090A] w-full lg:border-left lg:border-l-[1.3px] border-white h-auto py-12 md:h-[160px] flex flex-col justify-center relative overflow-hidden px-6 md:px-12">
+            <div className="flex flex-col items-start justify-center max-w-4xl h-full relative z-20 pt-4 md:pl-4">
+              <p className="font-headline font-light text-lg md:text-2xl text-white leading-tight mb-0 tracking-tight text-left">
                 Materializando visiones complejas en estructuras digitales robustas y escalables.
               </p>
             </div>
@@ -56,18 +56,18 @@ export default function PortafolioPage() {
       <section className="relative w-full bg-white overflow-hidden py-0">
         <div className="relative w-full">
           {/* Internal Grid Lines */}
-          <div className="hidden md:block service-grid-line w-[1.3px] top-0 bottom-0 left-1/3"></div>
-          <div className="hidden md:block service-grid-line w-[1.3px] top-0 bottom-0 left-2/3"></div>
-          <div className="hidden md:block service-grid-line h-[1.3px] left-0 right-0 top-1/3"></div>
-          <div className="hidden md:block service-grid-line h-[1.3px] left-0 right-0 top-2/3"></div>
-          <div className="hidden md:block service-grid-line h-[1.3px] left-0 right-0 bottom-0"></div>
-          <div className="hidden md:block service-grid-line h-[1.3px] left-0 right-0 top-0"></div>
+          <div className="hidden lg:block service-grid-line w-[1.3px] top-0 bottom-0 left-1/3"></div>
+          <div className="hidden lg:block service-grid-line w-[1.3px] top-0 bottom-0 left-2/3"></div>
+          <div className="hidden lg:block service-grid-line h-[1.3px] left-0 right-0 top-1/3"></div>
+          <div className="hidden lg:block service-grid-line h-[1.3px] left-0 right-0 top-2/3"></div>
+          <div className="hidden lg:block service-grid-line h-[1.3px] left-0 right-0 bottom-0"></div>
+          <div className="hidden lg:block service-grid-line h-[1.3px] left-0 right-0 top-0"></div>
           
           {/* Grid Container */}
-          <div className="grid grid-cols-1 md:grid-cols-3 relative z-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 relative z-20">
             
             {/* Project 01: GPAMEX */}
-            <Link href="/portafolio/gpamex" className="relative block h-[70vh] md:h-[95vh] group overflow-hidden border-b md:border-b-0 md:border-r border-transparent cursor-pointer">
+            <Link href="/portafolio/gpamex" className="relative block h-[60vh] md:h-[80vh] lg:h-[95vh] group overflow-hidden border-b border-white/10 lg:border-none cursor-pointer">
               <img 
                 alt="GPAMEX" 
                 className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 brightness-50 group-hover:brightness-25 group-hover:scale-110 transition-all duration-700" 
@@ -79,7 +79,7 @@ export default function PortafolioPage() {
                 <AnimatedButton 
                   asDiv 
                   theme="primary" 
-                  className="opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0"
+                  className="lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-500 lg:translate-y-4 lg:group-hover:translate-y-0"
                 >
                   VER PROYECTO
                 </AnimatedButton>
@@ -93,18 +93,18 @@ export default function PortafolioPage() {
                   <div className="h-full overflow-hidden opacity-70 group-hover:opacity-100 transition-opacity relative flex items-end">
                     <div className="relative">
                       <div className="pb-12 opacity-0 pointer-events-none">
-                        <h3 className="font-headline font-black text-5xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap">
+                        <h3 className="font-headline font-black text-4xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap">
                           GPAMEX
                         </h3>
                       </div>
-                      <div className="absolute top-0 left-0 flex flex-col group-hover:animate-scroll-up">
+                      <div className="absolute top-0 left-0 flex flex-col lg:group-hover:animate-scroll-up">
                         <div className="pb-12">
-                          <h3 className="font-headline font-black text-5xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap">
+                          <h3 className="font-headline font-black text-4xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap">
                             GPAMEX
                           </h3>
                         </div>
                         <div className="pb-12">
-                          <h3 className="font-headline font-black text-5xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap" aria-hidden="true">
+                          <h3 className="font-headline font-black text-4xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap" aria-hidden="true">
                             GPAMEX
                           </h3>
                         </div>
@@ -115,7 +115,7 @@ export default function PortafolioPage() {
               </div>
               <div className="absolute top-8 left-8 text-white/30 font-headline font-black text-xl md:text-2xl z-10">01</div>
               {/* Video Hover Placeholder */}
-              <div className="absolute inset-0 flex items-center justify-center z-40 pointer-events-none">
+              <div className="hidden lg:flex absolute inset-0 items-center justify-center z-40 pointer-events-none">
                 <div className="w-[80%] h-[50%] rounded-custom overflow-hidden opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-700 ease-out bg-black shadow-2xl">
                   <video className="w-full h-full object-cover object-left" loop muted playsInline autoPlay>
                     <source src="/projects/gpamex/video.mp4" type="video/mp4"/>
@@ -125,7 +125,7 @@ export default function PortafolioPage() {
             </Link>
 
             {/* Project 02: GRUPO COSIAM */}
-            <Link href="/portafolio/grupo-cosiam" className="relative block h-[70vh] md:h-[95vh] group overflow-hidden border-b md:border-b-0 md:border-r border-transparent cursor-pointer">
+            <Link href="/portafolio/grupo-cosiam" className="relative block h-[60vh] md:h-[80vh] lg:h-[95vh] group overflow-hidden border-b border-white/10 lg:border-none cursor-pointer">
               <img 
                 alt="GRUPO COSIAM" 
                 className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 brightness-50 group-hover:brightness-25 group-hover:scale-110 transition-all duration-700" 
@@ -136,7 +136,7 @@ export default function PortafolioPage() {
                 <AnimatedButton 
                   asDiv 
                   theme="primary" 
-                  className="opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0"
+                  className="lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-500 lg:translate-y-4 lg:group-hover:translate-y-0"
                 >
                   VER PROYECTO
                 </AnimatedButton>
@@ -149,18 +149,18 @@ export default function PortafolioPage() {
                   <div className="h-full overflow-hidden opacity-70 group-hover:opacity-100 transition-opacity relative flex items-end">
                     <div className="relative">
                       <div className="pb-12 opacity-0 pointer-events-none">
-                        <h3 className="font-headline font-black text-5xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap">
+                        <h3 className="font-headline font-black text-4xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap">
                           GRUPO COSIAM
                         </h3>
                       </div>
-                      <div className="absolute top-0 left-0 flex flex-col group-hover:animate-scroll-up">
+                      <div className="absolute top-0 left-0 flex flex-col lg:group-hover:animate-scroll-up">
                         <div className="pb-12">
-                          <h3 className="font-headline font-black text-5xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap">
+                          <h3 className="font-headline font-black text-4xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap">
                             GRUPO COSIAM
                           </h3>
                         </div>
                         <div className="pb-12">
-                          <h3 className="font-headline font-black text-5xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap" aria-hidden="true">
+                          <h3 className="font-headline font-black text-4xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap" aria-hidden="true">
                             GRUPO COSIAM
                           </h3>
                         </div>
@@ -170,7 +170,7 @@ export default function PortafolioPage() {
                 </div>
               </div>
               <div className="absolute top-8 left-8 text-white/30 font-headline font-black text-xl md:text-2xl z-10">02</div>
-              <div className="absolute inset-0 flex items-center justify-center z-40 pointer-events-none">
+              <div className="hidden lg:flex absolute inset-0 items-center justify-center z-40 pointer-events-none">
                 <div className="w-[80%] h-[50%] rounded-custom overflow-hidden opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-700 ease-out bg-black shadow-2xl">
                   <video className="w-full h-full object-cover object-left" loop muted playsInline autoPlay>
                     <source src="/projects/grupo-cosiam/video.mp4" type="video/mp4"/>
@@ -180,7 +180,7 @@ export default function PortafolioPage() {
             </Link>
 
             {/* Project 03: ADELAI */}
-            <Link href="/portafolio/adelai" className="relative block h-[70vh] md:h-[95vh] group overflow-hidden border-b md:border-b-0 cursor-pointer">
+            <Link href="/portafolio/adelai" className="relative block h-[60vh] md:h-[80vh] lg:h-[95vh] group overflow-hidden border-b border-white/10 lg:border-none cursor-pointer">
               <img 
                 alt="ADELAI" 
                 className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 brightness-50 group-hover:brightness-25 group-hover:scale-110 transition-all duration-700" 
@@ -191,7 +191,7 @@ export default function PortafolioPage() {
                 <AnimatedButton 
                   asDiv 
                   theme="primary" 
-                  className="opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0"
+                  className="lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-500 lg:translate-y-4 lg:group-hover:translate-y-0"
                 >
                   VER PROYECTO
                 </AnimatedButton>
@@ -204,18 +204,18 @@ export default function PortafolioPage() {
                   <div className="h-full overflow-hidden opacity-70 group-hover:opacity-100 transition-opacity relative flex items-end">
                     <div className="relative">
                       <div className="pb-12 opacity-0 pointer-events-none">
-                        <h3 className="font-headline font-black text-5xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap">
+                        <h3 className="font-headline font-black text-4xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap">
                           ADELAI
                         </h3>
                       </div>
-                      <div className="absolute top-0 left-0 flex flex-col group-hover:animate-scroll-up">
+                      <div className="absolute top-0 left-0 flex flex-col lg:group-hover:animate-scroll-up">
                         <div className="pb-12">
-                          <h3 className="font-headline font-black text-5xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap">
+                          <h3 className="font-headline font-black text-4xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap">
                             ADELAI
                           </h3>
                         </div>
                         <div className="pb-12">
-                          <h3 className="font-headline font-black text-5xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap" aria-hidden="true">
+                          <h3 className="font-headline font-black text-4xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap" aria-hidden="true">
                             ADELAI
                           </h3>
                         </div>
@@ -225,7 +225,7 @@ export default function PortafolioPage() {
                 </div>
               </div>
               <div className="absolute top-8 left-8 text-white/30 font-headline font-black text-xl md:text-2xl z-10">03</div>
-              <div className="absolute inset-0 flex items-center justify-center z-40 pointer-events-none">
+              <div className="hidden lg:flex absolute inset-0 items-center justify-center z-40 pointer-events-none">
                 <div className="w-[80%] h-[50%] rounded-custom overflow-hidden opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-700 ease-out bg-black shadow-2xl">
                   <video className="w-full h-full object-cover object-left" loop muted playsInline autoPlay>
                     <source src="/projects/adelai/video.mp4" type="video/mp4"/>
@@ -235,7 +235,7 @@ export default function PortafolioPage() {
             </Link>
 
             {/* Project 04: CERATO ARTE FLORAL */}
-            <Link href="/portafolio/cerato" className="relative block h-[70vh] md:h-[95vh] group overflow-hidden border-b md:border-b-0 md:border-r border-transparent cursor-pointer">
+            <Link href="/portafolio/cerato" className="relative block h-[60vh] md:h-[80vh] lg:h-[95vh] group overflow-hidden border-b border-white/10 lg:border-none cursor-pointer">
               <img 
                 alt="CERATO ARTE FLORAL" 
                 className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 brightness-50 group-hover:brightness-25 group-hover:scale-110 transition-all duration-700" 
@@ -246,7 +246,7 @@ export default function PortafolioPage() {
                 <AnimatedButton 
                   asDiv 
                   theme="primary" 
-                  className="opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0"
+                  className="lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-500 lg:translate-y-4 lg:group-hover:translate-y-0"
                 >
                   VER PROYECTO
                 </AnimatedButton>
@@ -259,18 +259,18 @@ export default function PortafolioPage() {
                   <div className="h-full overflow-hidden opacity-70 group-hover:opacity-100 transition-opacity relative flex items-end">
                     <div className="relative">
                       <div className="pb-12 opacity-0 pointer-events-none">
-                        <h3 className="font-headline font-black text-5xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap">
+                        <h3 className="font-headline font-black text-4xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap">
                           CERATO
                         </h3>
                       </div>
-                      <div className="absolute top-0 left-0 flex flex-col group-hover:animate-scroll-up">
+                      <div className="absolute top-0 left-0 flex flex-col lg:group-hover:animate-scroll-up">
                         <div className="pb-12">
-                          <h3 className="font-headline font-black text-5xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap">
+                          <h3 className="font-headline font-black text-4xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap">
                             CERATO
                           </h3>
                         </div>
                         <div className="pb-12">
-                          <h3 className="font-headline font-black text-5xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap" aria-hidden="true">
+                          <h3 className="font-headline font-black text-4xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap" aria-hidden="true">
                             CERATO
                           </h3>
                         </div>
@@ -280,7 +280,7 @@ export default function PortafolioPage() {
                 </div>
               </div>
               <div className="absolute top-8 left-8 text-white/30 font-headline font-black text-xl md:text-2xl z-10">04</div>
-              <div className="absolute inset-0 flex items-center justify-center z-40 pointer-events-none">
+              <div className="hidden lg:flex absolute inset-0 items-center justify-center z-40 pointer-events-none">
                 <div className="w-[80%] h-[50%] rounded-custom overflow-hidden opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-700 ease-out bg-black shadow-2xl">
                   <video className="w-full h-full object-cover object-left" loop muted playsInline autoPlay>
                     <source src="/projects/cerato/video.mp4" type="video/mp4"/>
@@ -290,7 +290,7 @@ export default function PortafolioPage() {
             </Link>
 
             {/* Project 05: DANI SUACHÁ */}
-            <Link href="/portafolio/dani-suacha" className="relative block h-[70vh] md:h-[95vh] group overflow-hidden border-b md:border-b-0 md:border-r border-transparent cursor-pointer">
+            <Link href="/portafolio/dani-suacha" className="relative block h-[60vh] md:h-[80vh] lg:h-[95vh] group overflow-hidden border-b border-white/10 lg:border-none cursor-pointer">
               <img 
                 alt="DANI SUACHÁ" 
                 className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 brightness-50 group-hover:brightness-25 group-hover:scale-110 transition-all duration-700" 
@@ -301,7 +301,7 @@ export default function PortafolioPage() {
                 <AnimatedButton 
                   asDiv 
                   theme="primary" 
-                  className="opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0"
+                  className="lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-500 lg:translate-y-4 lg:group-hover:translate-y-0"
                 >
                   VER PROYECTO
                 </AnimatedButton>
@@ -314,18 +314,18 @@ export default function PortafolioPage() {
                   <div className="h-full overflow-hidden opacity-70 group-hover:opacity-100 transition-opacity relative flex items-end">
                     <div className="relative">
                       <div className="pb-12 opacity-0 pointer-events-none">
-                        <h3 className="font-headline font-black text-5xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap">
+                        <h3 className="font-headline font-black text-4xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap">
                           DANI SUACHÁ
                         </h3>
                       </div>
-                      <div className="absolute top-0 left-0 flex flex-col group-hover:animate-scroll-up">
+                      <div className="absolute top-0 left-0 flex flex-col lg:group-hover:animate-scroll-up">
                         <div className="pb-12">
-                          <h3 className="font-headline font-black text-5xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap">
+                          <h3 className="font-headline font-black text-4xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap">
                             DANI SUACHÁ
                           </h3>
                         </div>
                         <div className="pb-12">
-                          <h3 className="font-headline font-black text-5xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap" aria-hidden="true">
+                          <h3 className="font-headline font-black text-4xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap" aria-hidden="true">
                             DANI SUACHÁ
                           </h3>
                         </div>
@@ -335,7 +335,7 @@ export default function PortafolioPage() {
                 </div>
               </div>
               <div className="absolute top-8 left-8 text-white/30 font-headline font-black text-xl md:text-2xl z-10">05</div>
-              <div className="absolute inset-0 flex items-center justify-center z-40 pointer-events-none">
+              <div className="hidden lg:flex absolute inset-0 items-center justify-center z-40 pointer-events-none">
                 <div className="w-[80%] h-[50%] rounded-custom overflow-hidden opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-700 ease-out bg-black shadow-2xl">
                   <video className="w-full h-full object-cover object-left" loop muted playsInline autoPlay>
                     <source src="/projects/dani-suacha/video.mp4" type="video/mp4"/>
@@ -345,7 +345,7 @@ export default function PortafolioPage() {
             </Link>
 
             {/* Project 06: GUERMAR */}
-            <Link href="/portafolio/guermar" className="relative block h-[70vh] md:h-[95vh] group overflow-hidden cursor-pointer">
+            <Link href="/portafolio/guermar" className="relative block h-[60vh] md:h-[80vh] lg:h-[95vh] group overflow-hidden border-b border-white/10 lg:border-none cursor-pointer">
               <img 
                 alt="GUERMAR" 
                 className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 brightness-50 group-hover:brightness-25 group-hover:scale-110 transition-all duration-700" 
@@ -356,7 +356,7 @@ export default function PortafolioPage() {
                 <AnimatedButton 
                   asDiv 
                   theme="primary" 
-                  className="opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0"
+                  className="lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-500 lg:translate-y-4 lg:group-hover:translate-y-0"
                 >
                   VER PROYECTO
                 </AnimatedButton>
@@ -369,18 +369,18 @@ export default function PortafolioPage() {
                   <div className="h-full overflow-hidden opacity-70 group-hover:opacity-100 transition-opacity relative flex items-end">
                     <div className="relative">
                       <div className="pb-12 opacity-0 pointer-events-none">
-                        <h3 className="font-headline font-black text-5xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap">
+                        <h3 className="font-headline font-black text-4xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap">
                           GUERMAR
                         </h3>
                       </div>
-                      <div className="absolute top-0 left-0 flex flex-col group-hover:animate-scroll-up">
+                      <div className="absolute top-0 left-0 flex flex-col lg:group-hover:animate-scroll-up">
                         <div className="pb-12">
-                          <h3 className="font-headline font-black text-5xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap">
+                          <h3 className="font-headline font-black text-4xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap">
                             GUERMAR
                           </h3>
                         </div>
                         <div className="pb-12">
-                          <h3 className="font-headline font-black text-5xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap" aria-hidden="true">
+                          <h3 className="font-headline font-black text-4xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap" aria-hidden="true">
                             GUERMAR
                           </h3>
                         </div>
@@ -390,7 +390,7 @@ export default function PortafolioPage() {
                 </div>
               </div>
               <div className="absolute top-8 left-8 text-white/30 font-headline font-black text-xl md:text-2xl z-10">06</div>
-              <div className="absolute inset-0 flex items-center justify-center z-40 pointer-events-none">
+              <div className="hidden lg:flex absolute inset-0 items-center justify-center z-40 pointer-events-none">
                 <div className="w-[80%] h-[50%] rounded-custom overflow-hidden opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-700 ease-out bg-black shadow-2xl">
                   <video className="w-full h-full object-cover object-left" loop muted playsInline autoPlay>
                     <source src="/projects/guermar/video.mp4" type="video/mp4"/>
@@ -400,7 +400,7 @@ export default function PortafolioPage() {
             </Link>
 
             {/* Project 07: LARS DYNAMICS */}
-            <Link href="/portafolio/lars-dynamics" className="relative block h-[70vh] md:h-[95vh] group overflow-hidden border-b md:border-b-0 md:border-r border-transparent cursor-pointer">
+            <Link href="/portafolio/lars-dynamics" className="relative block h-[60vh] md:h-[80vh] lg:h-[95vh] group overflow-hidden border-b border-white/10 lg:border-none cursor-pointer">
               <img 
                 alt="LARS DYNAMICS" 
                 className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 brightness-50 group-hover:brightness-25 group-hover:scale-110 transition-all duration-700" 
@@ -411,7 +411,7 @@ export default function PortafolioPage() {
                 <AnimatedButton 
                   asDiv 
                   theme="primary" 
-                  className="opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0"
+                  className="lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-500 lg:translate-y-4 lg:group-hover:translate-y-0"
                 >
                   VER PROYECTO
                 </AnimatedButton>
@@ -424,18 +424,18 @@ export default function PortafolioPage() {
                   <div className="h-full overflow-hidden opacity-70 group-hover:opacity-100 transition-opacity relative flex items-end">
                     <div className="relative">
                       <div className="pb-12 opacity-0 pointer-events-none">
-                        <h3 className="font-headline font-black text-5xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap">
+                        <h3 className="font-headline font-black text-4xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap">
                           LARS DYNAMICS
                         </h3>
                       </div>
-                      <div className="absolute top-0 left-0 flex flex-col group-hover:animate-scroll-up">
+                      <div className="absolute top-0 left-0 flex flex-col lg:group-hover:animate-scroll-up">
                         <div className="pb-12">
-                          <h3 className="font-headline font-black text-5xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap">
+                          <h3 className="font-headline font-black text-4xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap">
                             LARS DYNAMICS
                           </h3>
                         </div>
                         <div className="pb-12">
-                          <h3 className="font-headline font-black text-5xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap" aria-hidden="true">
+                          <h3 className="font-headline font-black text-4xl md:text-7xl lg:text-8xl text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap" aria-hidden="true">
                             LARS DYNAMICS
                           </h3>
                         </div>
@@ -445,7 +445,7 @@ export default function PortafolioPage() {
                 </div>
               </div>
               <div className="absolute top-8 left-8 text-white/30 font-headline font-black text-xl md:text-2xl z-10">07</div>
-              <div className="absolute inset-0 flex items-center justify-center z-40 pointer-events-none">
+              <div className="hidden lg:flex absolute inset-0 items-center justify-center z-40 pointer-events-none">
                 <div className="w-[80%] h-[50%] rounded-custom overflow-hidden opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-700 ease-out bg-black shadow-2xl">
                   <video className="w-full h-full object-cover object-left" loop muted playsInline autoPlay>
                     <source src="/projects/lars-dynamics/video.mp4" type="video/mp4"/>
@@ -459,14 +459,14 @@ export default function PortafolioPage() {
       </section>
 
       {/* Minimal Connection Section */}
-      <section className="w-full py-24 px-6 md:px-[7rem] relative overflow-hidden flex flex-col items-center bg-white">
-        <div className="hidden md:block gutter-line gutter-left opacity-10 pointer-events-none"></div>
-        <div className="hidden md:block gutter-line gutter-right opacity-10 pointer-events-none"></div>
-        <div className="hidden md:block center-line-full opacity-10 pointer-events-none"></div>
+      <section className="w-full py-20 md:py-24 px-6 md:px-[var(--gutter-width)] relative overflow-hidden flex flex-col items-center bg-white">
+        <div className="hidden lg:block gutter-line gutter-left opacity-10 pointer-events-none"></div>
+        <div className="hidden lg:block gutter-line gutter-right opacity-10 pointer-events-none"></div>
+        <div className="hidden lg:block center-line-full opacity-10 pointer-events-none"></div>
         
         <div className="relative z-10 text-center">
           <p className="font-headline text-[10px] tracking-[0.6em] uppercase mb-6 text-primary-container">ESTABLECER PROTOCOLO</p>
-          <Link href="/contacto" className="font-headline font-black text-3xl md:text-4xl hover:text-primary-container transition-all tracking-tighter uppercase flex items-center gap-6 group text-[#1F1F1F]">
+          <Link href="/contacto" className="font-headline font-black text-2xl md:text-4xl hover:text-primary-container transition-all tracking-tighter uppercase flex items-center gap-6 group text-[#1F1F1F]">
             INICIALIZAR CONEXIÓN
             <span className="material-symbols-outlined text-primary-container group-hover:translate-x-2 transition-transform">arrow_right_alt</span>
           </Link>

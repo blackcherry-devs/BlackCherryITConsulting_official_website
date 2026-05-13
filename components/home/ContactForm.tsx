@@ -64,11 +64,11 @@ export default function ContactForm() {
         <div className="glyph-column" style={{ animationDelay: "6s" }}>HABLEMOS_DEL_FUTURO_010101101010101011110101</div>
       </div>
       
-      <div className="relative z-10 flex flex-col md:flex-row items-stretch w-full px-4 md:px-[7rem] py-32 md:py-48">
+      <div className="relative z-10 flex flex-col md:flex-row items-stretch w-full px-4 min-[600px]:px-[4rem] lg:px-[7rem] py-20 md:py-32 lg:py-48">
         {/* Left Side: Massive Typography & Info */}
-        <div className="md:w-1/2 flex flex-col justify-center pl-0 md:pl-4 py-12">
+        <div className="w-full md:w-1/2 lg:w-[52%] flex flex-col justify-center pl-0 lg:pr-12 py-12">
           <span className="font-headline font-black text-white text-xs tracking-[0.4em] uppercase mb-12 block">05 / CONTACTO</span>
-          <h2 className="font-headline font-black text-[12vw] md:text-[8vw] leading-[0.9] tracking-tighter uppercase mb-12">
+          <h2 className="font-headline font-black text-[10vw] md:text-[6vw] leading-[0.9] tracking-tighter uppercase mb-12">
             HABLEMOS <br /> DEL <br /> <span className="text-[#8B090A]">FUTURO.</span>
           </h2>
           <div className="max-w-md">
@@ -91,13 +91,13 @@ export default function ContactForm() {
         </div>
 
         {/* Right Side: Sophisticated Glassmorphism Form over White BG */}
-        <div className="md:w-1/2 flex items-center justify-end pr-0 md:pr-4 py-12 relative">
-          {/* Mobile background fix */}
-          <div className="absolute inset-0 bg-white z-0 md:hidden w-[100vw] left-[-1rem]"></div>
+        <div className="w-full md:w-1/2 lg:w-[48%] flex items-center justify-center md:justify-end pr-0 lg:pr-12 py-12 relative">
+          {/* Mobile background fix - Simplified */}
+          <div className="absolute inset-0 bg-white z-0 md:hidden"></div>
           
-          <div className="w-full max-w-lg p-6 md:p-14 relative overflow-hidden pl-[1rem] rounded-xl bg-transparent border-none shadow-none md:translate-x-2">
+          <div className="w-full max-w-full px-6 min-[600px]:px-12 md:px-2 lg:px-0 relative overflow-hidden rounded-xl bg-white md:bg-transparent border-none shadow-none">
             {/* Subtle Form Background Polish */}
-            <div className="absolute inset-0 wireframe-overlay opacity-5 pointer-events-none hidden md:block"></div>
+            <div className="absolute inset-0 wireframe-overlay opacity-5 pointer-events-none hidden min-[600px]:block"></div>
             
             <form onSubmit={handleSubmit} className="relative z-10 space-y-10">
               <div className="relative group">

@@ -15,9 +15,9 @@ const ManychatFeatures = () => {
       <div className="absolute inset-0 opacity-50 pointer-events-none technical-grid-light"></div>
       
       {/* Intro section */}
-      <div className="flex h-[70vh] flex-col items-center justify-center relative z-10">
+      <div className="flex h-[60vh] md:h-[70vh] flex-col items-center justify-center relative z-10 px-6">
         <span className="font-headline font-black text-[10px] tracking-[0.4em] uppercase text-black/40 mb-4 text-center">MANYCHAT INTEGRATION</span>
-        <h2 className="font-headline font-black text-black text-5xl md:text-7xl lg:text-8xl uppercase leading-[0.9] tracking-tighter text-center max-w-4xl px-4 mt-2">
+        <h2 className="font-headline font-black text-black text-4xl md:text-7xl lg:text-8xl uppercase leading-[0.9] tracking-tighter text-center max-w-4xl mt-2">
           MENSAJERÍA <br />
           <span className="text-primary-container">INTELIGENTE</span>
         </h2>
@@ -61,7 +61,7 @@ const SlidingFeatureDisplay = ({
         justifyContent:
           featureInView.contentPosition === "l" ? "flex-end" : "flex-start",
       }}
-      className="pointer-events-none sticky top-0 z-10 hidden h-screen w-full items-center justify-center md:flex px-6 md:px-[9rem]"
+      className="pointer-events-none sticky top-0 z-10 hidden h-screen w-full items-center justify-center md:flex px-6 md:px-[var(--gutter-width)]"
     >
       <motion.div
         layout
@@ -99,13 +99,13 @@ const Content = ({
   return (
     <section
       ref={ref}
-      className="relative z-0 flex h-fit md:h-screen px-6 md:px-[9rem]"
+      className="relative z-0 flex h-fit md:h-screen px-6 md:px-[var(--gutter-width)]"
       style={{
         justifyContent:
           featureInView.contentPosition === "l" ? "flex-start" : "flex-end",
       }}
     >
-      <div className="grid h-full w-full place-content-center py-24 md:w-[40%] md:px-4 md:py-8">
+      <div className="grid h-full w-full place-content-center py-20 md:w-[40%] md:px-4 md:py-8">
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -114,8 +114,8 @@ const Content = ({
           <span className="rounded-xl bg-black px-4 py-2 font-headline font-bold text-[9px] uppercase tracking-widest text-white">
             {featureInView.callout}
           </span>
-          <p className="my-6 text-3xl md:text-4xl lg:text-5xl font-headline font-black uppercase tracking-tighter leading-none">{featureInView.title}</p>
-          <p className="font-body text-black/60 leading-relaxed text-sm md:text-base max-w-md">{featureInView.description}</p>
+          <p className="my-6 text-2xl md:text-4xl lg:text-5xl font-headline font-black uppercase tracking-tighter leading-none">{featureInView.title}</p>
+          <p className="font-body text-black/60 leading-relaxed text-xs md:text-base max-w-md">{featureInView.description}</p>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, y: 25 }}

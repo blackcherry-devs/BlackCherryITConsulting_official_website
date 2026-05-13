@@ -43,17 +43,8 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
         <GridLines />
       </div>
 
-      {/* Brand Icon (Outside Margin) */}
-      <div className="fixed top-0 left-0 w-[7rem] h-20 flex items-center justify-center z-[100]">
-        <div className="relative flex flex-col items-center">
-          <Link href="/">
-            <img src="/cherry-icon.png" alt="BlackCherry Icon" className="w-10 h-10 object-contain" />
-          </Link>
-        </div>
-      </div>
-
       {/* Back to Portfolio Button (Fixed in Gutter) */}
-      <div className="fixed bottom-12 left-0 w-[7rem] hidden md:flex flex-col items-center justify-center z-[100]">
+      <div className="fixed bottom-12 left-0 w-[var(--gutter-width)] hidden md:flex flex-col items-center justify-center z-[100]">
         <Link href="/portafolio" className="group flex flex-col items-center gap-6">
           <span className="font-headline font-black text-[11px] tracking-[0.5em] uppercase vertical-text-up text-primary-container transition-all duration-500 group-hover:scale-110">
             VOLVER AL PORTAFOLIO
@@ -62,51 +53,6 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
         </Link>
       </div>
 
-      {/* Navbar Wrapper */}
-      <div className="fixed top-0 left-[7rem] right-[7rem] h-20 z-[60] flex pointer-events-none">
-        <nav className="w-1/2 bg-black/10 backdrop-blur-md flex items-center px-12 h-full pointer-events-auto border-b border-white/10">
-          <div className="flex gap-12 items-center w-full justify-start">
-            <Link
-              className="font-headline tracking-tighter uppercase font-bold text-[10px] md:text-xs text-white/70 hover:text-white transition-colors"
-              href="/"
-            >
-              INICIO
-            </Link>
-            <Link
-              className="font-headline tracking-tighter uppercase font-bold text-[10px] md:text-xs text-white/70 hover:text-white transition-colors"
-              href="/servicios"
-            >
-              SERVICIOS
-            </Link>
-            <Link
-              className="font-headline tracking-tighter uppercase font-black text-[10px] md:text-xs text-white border-b-2 border-white pb-1"
-              href="/portafolio"
-            >
-              PORTAFOLIO
-            </Link>
-            <Link
-              className="font-headline tracking-tighter uppercase font-bold text-[10px] md:text-xs text-white/70 hover:text-white transition-colors"
-              href="/ia"
-            >
-              IA
-            </Link>
-            <Link
-              className="font-headline tracking-tighter uppercase font-bold text-[10px] md:text-xs text-white/70 hover:text-white transition-colors"
-              href="/contacto"
-            >
-              CONTACTO
-            </Link>
-          </div>
-        </nav>
-        <div className="w-1/2 flex items-center justify-end px-12 h-full pointer-events-auto border-b border-white/10">
-          <AnimatedButton 
-            href="/contacto" 
-            theme="primary"
-          >
-            TRABAJA CON NOSOTROS
-          </AnimatedButton>
-        </div>
-      </div>
 
       {/* Horizontal Scroll Container without snap jumping */}
       <div 
@@ -230,3 +176,4 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
     </div>
   );
 }
+                

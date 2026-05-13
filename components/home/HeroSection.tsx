@@ -19,14 +19,12 @@ export default function HeroSection() {
     "/services/ai.png"
   ];
 
-  // Using a stable video to ensure it plays without blocking (CORS/hotlink).
   const videos = [
     "/video-home1.mp4",
     "/video-home2.mp4",
     "/video-home3.mp4"
   ];
 
-  // Specific order so moving right feels like advancing through the array
   const carouselImages = [images[0], images[2], images[1], images[0], images[2], images[1]];
   const carouselVideos = [...videos, ...videos];
 
@@ -48,68 +46,90 @@ export default function HeroSection() {
   }, { scope: containerRef });
 
   return (
-    <header ref={containerRef} className="relative w-full flex items-stretch overflow-hidden">
+    <section ref={containerRef} className="w-full flex flex-col bg-[#1F1F1F] relative overflow-hidden">
       <GridLines />
-      {/* Left: Image Container (Must respect pl-[7rem]) */}
-      <div className="w-1/2 relative z-10 pl-[7rem] pt-20">
-        <div className="relative w-full h-[700px] overflow-hidden">
-          {/* Track moving Right */}
-          <div ref={leftCarouselRef} className="flex h-full w-max absolute top-0 left-0 will-change-transform">
-            {carouselImages.map((src, idx) => (
-              <div key={`img-${idx}`} className="w-[calc(50vw-7rem)] h-full flex-shrink-0 relative">
-                <Image src={src} alt={`Hero ${idx}`} fill priority className="object-cover brightness-50" />
-              </div>
-            ))}
-          </div>
+      
+      <div className="flex flex-col min-[600px]:flex-row w-full items-stretch">
+        {/* Left: Image Container - Hidden on Mobile */}
+        <div className="hidden min-[600px]:block w-full min-[600px]:w-1/2 relative z-10 pl-0">
+          <div className="relative w-full h-[350px] min-[600px]:h-[450px] lg:h-[700px] overflow-hidden">
+            {/* Track moving Right */}
+            <div ref={leftCarouselRef} className="flex h-full w-max absolute top-0 left-0 will-change-transform">
+              {carouselImages.map((src, idx) => (
+                <div key={`img-${idx}`} className="w-[100vw] min-[600px]:w-[50vw] h-full flex-shrink-0 relative">
+                  <Image src={src} alt={`Hero ${idx}`} fill priority className="object-cover brightness-50" />
+                </div>
+              ))}
+            </div>
 
-          <div className="absolute inset-0 z-10 px-12 h-full flex flex-col justify-center -translate-y-12 pointer-events-none">
-            <h1 className="font-headline font-black text-[7vw] leading-[0.85] tracking-tighter uppercase text-white drop-shadow-2xl">
-              ARQUI <br /> TECTURA <br /> DIGITAL
-            </h1>
-            <p className="mt-8 font-body text-white/90 max-w-sm text-sm uppercase tracking-widest leading-relaxed drop-shadow-md">
-              Soluciones IT de grado industrial diseñadas con precisión quirúrgica para la escala global.
-            </p>
+            {/* Desktop Overlay */}
+            <div className="absolute inset-0 z-10 px-4 min-[600px]:px-12 h-full flex flex-col justify-center lg:-translate-y-12 pointer-events-none">
+              <h1 className="font-headline font-black text-4xl min-[600px]:text-6xl lg:text-[7vw] leading-[0.85] tracking-tighter uppercase text-white drop-shadow-2xl">
+                ARQUI <br /> TECTURA <br /> DIGITAL
+              </h1>
+              <p className="mt-4 min-[600px]:mt-8 font-body text-white/90 max-w-xs min-[600px]:max-w-sm text-[10px] min-[600px]:text-base lg:text-sm uppercase tracking-widest leading-relaxed drop-shadow-md">
+                Soluciones IT de grado industrial diseñadas con precisión quirúrgica para la escala global.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Right: Video Container - Full width on Mobile */}
+        <div className="w-full min-[600px]:w-1/2 relative flex flex-col pr-0">
+          <div className="relative w-full bg-black overflow-hidden h-[500px] min-[600px]:h-[450px] lg:h-[700px]">
+            {/* Track moving Up */}
+            <div ref={rightCarouselRef} className="flex flex-col w-full h-max absolute top-0 left-0 will-change-transform">
+              {carouselVideos.map((src, idx) => (
+                <div key={`vid-${idx}`} className="w-full h-[500px] min-[600px]:h-[450px] lg:h-[700px] flex-shrink-0 relative bg-black">
+                  <video 
+                    src={src} 
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline 
+                    preload="auto"
+                    className="absolute inset-0 w-full h-full object-cover opacity-100 brightness-[0.4] min-[600px]:brightness-75" 
+                  />
+                </div>
+              ))}
+            </div>
+            
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60 pointer-events-none"></div>
+
+            {/* Mobile Overlay (Visible only on < 600px) */}
+            <div className="min-[600px]:hidden absolute inset-0 z-20 px-6 h-full flex flex-col justify-center pointer-events-none">
+              <h1 className="font-headline font-black text-5xl leading-[0.85] tracking-tighter uppercase text-white drop-shadow-2xl mb-6">
+                ARQUI <br /> TECTURA <br /> DIGITAL
+              </h1>
+              <p className="font-body text-white/90 max-w-xs text-xs uppercase tracking-widest leading-relaxed drop-shadow-md">
+                Soluciones IT de grado industrial diseñadas con precisión quirúrgica para la escala global.
+              </p>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Right: Video Container (Must respect pr-[7rem] and restore bottom div) */}
-      <div className="w-1/2 relative flex flex-col pr-[7rem]">
-        <div className="relative w-full bg-black overflow-hidden h-[620px]">
-          {/* Track moving Up */}
-          <div ref={rightCarouselRef} className="flex flex-col w-full h-max absolute top-0 left-0 will-change-transform">
-            {carouselVideos.map((src, idx) => (
-              <div key={`vid-${idx}`} className="w-full h-[620px] flex-shrink-0 relative bg-black">
-                <video 
-                  src={src} 
-                  autoPlay 
-                  loop 
-                  muted 
-                  playsInline 
-                  preload="auto"
-                  onCanPlay={(e) => e.currentTarget.play()}
-                  onLoadedMetadata={(e) => e.currentTarget.play()}
-                  className="absolute inset-0 w-full h-full object-cover opacity-100 brightness-75" 
-                />
-              </div>
-            ))}
-          </div>
-          
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60 pointer-events-none"></div>
-        </div>
-
-        {/* Transition div restored */}
-        <div className="bg-[#1F1F1F] w-full border-left border-l-[1.3px] border-white h-[160px] flex flex-col justify-center relative overflow-hidden pr-12 z-20">
-          <div className="flex flex-col items-start justify-center max-w-4xl h-full relative z-20 pt-4 pl-4">
-            <p className="font-headline font-light text-xl md:text-2xl text-white leading-tight mb-8 tracking-tight text-left">
-              Elevando marcas mediante experiencias digitales de alto rendimiento.
-            </p>
-            <AnimatedButton href="/portafolio" theme="dark">
-              VER NUESTRO TRABAJO
-            </AnimatedButton>
+      {/* Transition div */}
+      <div className="bg-white md:bg-[#1F1F1F] w-full lg:w-1/2 border-none lg:border-l-[1.3px] lg:border-white h-auto lg:h-[160px] flex flex-col justify-center relative overflow-hidden px-10 py-12 min-[600px]:px-16 lg:px-12 z-20 lg:py-0 lg:absolute lg:bottom-0 lg:right-0">
+        <div className="flex flex-col items-center min-[600px]:items-start justify-center max-w-2xl h-full relative z-20">
+          <p className="font-headline font-light text-base min-[600px]:text-xl lg:text-xl text-black md:text-white leading-tight mb-8 min-[600px]:mb-4 lg:mb-8 tracking-tight text-center min-[600px]:text-left">
+            Elevando marcas mediante experiencias digitales de alto rendimiento.
+          </p>
+          <div className="origin-center min-[600px]:origin-left">
+            {/* Show light theme button on mobile (white bg) and dark theme on desktop (dark bg) */}
+            <div className="md:hidden">
+              <AnimatedButton href="/portafolio" theme="light">
+                VER NUESTRO TRABAJO
+              </AnimatedButton>
+            </div>
+            <div className="hidden md:block">
+              <AnimatedButton href="/portafolio" theme="dark">
+                VER NUESTRO TRABAJO
+              </AnimatedButton>
+            </div>
           </div>
         </div>
       </div>
-    </header>
+    </section>
   );
 }
