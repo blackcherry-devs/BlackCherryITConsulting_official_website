@@ -77,13 +77,13 @@ export default function ServicesSection() {
   const data = servicesData[activeService];
 
   return (
-    <section className="w-full py-20 md:py-32 px-6 md:px-[7rem] relative bg-[#1F1F1F]" style={{ clipPath: 'inset(0)' }}>
+    <section className="w-full py-20 md:py-32 px-6 md:px-[var(--gutter-width)] relative bg-[#1F1F1F]" style={{ clipPath: 'inset(0)' }}>
       <GridLines />
       {/* Overriding Left Line to appear above cards */}
-      <div className="hidden md:block absolute top-0 bottom-0 left-[7rem] w-[1.3px] bg-white/20 z-30 pointer-events-none"></div>
+      <div className="hidden lg:block absolute top-0 bottom-0 left-[var(--gutter-width)] w-[1.3px] bg-white/20 z-30 pointer-events-none"></div>
       
       {/* Note: Removed items-start to allow the flex children to stretch, making the sticky element work across the entire height */}
-      <div className="flex flex-col lg:flex-row relative z-10 gap-8 md:gap-16">
+      <div className="flex flex-col lg:flex-row relative z-10 gap-12 lg:gap-16">
         {/* Left Side: 2x3 Grid of Service Cards */}
         <div 
           className="w-full lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-4 relative z-20"
@@ -91,7 +91,7 @@ export default function ServicesSection() {
         >
           {/* Row 1 */}
           <div 
-            className="relative h-[400px] md:h-[800px] overflow-hidden group"
+            className="relative h-[300px] md:h-[600px] lg:h-[800px] overflow-hidden group rounded-lg md:rounded-none"
             onMouseEnter={() => setActiveService("web")}
           >
             <img 
@@ -106,7 +106,7 @@ export default function ServicesSection() {
             </div>
           </div>
           <div 
-            className="relative h-[400px] md:h-[800px] md:mt-32 overflow-hidden group"
+            className="relative h-[300px] md:h-[600px] lg:h-[800px] lg:mt-32 overflow-hidden group rounded-lg md:rounded-none"
             onMouseEnter={() => setActiveService("backend")}
           >
             <img 
@@ -122,7 +122,7 @@ export default function ServicesSection() {
           </div>
           {/* Row 2 */}
           <div 
-            className="relative h-[400px] md:h-[800px] md:-mt-16 overflow-hidden group"
+            className="relative h-[300px] md:h-[600px] lg:h-[800px] lg:-mt-16 overflow-hidden group rounded-lg md:rounded-none"
             onMouseEnter={() => setActiveService("uiux")}
           >
             <img 
@@ -137,7 +137,7 @@ export default function ServicesSection() {
             </div>
           </div>
           <div 
-            className="relative h-[400px] md:h-[800px] md:mt-16 overflow-hidden group"
+            className="relative h-[300px] md:h-[600px] lg:h-[800px] lg:mt-16 overflow-hidden group rounded-lg md:rounded-none"
             onMouseEnter={() => setActiveService("ia")}
           >
             <img 
@@ -153,7 +153,7 @@ export default function ServicesSection() {
           </div>
           {/* Row 3 */}
           <div 
-            className="relative h-[400px] md:h-[800px] overflow-hidden group"
+            className="relative h-[300px] md:h-[600px] lg:h-[800px] overflow-hidden group rounded-lg md:rounded-none"
             onMouseEnter={() => setActiveService("wa")}
           >
             <img 
@@ -168,7 +168,7 @@ export default function ServicesSection() {
             </div>
           </div>
           <div 
-            className="relative h-[400px] md:h-[800px] md:mt-48 overflow-hidden group"
+            className="relative h-[300px] md:h-[600px] lg:h-[800px] lg:mt-48 overflow-hidden group rounded-lg md:rounded-none"
             onMouseEnter={() => setActiveService("seo")}
           >
             <img 
@@ -178,14 +178,14 @@ export default function ServicesSection() {
             />
             <div className="absolute inset-0 p-8 md:p-12 flex items-end">
               <h3 className="font-headline font-black text-2xl md:text-3xl lg:text-4xl text-white leading-none tracking-tighter uppercase break-words">
-                <br /> SEO
+                ESTRATEGIA <br /> SEO
               </h3>
             </div>
           </div>
         </div>
         
         {/* Right Side: Content Block */}
-        <div className="w-full lg:w-1/3 min-w-0 lg:sticky lg:top-24 self-start relative transition-all duration-500 min-h-[500px]">
+        <div className="w-full lg:w-1/3 min-w-0 lg:sticky lg:top-32 self-start relative transition-all duration-500 lg:min-h-[500px]">
           <span 
             className="font-headline font-black text-white text-[10px] tracking-[0.4em] uppercase mb-4 block transition-all duration-300"
             key={`sub-${activeService}`}

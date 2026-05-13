@@ -39,10 +39,10 @@ const ShuffleHero = () => {
     <section className="relative w-full min-h-screen overflow-hidden flex items-center bg-white border-b border-black/5">
       <GridLines />
 
-      <div className="relative z-10 w-full px-6 md:px-[7rem] pt-32 pb-20 md:py-0 min-h-screen grid grid-cols-1 md:grid-cols-2 items-center gap-12 max-w-[100vw]">
+      <div className="relative z-10 w-full px-6 lg:px-[var(--gutter-width)] pt-32 pb-20 lg:py-0 min-h-screen grid grid-cols-1 lg:grid-cols-2 items-center gap-12 max-w-[100vw]">
         
         {/* Text Section */}
-        <div className="pr-0 md:pr-8 pl-4 md:pl-8 mt-12">
+        <div className="pr-0 lg:pr-8 pl-0 lg:pl-8 mt-12">
           <span className="block mb-4 font-headline font-black text-primary-container text-[10px] md:text-xs tracking-[0.5em] uppercase">
             INGENIERÍA COGNITIVA AVANZADA
           </span>
@@ -59,7 +59,7 @@ const ShuffleHero = () => {
         </div>
 
         {/* Shuffle Grid Section */}
-        <div className="w-full h-full flex items-center pr-4 md:pr-8 mt-12">
+        <div className="w-full h-full flex items-center pr-0 lg:pr-8 mt-12">
           <ShuffleGrid />
         </div>
 

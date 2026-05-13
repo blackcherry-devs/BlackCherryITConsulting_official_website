@@ -34,20 +34,20 @@ const CollapseCardFeatures = () => {
       <GridLines />
       <div className="absolute inset-0 opacity-50 pointer-events-none technical-grid-light"></div>
       
-      <div className="w-full px-6 md:px-[7rem] relative z-10">
+      <div className="w-full px-6 lg:px-[var(--gutter-width)] relative z-10">
         <div className="mb-8 flex justify-between gap-4 items-end">
-          <h2 className="font-headline font-black text-black text-4xl md:text-6xl tracking-tighter uppercase">
+          <h2 className="font-headline font-black text-black text-3xl md:text-6xl tracking-tighter uppercase">
             Ventajas <br/><span className="text-primary-container">Estratégicas</span>
           </h2>
           <div className="flex gap-2">
             <button
-              className="w-12 h-12 flex items-center justify-center bg-black text-2xl text-white transition-colors hover:bg-primary-container rounded-full"
+              className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-black text-xl md:text-2xl text-white transition-colors hover:bg-primary-container rounded-full"
               onClick={shiftLeft}
             >
               <FiChevronLeft />
             </button>
             <button
-              className="w-12 h-12 flex items-center justify-center bg-black text-2xl text-white transition-colors hover:bg-primary-container rounded-full"
+              className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-black text-xl md:text-2xl text-white transition-colors hover:bg-primary-container rounded-full"
               onClick={shiftRight}
             >
               <FiChevronRight />
@@ -89,7 +89,7 @@ const Feature = ({
         ease: "easeInOut",
         duration: 0.35,
       }}
-      className={`relative flex min-h-[250px] w-10/12 max-w-lg shrink-0 flex-col justify-between overflow-hidden p-8 shadow-xl md:w-3/5 border-2 border-primary-container rounded-xl ${
+      className={`relative flex min-h-[250px] w-full max-w-sm md:max-w-lg shrink-0 flex-col justify-between overflow-hidden p-6 md:p-8 shadow-xl md:w-3/5 border-2 border-primary-container rounded-xl ${
         index % 2 ? "bg-black text-white" : " bg-stone-100 text-black"
       }`}
     >
