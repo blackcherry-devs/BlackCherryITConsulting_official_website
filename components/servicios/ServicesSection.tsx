@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import GridLines from "@/components/ui/GridLines";
 
 const servicesData = {
@@ -73,6 +74,27 @@ type ServiceKey = keyof typeof servicesData;
 
 export default function ServicesSection() {
   const [activeService, setActiveService] = useState<ServiceKey>("default");
+  const [carouselOrder, setCarouselOrder] = useState([0, 1, 2, 3, 4, 5]);
+
+  const nextSlide = () => setCarouselOrder(prev => [...prev.slice(1), prev[0]]);
+  const prevSlide = () => setCarouselOrder(prev => [prev[prev.length - 1], ...prev.slice(0, prev.length - 1)]);
+
+  // Keep activeService in sync with the centered card on mobile
+  useEffect(() => {
+    if (window.innerWidth < 640) {
+      const keys: ServiceKey[] = ["web", "backend", "uiux", "ia", "wa", "seo"];
+      setActiveService(keys[carouselOrder[0]]);
+    }
+  }, [carouselOrder]);
+
+  const CARDS_DATA = [
+    { id: "web", title: "DESARROLLO <br /> WEB", img: "/services/web_dev.png" },
+    { id: "backend", title: "SISTEMAS <br /> BACKEND", img: "/services/backend.png" },
+    { id: "uiux", title: "PRECISIÓN <br /> UI/UX", img: "/services/uiux.png" },
+    { id: "ia", title: "INTEGRACIÓN <br /> DE IA", img: "/services/ai.png" },
+    { id: "wa", title: "INTELIGENCIA <br /> CONVERSACIONAL", img: "https://images.unsplash.com/photo-1553390774-b4822481c894?q=80&w=1944&auto=format&fit=crop" },
+    { id: "seo", title: "ESTRATEGIA <br /> SEO", img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" }
+  ];
 
   const data = servicesData[activeService];
 
@@ -83,12 +105,67 @@ export default function ServicesSection() {
       <div className="hidden lg:block absolute top-0 bottom-0 left-[var(--gutter-width)] w-[1.3px] bg-white/20 z-30 pointer-events-none"></div>
       
       {/* Note: Removed items-start to allow the flex children to stretch, making the sticky element work across the entire height */}
-      <div className="flex flex-col lg:flex-row relative z-10 gap-12 lg:gap-16">
-        {/* Left Side: 2x3 Grid of Service Cards */}
+      <div className="flex flex-col sm:flex-row relative z-10 gap-12 sm:gap-4 lg:gap-16">
+        {/* Left Side: Cards Container */}
         <div 
-          className="w-full lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-4 relative z-20"
-          onMouseLeave={() => setActiveService("default")}
+          className="w-full sm:w-1/2 lg:w-2/3 relative z-20"
+          onMouseLeave={() => {
+            if (window.innerWidth >= 640) setActiveService("default");
+          }}
         >
+          {/* Mobile Carousel (< 640px) */}
+          <div className="flex sm:hidden flex-col relative w-full overflow-hidden pb-6">
+            {/* The carousel track must be much wider than the screen to hold items off-screen smoothly */}
+            <div className="flex gap-4 w-[300%]">
+              <AnimatePresence mode="popLayout">
+                {carouselOrder.map((index) => {
+                  const card = CARDS_DATA[index];
+                  return (
+                    <motion.div
+                      layout
+                      key={card.id}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.8 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                      drag="x"
+                      dragConstraints={{ left: 0, right: 0 }}
+                      onDragEnd={(e, { offset }) => {
+                        const swipe = offset.x;
+                        if (swipe < -50) nextSlide();
+                        else if (swipe > 50) prevSlide();
+                      }}
+                      className="relative w-[85vw] h-[300px] shrink-0 overflow-hidden group rounded-lg"
+                    >
+                      <img alt={card.id} className="absolute inset-0 w-full h-full object-cover grayscale brightness-[0.3] group-hover:grayscale-0 group-hover:brightness-50 transition-all duration-700 pointer-events-none" src={card.img} />
+                      <div className="absolute inset-0 p-8 flex items-end pointer-events-none">
+                        <h3 className="font-headline font-black text-3xl text-white leading-none tracking-tighter uppercase break-words" dangerouslySetInnerHTML={{ __html: card.title }}></h3>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </AnimatePresence>
+            </div>
+            
+            {/* Carousel Controls */}
+            <div className="flex gap-4 mt-6 justify-center w-[85vw]">
+              <button 
+                onClick={prevSlide}
+                className="w-12 h-12 flex items-center justify-center border border-white/20 rounded-full text-white hover:bg-white hover:text-black transition-all"
+              >
+                <span className="material-symbols-outlined">chevron_left</span>
+              </button>
+              <button 
+                onClick={nextSlide}
+                className="w-12 h-12 flex items-center justify-center border border-white/20 rounded-full text-white hover:bg-white hover:text-black transition-all"
+              >
+                <span className="material-symbols-outlined">chevron_right</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Tablet/Desktop Grid */}
+          <div className="hidden sm:grid sm:grid-cols-1 lg:grid-cols-2 gap-4">
           {/* Row 1 */}
           <div 
             className="relative h-[300px] md:h-[600px] lg:h-[800px] overflow-hidden group rounded-lg md:rounded-none"
@@ -182,10 +259,11 @@ export default function ServicesSection() {
               </h3>
             </div>
           </div>
+          </div>
         </div>
         
         {/* Right Side: Content Block */}
-        <div className="w-full lg:w-1/3 min-w-0 lg:sticky lg:top-32 self-start relative transition-all duration-500 lg:min-h-[500px]">
+        <div className="w-full sm:w-1/2 lg:w-1/3 min-w-0 sm:sticky sm:top-24 lg:top-32 self-start relative transition-all duration-500 sm:min-h-[500px]">
           <span 
             className="font-headline font-black text-white text-[10px] tracking-[0.4em] uppercase mb-4 block transition-all duration-300"
             key={`sub-${activeService}`}
