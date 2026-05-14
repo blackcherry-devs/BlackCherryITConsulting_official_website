@@ -6,7 +6,7 @@ import { notFound } from "next/navigation";
 import GridLines from "@/components/ui/GridLines";
 import { portfolioData } from "@/lib/data/portfolio";
 import AnimatedButton from "@/components/ui/AnimatedButton";
-
+import { SwipeCards } from "@/components/ui/SwipeCards";
 export default function ProjectDetail({ params }: { params: Promise<{ id: string }> }) {
   const scrollRef = useRef<HTMLDivElement>(null);
   
@@ -23,8 +23,10 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
     const handleWheel = (e: WheelEvent) => {
       // If scrolling vertically, convert to horizontal scroll exactly 1:1
       if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-        e.preventDefault();
-        container.scrollLeft += e.deltaY;
+        if (window.innerWidth >= 768) {
+          e.preventDefault();
+          container.scrollLeft += e.deltaY;
+        }
       }
     };
 
@@ -37,7 +39,7 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
   }
 
   return (
-    <div className="relative w-full h-screen bg-white font-body text-on-surface selection:bg-primary-container selection:text-white overflow-hidden">
+    <div className="relative w-full h-auto md:h-screen bg-white font-body text-on-surface selection:bg-primary-container selection:text-white md:overflow-hidden overflow-y-auto overflow-x-hidden">
       {/* Global Architectural Grid Lines overlaying the entire page */}
       <div className="fixed inset-0 pointer-events-none z-[100]">
         <GridLines />
@@ -56,26 +58,45 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
 
       {/* Horizontal Scroll Container without snap jumping */}
       <div 
-        className="flex w-full h-full overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]" 
+        className="flex flex-col md:flex-row w-full h-auto md:h-full md:overflow-x-auto md:[&::-webkit-scrollbar]:hidden md:[-ms-overflow-style:none] md:[scrollbar-width:none]" 
         ref={scrollRef}
       >
         {/* SECTION 1: HERO */}
-        <section className="flex-none w-screen h-screen relative flex">
-          {/* Left: Red Narrative */}
-          <div className="w-1/2 h-full relative flex flex-col items-center justify-center" style={{ backgroundColor: project.heroBgOverride || project.color || "#8B090A" }}>
-            <div className="absolute inset-0 technical-grid-red opacity-10"></div>
+        <section className="flex-none w-full md:w-screen h-[70vh] md:h-screen relative flex flex-col md:flex-row">
+          
+          {/* Mobile Overlay Background Image (Hidden on Desktop) */}
+          <div className="absolute inset-0 w-full h-full md:hidden z-0">
+            <img
+              alt={`${project.title} Hero Image`}
+              className="w-full h-full object-cover md:grayscale"
+              src={project.heroImage}
+            />
+            {/* Dark overlay to make logo pop on mobile */}
+            <div className="absolute inset-0 bg-black/50"></div>
+          </div>
+
+          {/* Left: Logo Container */}
+          <div className="w-full md:w-1/2 h-full relative flex flex-col items-center justify-center z-10">
+            {/* Mobile Center Line behind Logo */}
+            <div className="absolute top-0 bottom-0 w-[1.3px] bg-white/30 left-1/2 -translate-x-1/2 z-0 md:hidden pointer-events-none"></div>
+            
+            {/* Desktop Solid Background */}
+            <div className="hidden md:block absolute inset-0 z-0" style={{ backgroundColor: project.heroBgOverride || project.color || "#8B090A" }}></div>
+            <div className="hidden md:block absolute inset-0 technical-grid-red opacity-10 z-0"></div>
+            
             <div 
-              className={`relative z-20 flex items-center justify-center ${project.logoContainerClass || "w-40 h-40 md:w-64 md:h-64"} ${project.logoBg === "white" ? `bg-white ${project.logoPadding || "p-6"} rounded-2xl shadow-xl` : ""}`}
+              className={`relative z-20 flex items-center justify-center ${project.logoContainerClass || "w-40 h-40 md:w-48 md:h-48 lg:w-64 lg:h-64"} ${project.logoBg === "white" ? `bg-white ${project.logoPadding || "p-4 md:p-6"} rounded-2xl shadow-xl` : ""}`}
             >
               <img
                 alt={`${project.title} Logo`}
-                className="max-w-full max-h-full object-contain"
+                className="max-w-full max-h-full object-contain drop-shadow-2xl md:drop-shadow-none"
                 src={project.logo}
               />
             </div>
           </div>
-          {/* Right: Industrial Image */}
-          <div className="w-1/2 h-full relative overflow-hidden">
+          
+          {/* Right: Industrial Image (Hidden on mobile) */}
+          <div className="hidden md:block w-1/2 h-full relative overflow-hidden z-10">
             <img
               alt={`${project.title} Hero Image`}
               className="w-full h-full object-cover grayscale"
@@ -86,46 +107,50 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
         </section>
 
         {/* SECTION 2: PROJECT NARRATIVE */}
-        <section className="flex-none w-screen h-screen relative flex">
+        <section className="flex-none w-full md:w-screen h-auto md:h-screen relative flex flex-col md:flex-row">
           {/* Left: Narrative Text */}
-          <div className="w-1/2 h-full bg-white px-12 md:px-28 flex flex-col justify-start pt-28 pb-12">
-            <div className="max-w-xl">
+          <div className="w-full md:w-1/2 h-auto md:h-full bg-white px-8 py-16 md:px-10 lg:px-20 flex flex-col items-center md:items-start text-center md:text-left justify-center md:pt-16 lg:pt-24 md:pb-8 lg:pb-12 md:overflow-y-auto [&::-webkit-scrollbar]:hidden relative">
+            {/* Mobile Center Line behind Text */}
+            <div className="absolute top-0 bottom-0 w-[1.3px] bg-[#1F1F1F]/10 left-1/2 -translate-x-1/2 z-0 md:hidden pointer-events-none"></div>
+            
+            <div className="max-w-xl md:max-w-md lg:max-w-xl w-full flex flex-col items-center md:items-start relative z-10 bg-white/70 backdrop-blur-sm md:bg-transparent md:backdrop-blur-none p-4 md:p-0 rounded-2xl">
               <p 
-                className="font-headline text-xs tracking-[0.5em] uppercase mb-4"
+                className="font-headline text-[10px] md:text-[9px] lg:text-xs tracking-[0.5em] uppercase mb-4 md:mb-2 lg:mb-4"
                 style={{ color: project.color || "var(--primary-container)" }}
               >
                 02 / PROTOCOLO DE DISEÑO
               </p>
-              <h2 className="font-headline font-black text-2xl md:text-3xl lg:text-4xl text-[#1F1F1F] tracking-tighter uppercase mb-3 md:mb-4 leading-[1.1]">
+              <h2 className="font-headline font-black text-3xl md:text-2xl lg:text-4xl text-[#1F1F1F] tracking-tighter uppercase mb-3 md:mb-2 lg:mb-4 leading-[1.1]">
                 {project.narrativeTitle}
               </h2>
-              <p className="font-body text-stone-500 text-sm md:text-base leading-relaxed mb-4">
+              <p className="font-body text-stone-500 text-sm md:text-xs lg:text-base leading-relaxed mb-4 md:mb-3 lg:mb-5">
                 {project.narrativeText}
               </p>
-              <div className="grid grid-cols-2 gap-4 pt-6 border-t border-stone-200">
-                <div>
-                  <span className="block font-headline font-bold text-[10px] text-stone-400 uppercase tracking-widest mb-2">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-2 lg:gap-4 pt-6 md:pt-4 lg:pt-6 border-t border-stone-200 w-full">
+                <div className="flex flex-col items-center md:items-start">
+                  <span className="block font-headline font-bold text-[10px] md:text-[9px] lg:text-[10px] text-stone-400 uppercase tracking-widest mb-2 md:mb-1 lg:mb-2">
                     {project.stats.techLabel}
                   </span>
-                  <span className="font-headline font-black text-xs md:text-sm text-[#1F1F1F] uppercase">
+                  <span className="font-headline font-black text-xs md:text-[10px] lg:text-sm text-[#1F1F1F] uppercase">
                     {project.stats.techValue}
                   </span>
                 </div>
-                <div>
-                  <span className="block font-headline font-bold text-[10px] text-stone-400 uppercase tracking-widest mb-2">
+                <div className="flex flex-col items-center md:items-start">
+                  <span className="block font-headline font-bold text-[10px] md:text-[9px] lg:text-[10px] text-stone-400 uppercase tracking-widest mb-2 md:mb-1 lg:mb-2">
                     {project.stats.perfLabel}
                   </span>
-                  <span className="font-headline font-black text-xs md:text-sm text-[#1F1F1F] uppercase">
+                  <span className="font-headline font-black text-xs md:text-[10px] lg:text-sm text-[#1F1F1F] uppercase">
                     {project.stats.perfValue}
                   </span>
                 </div>
               </div>
 
               {project.url && (
-                <div className="mt-4">
+                <div className="mt-8 md:mt-5 lg:mt-8 w-full flex justify-center md:justify-start">
                   <AnimatedButton
                     href={project.url}
                     theme="primary"
+                    className="w-full md:w-auto justify-center md:text-xs lg:text-sm md:px-6 md:py-3 lg:px-8 lg:py-4"
                     style={{ backgroundColor: project.color || "#8B090A" }}
                   >
                     VISITAR SITIO
@@ -134,8 +159,8 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
               )}
             </div>
           </div>
-          {/* Right: Technical Render */}
-          <div className="w-1/2 h-full relative">
+          {/* Right: Technical Render (Hidden on mobile, moved to creative gallery) */}
+          <div className="hidden md:block w-1/2 h-full relative z-10">
             <img
               alt={`${project.title} Technical Render`}
               className="w-full h-full object-cover grayscale"
@@ -147,8 +172,38 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
         </section>
 
         {/* SECTION 3: GALLERY GRID (Images only, different container sizes) */}
-        <section className="flex-none w-screen h-screen relative bg-white px-6 md:px-[7rem] py-24 flex flex-col justify-center">
-          <div className="grid grid-cols-12 grid-rows-6 gap-2 w-full h-[80vh]">
+        <section className="flex-none w-full md:w-screen h-auto md:h-screen relative bg-[#1F1F1F] md:bg-white md:px-[7rem] md:py-24 flex flex-col justify-center">
+          
+          {/* MOBILE CREATIVE GALLERY: Swipe Cards */}
+          <div className="flex flex-col w-full md:hidden relative pb-16 pt-12 overflow-hidden">
+            {/* Center line for consistency */}
+            <div className="absolute top-0 bottom-0 w-[1.3px] bg-white/10 left-1/2 -translate-x-1/2 z-0 pointer-events-none"></div>
+            
+            <div className="text-center w-full z-10 mb-8 px-6">
+               <p className="font-headline text-[10px] tracking-[0.5em] uppercase text-white mb-2">03 / ARCHIVO VISUAL</p>
+               <h2 className="font-headline font-black text-2xl text-white tracking-tighter uppercase">DISEÑO DETALLADO</h2>
+            </div>
+
+            <div className="w-full flex items-center justify-center z-10">
+                <SwipeCards images={[project.technicalImage, ...project.galleryImages]} />
+            </div>
+            
+            <div className="text-center w-full z-10 mt-6 px-6">
+               <p className="font-headline text-[9px] tracking-widest uppercase text-white/50 mb-12">Desliza las tarjetas para explorar</p>
+               
+               <AnimatedButton
+                 href="/portafolio"
+                 theme="primary"
+                 className="w-full justify-center text-xs px-6 py-4"
+                 style={{ backgroundColor: project.color || "#8B090A" }}
+               >
+                 VOLVER AL PORTAFOLIO
+               </AnimatedButton>
+            </div>
+          </div>
+
+          {/* DESKTOP GALLERY GRID */}
+          <div className="hidden md:grid grid-cols-12 grid-rows-6 gap-2 w-full h-[80vh]">
             <div className="col-span-8 row-span-6 overflow-hidden relative group">
               <img
                 alt="Detail 1"
