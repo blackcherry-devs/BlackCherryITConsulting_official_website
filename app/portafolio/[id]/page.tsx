@@ -77,8 +77,7 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
 
           {/* Left: Logo Container */}
           <div className="w-full md:w-1/2 h-full relative flex flex-col items-center justify-center z-10">
-            {/* Mobile Center Line behind Logo */}
-            <div className="absolute top-0 bottom-0 w-[1.3px] bg-white/30 left-1/2 -translate-x-1/2 z-0 md:hidden pointer-events-none"></div>
+            {/* Mobile Center Line behind Logo (Removed per request) */}
             
             {/* Desktop Solid Background */}
             <div className="hidden md:block absolute inset-0 z-0" style={{ backgroundColor: project.heroBgOverride || project.color || "#8B090A" }}></div>
@@ -110,8 +109,7 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
         <section className="flex-none w-full md:w-screen h-auto md:h-screen relative flex flex-col md:flex-row">
           {/* Left: Narrative Text */}
           <div className="w-full md:w-1/2 h-auto md:h-full bg-white px-8 py-16 md:px-10 lg:px-20 flex flex-col items-center md:items-start text-center md:text-left justify-center md:pt-16 lg:pt-24 md:pb-8 lg:pb-12 md:overflow-y-auto [&::-webkit-scrollbar]:hidden relative">
-            {/* Mobile Center Line behind Text */}
-            <div className="absolute top-0 bottom-0 w-[1.3px] bg-[#1F1F1F]/10 left-1/2 -translate-x-1/2 z-0 md:hidden pointer-events-none"></div>
+            {/* Mobile Center Line behind Text (Removed per request) */}
             
             <div className="max-w-xl md:max-w-md lg:max-w-xl w-full flex flex-col items-center md:items-start relative z-10 bg-white/70 backdrop-blur-sm md:bg-transparent md:backdrop-blur-none p-4 md:p-0 rounded-2xl">
               <p 
