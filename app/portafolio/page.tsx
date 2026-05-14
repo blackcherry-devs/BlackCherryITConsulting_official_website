@@ -21,13 +21,28 @@ export default function PortafolioPage() {
       {/* Hero Section */}
       <header className="relative w-full flex flex-col lg:flex-row items-stretch overflow-hidden bg-white">
         {/* Left: Image Carousel */}
-        <div className="w-full lg:w-1/2 relative z-20 px-6 lg:px-0 lg:pl-[var(--gutter-width)] pt-20">
+        <div className="w-full lg:w-1/2 relative z-20 px-0 min-[601px]:px-[var(--gutter-width)] lg:px-0 lg:pl-[var(--gutter-width)] pt-0 lg:pt-20">
           <HeroImageCarousel />
+          
+          {/* Mobile Text Overlay (Only visible on <lg) */}
+          <div className="absolute inset-0 z-30 flex flex-col justify-center lg:hidden pr-[var(--gutter-width)] pl-[calc(var(--gutter-width)+1.5rem)] md:pl-[calc(var(--gutter-width)+2.5rem)] pointer-events-none mt-8">
+            <h1 className="font-headline font-black text-5xl md:text-7xl leading-[0.9] tracking-tighter uppercase text-white mb-8 drop-shadow-xl">
+              PORTAFOLIO
+            </h1>
+            <div className="max-w-xl">
+              <p className="font-headline font-light text-xl md:text-3xl text-white uppercase tracking-tight leading-none mb-4 border-l-4 border-primary-container pl-6 drop-shadow-xl">
+                TRANSFORMANDO IDEAS EN <br/> INFRAESTRUCTURA <br/> DE ÉXITO
+              </p>
+              <p className="font-body text-white/90 text-[9px] md:text-xs uppercase tracking-[0.3em] font-medium drop-shadow-xl">
+                Estrategia Digital • Innovación Tecnológica • Rendimiento Garantizado
+              </p>
+            </div>
+          </div>
         </div>
         
         {/* Right: Title Container */}
-        <div className="w-full lg:w-1/2 relative flex flex-col px-6 lg:px-0 lg:pr-[var(--gutter-width)] pt-0 z-20">
-          <div className="relative w-full bg-[#1F1F1F] overflow-hidden h-[350px] md:h-[500px] lg:h-[620px] flex flex-col justify-center px-6 md:px-12">
+        <div className="w-full lg:w-1/2 relative flex flex-col px-0 lg:pr-[var(--gutter-width)] pt-0 z-20">
+          <div className="hidden lg:flex relative w-full bg-[#1F1F1F] overflow-hidden h-[350px] md:h-[500px] lg:h-[620px] flex-col justify-center px-6 md:px-12">
             <div className="absolute inset-0 opacity-5 pointer-events-none technical-grid-red"></div>
             <h1 className="font-headline font-black text-5xl md:text-[5vw] leading-[0.9] tracking-tighter uppercase text-white mb-8 relative z-10">
               PORTAFOLIO
@@ -75,7 +90,7 @@ export default function PortafolioPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1F1F1F]/90 via-transparent to-transparent z-10"></div>
               {/* Interaction Layer at Bottom */}
-              <div className="absolute bottom-12 left-6 md:left-12 right-6 md:right-12 z-50 flex items-center">
+              <div className="absolute bottom-12 left-6 md:left-12 right-6 md:right-12 z-50 flex items-center max-[600px]:hidden">
                 <AnimatedButton 
                   asDiv 
                   theme="primary" 
@@ -85,7 +100,7 @@ export default function PortafolioPage() {
                 </AnimatedButton>
               </div>
               {/* Absolute Vertical Titles and Labels */}
-              <div className="absolute top-0 right-0 bottom-0 py-4 flex items-center justify-center z-30 pointer-events-none">
+              <div className="absolute top-0 right-0 bottom-0 py-4 flex items-center justify-center z-30 pointer-events-none max-[600px]:hidden">
                 <div className="flex items-center h-full">
                   <div className="text-white font-headline font-medium text-[9px] md:text-[11px] tracking-[0.6em] uppercase vertical-text-label mr-2 md:mr-4 mb-12 opacity-70 group-hover:opacity-100 transition-opacity self-end pb-8">
                     CONSTRUCCIÓN
@@ -113,7 +128,24 @@ export default function PortafolioPage() {
                   </div>
                 </div>
               </div>
-              <div className="absolute top-8 left-8 text-white/30 font-headline font-black text-xl md:text-2xl z-10">01</div>
+              
+              {/* Mobile Centered Horizontal Layout (Visible ONLY on Mobile <= 600px) */}
+              <div className="absolute inset-0 hidden max-[600px]:flex flex-col items-center justify-center z-30 p-6 text-center">
+                <span className="font-headline font-medium text-[9px] tracking-[0.6em] uppercase text-white mb-4 opacity-70">
+                  CONSTRUCCIÓN
+                </span>
+                <h3 className="font-headline font-black text-4xl text-white tracking-tighter uppercase leading-none mb-8 drop-shadow-lg">
+                  GPAMEX
+                </h3>
+                <AnimatedButton 
+                  asDiv 
+                  theme="primary" 
+                  className="opacity-100 scale-90"
+                >
+                  VER PROYECTO
+                </AnimatedButton>
+              </div>
+<div className="absolute top-8 left-8 text-white/30 font-headline font-black text-xl md:text-2xl z-10">01</div>
               {/* Video Hover Placeholder */}
               <div className="hidden lg:flex absolute inset-0 items-center justify-center z-40 pointer-events-none">
                 <div className="w-[80%] h-[50%] rounded-custom overflow-hidden opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-700 ease-out bg-black shadow-2xl">
@@ -132,7 +164,7 @@ export default function PortafolioPage() {
                 src="/projects/grupo-cosiam/cosiam5.webp"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1F1F1F]/90 via-transparent to-transparent z-10"></div>
-              <div className="absolute bottom-12 left-6 md:left-12 right-6 md:right-12 z-50 flex items-center">
+              <div className="absolute bottom-12 left-6 md:left-12 right-6 md:right-12 z-50 flex items-center max-[600px]:hidden">
                 <AnimatedButton 
                   asDiv 
                   theme="primary" 
@@ -141,7 +173,7 @@ export default function PortafolioPage() {
                   VER PROYECTO
                 </AnimatedButton>
               </div>
-              <div className="absolute top-0 right-0 bottom-0 py-4 flex items-center justify-center z-30 pointer-events-none">
+              <div className="absolute top-0 right-0 bottom-0 py-4 flex items-center justify-center z-30 pointer-events-none max-[600px]:hidden">
                 <div className="flex items-center h-full">
                   <div className="text-white font-headline font-medium text-[9px] md:text-[11px] tracking-[0.6em] uppercase vertical-text-label mr-2 md:mr-4 mb-12 opacity-70 group-hover:opacity-100 transition-opacity self-end pb-8">
                     INFRAESTRUCTURA
@@ -169,7 +201,24 @@ export default function PortafolioPage() {
                   </div>
                 </div>
               </div>
-              <div className="absolute top-8 left-8 text-white/30 font-headline font-black text-xl md:text-2xl z-10">02</div>
+              
+              {/* Mobile Centered Horizontal Layout (Visible ONLY on Mobile <= 600px) */}
+              <div className="absolute inset-0 hidden max-[600px]:flex flex-col items-center justify-center z-30 p-6 text-center">
+                <span className="font-headline font-medium text-[9px] tracking-[0.6em] uppercase text-white mb-4 opacity-70">
+                  INFRAESTRUCTURA
+                </span>
+                <h3 className="font-headline font-black text-4xl text-white tracking-tighter uppercase leading-none mb-8 drop-shadow-lg">
+                  GRUPO COSIAM
+                </h3>
+                <AnimatedButton 
+                  asDiv 
+                  theme="primary" 
+                  className="opacity-100 scale-90"
+                >
+                  VER PROYECTO
+                </AnimatedButton>
+              </div>
+<div className="absolute top-8 left-8 text-white/30 font-headline font-black text-xl md:text-2xl z-10">02</div>
               <div className="hidden lg:flex absolute inset-0 items-center justify-center z-40 pointer-events-none">
                 <div className="w-[80%] h-[50%] rounded-custom overflow-hidden opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-700 ease-out bg-black shadow-2xl">
                   <video className="w-full h-full object-cover object-left" loop muted playsInline autoPlay>
@@ -187,7 +236,7 @@ export default function PortafolioPage() {
                 src="/projects/adelai/adelai1.jpeg"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1F1F1F]/90 via-transparent to-transparent z-10"></div>
-              <div className="absolute bottom-12 left-6 md:left-12 right-6 md:right-12 z-50 flex items-center">
+              <div className="absolute bottom-12 left-6 md:left-12 right-6 md:right-12 z-50 flex items-center max-[600px]:hidden">
                 <AnimatedButton 
                   asDiv 
                   theme="primary" 
@@ -196,7 +245,7 @@ export default function PortafolioPage() {
                   VER PROYECTO
                 </AnimatedButton>
               </div>
-              <div className="absolute top-0 right-0 bottom-0 py-4 flex items-center justify-center z-30 pointer-events-none">
+              <div className="absolute top-0 right-0 bottom-0 py-4 flex items-center justify-center z-30 pointer-events-none max-[600px]:hidden">
                 <div className="flex items-center h-full">
                   <div className="text-white font-headline font-medium text-[9px] md:text-[11px] tracking-[0.6em] uppercase vertical-text-label mr-2 md:mr-4 mb-12 opacity-70 group-hover:opacity-100 transition-opacity self-end pb-8">
                     TECNOLOGÍA
@@ -224,7 +273,24 @@ export default function PortafolioPage() {
                   </div>
                 </div>
               </div>
-              <div className="absolute top-8 left-8 text-white/30 font-headline font-black text-xl md:text-2xl z-10">03</div>
+              
+              {/* Mobile Centered Horizontal Layout (Visible ONLY on Mobile <= 600px) */}
+              <div className="absolute inset-0 hidden max-[600px]:flex flex-col items-center justify-center z-30 p-6 text-center">
+                <span className="font-headline font-medium text-[9px] tracking-[0.6em] uppercase text-white mb-4 opacity-70">
+                  TECNOLOGÍA
+                </span>
+                <h3 className="font-headline font-black text-4xl text-white tracking-tighter uppercase leading-none mb-8 drop-shadow-lg">
+                  ADELAI
+                </h3>
+                <AnimatedButton 
+                  asDiv 
+                  theme="primary" 
+                  className="opacity-100 scale-90"
+                >
+                  VER PROYECTO
+                </AnimatedButton>
+              </div>
+<div className="absolute top-8 left-8 text-white/30 font-headline font-black text-xl md:text-2xl z-10">03</div>
               <div className="hidden lg:flex absolute inset-0 items-center justify-center z-40 pointer-events-none">
                 <div className="w-[80%] h-[50%] rounded-custom overflow-hidden opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-700 ease-out bg-black shadow-2xl">
                   <video className="w-full h-full object-cover object-left" loop muted playsInline autoPlay>
@@ -242,7 +308,7 @@ export default function PortafolioPage() {
                 src="/projects/cerato/cerato2.jpg"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1F1F1F]/90 via-transparent to-transparent z-10"></div>
-              <div className="absolute bottom-12 left-6 md:left-12 right-6 md:right-12 z-50 flex items-center">
+              <div className="absolute bottom-12 left-6 md:left-12 right-6 md:right-12 z-50 flex items-center max-[600px]:hidden">
                 <AnimatedButton 
                   asDiv 
                   theme="primary" 
@@ -251,7 +317,7 @@ export default function PortafolioPage() {
                   VER PROYECTO
                 </AnimatedButton>
               </div>
-              <div className="absolute top-0 right-0 bottom-0 py-4 flex items-center justify-center z-30 pointer-events-none">
+              <div className="absolute top-0 right-0 bottom-0 py-4 flex items-center justify-center z-30 pointer-events-none max-[600px]:hidden">
                 <div className="flex items-center h-full">
                   <div className="text-white font-headline font-medium text-[9px] md:text-[11px] tracking-[0.6em] uppercase vertical-text-label mr-2 md:mr-4 mb-12 opacity-70 group-hover:opacity-100 transition-opacity self-end pb-8">
                     E-COMMERCE
@@ -279,7 +345,24 @@ export default function PortafolioPage() {
                   </div>
                 </div>
               </div>
-              <div className="absolute top-8 left-8 text-white/30 font-headline font-black text-xl md:text-2xl z-10">04</div>
+              
+              {/* Mobile Centered Horizontal Layout (Visible ONLY on Mobile <= 600px) */}
+              <div className="absolute inset-0 hidden max-[600px]:flex flex-col items-center justify-center z-30 p-6 text-center">
+                <span className="font-headline font-medium text-[9px] tracking-[0.6em] uppercase text-white mb-4 opacity-70">
+                  E-COMMERCE
+                </span>
+                <h3 className="font-headline font-black text-4xl text-white tracking-tighter uppercase leading-none mb-8 drop-shadow-lg">
+                  CERATO
+                </h3>
+                <AnimatedButton 
+                  asDiv 
+                  theme="primary" 
+                  className="opacity-100 scale-90"
+                >
+                  VER PROYECTO
+                </AnimatedButton>
+              </div>
+<div className="absolute top-8 left-8 text-white/30 font-headline font-black text-xl md:text-2xl z-10">04</div>
               <div className="hidden lg:flex absolute inset-0 items-center justify-center z-40 pointer-events-none">
                 <div className="w-[80%] h-[50%] rounded-custom overflow-hidden opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-700 ease-out bg-black shadow-2xl">
                   <video className="w-full h-full object-cover object-left" loop muted playsInline autoPlay>
@@ -297,7 +380,7 @@ export default function PortafolioPage() {
                 src="/projects/dani-suacha/danisuacha2.jpg"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1F1F1F]/90 via-transparent to-transparent z-10"></div>
-              <div className="absolute bottom-12 left-6 md:left-12 right-6 md:right-12 z-50 flex items-center">
+              <div className="absolute bottom-12 left-6 md:left-12 right-6 md:right-12 z-50 flex items-center max-[600px]:hidden">
                 <AnimatedButton 
                   asDiv 
                   theme="primary" 
@@ -306,7 +389,7 @@ export default function PortafolioPage() {
                   VER PROYECTO
                 </AnimatedButton>
               </div>
-              <div className="absolute top-0 right-0 bottom-0 py-4 flex items-center justify-center z-30 pointer-events-none">
+              <div className="absolute top-0 right-0 bottom-0 py-4 flex items-center justify-center z-30 pointer-events-none max-[600px]:hidden">
                 <div className="flex items-center h-full">
                   <div className="text-white font-headline font-medium text-[9px] md:text-[11px] tracking-[0.6em] uppercase vertical-text-label mr-2 md:mr-4 mb-12 opacity-70 group-hover:opacity-100 transition-opacity self-end pb-8">
                     DISEÑO
@@ -334,7 +417,24 @@ export default function PortafolioPage() {
                   </div>
                 </div>
               </div>
-              <div className="absolute top-8 left-8 text-white/30 font-headline font-black text-xl md:text-2xl z-10">05</div>
+              
+              {/* Mobile Centered Horizontal Layout (Visible ONLY on Mobile <= 600px) */}
+              <div className="absolute inset-0 hidden max-[600px]:flex flex-col items-center justify-center z-30 p-6 text-center">
+                <span className="font-headline font-medium text-[9px] tracking-[0.6em] uppercase text-white mb-4 opacity-70">
+                  DISEÑO
+                </span>
+                <h3 className="font-headline font-black text-4xl text-white tracking-tighter uppercase leading-none mb-8 drop-shadow-lg">
+                  DANI SUACHÁ
+                </h3>
+                <AnimatedButton 
+                  asDiv 
+                  theme="primary" 
+                  className="opacity-100 scale-90"
+                >
+                  VER PROYECTO
+                </AnimatedButton>
+              </div>
+<div className="absolute top-8 left-8 text-white/30 font-headline font-black text-xl md:text-2xl z-10">05</div>
               <div className="hidden lg:flex absolute inset-0 items-center justify-center z-40 pointer-events-none">
                 <div className="w-[80%] h-[50%] rounded-custom overflow-hidden opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-700 ease-out bg-black shadow-2xl">
                   <video className="w-full h-full object-cover object-left" loop muted playsInline autoPlay>
@@ -352,7 +452,7 @@ export default function PortafolioPage() {
                 src="/projects/guermar/guermar3.jpg"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1F1F1F]/90 via-transparent to-transparent z-10"></div>
-              <div className="absolute bottom-12 left-6 md:left-12 right-6 md:right-12 z-50 flex items-center">
+              <div className="absolute bottom-12 left-6 md:left-12 right-6 md:right-12 z-50 flex items-center max-[600px]:hidden">
                 <AnimatedButton 
                   asDiv 
                   theme="primary" 
@@ -361,7 +461,7 @@ export default function PortafolioPage() {
                   VER PROYECTO
                 </AnimatedButton>
               </div>
-              <div className="absolute top-0 right-0 bottom-0 py-4 flex items-center justify-center z-30 pointer-events-none">
+              <div className="absolute top-0 right-0 bottom-0 py-4 flex items-center justify-center z-30 pointer-events-none max-[600px]:hidden">
                 <div className="flex items-center h-full">
                   <div className="text-white font-headline font-medium text-[9px] md:text-[11px] tracking-[0.6em] uppercase vertical-text-label mr-2 md:mr-4 mb-12 opacity-70 group-hover:opacity-100 transition-opacity self-end pb-8">
                     INDUSTRIAL
@@ -389,7 +489,24 @@ export default function PortafolioPage() {
                   </div>
                 </div>
               </div>
-              <div className="absolute top-8 left-8 text-white/30 font-headline font-black text-xl md:text-2xl z-10">06</div>
+              
+              {/* Mobile Centered Horizontal Layout (Visible ONLY on Mobile <= 600px) */}
+              <div className="absolute inset-0 hidden max-[600px]:flex flex-col items-center justify-center z-30 p-6 text-center">
+                <span className="font-headline font-medium text-[9px] tracking-[0.6em] uppercase text-white mb-4 opacity-70">
+                  INDUSTRIAL
+                </span>
+                <h3 className="font-headline font-black text-4xl text-white tracking-tighter uppercase leading-none mb-8 drop-shadow-lg">
+                  GUERMAR
+                </h3>
+                <AnimatedButton 
+                  asDiv 
+                  theme="primary" 
+                  className="opacity-100 scale-90"
+                >
+                  VER PROYECTO
+                </AnimatedButton>
+              </div>
+<div className="absolute top-8 left-8 text-white/30 font-headline font-black text-xl md:text-2xl z-10">06</div>
               <div className="hidden lg:flex absolute inset-0 items-center justify-center z-40 pointer-events-none">
                 <div className="w-[80%] h-[50%] rounded-custom overflow-hidden opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-700 ease-out bg-black shadow-2xl">
                   <video className="w-full h-full object-cover object-left" loop muted playsInline autoPlay>
@@ -407,7 +524,7 @@ export default function PortafolioPage() {
                 src="/projects/lars-dynamics/lars_3.png"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1F1F1F]/90 via-transparent to-transparent z-10"></div>
-              <div className="absolute bottom-12 left-6 md:left-12 right-6 md:right-12 z-50 flex items-center">
+              <div className="absolute bottom-12 left-6 md:left-12 right-6 md:right-12 z-50 flex items-center max-[600px]:hidden">
                 <AnimatedButton 
                   asDiv 
                   theme="primary" 
@@ -416,7 +533,7 @@ export default function PortafolioPage() {
                   VER PROYECTO
                 </AnimatedButton>
               </div>
-              <div className="absolute top-0 right-0 bottom-0 py-4 flex items-center justify-center z-30 pointer-events-none">
+              <div className="absolute top-0 right-0 bottom-0 py-4 flex items-center justify-center z-30 pointer-events-none max-[600px]:hidden">
                 <div className="flex items-center h-full">
                   <div className="text-white font-headline font-medium text-[9px] md:text-[11px] tracking-[0.6em] uppercase vertical-text-label mr-2 md:mr-4 mb-12 opacity-70 group-hover:opacity-100 transition-opacity self-end pb-8">
                     INDUSTRIAL
@@ -444,7 +561,24 @@ export default function PortafolioPage() {
                   </div>
                 </div>
               </div>
-              <div className="absolute top-8 left-8 text-white/30 font-headline font-black text-xl md:text-2xl z-10">07</div>
+              
+              {/* Mobile Centered Horizontal Layout (Visible ONLY on Mobile <= 600px) */}
+              <div className="absolute inset-0 hidden max-[600px]:flex flex-col items-center justify-center z-30 p-6 text-center">
+                <span className="font-headline font-medium text-[9px] tracking-[0.6em] uppercase text-white mb-4 opacity-70">
+                  INDUSTRIAL
+                </span>
+                <h3 className="font-headline font-black text-4xl text-white tracking-tighter uppercase leading-none mb-8 drop-shadow-lg">
+                  LARS DYNAMICS
+                </h3>
+                <AnimatedButton 
+                  asDiv 
+                  theme="primary" 
+                  className="opacity-100 scale-90"
+                >
+                  VER PROYECTO
+                </AnimatedButton>
+              </div>
+<div className="absolute top-8 left-8 text-white/30 font-headline font-black text-xl md:text-2xl z-10">07</div>
               <div className="hidden lg:flex absolute inset-0 items-center justify-center z-40 pointer-events-none">
                 <div className="w-[80%] h-[50%] rounded-custom overflow-hidden opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-700 ease-out bg-black shadow-2xl">
                   <video className="w-full h-full object-cover object-left" loop muted playsInline autoPlay>
@@ -460,14 +594,14 @@ export default function PortafolioPage() {
 
       {/* Minimal Connection Section */}
       <section className="w-full py-20 md:py-24 px-6 md:px-[var(--gutter-width)] relative overflow-hidden flex flex-col items-center bg-white">
-        <div className="hidden lg:block gutter-line gutter-left opacity-10 pointer-events-none"></div>
-        <div className="hidden lg:block gutter-line gutter-right opacity-10 pointer-events-none"></div>
-        <div className="hidden lg:block center-line-full opacity-10 pointer-events-none"></div>
+        <div className="absolute top-0 bottom-0 w-[1.3px] bg-black/5 pointer-events-none z-0 left-6 md:left-[var(--gutter-width)]"></div>
+        <div className="absolute top-0 bottom-0 w-[1.3px] bg-black/5 pointer-events-none z-0 right-6 md:right-[var(--gutter-width)]"></div>
+        <div className="absolute top-0 bottom-0 w-[1.3px] bg-black/5 pointer-events-none z-0 left-1/2 -translate-x-1/2"></div>
         
         <div className="relative z-10 text-center">
           <p className="font-headline text-[10px] tracking-[0.6em] uppercase mb-6 text-primary-container">ESTABLECER PROTOCOLO</p>
           <Link href="/contacto" className="font-headline font-black text-2xl md:text-4xl hover:text-primary-container transition-all tracking-tighter uppercase flex items-center gap-6 group text-[#1F1F1F]">
-            INICIALIZAR CONEXIÓN
+            INICIAR CONEXIÓN
             <span className="material-symbols-outlined text-primary-container group-hover:translate-x-2 transition-transform">arrow_right_alt</span>
           </Link>
         </div>

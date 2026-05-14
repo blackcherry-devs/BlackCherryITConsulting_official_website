@@ -53,7 +53,7 @@ export default function HeroImageCarousel() {
   }, { scope: containerRef });
 
   return (
-    <div ref={containerRef} className="relative w-full h-[400px] md:h-[700px] overflow-hidden bg-black">
+    <div ref={containerRef} className="relative w-full h-[75vh] md:h-[100vh] lg:h-[700px] overflow-hidden bg-black">
       {/* Track Container */}
       <div 
         ref={trackRef} 
@@ -62,7 +62,7 @@ export default function HeroImageCarousel() {
         {carouselImages.map((src, idx) => (
           <div 
             key={`img-${idx}`} 
-            className="w-[100vw] md:w-[calc(50vw-7rem)] h-full flex-shrink-0 relative"
+            className="w-[100vw] min-[601px]:w-[calc(100vw-var(--gutter-width)*2)] lg:w-[calc(50vw-var(--gutter-width))] h-full flex-shrink-0 relative"
           >
             <Image 
               src={src} 
