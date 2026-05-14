@@ -62,7 +62,7 @@ export default function ContactoPage() {
             {/* Bottom/Right half of container (Over Red) */}
             <div className="w-full sm:w-1/2 bg-white flex flex-col justify-center p-6 sm:p-6 md:p-8 py-8 sm:py-6 md:py-8 border-2 lg:border-none border-black border-t-0 sm:border-t-2 sm:border-l-0 rounded-b-xl sm:rounded-none">
               <p className="font-headline text-primary font-black text-[10px] md:text-[10px] tracking-[0.2em] md:tracking-[0.4em] uppercase mb-6 sm:mb-6 text-center sm:text-left">NUEVA CONSULTA</p>
-              <ContactForm />
+              <ContactForm compact={true} />
             </div>
           </div>
 

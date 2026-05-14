@@ -108,47 +108,47 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
         {/* SECTION 2: PROJECT NARRATIVE */}
         <section className="flex-none w-full md:w-screen h-auto md:h-screen relative flex flex-col md:flex-row">
           {/* Left: Narrative Text */}
-          <div className="w-full md:w-1/2 h-auto md:h-full bg-white px-8 py-16 md:px-10 lg:px-20 flex flex-col items-center md:items-start text-center md:text-left justify-center md:pt-16 lg:pt-24 md:pb-8 lg:pb-12 md:overflow-y-auto [&::-webkit-scrollbar]:hidden relative">
+          <div className="w-full md:w-1/2 h-auto md:h-full bg-white px-8 py-16 md:px-8 lg:px-16 xl:px-20 flex flex-col items-center md:items-start text-center md:text-left justify-center md:py-8 lg:py-12 md:pt-20 lg:pt-24 relative">
             {/* Mobile Center Line behind Text (Removed per request) */}
             
-            <div className="max-w-xl md:max-w-md lg:max-w-xl w-full flex flex-col items-center md:items-start relative z-10 bg-white/70 backdrop-blur-sm md:bg-transparent md:backdrop-blur-none p-4 md:p-0 rounded-2xl">
+            <div className="max-w-xl md:max-w-full w-full flex flex-col items-center md:items-start relative z-10 bg-white/70 backdrop-blur-sm md:bg-transparent md:backdrop-blur-none p-4 md:p-0 rounded-2xl">
               <p 
-                className="font-headline text-[10px] md:text-[9px] lg:text-xs tracking-[0.5em] uppercase mb-4 md:mb-2 lg:mb-4"
+                className="font-headline text-[10px] tracking-[0.4em] md:tracking-[0.3em] lg:tracking-[0.5em] uppercase mb-3 md:mb-2 lg:mb-3"
                 style={{ color: project.color || "var(--primary-container)" }}
               >
                 02 / PROTOCOLO DE DISEÑO
               </p>
-              <h2 className="font-headline font-black text-3xl md:text-2xl lg:text-4xl text-[#1F1F1F] tracking-tighter uppercase mb-3 md:mb-2 lg:mb-4 leading-[1.1]">
+              <h2 className="font-headline font-black text-3xl md:text-xl lg:text-3xl xl:text-4xl text-[#1F1F1F] tracking-tighter uppercase mb-3 md:mb-2 lg:mb-3 leading-[1.1]">
                 {project.narrativeTitle}
               </h2>
-              <p className="font-body text-stone-500 text-sm md:text-xs lg:text-base leading-relaxed mb-4 md:mb-3 lg:mb-5">
+              <p className="font-body text-stone-500 text-sm md:text-xs lg:text-sm leading-relaxed mb-4 md:mb-3 lg:mb-4">
                 {project.narrativeText}
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-2 lg:gap-4 pt-6 md:pt-4 lg:pt-6 border-t border-stone-200 w-full">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-3 lg:gap-4 pt-4 md:pt-3 lg:pt-4 border-t border-stone-200 w-full">
                 <div className="flex flex-col items-center md:items-start">
-                  <span className="block font-headline font-bold text-[10px] md:text-[9px] lg:text-[10px] text-stone-400 uppercase tracking-widest mb-2 md:mb-1 lg:mb-2">
+                  <span className="block font-headline font-bold text-[10px] md:text-[9px] lg:text-[10px] text-stone-400 uppercase tracking-widest mb-1 md:mb-1 lg:mb-1">
                     {project.stats.techLabel}
                   </span>
-                  <span className="font-headline font-black text-xs md:text-[10px] lg:text-sm text-[#1F1F1F] uppercase">
+                  <span className="font-headline font-black text-xs md:text-[10px] lg:text-xs text-[#1F1F1F] uppercase">
                     {project.stats.techValue}
                   </span>
                 </div>
                 <div className="flex flex-col items-center md:items-start">
-                  <span className="block font-headline font-bold text-[10px] md:text-[9px] lg:text-[10px] text-stone-400 uppercase tracking-widest mb-2 md:mb-1 lg:mb-2">
+                  <span className="block font-headline font-bold text-[10px] md:text-[9px] lg:text-[10px] text-stone-400 uppercase tracking-widest mb-1 md:mb-1 lg:mb-1">
                     {project.stats.perfLabel}
                   </span>
-                  <span className="font-headline font-black text-xs md:text-[10px] lg:text-sm text-[#1F1F1F] uppercase">
+                  <span className="font-headline font-black text-xs md:text-[10px] lg:text-xs text-[#1F1F1F] uppercase">
                     {project.stats.perfValue}
                   </span>
                 </div>
               </div>
 
               {project.url && (
-                <div className="mt-8 md:mt-5 lg:mt-8 w-full flex justify-center md:justify-start">
+                <div className="mt-6 md:mt-4 lg:mt-6 w-full flex justify-center md:justify-start">
                   <AnimatedButton
                     href={project.url}
                     theme="primary"
-                    className="w-full md:w-auto justify-center md:text-xs lg:text-sm md:px-6 md:py-3 lg:px-8 lg:py-4"
+                    className="w-full md:w-auto justify-center md:text-[10px] lg:text-xs md:px-5 md:py-2.5 lg:px-7 lg:py-3"
                     style={{ backgroundColor: project.color || "#8B090A" }}
                   >
                     VISITAR SITIO

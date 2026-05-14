@@ -1,25 +1,25 @@
-import GridLines from "@/components/ui/GridLines";
+"use client";
+
+import Section from "@/components/layout/Section";
+import GlyphRain from "@/components/ui/GlyphRain";
+import BlueprintPattern from "@/components/ui/BlueprintPattern";
 
 export default function TechStack() {
   const stackTop = ["NEXT.JS", "REACT.JS", "NODE.JS", "TYPESCRIPT"];
   const stackBottom = ["TAILWIND", "GSAP", "POSTGRES", "FIGMA"];
 
   return (
-    <section id="tecnologias" className="w-full py-24 lg:py-48 px-4 lg:px-[7rem] bg-[#1a1a1a] text-white relative overflow-hidden flex flex-col justify-center">
-      <GridLines />
+    <Section 
+      id="tecnologias" 
+      theme="dark" 
+      className="!bg-[#1a1a1a]"
+    >
       {/* Glyph Rain Background */}
-      <div className="glyph-rain-container">
-        <div className="glyph-column" style={{ animationDelay: "0s" }}>01011101010110101010101111010101010111010101101010101011110101</div>
-        <div className="glyph-column" style={{ animationDelay: "2s" }}>IT_SYSTEMS_BLACKCHERRY_REDUX_01010101101010101011110101</div>
-        <div className="glyph-column" style={{ animationDelay: "5s" }}>1010111010101101010101011110101010111010101101010101011110101</div>
-        <div className="glyph-column" style={{ animationDelay: "1s" }}>0001101010101101010101011110101010111010101101010101011110101</div>
-        <div className="glyph-column" style={{ animationDelay: "4s" }}>MONOLITH_ARCHITECTURE_STABLE_10101010111101010101110101011</div>
-        <div className="glyph-column" style={{ animationDelay: "3s" }}>1110101010111010101101010101011110101010111010101101010101011110101</div>
-      </div>
+      <GlyphRain opacity={0.15} count={8} />
 
       {/* HUD Background Patterns */}
-      <div className="absolute inset-0 blueprint-circuit opacity-[0.08] pointer-events-none z-0"></div>
-      <div className="absolute inset-0 diagonal-blueprint opacity-[0.04] pointer-events-none z-0"></div>
+      <BlueprintPattern type="circuit" opacity={0.08} />
+      <BlueprintPattern type="diagonal" opacity={0.04} />
       
       <div className="w-full min-h-[500px] lg:min-h-[600px] relative z-10 flex flex-col lg:flex-row items-stretch">
         {/* Left Side: Content Centered on axis */}
@@ -64,6 +64,6 @@ export default function TechStack() {
           </div>
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

@@ -50,19 +50,19 @@ export default function Navbar() {
   const isProjectDetail = pathname.startsWith('/portafolio/') && pathname !== '/portafolio';
   const isContact = pathname === '/contacto';
 
-  // IA page has a white background hero, so treat it like a light-theme page for the navbar
-  const isDarkTheme = isContact || isProjectDetail;
+  // On mobile, project detail & contact are dark themed.
+  // On desktop (lg+), project detail uses the same white navbar as all other pages.
+  const isDarkThemeMobile = isContact || isProjectDetail;
+  const isDarkTheme = isContact; // Only contact page keeps dark navbar on desktop
   const navbarBg = isIA 
     ? "bg-white" 
     : isContact 
       ? "bg-white/10 backdrop-blur-md border-white/5" 
-      : isProjectDetail
-        ? "bg-black/10 backdrop-blur-md border-b border-white/10"
-        : "bg-white";
+      : "bg-white";
   
   const textColor = isDarkTheme ? "text-white/70 hover:text-white" : "text-stone-500 hover:text-stone-900";
   const activeTextColor = isDarkTheme ? "text-white border-white" : "text-primary-container border-primary-container";
-  const mobileToggleColor = isDarkTheme ? "text-white" : "text-primary-container";
+  const mobileToggleColor = isDarkThemeMobile ? "text-white" : "text-primary-container";
   
   const mobileLogoText = isIA ? "IA ARCHITECTURE" : isContact ? "DIRECT CHANNEL" : isProjectDetail ? "PROJECT LOG" : "BLACKCHERRY";
 
@@ -71,8 +71,8 @@ export default function Navbar() {
       {/* Brand Icon - Left Fixed */}
       <div className={cn(
         "fixed top-0 left-0 w-16 lg:w-[var(--gutter-width)] h-16 lg:h-20 flex items-center justify-center z-[110] transition-colors duration-500",
-        isDarkTheme && !isContact ? "bg-transparent" :
         isContact ? "bg-white lg:bg-transparent border-r lg:border-none border-black/5" :
+        isProjectDetail ? "bg-white lg:bg-surface border-r border-black/5" :
         "bg-white lg:bg-surface border-r lg:border-none border-black/5"
       )}>
         <Link href="/">
@@ -130,7 +130,7 @@ export default function Navbar() {
       </AnimatePresence>
 
       {/* Hamburger Button at root level to ensure it's always on top */}
-      <HamburgerButton active={isMobileMenuOpen} setActive={setIsMobileMenuOpen} isDark={isDarkTheme} isIA={isIA} />
+      <HamburgerButton active={isMobileMenuOpen} setActive={setIsMobileMenuOpen} isDark={isDarkThemeMobile} isIA={isIA} />
     </>
   );
 }
