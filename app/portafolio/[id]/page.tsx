@@ -23,8 +23,10 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
     const handleWheel = (e: WheelEvent) => {
       // If scrolling vertically, convert to horizontal scroll exactly 1:1
       if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-        e.preventDefault();
-        container.scrollLeft += e.deltaY;
+        if (window.innerWidth >= 768) {
+          e.preventDefault();
+          container.scrollLeft += e.deltaY;
+        }
       }
     };
 
@@ -37,7 +39,7 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
   }
 
   return (
-    <div className="relative w-full h-screen bg-white font-body text-on-surface selection:bg-primary-container selection:text-white overflow-hidden">
+    <div className="relative w-full h-auto md:h-screen bg-white font-body text-on-surface selection:bg-primary-container selection:text-white md:overflow-hidden overflow-y-auto overflow-x-hidden">
       {/* Global Architectural Grid Lines overlaying the entire page */}
       <div className="fixed inset-0 pointer-events-none z-[100]">
         <GridLines />
@@ -56,16 +58,16 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
 
       {/* Horizontal Scroll Container without snap jumping */}
       <div 
-        className="flex w-full h-full overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]" 
+        className="flex flex-col md:flex-row w-full h-auto md:h-full md:overflow-x-auto md:[&::-webkit-scrollbar]:hidden md:[-ms-overflow-style:none] md:[scrollbar-width:none]" 
         ref={scrollRef}
       >
         {/* SECTION 1: HERO */}
-        <section className="flex-none w-screen h-screen relative flex">
+        <section className="flex-none w-full md:w-screen h-auto md:h-screen relative flex flex-col md:flex-row">
           {/* Left: Red Narrative */}
-          <div className="w-1/2 h-full relative flex flex-col items-center justify-center" style={{ backgroundColor: project.heroBgOverride || project.color || "#8B090A" }}>
+          <div className="w-full md:w-1/2 h-[50vh] md:h-full relative flex flex-col items-center justify-center" style={{ backgroundColor: project.heroBgOverride || project.color || "#8B090A" }}>
             <div className="absolute inset-0 technical-grid-red opacity-10"></div>
             <div 
-              className={`relative z-20 flex items-center justify-center ${project.logoContainerClass || "w-40 h-40 md:w-64 md:h-64"} ${project.logoBg === "white" ? `bg-white ${project.logoPadding || "p-6"} rounded-2xl shadow-xl` : ""}`}
+              className={`relative z-20 flex items-center justify-center ${project.logoContainerClass || "w-40 h-40 md:w-48 md:h-48 lg:w-64 lg:h-64"} ${project.logoBg === "white" ? `bg-white ${project.logoPadding || "p-4 md:p-6"} rounded-2xl shadow-xl` : ""}`}
             >
               <img
                 alt={`${project.title} Logo`}
@@ -75,7 +77,7 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
             </div>
           </div>
           {/* Right: Industrial Image */}
-          <div className="w-1/2 h-full relative overflow-hidden">
+          <div className="w-full md:w-1/2 h-[50vh] md:h-full relative overflow-hidden">
             <img
               alt={`${project.title} Hero Image`}
               className="w-full h-full object-cover grayscale"
@@ -86,46 +88,47 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
         </section>
 
         {/* SECTION 2: PROJECT NARRATIVE */}
-        <section className="flex-none w-screen h-screen relative flex">
+        <section className="flex-none w-full md:w-screen h-auto md:h-screen relative flex flex-col md:flex-row">
           {/* Left: Narrative Text */}
-          <div className="w-1/2 h-full bg-white px-12 md:px-28 flex flex-col justify-start pt-28 pb-12">
-            <div className="max-w-xl">
+          <div className="w-full md:w-1/2 h-auto md:h-full bg-white px-8 py-16 md:px-10 lg:px-20 flex flex-col justify-center md:pt-16 lg:pt-24 md:pb-8 lg:pb-12 md:overflow-y-auto [&::-webkit-scrollbar]:hidden">
+            <div className="max-w-xl md:max-w-md lg:max-w-xl w-full">
               <p 
-                className="font-headline text-xs tracking-[0.5em] uppercase mb-4"
+                className="font-headline text-[10px] md:text-[9px] lg:text-xs tracking-[0.5em] uppercase mb-4 md:mb-2 lg:mb-4"
                 style={{ color: project.color || "var(--primary-container)" }}
               >
                 02 / PROTOCOLO DE DISEÑO
               </p>
-              <h2 className="font-headline font-black text-2xl md:text-3xl lg:text-4xl text-[#1F1F1F] tracking-tighter uppercase mb-3 md:mb-4 leading-[1.1]">
+              <h2 className="font-headline font-black text-3xl md:text-2xl lg:text-4xl text-[#1F1F1F] tracking-tighter uppercase mb-3 md:mb-2 lg:mb-4 leading-[1.1]">
                 {project.narrativeTitle}
               </h2>
-              <p className="font-body text-stone-500 text-sm md:text-base leading-relaxed mb-4">
+              <p className="font-body text-stone-500 text-sm md:text-xs lg:text-base leading-relaxed mb-4 md:mb-3 lg:mb-5">
                 {project.narrativeText}
               </p>
-              <div className="grid grid-cols-2 gap-4 pt-6 border-t border-stone-200">
+              <div className="grid grid-cols-2 gap-4 md:gap-2 lg:gap-4 pt-6 md:pt-4 lg:pt-6 border-t border-stone-200">
                 <div>
-                  <span className="block font-headline font-bold text-[10px] text-stone-400 uppercase tracking-widest mb-2">
+                  <span className="block font-headline font-bold text-[10px] md:text-[9px] lg:text-[10px] text-stone-400 uppercase tracking-widest mb-2 md:mb-1 lg:mb-2">
                     {project.stats.techLabel}
                   </span>
-                  <span className="font-headline font-black text-xs md:text-sm text-[#1F1F1F] uppercase">
+                  <span className="font-headline font-black text-xs md:text-[10px] lg:text-sm text-[#1F1F1F] uppercase">
                     {project.stats.techValue}
                   </span>
                 </div>
                 <div>
-                  <span className="block font-headline font-bold text-[10px] text-stone-400 uppercase tracking-widest mb-2">
+                  <span className="block font-headline font-bold text-[10px] md:text-[9px] lg:text-[10px] text-stone-400 uppercase tracking-widest mb-2 md:mb-1 lg:mb-2">
                     {project.stats.perfLabel}
                   </span>
-                  <span className="font-headline font-black text-xs md:text-sm text-[#1F1F1F] uppercase">
+                  <span className="font-headline font-black text-xs md:text-[10px] lg:text-sm text-[#1F1F1F] uppercase">
                     {project.stats.perfValue}
                   </span>
                 </div>
               </div>
 
               {project.url && (
-                <div className="mt-4">
+                <div className="mt-8 md:mt-5 lg:mt-8 w-full">
                   <AnimatedButton
                     href={project.url}
                     theme="primary"
+                    className="w-full md:w-auto justify-center md:text-xs lg:text-sm md:px-6 md:py-3 lg:px-8 lg:py-4"
                     style={{ backgroundColor: project.color || "#8B090A" }}
                   >
                     VISITAR SITIO
@@ -135,7 +138,7 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
             </div>
           </div>
           {/* Right: Technical Render */}
-          <div className="w-1/2 h-full relative">
+          <div className="w-full md:w-1/2 h-[50vh] md:h-full relative">
             <img
               alt={`${project.title} Technical Render`}
               className="w-full h-full object-cover grayscale"
@@ -147,23 +150,23 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
         </section>
 
         {/* SECTION 3: GALLERY GRID (Images only, different container sizes) */}
-        <section className="flex-none w-screen h-screen relative bg-white px-6 md:px-[7rem] py-24 flex flex-col justify-center">
-          <div className="grid grid-cols-12 grid-rows-6 gap-2 w-full h-[80vh]">
-            <div className="col-span-8 row-span-6 overflow-hidden relative group">
+        <section className="flex-none w-full md:w-screen h-auto md:h-screen relative bg-white px-6 md:px-[7rem] py-16 md:py-24 flex flex-col justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-12 md:grid-rows-6 gap-2 md:gap-2 w-full h-auto md:h-[80vh]">
+            <div className="col-span-1 md:col-span-8 md:row-span-6 h-[40vh] md:h-auto overflow-hidden relative group">
               <img
                 alt="Detail 1"
                 className="w-full h-full object-cover transition-all duration-700"
                 src={project.galleryImages[0]}
               />
             </div>
-            <div className="col-span-4 row-span-3 overflow-hidden relative group">
+            <div className="col-span-1 md:col-span-4 md:row-span-3 h-[30vh] md:h-auto overflow-hidden relative group">
               <img
                 alt="Detail 2"
                 className="w-full h-full object-cover transition-all duration-700"
                 src={project.galleryImages[1]}
               />
             </div>
-            <div className="col-span-4 row-span-3 overflow-hidden relative group">
+            <div className="col-span-1 md:col-span-4 md:row-span-3 h-[30vh] md:h-auto overflow-hidden relative group">
               <img
                 alt="Detail 3"
                 className="w-full h-full object-cover transition-all duration-700"
