@@ -4,15 +4,14 @@ import { motion, useInView } from "framer-motion";
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import { IconType } from "react-icons";
 import { FiMessageCircle, FiTrendingUp, FiUsers, FiZap } from "react-icons/fi";
-import GridLines from "@/components/ui/GridLines";
+import TechnicalGrid from "@/components/ui/TechnicalGrid";
 
 const ManychatFeatures = () => {
   const [featureInView, setFeatureInView] = useState<FeatureType>(features[0]);
 
   return (
     <section className="relative mx-auto w-full bg-white text-black border-t border-black/5">
-      <GridLines />
-      <div className="absolute inset-0 opacity-50 pointer-events-none technical-grid-light"></div>
+      <TechnicalGrid mode="light" opacity={0.5} />
       
       {/* Intro section */}
       <div className="flex h-[60vh] md:h-[70vh] flex-col items-center justify-center relative z-10 px-6">
@@ -145,7 +144,7 @@ const ExampleFeature = ({ featureInView }: { featureInView: FeatureType }) => {
         />
         
         {/* Decorative background elements */}
-        <div className="absolute inset-0 technical-grid-dark opacity-30 pointer-events-none"></div>
+        <TechnicalGrid mode="dark" opacity={0.3} />
         <div className="absolute w-full h-full bg-gradient-to-t from-black via-transparent to-transparent opacity-60 pointer-events-none"></div>
         
         <div className="absolute bottom-8 left-8 z-10 space-y-2">

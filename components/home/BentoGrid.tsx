@@ -4,10 +4,11 @@ import { useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import GridLines from "@/components/ui/GridLines";
+import Section from "@/components/layout/Section";
+import DotPattern from "@/components/ui/DotPattern";
 
 export default function BentoGrid() {
-  const containerRef = useRef<HTMLElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
     // Stagger reveal for the bento cards
@@ -29,22 +30,28 @@ export default function BentoGrid() {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="w-full py-24 min-[600px]:py-32 px-0 min-[600px]:px-[var(--gutter-width)] bg-on-surface text-white relative overflow-hidden">
-      <GridLines />
+    <Section 
+      theme="dark" 
+      className="!bg-on-surface py-24 min-[600px]:py-32 px-0 min-[600px]:px-[var(--gutter-width)]"
+      noPadding
+    >
+      <div ref={containerRef}>
       <div className="mb-16 min-[600px]:mb-20 relative z-10 flex flex-col items-start px-6 min-[600px]:px-4">
         <span className="font-headline font-black text-white text-[10px] min-[600px]:text-xs tracking-[0.3em] uppercase mb-4">02 / Áreas de Impacto</span>
         <h2 className="font-headline font-black text-3xl min-[600px]:text-5xl uppercase tracking-tighter">Sectores IA</h2>
         <div className="w-24 h-[1.3px] bg-primary-container mt-6"></div>
       </div>
-            <div className="grid grid-cols-1 min-[600px]:grid-cols-2 lg:grid-cols-12 gap-0 min-[600px]:gap-4 lg:gap-6 relative z-10">
+      
+      <div className="grid grid-cols-1 min-[600px]:grid-cols-2 lg:grid-cols-12 gap-0 min-[600px]:gap-4 lg:gap-6 relative z-10">
         {/* Sector Industrial */}
         <div className="bento-card-anim lg:col-span-8 bento-card bg-white/[0.03] backdrop-blur-sm p-6 min-[600px]:p-8 lg:p-12 xl:p-16 flex flex-col justify-between group overflow-hidden relative min-h-[300px] min-[600px]:min-h-[280px] lg:min-h-[400px] rounded-none min-[600px]:rounded-xl">
-          <div className="absolute inset-0 wireframe-overlay opacity-20 pointer-events-none"></div>
+          <DotPattern opacity={0.2} />
           <div className="absolute inset-0 opacity-0 group-hover:opacity-60 transition-opacity duration-1000">
             <Image 
               src="/sectors/industrial.png" 
-              alt="industrial complex" 
+              alt="Sector industrial — IA y automatización para manufactura"
               fill
+              sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 33vw"
               className="object-cover"
             />
           </div>
@@ -78,8 +85,9 @@ export default function BentoGrid() {
           <div className="absolute inset-0 opacity-0 group-hover:opacity-60 transition-opacity duration-1000 z-0">
             <Image 
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYu_vXX1OjkmWglodnptWz5x5ekEhxewB2x4Q6H4acKuceh_Hb8QwAS5NP9V_zRuUaJ1X2h2_33V55FfLLBdj1xmQ4AFv-VF364Y8HuJ7S8KnVierz4eHT_Sg9MyAkw4K-0MURLpWykvkupf5pHu224dSWkBvYwU-tDyn3QrOImEQTI2VoL63_F7NvJiOYP0u6ebnis7fDoHQremTSi0o9wNH115_v-ic2giv553uocrUvYSeQB57qVwKEoixvx3CjzmLrjlIJWcsb" 
-              alt="real estate" 
+              alt="Sector inmobiliario — automatización con IA para bienes raíces" 
               fill
+              sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 66vw"
               className="object-cover"
             />
           </div>
@@ -105,6 +113,7 @@ export default function BentoGrid() {
           <p className="font-body text-white/30 max-w-md text-left lg:text-right uppercase tracking-widest text-[8px] min-[600px]:text-[10px] lg:text-xs xl:text-sm font-bold group-hover:text-white/60 transition-colors">Sistemas de agendamiento y triage de clientes automatizado para despachos y consultorías.</p>
         </div>
       </div>
-    </section>
+      </div>
+    </Section>
   );
 }

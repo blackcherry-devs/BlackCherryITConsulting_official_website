@@ -142,6 +142,24 @@ a, button, [role="button"] {
         linear-gradient(to bottom, rgba(139, 9, 10, 0.1) 1px, transparent 1px);
     background-size: 32px 32px;
   }
+  .technical-grid-light {
+    background-image: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  .technical-grid-dark {
+    background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  .technical-grid-dark-red {
+    background-image: 
+        linear-gradient(to right, rgba(139, 9, 10, 0.2) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(139, 9, 10, 0.2) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
   .blueprint-circuit {
     background-image: 
         linear-gradient(90deg, rgba(139, 9, 10, 0.25) 1px, transparent 1px),

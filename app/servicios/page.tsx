@@ -5,8 +5,26 @@ import ServicesSection from "@/components/servicios/ServicesSection";
 import HeroVideoCarousel from "@/components/servicios/HeroVideoCarousel";
 
 export const metadata = {
-  title: "BLACKCHERRY IT | SERVICIOS",
-  description: "Servicios arquitectónicos para la próxima era.",
+  title: "Servicios de Desarrollo Web, IA y Automatización | BlackCherry IT",
+  description:
+    "Ofrecemos desarrollo web profesional, diseño de sitios web, creación de páginas web, implementación de inteligencia artificial, chatbots y automatización de WhatsApp para empresas en México.",
+  keywords: [
+    "servicios desarrollo web México",
+    "diseño web profesional León Guanajuato",
+    "creación sitios web empresas",
+    "automatización WhatsApp para negocios",
+    "chatbots para empresas México",
+    "agencia IA México",
+    "Manychat México",
+    "consultoría tecnológica México",
+  ],
+  alternates: { canonical: "https://blackcherryitconsulting.com/servicios" },
+  openGraph: {
+    title: "Servicios de Desarrollo Web, IA y Automatización | BlackCherry IT",
+    description: "Desarrollo web, diseño web, chatbots y automatización de WhatsApp para empresas en México.",
+    url: "https://blackcherryitconsulting.com/servicios",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  },
 };
 
 export default function ServiciosPage() {

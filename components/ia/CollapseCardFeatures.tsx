@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
-import GridLines from "@/components/ui/GridLines";
 import { IconType } from "react-icons";
 import {
   FiArrowUp,
@@ -13,6 +12,8 @@ import {
   FiTool,
   FiUpload,
 } from "react-icons/fi";
+import Section from "@/components/layout/Section";
+import TechnicalGrid from "@/components/ui/TechnicalGrid";
 
 const CollapseCardFeatures = () => {
   const [position, setPosition] = useState(0);
@@ -30,9 +31,12 @@ const CollapseCardFeatures = () => {
   };
 
   return (
-    <section className="overflow-hidden bg-white py-16 relative z-20 w-full border-y border-black/5">
-      <GridLines />
-      <div className="absolute inset-0 opacity-50 pointer-events-none technical-grid-light"></div>
+    <Section 
+      theme="light" 
+      noPadding 
+      className="overflow-hidden bg-white py-16 relative z-20 w-full border-y border-black/5"
+    >
+      <TechnicalGrid mode="light" opacity={0.5} />
       
       <div className="w-full px-6 lg:px-[var(--gutter-width)] relative z-10">
         <div className="mb-8 flex justify-between gap-4 items-end">
@@ -60,7 +64,7 @@ const CollapseCardFeatures = () => {
           ))}
         </div>
       </div>
-    </section>
+    </Section>
   );
 };
 

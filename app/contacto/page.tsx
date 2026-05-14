@@ -4,8 +4,24 @@ import GridLines from "@/components/ui/GridLines";
 import ContactForm from "@/components/forms/ContactForm";
 
 export const metadata = {
-  title: "BLACKCHERRY IT | CONTACTO",
-  description: "Hablemos del futuro de tu infraestructura.",
+  title: "Contacto | Contratar Agencia Web en México | BlackCherry IT",
+  description:
+    "Contáctanos para contratar nuestros servicios de desarrollo web, diseño de sitios web, chatbots e inteligencia artificial en México. Solicita tu cotización gratis hoy.",
+  keywords: [
+    "contratar agencia web México",
+    "cotización desarrollo web México",
+    "contacto BlackCherry IT",
+    "contratar diseño web León Guanajuato",
+    "solicitar página web profesional México",
+    "agencia web contacto",
+  ],
+  alternates: { canonical: "https://blackcherryitconsulting.com/contacto" },
+  openGraph: {
+    title: "Contacto | Contratar Agencia Web en México | BlackCherry IT",
+    description: "Solicita tu cotización gratis para desarrollo web, chatbots o automatización de WhatsApp en México.",
+    url: "https://blackcherryitconsulting.com/contacto",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  },
 };
 
 export default function ContactoPage() {
@@ -62,7 +78,7 @@ export default function ContactoPage() {
             {/* Bottom/Right half of container (Over Red) */}
             <div className="w-full sm:w-1/2 bg-white flex flex-col justify-center p-6 sm:p-6 md:p-8 py-8 sm:py-6 md:py-8 border-2 lg:border-none border-black border-t-0 sm:border-t-2 sm:border-l-0 rounded-b-xl sm:rounded-none">
               <p className="font-headline text-primary font-black text-[10px] md:text-[10px] tracking-[0.2em] md:tracking-[0.4em] uppercase mb-6 sm:mb-6 text-center sm:text-left">NUEVA CONSULTA</p>
-              <ContactForm />
+              <ContactForm compact={true} />
             </div>
           </div>
 
