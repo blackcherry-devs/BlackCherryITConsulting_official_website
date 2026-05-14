@@ -50,9 +50,10 @@ export default function Navbar() {
   const isProjectDetail = pathname.startsWith('/portafolio/') && pathname !== '/portafolio';
   const isContact = pathname === '/contacto';
 
-  const isDarkTheme = isIA || isContact || isProjectDetail;
+  // IA page has a white background hero, so treat it like a light-theme page for the navbar
+  const isDarkTheme = isContact || isProjectDetail;
   const navbarBg = isIA 
-    ? "bg-white/5 backdrop-blur-md border-white/10" 
+    ? "bg-white" 
     : isContact 
       ? "bg-white/10 backdrop-blur-md border-white/5" 
       : isProjectDetail
@@ -84,7 +85,8 @@ export default function Navbar() {
         {/* Main Navbar Container */}
         <nav 
           className={cn(
-            "hidden lg:flex relative w-1/2 items-center justify-center px-8 h-full pointer-events-auto transition-all duration-500 border-r",
+            "hidden lg:flex relative w-1/2 items-center justify-center px-8 h-full pointer-events-auto transition-all duration-500",
+            !isIA && "border-r",
             navbarBg,
             scrolled && !isDarkTheme ? "shadow-[0_40px_80px_rgba(26,28,28,0.06)]" : ""
           )}
@@ -128,12 +130,12 @@ export default function Navbar() {
       </AnimatePresence>
 
       {/* Hamburger Button at root level to ensure it's always on top */}
-      <HamburgerButton active={isMobileMenuOpen} setActive={setIsMobileMenuOpen} isDark={isDarkTheme} />
+      <HamburgerButton active={isMobileMenuOpen} setActive={setIsMobileMenuOpen} isDark={isDarkTheme} isIA={isIA} />
     </>
   );
 }
 
-const HamburgerButton = ({ active, setActive, isDark }: { active: boolean, setActive: (val: boolean) => void, isDark: boolean }) => {
+const HamburgerButton = ({ active, setActive, isDark, isIA }: { active: boolean, setActive: (val: boolean) => void, isDark: boolean, isIA?: boolean }) => {
   return (
     <>
       <motion.div
@@ -149,8 +151,7 @@ const HamburgerButton = ({ active, setActive, isDark }: { active: boolean, setAc
         animate={active ? "open" : "closed"}
         onClick={() => setActive(!active)}
         className={cn(
-          "group fixed right-2 top-2 z-[130] h-12 w-12 transition-all flex items-center justify-center lg:hidden",
-          "text-white"
+          "group fixed right-2 top-2 z-[130] h-12 w-12 transition-all flex items-center justify-center lg:hidden text-white"
         )}
       >
         <div className="relative h-6 w-8">

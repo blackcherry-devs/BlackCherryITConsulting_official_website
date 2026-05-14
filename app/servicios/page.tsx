@@ -16,7 +16,7 @@ export default function ServiciosPage() {
       <header className="relative w-full flex flex-col lg:flex-row items-stretch overflow-hidden bg-white">
         <GridLines />
         {/* Left: Static Container */}
-        <div className="w-full lg:w-1/2 relative z-20 px-[var(--gutter-width)] lg:px-0 lg:pl-[var(--gutter-width)] pt-0 lg:pt-20 pointer-events-none">
+        <div className="w-full lg:w-1/2 relative z-20 px-0 min-[600px]:px-[var(--gutter-width)] lg:px-0 lg:pl-[var(--gutter-width)] pt-0 lg:pt-20 pointer-events-none">
           <div className="relative w-full h-[450px] sm:h-[600px] lg:h-[700px] bg-black/50 lg:bg-[#1F1F1F] flex flex-col justify-center px-6 md:px-12 overflow-hidden pointer-events-auto">
             <div className="absolute inset-0 opacity-10 pointer-events-none technical-grid-red"></div>
             <h1 className="font-headline font-black text-6xl md:text-[8vw] lg:text-[6vw] leading-[0.8] tracking-tighter uppercase text-white mb-10 relative z-10">
@@ -34,7 +34,7 @@ export default function ServiciosPage() {
         </div>
         
         {/* Right: Video Container */}
-        <div className="absolute inset-y-0 left-[var(--gutter-width)] right-[var(--gutter-width)] lg:static lg:inset-auto lg:w-1/2 lg:flex lg:flex-col lg:px-0 lg:pr-[var(--gutter-width)] pt-0 z-0 lg:z-10">
+        <div className="absolute inset-y-0 left-0 right-0 min-[600px]:left-[var(--gutter-width)] min-[600px]:right-[var(--gutter-width)] lg:static lg:inset-auto lg:w-1/2 lg:flex lg:flex-col lg:px-0 lg:pr-[var(--gutter-width)] pt-0 z-0 lg:z-10">
           <div className="relative z-20 w-full h-full lg:h-auto">
             <HeroVideoCarousel />
           </div>
