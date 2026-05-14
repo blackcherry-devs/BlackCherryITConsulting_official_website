@@ -46,17 +46,17 @@ export default function HeroSection() {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="w-full flex flex-col bg-[#1F1F1F] relative overflow-hidden">
+    <section ref={containerRef} className="w-full flex flex-col bg-white relative overflow-hidden px-0 md:px-[var(--gutter-width)]">
       <GridLines />
       
-      <div className="flex flex-col min-[600px]:flex-row w-full items-stretch">
+      <div className="flex flex-col min-[600px]:flex-row w-full items-stretch bg-[#1F1F1F]">
         {/* Left: Image Container - Hidden on Mobile */}
         <div className="hidden min-[600px]:block w-full min-[600px]:w-1/2 relative z-10 pl-0">
           <div className="relative w-full h-[350px] min-[600px]:h-[450px] lg:h-[700px] overflow-hidden">
             {/* Track moving Right */}
             <div ref={leftCarouselRef} className="flex h-full w-max absolute top-0 left-0 will-change-transform">
               {carouselImages.map((src, idx) => (
-                <div key={`img-${idx}`} className="w-[100vw] min-[600px]:w-[50vw] h-full flex-shrink-0 relative">
+                <div key={`img-${idx}`} className="w-[50vw] md:w-[calc(50vw-var(--gutter-width))] h-full flex-shrink-0 relative">
                   <Image src={src} alt={`Hero ${idx}`} fill priority className="object-cover brightness-50" />
                 </div>
               ))}
@@ -64,10 +64,10 @@ export default function HeroSection() {
 
             {/* Desktop Overlay */}
             <div className="absolute inset-0 z-10 px-4 min-[600px]:px-12 h-full flex flex-col justify-center lg:-translate-y-12 pointer-events-none">
-              <h1 className="font-headline font-black text-4xl min-[600px]:text-6xl lg:text-[7vw] leading-[0.85] tracking-tighter uppercase text-white drop-shadow-2xl">
+              <h1 className="font-headline font-black text-5xl min-[600px]:text-7xl md:text-[8vw] lg:text-[7vw] leading-[0.85] tracking-tighter uppercase text-white drop-shadow-2xl">
                 ARQUI <br /> TECTURA <br /> DIGITAL
               </h1>
-              <p className="mt-4 min-[600px]:mt-8 font-body text-white/90 max-w-xs min-[600px]:max-w-sm text-[10px] min-[600px]:text-base lg:text-sm uppercase tracking-widest leading-relaxed drop-shadow-md">
+              <p className="mt-4 min-[600px]:mt-8 font-body text-white/90 max-w-xs min-[600px]:max-w-sm text-xs min-[600px]:text-sm md:text-base lg:text-base tracking-wide leading-snug drop-shadow-md">
                 Soluciones IT de grado industrial diseñadas con precisión quirúrgica para la escala global.
               </p>
             </div>
@@ -97,11 +97,11 @@ export default function HeroSection() {
             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60 pointer-events-none"></div>
 
             {/* Mobile Overlay (Visible only on < 600px) */}
-            <div className="min-[600px]:hidden absolute inset-0 z-20 px-6 h-full flex flex-col justify-center pointer-events-none">
-              <h1 className="font-headline font-black text-5xl leading-[0.85] tracking-tighter uppercase text-white drop-shadow-2xl mb-6">
+            <div className="min-[600px]:hidden absolute inset-0 z-20 px-8 h-full flex flex-col justify-center pointer-events-none">
+              <h1 className="font-headline font-black text-[11vw] leading-[0.85] tracking-tighter uppercase text-white drop-shadow-2xl mb-6">
                 ARQUI <br /> TECTURA <br /> DIGITAL
               </h1>
-              <p className="font-body text-white/90 max-w-xs text-xs uppercase tracking-widest leading-relaxed drop-shadow-md">
+              <p className="font-body text-white/90 max-w-xs text-[4.5vw] min-[400px]:text-sm tracking-wide leading-snug drop-shadow-md">
                 Soluciones IT de grado industrial diseñadas con precisión quirúrgica para la escala global.
               </p>
             </div>
