@@ -4,6 +4,7 @@ import "./globals.css";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -190,6 +191,7 @@ export default function RootLayout({
           </main>
           <Footer />
         </SmoothScroll>
+        <GoogleTagManager gtmId="GTM-PHZKCJXR" />
       </body>
     </html>
   );

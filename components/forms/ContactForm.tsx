@@ -5,6 +5,7 @@ import { useState } from "react";
 import AnimatedButton from "@/components/ui/AnimatedButton";
 import { BeamInputWrapper } from "@/components/ui/BeamInputWrapper";
 import { Notification, NotificationType } from "@/components/ui/Notification";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 interface ContactFormProps {
   theme?: "light" | "dark" | "industrial";
@@ -50,6 +51,7 @@ export default function ContactForm({
           id: Math.random(),
           text: "Mensaje enviado con éxito. Te contactaremos pronto.",
         });
+        sendGTMEvent({ event: "generate_lead", value: "contact_form" });
         setFormData({ name: "", email: "", message: "" });
       } else {
         throw new Error(result.error || "Ocurrió un error al enviar el mensaje.");
