@@ -7,7 +7,41 @@ import { cn } from "@/lib/utils";
 import AnimatedButton from "@/components/ui/AnimatedButton";
 import { FiMenu, FiX, FiArrowRight, FiArrowUpRight } from "react-icons/fi";
 import { FaInstagram, FaFacebookF, FaTiktok } from "react-icons/fa6";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
+
+const SOCIAL_CTAS = [
+  { Component: FaFacebookF, href: "https://www.facebook.com/people/Blackcherry-Devs/61587561059170/" },
+  { Component: FaInstagram, href: "https://www.instagram.com/blackcherrydevs?igsh=MWQ3ZWQwenRtZnI1Nw==" },
+  { Component: FaTiktok, href: "https://www.tiktok.com/@blackcherry_devs" },
+];
+
+const UNDERLAY_VARIANTS: Variants = {
+  open: {
+    width: "min(450px, calc(100vw - 16px))",
+    height: "calc(100dvh - 16px)",
+    transition: { type: "spring", mass: 3, stiffness: 400, damping: 50 },
+  },
+  closed: {
+    width: "48px",
+    height: "48px",
+    transition: { delay: 0.75, type: "spring", mass: 3, stiffness: 400, damping: 50 },
+  },
+};
+
+const HAMBURGER_VARIANTS: { [key: string]: Variants } = {
+  top: {
+    open: { rotate: ["0deg", "0deg", "45deg"], top: ["0%", "50%", "50%"] },
+    closed: { rotate: ["45deg", "45deg", "0deg"], top: ["50%", "50%", "0%"] },
+  },
+  middle: {
+    open: { rotate: ["0deg", "0deg", "-45deg"] },
+    closed: { rotate: ["-45deg", "-45deg", "0deg"] },
+  },
+  bottom: {
+    open: { rotate: ["0deg", "0deg", "45deg"], bottom: ["0%", "50%", "50%"], left: "0%", width: "32px" },
+    closed: { rotate: ["45deg", "45deg", "0deg"], bottom: ["50%", "50%", "0%"], left: "50%", width: "16px" },
+  },
+};
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -134,7 +168,7 @@ export default function Navbar() {
   );
 }
 
-const HamburgerButton = ({ active, setActive, isDark: _isDark }: { active: boolean, setActive: (val: boolean) => void, isDark: boolean }) => {
+const HamburgerButton = ({ active, setActive, isDark }: { active: boolean, setActive: (val: boolean) => void, isDark: boolean }) => {
   return (
     <>
       <motion.div
@@ -153,7 +187,8 @@ const HamburgerButton = ({ active, setActive, isDark: _isDark }: { active: boole
         aria-expanded={active}
         aria-controls="mobile-nav"
         className={cn(
-          "group fixed right-2 top-2 z-[130] h-12 w-12 transition-all flex items-center justify-center lg:hidden text-white"
+          "group fixed right-2 top-2 z-[130] h-12 w-12 transition-all flex items-center justify-center lg:hidden",
+          isDark ? "text-white" : "text-primary-container"
         )}
       >
         <div className="relative h-6 w-8">
@@ -253,58 +288,4 @@ const LinksOverlay = ({ setActive, navLinks, pathname }: { setActive: (val: bool
       </div>
     </nav>
   );
-};
-
-const SOCIAL_CTAS = [
-  { Component: FaFacebookF, href: "https://www.facebook.com/people/Blackcherry-Devs/61587561059170/" },
-  { Component: FaInstagram, href: "https://www.instagram.com/blackcherrydevs?igsh=MWQ3ZWQwenRtZnI1Nw==" },
-  { Component: FaTiktok, href: "https://www.tiktok.com/@blackcherry_devs" },
-];
-
-const UNDERLAY_VARIANTS = {
-  open: {
-    width: "min(450px, calc(100vw - 16px))",
-    height: "calc(100dvh - 16px)",
-    transition: { type: "spring", mass: 3, stiffness: 400, damping: 50 },
-  },
-  closed: {
-    width: "48px",
-    height: "48px",
-    transition: { delay: 0.75, type: "spring", mass: 3, stiffness: 400, damping: 50 },
-  },
-};
-
-const HAMBURGER_VARIANTS = {
-  top: {
-    open: {
-      rotate: ["0deg", "0deg", "45deg"],
-      top: ["0%", "50%", "50%"],
-    },
-    closed: {
-      rotate: ["45deg", "45deg", "0deg"],
-      top: ["50%", "50%", "0%"],
-    },
-  },
-  middle: {
-    open: {
-      rotate: ["0deg", "0deg", "-45deg"],
-    },
-    closed: {
-      rotate: ["-45deg", "-45deg", "0deg"],
-    },
-  },
-  bottom: {
-    open: {
-      rotate: ["0deg", "0deg", "45deg"],
-      bottom: ["0%", "50%", "50%"],
-      left: "0%",
-      width: "32px"
-    },
-    closed: {
-      rotate: ["45deg", "45deg", "0deg"],
-      bottom: ["50%", "50%", "0%"],
-      left: "50%",
-      width: "16px"
-    },
-  },
 };

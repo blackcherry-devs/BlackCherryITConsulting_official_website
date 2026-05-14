@@ -139,18 +139,18 @@ export default function Footer() {
         <div className="mt-20 lg:mt-40 pt-10 border-t border-white/10 flex flex-col lg:flex-row justify-between items-center gap-6 pointer-events-auto">
           <span className="font-headline text-[9px] lg:text-[10px] text-white/20 uppercase tracking-[0.5em] text-center lg:text-left">© 2026 BLACKCHERRY IT CONSULTING. TODOS LOS DERECHOS RESERVADOS.</span>
           <div className="flex gap-8">
-            <button 
-              onClick={openPrivacy}
+            <Link 
+              href="/privacidad"
               className="font-headline text-[9px] lg:text-[10px] text-white/20 hover:text-white/40 uppercase tracking-[0.2em] cursor-pointer outline-none"
             >
               Política de Privacidad
-            </button>
-            <button 
-              onClick={openTerms}
+            </Link>
+            <Link 
+              href="/terminos"
               className="font-headline text-[9px] lg:text-[10px] text-white/20 hover:text-white/40 uppercase tracking-[0.2em] cursor-pointer outline-none"
             >
               Términos del Protocolo
-            </button>
+            </Link>
           </div>
         </div>
       </div>
