@@ -62,9 +62,6 @@ export default function Navbar() {
   
   const textColor = isDarkTheme ? "text-white/70 hover:text-white" : "text-stone-500 hover:text-stone-900";
   const activeTextColor = isDarkTheme ? "text-white border-white" : "text-primary-container border-primary-container";
-  const mobileToggleColor = isDarkThemeMobile ? "text-white" : "text-primary-container";
-  
-  const mobileLogoText = isIA ? "IA ARCHITECTURE" : isContact ? "DIRECT CHANNEL" : isProjectDetail ? "PROJECT LOG" : "BLACKCHERRY";
 
   return (
     <>
@@ -84,6 +81,7 @@ export default function Navbar() {
       <div className="fixed top-0 left-16 lg:left-[var(--gutter-width)] right-0 lg:right-[var(--gutter-width)] h-16 lg:h-20 z-[105] flex pointer-events-none">
         {/* Main Navbar Container */}
         <nav 
+          aria-label="Navegación principal"
           className={cn(
             "hidden lg:flex relative w-1/2 items-center justify-center px-8 h-full pointer-events-auto transition-all duration-500",
             !isIA && "border-r",
@@ -106,6 +104,7 @@ export default function Navbar() {
                     : cn('font-bold', textColor)
                 )} 
                 href={link.href}
+                aria-current={pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href)) ? 'page' : undefined}
               >
                 {link.name}
               </Link>
@@ -130,12 +129,12 @@ export default function Navbar() {
       </AnimatePresence>
 
       {/* Hamburger Button at root level to ensure it's always on top */}
-      <HamburgerButton active={isMobileMenuOpen} setActive={setIsMobileMenuOpen} isDark={isDarkThemeMobile} isIA={isIA} />
+      <HamburgerButton active={isMobileMenuOpen} setActive={setIsMobileMenuOpen} isDark={isDarkThemeMobile} />
     </>
   );
 }
 
-const HamburgerButton = ({ active, setActive, isDark, isIA }: { active: boolean, setActive: (val: boolean) => void, isDark: boolean, isIA?: boolean }) => {
+const HamburgerButton = ({ active, setActive, isDark: _isDark }: { active: boolean, setActive: (val: boolean) => void, isDark: boolean }) => {
   return (
     <>
       <motion.div
@@ -150,6 +149,9 @@ const HamburgerButton = ({ active, setActive, isDark, isIA }: { active: boolean,
         initial={false}
         animate={active ? "open" : "closed"}
         onClick={() => setActive(!active)}
+        aria-label={active ? "Cerrar menú" : "Abrir menú"}
+        aria-expanded={active}
+        aria-controls="mobile-nav"
         className={cn(
           "group fixed right-2 top-2 z-[130] h-12 w-12 transition-all flex items-center justify-center lg:hidden text-white"
         )}
@@ -178,7 +180,7 @@ const HamburgerButton = ({ active, setActive, isDark, isIA }: { active: boolean,
 
 const LinksOverlay = ({ setActive, navLinks, pathname }: { setActive: (val: boolean) => void, navLinks: any[], pathname: string }) => {
   return (
-    <nav className="fixed right-2 top-2 z-[125] h-[calc(100dvh-16px)] w-full max-w-[min(450px,calc(100vw-16px))] overflow-hidden flex flex-col pointer-events-auto lg:hidden">
+    <nav id="mobile-nav" aria-label="Menú móvil" className="fixed right-2 top-2 z-[125] h-[calc(100dvh-16px)] w-full max-w-[min(450px,calc(100vw-16px))] overflow-hidden flex flex-col pointer-events-auto lg:hidden">
       <div className="p-8 pb-4">
         <motion.div
           initial={{ opacity: 0, y: -12 }}

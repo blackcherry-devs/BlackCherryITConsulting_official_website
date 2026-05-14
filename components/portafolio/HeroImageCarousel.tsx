@@ -66,9 +66,10 @@ export default function HeroImageCarousel() {
           >
             <Image 
               src={src} 
-              alt={`Hero Portfolio ${idx}`} 
+              alt={`Proyecto BlackCherry IT - Portfolio ${idx + 1}`} 
               fill 
               priority 
+              sizes="(max-width: 600px) 100vw, (max-width: 1024px) calc(100vw - var(--gutter-width) * 2), calc(50vw - var(--gutter-width))"
               className="object-cover brightness-75" 
             />
             <div className="absolute inset-0 bg-black/20"></div>

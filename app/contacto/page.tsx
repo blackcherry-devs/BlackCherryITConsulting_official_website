@@ -4,8 +4,24 @@ import GridLines from "@/components/ui/GridLines";
 import ContactForm from "@/components/forms/ContactForm";
 
 export const metadata = {
-  title: "BLACKCHERRY IT | CONTACTO",
-  description: "Hablemos del futuro de tu infraestructura.",
+  title: "Contacto | Contratar Agencia Web en México | BlackCherry IT",
+  description:
+    "Contáctanos para contratar nuestros servicios de desarrollo web, diseño de sitios web, chatbots e inteligencia artificial en México. Solicita tu cotización gratis hoy.",
+  keywords: [
+    "contratar agencia web México",
+    "cotización desarrollo web México",
+    "contacto BlackCherry IT",
+    "contratar diseño web León Guanajuato",
+    "solicitar página web profesional México",
+    "agencia web contacto",
+  ],
+  alternates: { canonical: "https://blackcherryitconsulting.com/contacto" },
+  openGraph: {
+    title: "Contacto | Contratar Agencia Web en México | BlackCherry IT",
+    description: "Solicita tu cotización gratis para desarrollo web, chatbots o automatización de WhatsApp en México.",
+    url: "https://blackcherryitconsulting.com/contacto",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  },
 };
 
 export default function ContactoPage() {

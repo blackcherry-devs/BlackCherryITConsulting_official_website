@@ -6,8 +6,23 @@ import GridLines from "@/components/ui/GridLines";
 import AnimatedButton from "@/components/ui/AnimatedButton";
 
 export const metadata = {
-  title: "BLACKCHERRY IT | PORTAFOLIO",
-  description: "Máquinas digitales que impulsan el crecimiento.",
+  title: "Portafolio de Proyectos Web | BlackCherry IT Consulting",
+  description:
+    "Conoce nuestros proyectos de desarrollo web, diseño de sitios web y automatización para empresas en México. Casos de éxito reales de BlackCherry IT Consulting en León, Guanajuato.",
+  keywords: [
+    "portafolio desarrollo web México",
+    "proyectos web profesionales México",
+    "casos de éxito agencia web",
+    "diseño web empresas México",
+    "proyectos de páginas web León Guanajuato",
+  ],
+  alternates: { canonical: "https://blackcherryitconsulting.com/portafolio" },
+  openGraph: {
+    title: "Portafolio de Proyectos Web | BlackCherry IT Consulting",
+    description: "Proyectos reales de desarrollo web, diseño y automatización para empresas en México.",
+    url: "https://blackcherryitconsulting.com/portafolio",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  },
 };
 
 export default function PortafolioPage() {

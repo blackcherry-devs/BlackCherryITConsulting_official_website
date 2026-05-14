@@ -7,8 +7,26 @@ import ManychatFeatures from "@/components/ia/ManychatFeatures";
 import AnimatedButton from "@/components/ui/AnimatedButton";
 
 export const metadata = {
-  title: "BLACKCHERRY IT | IA",
-  description: "Soluciones de IA de Vanguardia",
+  title: "Inteligencia Artificial, Chatbots y Automatización de WhatsApp | BlackCherry IT",
+  description:
+    "Implementamos inteligencia artificial, chatbots inteligentes y automatización de WhatsApp para empresas en México. Soluciones con Manychat, voz neural y sistemas de IA personalizados.",
+  keywords: [
+    "inteligencia artificial para empresas México",
+    "chatbots para negocios México",
+    "automatización WhatsApp México",
+    "Manychat México",
+    "agencia IA México",
+    "sistemas de voz neural",
+    "automatización de marketing digital",
+    "chatbot WhatsApp para empresas",
+  ],
+  alternates: { canonical: "https://blackcherryitconsulting.com/ia" },
+  openGraph: {
+    title: "Inteligencia Artificial y Automatización de WhatsApp | BlackCherry IT",
+    description: "Chatbots, IA y automatización de WhatsApp para empresas en México con Manychat y tecnología de vanguardia.",
+    url: "https://blackcherryitconsulting.com/ia",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  },
 };
 
 export default function IAPage() {

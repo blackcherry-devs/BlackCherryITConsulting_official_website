@@ -66,13 +66,9 @@ export default function ContactForm({
 
   const isDark = theme === "dark" || theme === "industrial";
   
-  const labelClasses = isDark 
-    ? "text-[10px] uppercase tracking-[0.2em] font-black mb-2 text-white/50 group-focus-within:text-primary-container transition-colors" 
-    : "hidden"; // Labels hidden in light/compact mode as they use placeholders
+  const labelClasses = "text-[10px] uppercase tracking-[0.2em] font-black mb-2 text-stone-500 group-focus-within:text-primary-container transition-colors";
 
-  const inputBaseClasses = `w-full bg-transparent py-2 sm:py-3 font-headline font-bold tracking-widest uppercase focus:outline-none transition-colors placeholder:text-stone-400 px-1 ${
-    isDark ? "text-white" : "text-black"
-  } ${compact ? "text-[8px] sm:text-[10px] md:text-xs" : "text-base md:text-lg"}`;
+  const inputBaseClasses = `w-full bg-transparent py-2 sm:py-3 font-headline font-bold tracking-widest uppercase focus:outline-none transition-colors placeholder:text-stone-400 px-1 text-black ${compact ? "text-[8px] sm:text-[10px] md:text-xs" : "text-base md:text-lg"}`;
 
   const borderClasses = isDark ? "border-white/10" : "border-stone-300";
 
@@ -80,46 +76,52 @@ export default function ContactForm({
     <>
       <form className={`${compact ? "space-y-4" : "space-y-8"} w-full`} onSubmit={handleSubmit}>
         <div className="relative group">
-          <label className={labelClasses}>Nombre Completo</label>
+          <label htmlFor="contact-name" className={labelClasses}>Nombre Completo</label>
           <BeamInputWrapper rounded={isDark ? "rounded-xl" : "rounded-none"} className={`group border-b ${borderClasses}`}>
             <input 
+              id="contact-name"
               name="name"
               value={formData.name}
               onChange={handleChange}
               className={inputBaseClasses}
-              placeholder={isDark ? "IDENTIFICACIÓN DEL OPERADOR" : "NOMBRE COMPLETO"} 
+              placeholder="Nombre" 
               type="text"
               required
+              aria-required="true"
             />
           </BeamInputWrapper>
         </div>
         
         <div className="relative group">
-          <label className={labelClasses}>Email Corporativo</label>
+          <label htmlFor="contact-email" className={labelClasses}>Email Corporativo</label>
           <BeamInputWrapper rounded={isDark ? "rounded-xl" : "rounded-none"} className={`group border-b ${borderClasses}`}>
             <input 
+              id="contact-email"
               name="email"
               value={formData.email}
               onChange={handleChange}
               className={inputBaseClasses}
-              placeholder={isDark ? "CANAL@COMUNICACION.IT" : "EMAIL CORPORATIVO"} 
+              placeholder="Correo" 
               type="email"
               required
+              aria-required="true"
             />
           </BeamInputWrapper>
         </div>
 
         <div className="relative group">
-          <label className={labelClasses}>Mensaje / Proyecto</label>
+          <label htmlFor="contact-message" className={labelClasses}>Mensaje / Proyecto</label>
           <BeamInputWrapper rounded={isDark ? "rounded-xl" : "rounded-none"} className={`group border-b ${borderClasses}`}>
             <textarea 
+              id="contact-message"
               name="message"
               value={formData.message}
               onChange={handleChange}
               className={`${inputBaseClasses} resize-none min-h-[44px]`}
-              placeholder={isDark ? "DESCRIBA LA INFRAESTRUCTURA..." : "MENSAJE"} 
+              placeholder="Mensaje" 
               rows={compact ? 2 : 4}
               required
+              aria-required="true"
             ></textarea>
           </BeamInputWrapper>
         </div>

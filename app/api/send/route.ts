@@ -18,7 +18,7 @@ export async function POST(request: Request) {
     const toEmail = process.env.CONTACT_RECEIVER_EMAIL || "blackcherrydevs@gmail.com";
 
     const { data, error } = await resend.emails.send({
-      from: "BlackCherry IT <onboarding@resend.dev>", // Note: on production, use a verified domain
+      from: "BlackCherry IT <noreply@contact.blackcherryitconsulting.com>",
       to: [toEmail],
       subject: `NUEVA CONSULTA: ${name.toUpperCase()}`,
       html: `
