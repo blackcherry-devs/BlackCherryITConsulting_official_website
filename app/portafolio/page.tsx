@@ -594,9 +594,9 @@ export default function PortafolioPage() {
 
       {/* Minimal Connection Section */}
       <section className="w-full py-20 md:py-24 px-6 md:px-[var(--gutter-width)] relative overflow-hidden flex flex-col items-center bg-white">
-        <div className="hidden lg:block gutter-line gutter-left opacity-10 pointer-events-none"></div>
-        <div className="hidden lg:block gutter-line gutter-right opacity-10 pointer-events-none"></div>
-        <div className="hidden lg:block center-line-full opacity-10 pointer-events-none"></div>
+        <div className="absolute top-0 bottom-0 w-[1.3px] bg-black/5 pointer-events-none z-0 left-6 md:left-[var(--gutter-width)]"></div>
+        <div className="absolute top-0 bottom-0 w-[1.3px] bg-black/5 pointer-events-none z-0 right-6 md:right-[var(--gutter-width)]"></div>
+        <div className="absolute top-0 bottom-0 w-[1.3px] bg-black/5 pointer-events-none z-0 left-1/2 -translate-x-1/2"></div>
         
         <div className="relative z-10 text-center">
           <p className="font-headline text-[10px] tracking-[0.6em] uppercase mb-6 text-primary-container">ESTABLECER PROTOCOLO</p>
