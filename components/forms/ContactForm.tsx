@@ -65,7 +65,6 @@ export default function ContactForm() {
           className="mt-4 sm:mt-8 w-full justify-center text-[8px] sm:text-[10px] md:text-xs py-2 sm:py-3" 
           type="submit"
           theme="primary"
-          as="button"
         >
           ENVIAR
         </AnimatedButton>
