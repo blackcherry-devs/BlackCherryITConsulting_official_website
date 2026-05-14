@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BlackCherry IT Consulting — Infraestructura Digital Premium
 
-## Getting Started
+![BlackCherry IT Consulting](public/og-image.png)
 
-First, run the development server:
+Sitio web oficial de **BlackCherry IT Consulting**, una agencia boutique especializada en desarrollo web de alto rendimiento, diseño arquitectónico digital, inteligencia artificial conversacional y automatización de procesos industriales.
+
+## 🏗️ Filosofía de Diseño
+El sitio implementa una estética **Industrial-Arquitectónica**, utilizando una paleta de colores curada (On-Surface, Primary-Container), tipografía moderna (Space Grotesk & Inter) y un sistema de rejillas técnicas (GridLines) que refuerza la precisión y la robustez de la marca.
+
+## 🛠️ Stack Tecnológico
+- **Core**: [Next.js 15+](https://nextjs.org/) (App Router)
+- **Lenguaje**: [TypeScript](https://www.typescriptlang.org/)
+- **Animaciones**: [Framer Motion](https://www.framer.com/motion/) & [GSAP](https://gsap.com/)
+- **Estilos**: [Tailwind CSS 4+](https://tailwindcss.com/)
+- **Emails**: [Resend](https://resend.com/)
+- **Analítica**: [Google Tag Manager (GTM)](https://tagmanager.google.com/)
+- **Multimedia**: [Cloudinary](https://cloudinary.com/) (Optimización de video/imagen)
+
+## 🚀 Características de Optimización
+- **SEO de Alto Impacto**: 
+  - Metadatos dinámicos para cada proyecto del portafolio.
+  - Esquemas de datos estructurados (JSON-LD) para servicios y breadcrumbs.
+  - Sitemap dinámico y robots.txt optimizado.
+- **Rendimiento (Lighthouse 100)**:
+  - Uso de `next/image` con atributos `sizes` calculados.
+  - Pre-carga (preload) de recursos críticos en el Hero.
+  - Fuentes optimizadas con `display: swap`.
+- **Accesibilidad**: ARIA roles completos, navegación por teclado y contraste de color optimizado.
+
+## 📈 Integración de Marketing
+El sitio está pre-configurado para escalar con campañas de publicidad:
+- **GTM Event**: `generate_lead` se dispara automáticamente en cada envío exitoso del formulario.
+- **Contenedor GTM**: Listo para insertar Píxeles de Meta, TikTok y Conversiones de Google Ads sin tocar el código.
+
+## ⚙️ Configuración del Entorno
+Crea un archivo `.env.local` con las siguientes variables:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Email (Resend)
+RESEND_API_KEY=re_xxxxxxxxxxxx
+CONTACT_RECEIVER_EMAIL=tu@email.com
+
+# Analítica
+NEXT_PUBLIC_GTM_ID=GTM-PHZKCJXR
+
+# Cloudinary (Opcional)
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=tu_cloud_name
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 💻 Desarrollo
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Instalar dependencias
+npm install
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Iniciar servidor de desarrollo
+npm run dev
 
-## Learn More
+# Construir para producción
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+Diseñado y desarrollado por **BlackCherry IT Consulting**. © 2026 Todos los derechos reservados.
