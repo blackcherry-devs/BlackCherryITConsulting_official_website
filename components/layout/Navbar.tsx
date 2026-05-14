@@ -70,7 +70,9 @@ export default function Navbar() {
       {/* Brand Icon - Left Fixed */}
       <div className={cn(
         "fixed top-0 left-0 w-16 lg:w-[var(--gutter-width)] h-16 lg:h-20 flex items-center justify-center z-[110] transition-colors duration-500",
-        isDarkTheme ? "bg-transparent" : "bg-white lg:bg-surface border-r lg:border-none border-black/5"
+        isDarkTheme && !isContact ? "bg-transparent" :
+        isContact ? "bg-white lg:bg-transparent border-r lg:border-none border-black/5" :
+        "bg-white lg:bg-surface border-r lg:border-none border-black/5"
       )}>
         <Link href="/">
           <img src="/cherry-icon.png" alt="BlackCherry Icon" className="w-8 h-8 lg:w-10 lg:h-10 object-contain" />
