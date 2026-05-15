@@ -19,6 +19,8 @@ export const metadata: Metadata = {
     "inteligencia artificial México",
     "chatbots empresas México",
     "automatización WhatsApp México",
+    "pagina web",
+    "sitio web",
   ],
   alternates: { canonical: "https://blackcherryitconsulting.com" },
   openGraph: {

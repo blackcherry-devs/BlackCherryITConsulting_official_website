@@ -4,6 +4,7 @@ import "./globals.css";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import CookieBanner from "@/components/layout/CookieBanner";
 import { GoogleTagManager } from "@next/third-parties/google";
 
 const inter = Inter({
@@ -44,6 +45,8 @@ export const metadata: Metadata = {
     "automatización de marketing México",
     "páginas web para empresas",
     "sitios web profesionales Mexico",
+    "pagina web",
+    "sitio web",
     "BlackCherry IT",
     "BlackCherry IT Consulting",
   ],
@@ -197,6 +200,7 @@ export default function RootLayout({
           </main>
           <Footer />
         </SmoothScroll>
+        <CookieBanner />
         <GoogleTagManager gtmId="GTM-PHZKCJXR" />
       </body>
     </html>
