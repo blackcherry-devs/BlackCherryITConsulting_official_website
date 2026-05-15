@@ -188,7 +188,7 @@ const HamburgerButton = ({ active, setActive, isDark }: { active: boolean, setAc
         aria-controls="mobile-nav"
         className={cn(
           "group fixed right-2 top-2 z-[130] h-12 w-12 transition-all flex items-center justify-center lg:hidden",
-          isDark ? "text-white" : "text-primary-container"
+          active ? (isDark ? "text-white" : "text-primary-container") : "text-white"
         )}
       >
         <div className="relative h-6 w-8">

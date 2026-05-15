@@ -64,14 +64,14 @@ export default function Portfolio() {
             </div>
             
             {/* Video reveal - all screens */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] min-[600px]:w-[400px] h-[180px] min-[600px]:h-[300px] opacity-0 group-hover:opacity-100 scale-95 group-hover:scale-100 transition-all duration-700 pointer-events-none overflow-hidden z-20 shadow-2xl rounded-xl bg-black">
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] min-[600px]:w-[450px] h-[160px] min-[600px]:h-[280px] opacity-0 group-hover:opacity-100 scale-90 group-hover:scale-100 transition-all duration-500 pointer-events-none overflow-hidden z-40 shadow-2xl rounded-xl bg-black">
               <video 
                 src={project.video || "https://www.w3schools.com/html/mov_bbb.mp4"} 
                 autoPlay 
                 loop 
                 muted 
                 playsInline
-                className="w-full h-full object-cover object-left grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-1000"
+                className="w-full h-full object-cover object-left transition-all duration-700"
               />
             </div>
 
