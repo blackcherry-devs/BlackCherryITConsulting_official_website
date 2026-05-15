@@ -19,7 +19,7 @@ export default function PrivacyPage() {
         
         <header className="mb-16 border-l-4 border-primary-container pl-8">
           <span className="block text-xs font-headline font-black text-stone-400 tracking-[0.3em] uppercase mb-4">DOCUMENTO LEGAL / 01</span>
-          <h1 className="text-5xl md:text-7xl font-headline font-black text-[#1a1a1a] tracking-tighter uppercase leading-[0.9]">
+          <h1 className="text-5xl md:text-7xl max-[400px]:text-4xl font-headline font-black text-[#1a1a1a] tracking-tighter uppercase leading-[0.9]">
             AVISO DE <br /> PRIVACIDAD
           </h1>
           <p className="mt-6 text-stone-500 font-body text-sm uppercase tracking-widest">Última actualización: 14 de Mayo, 2026</p>

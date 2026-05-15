@@ -53,7 +53,7 @@ export default function Footer() {
 
   const openTerms = () => {
     setDrawerContent({
-      title: "Términos del Protocolo",
+      title: "Términos y Condiciones",
       body: (
         <>
           <p className="font-headline font-bold text-white uppercase tracking-widest text-lg">1. Aceptación de Términos</p>
@@ -149,7 +149,7 @@ export default function Footer() {
               href="/terminos"
               className="font-headline text-[9px] lg:text-[10px] text-white/20 hover:text-white/40 uppercase tracking-[0.2em] cursor-pointer outline-none"
             >
-              Términos del Protocolo
+              Términos y Condiciones
             </Link>
           </div>
         </div>
