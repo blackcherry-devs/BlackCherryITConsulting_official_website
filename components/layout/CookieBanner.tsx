@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 export default function CookieBanner() {
   const [showBanner, setShowBanner] = useState(false);
@@ -18,11 +19,13 @@ export default function CookieBanner() {
 
   const acceptCookies = () => {
     localStorage.setItem("cookie-consent", "accepted");
+    sendGTMEvent({ event: "cookie_consent", status: "accepted" });
     setShowBanner(false);
   };
 
   const declineCookies = () => {
     localStorage.setItem("cookie-consent", "declined");
+    sendGTMEvent({ event: "cookie_consent", status: "declined" });
     setShowBanner(false);
   };
 
