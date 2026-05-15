@@ -83,7 +83,7 @@ export default function PortafolioPage() {
           
           {/* Mobile Text Overlay (Only visible on <lg) */}
           <div className="absolute inset-0 z-30 flex flex-col justify-center lg:hidden pr-[var(--gutter-width)] pl-[calc(var(--gutter-width)+1.5rem)] md:pl-[calc(var(--gutter-width)+2.5rem)] pointer-events-none mt-8">
-            <h1 className="font-headline font-black text-5xl md:text-7xl leading-[0.9] tracking-tighter uppercase text-white mb-8 drop-shadow-xl">
+            <h1 className="font-headline font-black text-5xl md:text-7xl leading-[0.9] tracking-tighter uppercase text-white mb-8 drop-shadow-xl" aria-hidden="true">
               PORTAFOLIO
             </h1>
             <div className="max-w-xl">
@@ -148,13 +148,16 @@ export default function PortafolioPage() {
                   href={`/portafolio/${project.id}`} 
                   className="relative block h-[60vh] md:h-[80vh] lg:h-[95vh] group overflow-hidden border-b border-white/10 lg:border-none cursor-pointer z-30"
                 >
-                  <img 
+                  <Image 
                     alt={project.title}
-                    className={`absolute inset-0 w-full h-full object-cover transition-all duration-700
+                    className={`object-cover transition-all duration-700
                       grayscale group-hover:grayscale-0 brightness-50 group-hover:brightness-25 group-hover:scale-110
                       ${isActive ? 'grayscale-0 brightness-25 scale-110' : ''}
                     `}
                     src={project.heroImage}
+                    fill
+                    priority={index < 3}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#1F1F1F]/90 via-transparent to-transparent z-10"></div>
                   
@@ -255,7 +258,7 @@ export default function PortafolioPage() {
           <p className="font-headline text-[10px] tracking-[0.6em] uppercase mb-6 text-primary-container">ESTABLECER PROTOCOLO</p>
           <Link href="/contacto" className="font-headline font-black text-2xl md:text-4xl hover:text-primary-container transition-all tracking-tighter uppercase flex items-center gap-6 group text-[#1F1F1F]">
             INICIAR CONEXIÓN
-            <span className="material-symbols-outlined text-primary-container group-hover:translate-x-2 transition-transform">arrow_right_alt</span>
+            <span className="material-symbols-outlined text-primary-container group-hover:translate-x-2 transition-transform" aria-hidden="true">arrow_right_alt</span>
           </Link>
         </div>
       </section>

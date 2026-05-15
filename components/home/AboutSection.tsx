@@ -66,24 +66,24 @@ export default function AboutSection() {
       </div>
 
       {/* Slanted Marquee Banner */}
-      <div className="marquee-container absolute bottom-16 left-[-10%] right-[-10%] z-20 pointer-events-none">
+      <div className="marquee-container absolute bottom-16 left-[-10%] right-[-10%] z-20 pointer-events-none" aria-hidden="true">
         <div className="bg-primary-container overflow-hidden py-3 rotate-[-1.5deg] border-y border-white/10">
           <div className="flex whitespace-nowrap animate-marquee">
             {/* Repeated twice for smooth infinite scrolling */}
             {[1, 2].map((i) => (
               <div key={i} className="flex items-center gap-8 px-4">
                 <span className="font-headline font-black text-white text-sm uppercase tracking-wider">Desarrollo de Sitios Web</span>
-                <span className="material-symbols-outlined text-white/40 text-xs" style={{ fontVariationSettings: '"FILL" 1' }}>circle</span>
+                <span className="material-symbols-outlined text-white/40 text-xs" style={{ fontVariationSettings: '"FILL" 1' }} aria-hidden="true">circle</span>
                 <span className="font-headline font-black text-white text-sm uppercase tracking-wider">Desarrollo Front-end y Back-end</span>
-                <span className="material-symbols-outlined text-white/40 text-xs" style={{ fontVariationSettings: '"FILL" 1' }}>circle</span>
+                <span className="material-symbols-outlined text-white/40 text-xs" style={{ fontVariationSettings: '"FILL" 1' }} aria-hidden="true">circle</span>
                 <span className="font-headline font-black text-white text-sm uppercase tracking-wider">Diseño Web</span>
-                <span className="material-symbols-outlined text-white/40 text-xs" style={{ fontVariationSettings: '"FILL" 1' }}>circle</span>
+                <span className="material-symbols-outlined text-white/40 text-xs" style={{ fontVariationSettings: '"FILL" 1' }} aria-hidden="true">circle</span>
                 <span className="font-headline font-black text-white text-sm uppercase tracking-wider">Desarrollo de eCommerce</span>
-                <span className="material-symbols-outlined text-white/40 text-xs" style={{ fontVariationSettings: '"FILL" 1' }}>circle</span>
+                <span className="material-symbols-outlined text-white/40 text-xs" style={{ fontVariationSettings: '"FILL" 1' }} aria-hidden="true">circle</span>
                 <span className="font-headline font-black text-white text-sm uppercase tracking-wider">Optimización SEO</span>
-                <span className="material-symbols-outlined text-white/40 text-xs" style={{ fontVariationSettings: '"FILL" 1' }}>circle</span>
+                <span className="material-symbols-outlined text-white/40 text-xs" style={{ fontVariationSettings: '"FILL" 1' }} aria-hidden="true">circle</span>
                 <span className="font-headline font-black text-white text-sm uppercase tracking-wider">INTEGRACIÓN DE IA</span>
-                <span className="material-symbols-outlined text-white/40 text-xs" style={{ fontVariationSettings: '"FILL" 1' }}>circle</span>
+                <span className="material-symbols-outlined text-white/40 text-xs" style={{ fontVariationSettings: '"FILL" 1' }} aria-hidden="true">circle</span>
                 <span className="font-headline font-black text-white text-sm uppercase tracking-wider">INTELIGENCIA CONVERSACIONAL</span>
               </div>
             ))}

@@ -78,7 +78,7 @@ export default function ServiciosPage() {
           <p className="font-headline text-[10px] tracking-[0.6em] uppercase mb-6 text-primary-container">ESTABLECER PROTOCOLO</p>
           <Link href="/contacto" className="font-headline font-black text-2xl md:text-4xl hover:text-primary-container transition-all tracking-tighter uppercase flex items-center gap-6 group text-[#1F1F1F]">
             INICIALIZAR CONEXIÓN
-            <span className="material-symbols-outlined text-primary-container group-hover:translate-x-2 transition-transform">arrow_right_alt</span>
+            <span className="material-symbols-outlined text-primary-container group-hover:translate-x-2 transition-transform" aria-hidden="true">arrow_right_alt</span>
           </Link>
         </div>
       </section>

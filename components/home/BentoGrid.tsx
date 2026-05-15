@@ -56,7 +56,7 @@ export default function BentoGrid() {
             />
           </div>
           <div className="relative z-10">
-            <span className="material-symbols-outlined text-primary-container text-3xl min-[600px]:text-4xl mb-4 min-[600px]:mb-6 block transition-transform duration-500 group-hover:-translate-y-3 group-hover:scale-110">precision_manufacturing</span>
+            <span className="material-symbols-outlined text-primary-container text-3xl min-[600px]:text-4xl mb-4 min-[600px]:mb-6 block transition-transform duration-500 group-hover:-translate-y-3 group-hover:scale-110" aria-hidden="true">precision_manufacturing</span>
             <h3 className="font-headline font-black text-3xl min-[600px]:text-4xl lg:text-5xl xl:text-6xl tracking-tighter uppercase leading-none">Industria</h3>
           </div>
           <p className="relative z-10 font-body text-white/40 max-w-md text-[10px] min-[600px]:text-xs lg:text-sm xl:text-base uppercase tracking-widest leading-relaxed group-hover:text-white/70 transition-colors mt-6">Asistencia por voz y chatbots de soporte técnico integrados para maximizar la eficiencia operativa.</p>
@@ -65,7 +65,7 @@ export default function BentoGrid() {
         {/* Retail */}
         <div className="bento-card-anim lg:col-span-4 bento-card bg-primary-container/20 p-6 min-[600px]:p-8 lg:p-12 xl:p-16 flex flex-col justify-between group border-primary-container/30 rounded-none min-[600px]:rounded-xl min-h-[250px] min-[600px]:min-h-[280px] lg:min-h-auto">
           <div className="relative z-10">
-            <span className="material-symbols-outlined text-primary-container text-3xl min-[600px]:text-4xl mb-4 min-[600px]:mb-6 block transition-transform duration-500 group-hover:-translate-y-3 group-hover:scale-110">shopping_bag</span>
+            <span className="material-symbols-outlined text-primary-container text-3xl min-[600px]:text-4xl mb-4 min-[600px]:mb-6 block transition-transform duration-500 group-hover:-translate-y-3 group-hover:scale-110" aria-hidden="true">shopping_bag</span>
             <h3 className="font-headline font-black text-3xl min-[600px]:text-4xl lg:text-5xl xl:text-6xl tracking-tighter uppercase leading-none">Retail</h3>
           </div>
           <p className="font-body text-white/40 text-[10px] min-[600px]:text-xs lg:text-sm xl:text-base uppercase tracking-widest leading-relaxed group-hover:text-white/70 transition-colors mt-6">Ventas automatizadas y atención al cliente 24/7 mediante agentes conversacionales inteligentes.</p>
@@ -74,7 +74,7 @@ export default function BentoGrid() {
         {/* EdTech */}
         <div className="bento-card-anim lg:col-span-4 bento-card bg-white/[0.03] backdrop-blur-sm p-6 min-[600px]:p-8 lg:p-12 xl:p-16 flex flex-col justify-between group min-h-[250px] min-[600px]:min-h-[280px] lg:min-h-[400px] rounded-none min-[600px]:rounded-xl">
           <div>
-            <span className="material-symbols-outlined text-primary-container text-3xl min-[600px]:text-4xl mb-4 min-[600px]:mb-6 block transition-transform duration-500 group-hover:-translate-y-3 group-hover:scale-110">school</span>
+            <span className="material-symbols-outlined text-primary-container text-3xl min-[600px]:text-4xl mb-4 min-[600px]:mb-6 block transition-transform duration-500 group-hover:-translate-y-3 group-hover:scale-110" aria-hidden="true">school</span>
             <h3 className="font-headline font-black text-3xl min-[600px]:text-4xl lg:text-5xl xl:text-6xl tracking-tighter uppercase leading-none">EdTech</h3>
           </div>
           <p className="font-body text-white/40 text-[10px] min-[600px]:text-xs lg:text-sm xl:text-base uppercase tracking-widest leading-relaxed group-hover:text-white/70 transition-colors mt-6">Experiencias de aprendizaje con audio de alta fidelidad y asistencia automatizada para estudiantes.</p>
@@ -92,10 +92,10 @@ export default function BentoGrid() {
             />
           </div>
           <div className="absolute top-0 right-0 p-8 min-[600px]:p-12 opacity-5 group-hover:opacity-20 group-hover:translate-x-[-10px] transition-all duration-1000 pointer-events-none z-0">
-            <span className="material-symbols-outlined text-[6rem] min-[600px]:text-[10rem] lg:text-[12rem] xl:text-[15rem] text-primary-container leading-none">domain</span>
+            <span className="material-symbols-outlined text-[6rem] min-[600px]:text-[10rem] lg:text-[12rem] xl:text-[15rem] text-primary-container leading-none" aria-hidden="true">domain</span>
           </div>
           <div className="relative z-10 mix-blend-difference text-white">
-            <span className="material-symbols-outlined text-primary-container text-3xl min-[600px]:text-4xl mb-4 min-[600px]:mb-6 block transition-transform duration-500 group-hover:-translate-y-3 group-hover:scale-110">real_estate_agent</span>
+            <span className="material-symbols-outlined text-primary-container text-3xl min-[600px]:text-4xl mb-4 min-[600px]:mb-6 block transition-transform duration-500 group-hover:-translate-y-3 group-hover:scale-110" aria-hidden="true">real_estate_agent</span>
             <h3 className="font-headline font-black text-3xl min-[600px]:text-4xl lg:text-5xl xl:text-6xl tracking-tighter uppercase leading-none">Inmuebles</h3>
           </div>
           <div className="relative z-10 flex gap-4 items-center mt-6 mix-blend-difference text-white">
@@ -107,7 +107,7 @@ export default function BentoGrid() {
         {/* Legal */}
         <div className="bento-card-anim min-[600px]:col-span-2 lg:col-span-12 bento-card bg-white/[0.03] backdrop-blur-sm relative z-20 p-6 min-[600px]:p-8 lg:p-12 flex flex-col lg:flex-row justify-between items-start lg:items-center group rounded-none min-[600px]:rounded-xl min-h-[200px] min-[600px]:min-h-[150px] lg:min-h-auto gap-8">
           <div className="flex items-center gap-4 min-[600px]:gap-10">
-            <span className="material-symbols-outlined text-primary-container text-3xl min-[600px]:text-4xl group-hover:rotate-45 transition-transform duration-700">gavel</span>
+            <span className="material-symbols-outlined text-primary-container text-3xl min-[600px]:text-4xl group-hover:rotate-45 transition-transform duration-700" aria-hidden="true">gavel</span>
             <h3 className="font-headline font-black text-2xl min-[600px]:text-4xl lg:text-5xl xl:text-6xl uppercase tracking-tighter">Legal & Consultoría</h3>
           </div>
           <p className="font-body text-white/30 max-w-md text-left lg:text-right uppercase tracking-widest text-[8px] min-[600px]:text-[10px] lg:text-xs xl:text-sm font-bold group-hover:text-white/60 transition-colors">Sistemas de agendamiento y triage de clientes automatizado para despachos y consultorías.</p>

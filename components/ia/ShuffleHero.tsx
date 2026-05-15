@@ -40,7 +40,7 @@ const ShuffleHero = () => {
       <GridLines />
 
       {/* Mobile: Grid as full background (no dark overlay) */}
-      <div className="absolute inset-0 lg:hidden z-0 p-2">
+      <div className="absolute inset-0 lg:hidden z-0 p-2" aria-hidden="true">
         <ShuffleGrid />
       </div>
 
@@ -75,7 +75,7 @@ const ShuffleHero = () => {
         </div>
 
         {/* Desktop only: Shuffle Grid Section */}
-        <div className="hidden lg:flex w-full h-full items-center pr-0 lg:pr-8">
+        <div className="hidden lg:flex w-full h-full items-center pr-0 lg:pr-8" aria-hidden="true">
           <ShuffleGrid />
         </div>
 

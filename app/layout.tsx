@@ -184,6 +184,12 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-surface font-body text-on-surface selection:bg-primary-container selection:text-white relative min-h-screen">
+        <a 
+          href="#main-content" 
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:px-4 focus:py-2 focus:bg-primary-container focus:text-white focus:rounded-md focus:outline-none"
+        >
+          Saltar al contenido principal
+        </a>
         <SmoothScroll>
           <Navbar />
           <main id="main-content">
