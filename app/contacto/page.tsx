@@ -83,12 +83,12 @@ export default function ContactoPage() {
           </div>
 
           {/* Repositioned Contact Info */}
-          <div className="flex flex-col gap-2 items-center lg:items-start bg-black/40 lg:bg-transparent p-6 lg:p-0 backdrop-blur-md lg:backdrop-blur-none mt-4 lg:mt-8 xl:mt-0 w-full lg:w-auto rounded-xl lg:rounded-none">
-            <h3 className="font-headline font-black text-xl lg:text-2xl text-white tracking-tighter uppercase mb-2 text-center lg:text-left">Pongámonos en contacto</h3>
-            <a className="font-headline font-medium text-xs lg:text-sm text-white/80 hover:text-white transition-colors tracking-widest uppercase text-center lg:text-left" href="mailto:blackcherrydevs@gmail.com">
+          <div className="flex flex-col gap-2 items-center lg:items-center xl:items-start bg-black/40 lg:bg-black/60 xl:bg-transparent p-6 lg:p-8 xl:p-0 backdrop-blur-md lg:backdrop-blur-md xl:backdrop-blur-none mt-4 lg:mt-8 xl:mt-0 w-full lg:w-auto rounded-xl lg:rounded-xl xl:rounded-none">
+            <h3 className="font-headline font-black text-xl lg:text-2xl text-white tracking-tighter uppercase mb-2 text-center lg:text-center xl:text-left">Pongámonos en contacto</h3>
+            <a className="font-headline font-medium text-xs lg:text-sm text-white/80 hover:text-white transition-colors tracking-widest uppercase text-center lg:text-center xl:text-left" href="mailto:blackcherrydevs@gmail.com">
               blackcherrydevs@gmail.com
             </a>
-            <div className="flex gap-6 mt-6 text-white/60 justify-center lg:justify-start">
+            <div className="flex gap-6 mt-6 text-white/60 justify-center lg:justify-center xl:justify-start">
               <a className="hover:text-white transition-colors" href="https://www.facebook.com/people/Blackcherry-Devs/61587561059170/" target="_blank" rel="noreferrer">
                 <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/>

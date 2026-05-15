@@ -10,7 +10,7 @@ import GridLines from "@/components/ui/GridLines";
 import AnimatedButton from "@/components/ui/AnimatedButton";
 
 export default function PortafolioPage() {
-  const [activeProjectId, setActiveProjectId] = useState<string | null>(null);
+  const [activeProjectIds, setActiveProjectIds] = useState<string[]>([]);
   const projectRefs = useRef<{ [key: string]: HTMLAnchorElement | null }>({});
 
   useEffect(() => {
@@ -18,8 +18,8 @@ export default function PortafolioPage() {
     if (typeof window === "undefined") return;
     
     const handleResize = () => {
-      if (window.innerWidth < 640 || window.innerWidth >= 1024) {
-        setActiveProjectId(null);
+      if (window.innerWidth >= 1024) {
+        setActiveProjectIds([]);
       }
     };
     
@@ -46,13 +46,10 @@ export default function PortafolioPage() {
       });
 
       // Update state based on current intersection set
-      if (window.innerWidth >= 640 && window.innerWidth < 1024) {
-        if (visibleProjects.size > 0) {
-          // If multiple are intersecting (rare with narrow margin), pick the first/latest
-          setActiveProjectId(Array.from(visibleProjects)[0]);
-        } else {
-          setActiveProjectId(null);
-        }
+      if (window.innerWidth < 1024) {
+        setActiveProjectIds(Array.from(visibleProjects));
+      } else {
+        setActiveProjectIds([]);
       }
     };
 
@@ -138,7 +135,7 @@ export default function PortafolioPage() {
           {/* Grid Container */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 relative z-20">
             {portfolioData.map((project, index) => {
-              const isActive = activeProjectId === project.id;
+              const isActive = activeProjectIds.includes(project.id);
               
               return (
                 <Link 
