@@ -93,9 +93,9 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/cherry-icon.png" },
-      { url: "/cherry-icon.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
     ],
-    apple: "/cherry-icon.png",
+    apple: "/apple-touch-icon.png",
   },
   manifest: "/manifest.json",
   alternates: {

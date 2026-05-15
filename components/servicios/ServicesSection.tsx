@@ -148,7 +148,7 @@ export default function ServicesSection() {
     { id: "backend", title: "SISTEMAS <br /> BACKEND", img: "/services/backend.png", mt: "lg:mt-32" },
     { id: "uiux", title: "PRECISIÓN <br /> UI/UX", img: "/services/uiux.png", mt: "lg:-mt-16" },
     { id: "ia", title: "INTEGRACIÓN <br /> DE IA", img: "/services/ai.png", mt: "lg:mt-16" },
-    { id: "wa", title: "INTELIGENCIA <br /> CONVERSACIONAL", img: "https://images.unsplash.com/photo-1553390774-b4822481c894?q=80&w=1944&auto=format&fit=crop", mt: "" },
+    { id: "wa", title: "AUTOMATIZACIÓN <br /> DE WHATSAPP", img: "https://images.unsplash.com/photo-1553390774-b4822481c894?q=80&w=1944&auto=format&fit=crop", mt: "" },
     { id: "seo", title: "ESTRATEGIA <br /> SEO", img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop", mt: "lg:mt-48" }
   ];
 
@@ -237,12 +237,41 @@ export default function ServicesSection() {
                   `} 
                   src={card.img} 
                 />
+                
+                {/* Desktop Vertical Titles (Visible ONLY on LG screens) */}
+                <div className="absolute top-0 right-0 bottom-0 py-4 flex items-center justify-center z-30 pointer-events-none hidden lg:flex">
+                  <div className="flex items-center h-full">
+                    <div className={`h-full overflow-hidden transition-opacity relative flex items-end opacity-70 group-hover:opacity-100 ${activeService === card.id ? 'opacity-100' : ''}`}>
+                      <div className="relative">
+                        <div className="pb-12 opacity-0 pointer-events-none">
+                          <h3 className="font-headline font-black text-4xl lg:text-[6vw] xl:text-[5vw] text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap">
+                            {card.id === 'wa' ? 'WHATSAPP AUTOMATION' : card.title.replace('<br />', '').replace('  ', ' ')}
+                          </h3>
+                        </div>
+                        <div className={`absolute top-0 left-0 flex flex-col group-hover:animate-scroll-up ${activeService === card.id ? 'animate-scroll-up' : ''}`}>
+                          <div className="pb-12">
+                            <h3 className="font-headline font-black text-4xl lg:text-[6vw] xl:text-[5vw] text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap">
+                              {card.id === 'wa' ? 'WHATSAPP AUTOMATION' : card.title.replace('<br />', '').replace('  ', ' ')}
+                            </h3>
+                          </div>
+                          <div className="pb-12">
+                            <h3 className="font-headline font-black text-4xl lg:text-[6vw] xl:text-[5vw] text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap" aria-hidden="true">
+                              {card.id === 'wa' ? 'WHATSAPP AUTOMATION' : card.title.replace('<br />', '').replace('  ', ' ')}
+                            </h3>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Tablet Horizontal Layout (Hidden on LG screens) */}
                 <div 
-                  className="absolute inset-0 p-8 md:p-12 flex items-end justify-center text-center pb-12 lg:pb-16 cursor-pointer"
+                  className="absolute inset-0 p-8 md:p-12 flex items-end justify-center text-center pb-12 lg:hidden cursor-pointer"
                   onClick={() => setActiveService(card.id as ServiceKey)}
                 >
                   <h3 
-                    className="font-headline font-black text-2xl md:text-3xl lg:text-[clamp(1.5rem,4vw,3.5rem)] text-white leading-[0.85] tracking-tighter uppercase break-words px-6 md:px-10"
+                    className="font-headline font-black text-2xl md:text-3xl text-white leading-[0.85] tracking-tighter uppercase break-words px-6 md:px-10"
                     dangerouslySetInnerHTML={{ __html: card.title }}
                   />
                 </div>
