@@ -136,25 +136,32 @@ const jsonLd = {
     contactType: "customer service",
     availableLanguage: ["Spanish", "English"],
   },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "18:00",
+    },
+  ],
   areaServed: {
     "@type": "Country",
     name: "México",
   },
   serviceType: [
     "Desarrollo Web",
-    "Diseño Web",
-    "Creación de Páginas Web",
-    "Inteligencia Artificial para Empresas",
-    "Chatbots",
+    "Diseño Web Profesional",
+    "Páginas Web para Empresas",
+    "Inteligencia Artificial aplicada",
     "Automatización de WhatsApp",
-    "Consultoría Tecnológica",
+    "Consultoría IT",
   ],
   sameAs: [
     "https://www.facebook.com/people/Blackcherry-Devs/61587561059170/",
     "https://www.instagram.com/blackcherrydevs",
     "https://www.tiktok.com/@blackcherry_devs",
   ],
-  priceRange: "$$",
+  priceRange: "$$$",
 };
 
 export default function RootLayout({

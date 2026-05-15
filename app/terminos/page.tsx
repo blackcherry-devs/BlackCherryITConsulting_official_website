@@ -50,14 +50,28 @@ export default function TermsPage() {
           <section>
             <h2 className="text-xl font-headline font-black text-[#1a1a1a] uppercase tracking-tight mb-4">4. Limitación de Responsabilidad</h2>
             <p>
-              BlackCherry IT Consulting se esfuerza por mantener la información actualizada y precisa, sin embargo, no garantizamos que el sitio esté libre de errores o interrupciones. No somos responsables por daños directos o indirectos derivados del uso de este sitio web.
+              BlackCherry IT Consulting se esfuerza por mantener la máxima precisión técnica, sin embargo, no garantizamos que el sitio esté libre de interrupciones temporales. No somos responsables por daños derivados del uso de este sitio web o de la implementación de tecnologías de terceros (APIs, LLMs) fuera de nuestro control directo.
             </p>
           </section>
 
           <section>
-            <h2 className="text-xl font-headline font-black text-[#1a1a1a] uppercase tracking-tight mb-4">5. Contacto</h2>
+            <h2 className="text-xl font-headline font-black text-[#1a1a1a] uppercase tracking-tight mb-4">5. Protocolos de IA y Automatización</h2>
             <p>
-              Para cualquier duda o aclaración sobre estos términos, puede contactarnos a través de nuestro formulario de contacto o al correo: <strong>blackcherrydevs@gmail.com</strong>
+              El uso de nuestras soluciones de automatización de WhatsApp y chatbots está sujeto a las políticas de uso aceptable de Meta (WhatsApp Business API) y los proveedores de modelos de lenguaje correspondientes. BlackCherry no se hace responsable por el mal uso de estas herramientas por parte del cliente final.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-headline font-black text-[#1a1a1a] uppercase tracking-tight mb-4">6. Jurisdicción</h2>
+            <p>
+              Cualquier controversia relacionada con estos términos será resuelta bajo las leyes de los Estados Unidos Mexicanos y ante los tribunales competentes en la ciudad de León, Guanajuato.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-headline font-black text-[#1a1a1a] uppercase tracking-tight mb-4">7. Contacto</h2>
+            <p>
+              Para cualquier duda sobre estos términos, puede contactarnos en: <strong className="text-primary-container">blackcherrydevs@gmail.com</strong>
             </p>
           </section>
         </div>
