@@ -4,7 +4,8 @@ import "./globals.css";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import { GoogleTagManager } from "@next/third-parties/google";
+import CookieBanner from "@/components/layout/CookieBanner";
+import Script from "next/script";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -44,6 +45,8 @@ export const metadata: Metadata = {
     "automatización de marketing México",
     "páginas web para empresas",
     "sitios web profesionales Mexico",
+    "pagina web",
+    "sitio web",
     "BlackCherry IT",
     "BlackCherry IT Consulting",
   ],
@@ -90,9 +93,9 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/cherry-icon.png" },
-      { url: "/cherry-icon.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
     ],
-    apple: "/cherry-icon.png",
+    apple: "/apple-touch-icon.png",
   },
   manifest: "/manifest.json",
   alternates: {
@@ -133,25 +136,32 @@ const jsonLd = {
     contactType: "customer service",
     availableLanguage: ["Spanish", "English"],
   },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "18:00",
+    },
+  ],
   areaServed: {
     "@type": "Country",
     name: "México",
   },
   serviceType: [
     "Desarrollo Web",
-    "Diseño Web",
-    "Creación de Páginas Web",
-    "Inteligencia Artificial para Empresas",
-    "Chatbots",
+    "Diseño Web Profesional",
+    "Páginas Web para Empresas",
+    "Inteligencia Artificial aplicada",
     "Automatización de WhatsApp",
-    "Consultoría Tecnológica",
+    "Consultoría IT",
   ],
   sameAs: [
     "https://www.facebook.com/people/Blackcherry-Devs/61587561059170/",
     "https://www.instagram.com/blackcherrydevs",
     "https://www.tiktok.com/@blackcherry_devs",
   ],
-  priceRange: "$$",
+  priceRange: "$$$",
 };
 
 export default function RootLayout({
@@ -165,6 +175,21 @@ export default function RootLayout({
       className={`${inter.variable} ${spaceGrotesk.variable} h-full antialiased`}
     >
       <head>
+        {/* Google Tag Manager */}
+        <Script
+          id="gtm-script"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-PHZKCJXR');
+            `,
+          }}
+        />
+        {/* End Google Tag Manager */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -184,6 +209,22 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-surface font-body text-on-surface selection:bg-primary-container selection:text-white relative min-h-screen">
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-PHZKCJXR"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          ></iframe>
+        </noscript>
+        {/* End Google Tag Manager (noscript) */}
+        <a 
+          href="#main-content" 
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:px-4 focus:py-2 focus:bg-primary-container focus:text-white focus:rounded-md focus:outline-none"
+        >
+          Saltar al contenido principal
+        </a>
         <SmoothScroll>
           <Navbar />
           <main id="main-content">
@@ -191,7 +232,7 @@ export default function RootLayout({
           </main>
           <Footer />
         </SmoothScroll>
-        <GoogleTagManager gtmId="GTM-PHZKCJXR" />
+        <CookieBanner />
       </body>
     </html>
   );

@@ -64,7 +64,7 @@ export default function HeroSection() {
 
             {/* Desktop Overlay */}
             <div className="absolute inset-0 z-10 px-4 min-[600px]:px-12 h-full flex flex-col justify-center lg:-translate-y-12 pointer-events-none">
-              <h1 className="font-headline font-black text-5xl min-[600px]:text-7xl md:text-[8vw] lg:text-[7vw] leading-[0.85] tracking-tighter uppercase text-white drop-shadow-2xl">
+              <h1 className="font-headline font-black text-5xl min-[600px]:text-6xl md:text-[7vw] lg:text-[7vw] leading-[0.85] tracking-tighter uppercase text-white drop-shadow-2xl">
                 ARQUI <br /> TECTURA <br /> DIGITAL
               </h1>
               <p className="mt-4 min-[600px]:mt-8 font-body text-white/90 max-w-xs min-[600px]:max-w-sm text-xs min-[600px]:text-sm md:text-base lg:text-base tracking-wide leading-snug drop-shadow-md">

@@ -52,32 +52,43 @@ export default function Portfolio() {
       </div>
       
       <div className="flex flex-col divide-y divide-outline-variant/10 relative z-10">
-        {projects.map((project, idx) => (
-          <Link href={`/portafolio/${project.id}`} key={project.id} className={`group relative py-10 min-[600px]:py-12 lg:px-12 cursor-pointer transition-all duration-500 block ${project.bgClass}`}>
-            <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center relative z-10 gap-2 min-[600px]:gap-4 lg:gap-0">
-              <h3 className={`font-headline font-black text-3xl min-[600px]:text-6xl uppercase tracking-tighter text-secondary ${project.hoverText} transition-colors`}>
-                {project.name}
-              </h3>
-              <span className={`font-body text-[9px] min-[600px]:text-xs uppercase tracking-widest text-secondary group-hover:text-white/60 transition-colors pl-[2px]`}>
-                {project.tags}
-              </span>
-            </div>
+        {projects.map((project, idx) => {
+          const isRed = project.id === "cerato" || project.id === "gpamex";
+          const bgClasses = isRed 
+            ? "bg-[#8B090A] lg:bg-transparent lg:hover:bg-[#8B090A]" 
+            : "bg-[#1a1c1c] lg:bg-transparent lg:hover:bg-[#1a1c1c]";
+          
+          return (
+            <Link 
+              href={`/portafolio/${project.id}`} 
+              key={project.id} 
+              className={`group relative py-10 min-[600px]:py-12 lg:px-12 cursor-pointer transition-all duration-500 block ${bgClasses}`}
+            >
+              <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center relative z-10 gap-2 min-[600px]:gap-4 lg:gap-0">
+                <h3 className={`font-headline font-black text-3xl min-[600px]:text-6xl uppercase tracking-tighter text-white lg:text-secondary lg:group-hover:text-white transition-colors`}>
+                  {project.name}
+                </h3>
+                <span className={`font-body text-[9px] min-[600px]:text-xs uppercase tracking-widest text-white/60 lg:text-secondary lg:group-hover:text-white/60 transition-colors pl-[2px]`}>
+                  {project.tags}
+                </span>
+              </div>
             
             {/* Video reveal - all screens */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] min-[600px]:w-[400px] h-[180px] min-[600px]:h-[300px] opacity-0 group-hover:opacity-100 scale-95 group-hover:scale-100 transition-all duration-700 pointer-events-none overflow-hidden z-20 shadow-2xl rounded-xl bg-black">
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] min-[600px]:w-[450px] h-[160px] min-[600px]:h-[280px] opacity-0 group-hover:opacity-100 scale-90 group-hover:scale-100 transition-all duration-500 pointer-events-none overflow-hidden z-40 shadow-2xl rounded-xl bg-black">
               <video 
                 src={project.video || "https://www.w3schools.com/html/mov_bbb.mp4"} 
                 autoPlay 
                 loop 
                 muted 
                 playsInline
-                className="w-full h-full object-cover object-left grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-1000"
+                className="w-full h-full object-cover object-left transition-all duration-700"
               />
             </div>
 
             {/* Mobile small thumbnail (optional, keeping it simple for now) */}
-          </Link>
-        ))}
+            </Link>
+          );
+        })}
         
         <div className="pt-12 min-[600px]:pt-16 flex justify-start lg:justify-end lg:px-12">
           <AnimatedButton href="/portafolio" theme="primary">

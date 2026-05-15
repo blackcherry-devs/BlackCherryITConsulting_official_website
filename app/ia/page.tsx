@@ -54,14 +54,14 @@ export default function IAPage() {
               </div>
               <div className="space-y-5 lg:space-y-8">
                 <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 lg:gap-6 items-center sm:items-start text-center sm:text-left">
-                  <span className="material-symbols-outlined text-primary-container text-3xl lg:text-4xl flex-shrink-0">record_voice_over</span>
+                  <span className="material-symbols-outlined text-primary-container text-3xl lg:text-4xl flex-shrink-0" aria-hidden="true">record_voice_over</span>
                   <div>
                     <h4 className="font-headline font-black text-white text-sm sm:text-sm lg:text-lg tracking-widest uppercase">ALTA FIDELIDAD SINTÉTICA</h4>
                     <p className="font-body text-white/40 text-xs sm:text-xs lg:text-sm leading-relaxed mt-1">Voces indistinguibles del habla humana con control tonal quirúrgico y matices emocionales profundos.</p>
                   </div>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 lg:gap-6 items-center sm:items-start text-center sm:text-left">
-                  <span className="material-symbols-outlined text-primary-container text-3xl lg:text-4xl flex-shrink-0">language</span>
+                  <span className="material-symbols-outlined text-primary-container text-3xl lg:text-4xl flex-shrink-0" aria-hidden="true">language</span>
                   <div>
                     <h4 className="font-headline font-black text-white text-sm sm:text-sm lg:text-lg tracking-widest uppercase">INTELIGENCIA MULTILINGÜE</h4>
                     <p className="font-body text-white/40 text-xs sm:text-xs lg:text-sm leading-relaxed mt-1">Escalabilidad global instantánea en más de 29 idiomas manteniendo la identidad de marca vocal única.</p>

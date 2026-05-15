@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import GridLines from "@/components/ui/GridLines";
 import AnimatedButton from "@/components/ui/AnimatedButton";
@@ -40,7 +40,7 @@ const ShuffleHero = () => {
       <GridLines />
 
       {/* Mobile: Grid as full background (no dark overlay) */}
-      <div className="absolute inset-0 lg:hidden z-0 p-2">
+      <div className="absolute inset-0 lg:hidden z-0 p-2" aria-hidden="true">
         <ShuffleGrid />
       </div>
 
@@ -53,15 +53,15 @@ const ShuffleHero = () => {
 
         {/* Text Section — glass card on mobile (w-fit), plain on desktop */}
         <div className="lg:pr-8 lg:pl-8 flex lg:block">
-          <div className="lg:contents w-fit lg:w-auto rounded-2xl lg:rounded-none bg-white/5 lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none border lg:border-none border-white/10 p-5 sm:p-6 lg:p-0 shadow-xl lg:shadow-none">
+          <div className="lg:contents w-fit lg:w-auto rounded-2xl lg:rounded-none bg-black/60 lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none border lg:border-none border-white/10 p-5 sm:p-6 lg:p-0 shadow-xl lg:shadow-none">
             <span className="block mb-3 font-headline font-black text-white text-[9px] sm:text-[10px] md:text-xs tracking-[0.4em] sm:tracking-[0.5em] uppercase">
               INGENIERÍA COGNITIVA AVANZADA
             </span>
-            <h1 className="font-headline font-black leading-[1.05] uppercase tracking-tighter mb-4 sm:mb-6 md:mb-8 text-black relative z-20
+            <h1 className="font-headline font-black leading-[1.05] uppercase tracking-tighter mb-4 sm:mb-6 md:mb-8 text-black max-lg:text-white relative z-20
                            text-[clamp(1.75rem,8vw,3rem)] sm:text-[clamp(2rem,7vw,3.5rem)] lg:text-5xl xl:text-6xl">
               SOLUCIONES DE <br />
               {/* Mobile: dark stroke for readability over glass */}
-              <span className="lg:hidden text-transparent" style={{ WebkitTextStroke: "1.5px black" }}>IA DE VANGUARDIA</span>
+              <span className="lg:hidden text-transparent" style={{ WebkitTextStroke: "1.5px white" }}>IA DE VANGUARDIA</span>
               {/* Desktop: black stroke */}
               <span className="hidden lg:inline text-transparent" style={{ WebkitTextStroke: "1.5px black" }}>IA DE VANGUARDIA</span>
             </h1>
@@ -75,7 +75,7 @@ const ShuffleHero = () => {
         </div>
 
         {/* Desktop only: Shuffle Grid Section */}
-        <div className="hidden lg:flex w-full h-full items-center pr-0 lg:pr-8">
+        <div className="hidden lg:flex w-full h-full items-center pr-0 lg:pr-8" aria-hidden="true">
           <ShuffleGrid />
         </div>
 
@@ -182,23 +182,33 @@ const ShuffleGrid = () => {
 
   return (
     <div style={gridStyle}>
-      {visibleSquares.map((sq) => (
-        <motion.div
-          key={`${sq.id}-${sq.src}`}
-          layout
-          transition={{ duration: 1.5, type: "spring" }}
-          style={cellStyle}
-          className="bg-stone-100 shadow-inner"
-        >
-          <div className="absolute inset-0 bg-gradient-to-br from-primary-container/20 to-stone-200" />
-          <img
-            src={sq.src}
-            alt="AI Visual"
-            className="absolute inset-0 w-full h-full object-cover z-10"
-            loading="eager"
-          />
-        </motion.div>
-      ))}
+      <AnimatePresence mode="popLayout">
+        {visibleSquares.map((sq) => (
+          <motion.div
+            key={`${sq.id}-${sq.src}`}
+            layout
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ 
+              duration: 1.5, 
+              type: "spring",
+              bounce: 0,
+              opacity: { duration: 0.5 }
+            }}
+            style={cellStyle}
+            className="bg-stone-100 shadow-inner"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-primary-container/20 to-stone-200" />
+            <img
+              src={sq.src}
+              alt="AI Visual"
+              className="absolute inset-0 w-full h-full object-cover z-10"
+              loading="eager"
+            />
+          </motion.div>
+        ))}
+      </AnimatePresence>
     </div>
   );
 };

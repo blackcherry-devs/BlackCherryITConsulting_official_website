@@ -19,7 +19,7 @@ export default function PrivacyPage() {
         
         <header className="mb-16 border-l-4 border-primary-container pl-8">
           <span className="block text-xs font-headline font-black text-stone-400 tracking-[0.3em] uppercase mb-4">DOCUMENTO LEGAL / 01</span>
-          <h1 className="text-5xl md:text-7xl font-headline font-black text-[#1a1a1a] tracking-tighter uppercase leading-[0.9]">
+          <h1 className="text-5xl md:text-7xl max-[400px]:text-4xl font-headline font-black text-[#1a1a1a] tracking-tighter uppercase leading-[0.9]">
             AVISO DE <br /> PRIVACIDAD
           </h1>
           <p className="mt-6 text-stone-500 font-body text-sm uppercase tracking-widest">Última actualización: 14 de Mayo, 2026</p>
@@ -53,16 +53,38 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-headline font-black text-[#1a1a1a] uppercase tracking-tight mb-4">4. Derechos ARCO</h2>
+            <h2 className="text-xl font-headline font-black text-[#1a1a1a] uppercase tracking-tight mb-4">4. Cookies y Tecnologías de Rastreo</h2>
             <p>
-              Usted tiene derecho a conocer qué datos personales tenemos de usted (Acceso), solicitar su corrección (Rectificación), que los eliminemos de nuestros registros (Cancelación) u oponerse al uso de los mismos para fines específicos (Oposición). Para ejercer estos derechos, puede enviar un correo a: <strong>blackcherrydevs@gmail.com</strong>
+              Nuestro sitio utiliza "cookies" y tecnologías similares para mejorar su experiencia y analizar el tráfico. Específicamente, utilizamos:
+            </p>
+            <ul className="list-disc pl-5 mt-4 space-y-2">
+              <li><strong>Google Tag Manager:</strong> Para la gestión centralizada de scripts de análisis.</li>
+              <li><strong>Meta Pixel:</strong> Para medir la efectividad de nuestras campañas en Facebook e Instagram.</li>
+              <li><strong>TikTok Pixel:</strong> Para analizar el rendimiento de contenido en TikTok.</li>
+            </ul>
+            <p className="mt-4">
+              Usted puede elegir no aceptar estas tecnologías a través de nuestro banner de consentimiento. Sin su aprobación, estos scripts no se ejecutarán.
             </p>
           </section>
 
           <section>
-            <h2 className="text-xl font-headline font-black text-[#1a1a1a] uppercase tracking-tight mb-4">5. Transferencia de Datos</h2>
+            <h2 className="text-xl font-headline font-black text-[#1a1a1a] uppercase tracking-tight mb-4">5. Derechos ARCO</h2>
             <p>
-              BlackCherry IT Consulting no transfiere sus datos personales a terceros, nacionales o extranjeros, sin su consentimiento previo, salvo las excepciones previstas en la Ley.
+              Usted tiene derecho a conocer qué datos personales tenemos de usted (Acceso), solicitar su corrección (Rectificación), que los eliminemos de nuestros registros (Cancelación) u oponerse al uso de los mismos para fines específicos (Oposición). Para ejercer estos derechos, puede enviar un correo a: <strong className="text-primary-container">blackcherrydevs@gmail.com</strong>
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-headline font-black text-[#1a1a1a] uppercase tracking-tight mb-4">6. Seguridad de la Infraestructura</h2>
+            <p>
+              Implementamos medidas de seguridad técnicas y administrativas de grado industrial para proteger sus datos contra acceso no autorizado, alteración o destrucción. Su información es tratada bajo estrictos protocolos de confidencialidad.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-headline font-black text-[#1a1a1a] uppercase tracking-tight mb-4">7. Transferencia de Datos</h2>
+            <p>
+              BlackCherry IT Consulting no transfiere sus datos personales a terceros sin su consentimiento, salvo las excepciones legales o por requerimientos técnicos de proveedores de infraestructura (Hosting, APIs de IA) certificados.
             </p>
           </section>
         </div>

@@ -75,11 +75,67 @@ type ServiceKey = keyof typeof servicesData;
 export default function ServicesSection() {
   const [activeService, setActiveService] = useState<ServiceKey>("default");
   const [carouselOrder, setCarouselOrder] = useState([0, 1, 2, 3, 4, 5]);
+  const [isTablet, setIsTablet] = useState(false);
+
+  useEffect(() => {
+    const checkTablet = () => {
+      setIsTablet(window.innerWidth >= 640 && window.innerWidth < 1024);
+    };
+    checkTablet();
+    window.addEventListener("resize", checkTablet);
+    return () => window.removeEventListener("resize", checkTablet);
+  }, []);
 
   const nextSlide = () => setCarouselOrder(prev => [...prev.slice(1), prev[0]]);
   const prevSlide = () => setCarouselOrder(prev => [prev[prev.length - 1], ...prev.slice(0, prev.length - 1)]);
 
-  // Keep activeService in sync with the centered card on mobile
+  // Tablet Scroll Interaction: Update activeService based on viewport position
+  const observerRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+
+  useEffect(() => {
+    if (!isTablet) return;
+
+    const observerOptions = {
+      root: null,
+      rootMargin: "-45% 0px -45% 0px", // Narrow center strip
+      threshold: 0
+    };
+
+    const visibleServices = new Set<ServiceKey>();
+
+    const handleIntersect = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        const serviceId = entry.target.getAttribute("data-service") as ServiceKey;
+        if (!serviceId) return;
+
+        if (entry.isIntersecting) {
+          visibleServices.add(serviceId);
+        } else {
+          visibleServices.delete(serviceId);
+        }
+      });
+
+      if (visibleServices.size > 0) {
+        setActiveService(Array.from(visibleServices)[0]);
+      }
+    };
+
+    const observer = new IntersectionObserver(handleIntersect, observerOptions);
+    
+    // Use a timeout to ensure refs are populated after first render/resize
+    const timeoutId = setTimeout(() => {
+      Object.values(observerRefs.current).forEach((ref) => {
+        if (ref) observer.observe(ref);
+      });
+    }, 100);
+
+    return () => {
+      clearTimeout(timeoutId);
+      observer.disconnect();
+    };
+  }, [isTablet]);
+
+  // Keep activeService in sync with the centered card on mobile (< 640px)
   useEffect(() => {
     if (window.innerWidth < 640) {
       const keys: ServiceKey[] = ["web", "backend", "uiux", "ia", "wa", "seo"];
@@ -88,12 +144,12 @@ export default function ServicesSection() {
   }, [carouselOrder]);
 
   const CARDS_DATA = [
-    { id: "web", title: "DESARROLLO <br /> WEB", img: "/services/web_dev.png" },
-    { id: "backend", title: "SISTEMAS <br /> BACKEND", img: "/services/backend.png" },
-    { id: "uiux", title: "PRECISIÓN <br /> UI/UX", img: "/services/uiux.png" },
-    { id: "ia", title: "INTEGRACIÓN <br /> DE IA", img: "/services/ai.png" },
-    { id: "wa", title: "INTELIGENCIA <br /> CONVERSACIONAL", img: "https://images.unsplash.com/photo-1553390774-b4822481c894?q=80&w=1944&auto=format&fit=crop" },
-    { id: "seo", title: "ESTRATEGIA <br /> SEO", img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" }
+    { id: "web", title: "DESARROLLO <br /> WEB", img: "/services/web_dev.png", mt: "" },
+    { id: "backend", title: "SISTEMAS <br /> BACKEND", img: "/services/backend.png", mt: "lg:mt-32" },
+    { id: "uiux", title: "PRECISIÓN <br /> UI/UX", img: "/services/uiux.png", mt: "lg:-mt-16" },
+    { id: "ia", title: "INTEGRACIÓN <br /> DE IA", img: "/services/ai.png", mt: "lg:mt-16" },
+    { id: "wa", title: "AUTOMATIZACIÓN <br /> DE WHATSAPP", img: "https://images.unsplash.com/photo-1553390774-b4822481c894?q=80&w=1944&auto=format&fit=crop", mt: "" },
+    { id: "seo", title: "ESTRATEGIA <br /> SEO", img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop", mt: "lg:mt-48" }
   ];
 
   const data = servicesData[activeService];
@@ -110,7 +166,7 @@ export default function ServicesSection() {
         <div 
           className="w-full sm:w-1/2 lg:w-2/3 relative z-20"
           onMouseLeave={() => {
-            if (window.innerWidth >= 640) setActiveService("default");
+            if (window.innerWidth >= 1024) setActiveService("default");
           }}
         >
           {/* Mobile Carousel (< 640px) */}
@@ -138,8 +194,8 @@ export default function ServicesSection() {
                       className="relative w-[85vw] h-[300px] shrink-0 overflow-hidden group rounded-lg"
                     >
                       <img alt={card.id} className="absolute inset-0 w-full h-full object-cover grayscale brightness-[0.3] group-hover:grayscale-0 group-hover:brightness-50 transition-all duration-700 pointer-events-none" src={card.img} />
-                      <div className="absolute inset-0 p-8 flex items-end pointer-events-none">
-                        <h3 className="font-headline font-black text-3xl text-white leading-none tracking-tighter uppercase break-words" dangerouslySetInnerHTML={{ __html: card.title }}></h3>
+                      <div className="absolute inset-0 p-8 flex items-end justify-center text-center pointer-events-none pb-12">
+                        <h3 className="font-headline font-black text-3xl text-white leading-[0.85] tracking-tighter uppercase break-words" dangerouslySetInnerHTML={{ __html: card.title }}></h3>
                       </div>
                     </motion.div>
                   );
@@ -166,99 +222,61 @@ export default function ServicesSection() {
 
           {/* Tablet/Desktop Grid */}
           <div className="hidden sm:grid sm:grid-cols-1 lg:grid-cols-2 gap-4">
-          {/* Row 1 */}
-          <div 
-            className="relative h-[300px] md:h-[600px] lg:h-[800px] overflow-hidden group rounded-lg md:rounded-none"
-            onMouseEnter={() => setActiveService("web")}
-          >
-            <img 
-              alt="Desarrollo Web de Alto Rendimiento" 
-              className="absolute inset-0 w-full h-full object-cover grayscale brightness-[0.3] group-hover:grayscale-0 group-hover:brightness-50 transition-all duration-700" 
-              src="/services/web_dev.png" 
-            />
-            <div className="absolute inset-0 p-8 md:p-12 flex items-end">
-              <h3 className="font-headline font-black text-2xl md:text-3xl lg:text-4xl text-white leading-none tracking-tighter uppercase break-words">
-                DESARROLLO <br /> WEB
-              </h3>
-            </div>
-          </div>
-          <div 
-            className="relative h-[300px] md:h-[600px] lg:h-[800px] lg:mt-32 overflow-hidden group rounded-lg md:rounded-none"
-            onMouseEnter={() => setActiveService("backend")}
-          >
-            <img 
-              alt="Infraestructura de Sistemas Backend" 
-              className="absolute inset-0 w-full h-full object-cover grayscale brightness-[0.3] group-hover:grayscale-0 group-hover:brightness-50 transition-all duration-700" 
-              src="/services/backend.png" 
-            />
-            <div className="absolute inset-0 p-8 md:p-12 flex items-end">
-              <h3 className="font-headline font-black text-2xl md:text-3xl lg:text-4xl text-white leading-none tracking-tighter uppercase break-words">
-                SISTEMAS <br /> BACKEND
-              </h3>
-            </div>
-          </div>
-          {/* Row 2 */}
-          <div 
-            className="relative h-[300px] md:h-[600px] lg:h-[800px] lg:-mt-16 overflow-hidden group rounded-lg md:rounded-none"
-            onMouseEnter={() => setActiveService("uiux")}
-          >
-            <img 
-              alt="Diseño de Interfaces de Precisión" 
-              className="absolute inset-0 w-full h-full object-cover grayscale brightness-[0.3] group-hover:grayscale-0 group-hover:brightness-50 transition-all duration-700" 
-              src="/services/uiux.png" 
-            />
-            <div className="absolute inset-0 p-8 md:p-12 flex items-end">
-              <h3 className="font-headline font-black text-2xl md:text-3xl lg:text-4xl text-white leading-none tracking-tighter uppercase break-words">
-                PRECISIÓN <br /> UI/UX
-              </h3>
-            </div>
-          </div>
-          <div 
-            className="relative h-[300px] md:h-[600px] lg:h-[800px] lg:mt-16 overflow-hidden group rounded-lg md:rounded-none"
-            onMouseEnter={() => setActiveService("ia")}
-          >
-            <img 
-              alt="Arquitectura de Inteligencia Artificial" 
-              className="absolute inset-0 w-full h-full object-cover grayscale brightness-[0.3] group-hover:grayscale-0 group-hover:brightness-50 transition-all duration-700" 
-              src="/services/ai.png" 
-            />
-            <div className="absolute inset-0 p-8 md:p-12 flex items-end">
-              <h3 className="font-headline font-black text-2xl md:text-3xl lg:text-4xl text-white leading-none tracking-tighter uppercase break-words">
-                INTEGRACIÓN <br /> DE IA
-              </h3>
-            </div>
-          </div>
-          {/* Row 3 */}
-          <div 
-            className="relative h-[300px] md:h-[600px] lg:h-[800px] overflow-hidden group rounded-lg md:rounded-none"
-            onMouseEnter={() => setActiveService("wa")}
-          >
-            <img 
-              alt="Ecosistemas de Inteligencia Conversacional" 
-              className="absolute inset-0 w-full h-full object-cover grayscale brightness-[0.3] group-hover:grayscale-0 group-hover:brightness-50 transition-all duration-700" 
-              src="https://images.unsplash.com/photo-1553390774-b4822481c894?q=80&w=1944&auto=format&fit=crop" 
-            />
-            <div className="absolute inset-0 p-8 md:p-12 flex items-end">
-              <h3 className="font-headline font-black text-2xl md:text-3xl lg:text-4xl text-white leading-none tracking-tighter uppercase break-words">
-                INTELIGENCIA <br /> CONVERSACIONAL
-              </h3>
-            </div>
-          </div>
-          <div 
-            className="relative h-[300px] md:h-[600px] lg:h-[800px] lg:mt-48 overflow-hidden group rounded-lg md:rounded-none"
-            onMouseEnter={() => setActiveService("seo")}
-          >
-            <img 
-              alt="Estrategia de Optimización SEO" 
-              className="absolute inset-0 w-full h-full object-cover grayscale brightness-[0.3] group-hover:grayscale-0 group-hover:brightness-50 transition-all duration-700" 
-              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" 
-            />
-            <div className="absolute inset-0 p-8 md:p-12 flex items-end">
-              <h3 className="font-headline font-black text-2xl md:text-3xl lg:text-4xl text-white leading-none tracking-tighter uppercase break-words">
-                ESTRATEGIA <br /> SEO
-              </h3>
-            </div>
-          </div>
+            {CARDS_DATA.map((card) => (
+              <div 
+                key={card.id}
+                ref={el => { observerRefs.current[card.id] = el; }}
+                data-service={card.id}
+                className={`relative h-[300px] md:h-[600px] lg:h-[800px] overflow-hidden group rounded-lg md:rounded-none ${card.mt}`}
+                onMouseEnter={() => { if (window.innerWidth >= 1024) setActiveService(card.id as ServiceKey); }}
+              >
+                <img 
+                  alt={card.title.replace('<br />', '')} 
+                  className={`absolute inset-0 w-full h-full object-cover grayscale brightness-[0.3] group-hover:grayscale-0 group-hover:brightness-50 transition-all duration-700
+                    ${activeService === card.id ? 'grayscale-0 brightness-50' : ''}
+                  `} 
+                  src={card.img} 
+                />
+                
+                {/* Desktop Vertical Titles (Visible ONLY on LG screens) */}
+                <div className="absolute top-0 right-0 bottom-0 py-4 flex items-center justify-center z-30 pointer-events-none hidden lg:flex">
+                  <div className="flex items-center h-full">
+                    <div className={`h-full overflow-hidden transition-opacity relative flex items-end opacity-70 group-hover:opacity-100 ${activeService === card.id ? 'opacity-100' : ''}`}>
+                      <div className="relative">
+                        <div className="pb-12 opacity-0 pointer-events-none">
+                          <h3 className="font-headline font-black text-4xl lg:text-[6vw] xl:text-[5vw] text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap">
+                            {card.id === 'wa' ? 'WHATSAPP AUTOMATION' : card.title.replace('<br />', '').replace('  ', ' ')}
+                          </h3>
+                        </div>
+                        <div className={`absolute top-0 left-0 flex flex-col group-hover:animate-scroll-up ${activeService === card.id ? 'animate-scroll-up' : ''}`}>
+                          <div className="pb-12">
+                            <h3 className="font-headline font-black text-4xl lg:text-[6vw] xl:text-[5vw] text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap">
+                              {card.id === 'wa' ? 'WHATSAPP AUTOMATION' : card.title.replace('<br />', '').replace('  ', ' ')}
+                            </h3>
+                          </div>
+                          <div className="pb-12">
+                            <h3 className="font-headline font-black text-4xl lg:text-[6vw] xl:text-[5vw] text-white tracking-tighter uppercase leading-none vertical-text-up whitespace-nowrap" aria-hidden="true">
+                              {card.id === 'wa' ? 'WHATSAPP AUTOMATION' : card.title.replace('<br />', '').replace('  ', ' ')}
+                            </h3>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Tablet Horizontal Layout (Hidden on LG screens) */}
+                <div 
+                  className="absolute inset-0 p-8 md:p-12 flex items-end justify-center text-center pb-12 lg:hidden cursor-pointer"
+                  onClick={() => setActiveService(card.id as ServiceKey)}
+                >
+                  <h3 
+                    className="font-headline font-black text-2xl md:text-3xl text-white leading-[0.85] tracking-tighter uppercase break-words px-6 md:px-10"
+                    dangerouslySetInnerHTML={{ __html: card.title }}
+                  />
+                </div>
+              </div>
+            ))}
           </div>
         </div>
         
