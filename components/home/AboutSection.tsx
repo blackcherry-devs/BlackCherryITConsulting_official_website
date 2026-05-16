@@ -71,7 +71,7 @@ export default function AboutSection() {
     >
       <GridLines />
       <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 relative z-10 min-h-[400px]">
-        <div className="w-full lg:w-1/3 pl-0 lg:pl-4 flex flex-col justify-between">
+        <div className="w-full lg:w-1/3 pl-0 lg:pl-4 flex-col sm:flex-row lg:flex-col justify-between">
           <div>
             <span className="font-headline font-black text-white text-[10px] min-[600px]:text-xs tracking-[0.3em] uppercase">
               01 / SERVICIOS

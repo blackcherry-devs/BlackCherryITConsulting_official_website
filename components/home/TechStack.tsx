@@ -34,16 +34,13 @@ export default function TechStack() {
       theme="dark"
       className="!bg-[#1a1a1a] !py-6 md:!py-16 lg:!py-24"
     >
-      {/* Glyph Rain Background */}
-      <GlyphRain opacity={0.15} count={8} />
-
       {/* HUD Background Patterns */}
       <BlueprintPattern type="circuit" opacity={0.08} />
       <BlueprintPattern type="diagonal" opacity={0.04} />
 
       <div className="w-full min-h-[400px] lg:min-h-[450px] relative z-10 flex flex-col lg:flex-row items-stretch">
         {/* Left Side: Content Overlapping on Desktop */}
-        <div className="absolute inset-0 z-20 flex flex-col justify-center items-start text-left pl-0 sm:pl-16 lg:pl-12 lg:mb-0 pointer-events-none w-full lg:w-[60%]">
+        <div className="info absolute inset-0 my-auto lg:my-0 z-20 flex flex-col justify-center items-center text-center md:items-start md:text-left px-6 sm:px-16 md:px-0 md:pl-16 lg:pl-12 lg:mb-0 pointer-events-none w-full lg:w-[60%] h-[400px]  bg-black/60 backdrop-blur-[2px] rounded-2xl">
           <span className="font-headline font-black text-white text-xs tracking-[0.3em] uppercase mb-4 sm:mb-6">
             04 / STACK
           </span>

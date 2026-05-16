@@ -86,7 +86,7 @@ export default function Portfolio() {
           03 / PORTAFOLIO
         </span>
         <h2 className="mt-6 min-[600px]:mt-8 font-headline font-bold text-3xl min-[600px]:text-5xl lg:text-8xl tracking-tighter uppercase text-on-surface">
-          Portafolio
+          Nuestros clientes
         </h2>
       </div>
 
