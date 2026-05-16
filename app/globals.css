@@ -99,6 +99,23 @@
   }
 }
 
+/* Base interactive elements cursor */
+a,
+button,
+[role='button'] {
+  cursor: pointer;
+}
+
+:root {
+  --gutter-width: 1rem;
+  @media (min-width: 600px) {
+    --gutter-width: 4rem;
+  }
+  @media (min-width: 1024px) {
+    --gutter-width: 7rem;
+  }
+}
+
 /* Custom CSS from the HTML provided */
 @layer utilities {
   .material-symbols-outlined {
@@ -108,11 +125,15 @@
       'GRAD' 0,
       'opsz' 24;
   }
+
   .gutter-line {
     @apply absolute top-0 bottom-0 w-[1.3px] bg-gray-300 z-0 pointer-events-none;
   }
   .center-line-full {
     @apply absolute top-0 bottom-0 left-1/2 w-[1.3px] bg-gray-300 z-0 pointer-events-none;
+    @media (max-width: 1023px) {
+      display: none;
+    }
   }
   .gutter-left {
     left: 7rem;
@@ -120,9 +141,20 @@
   .gutter-right {
     right: 7rem;
   }
+  .gutter-left {
+    left: var(--gutter-width);
+  }
+  .gutter-right {
+    right: var(--gutter-width);
+  }
   .content-width {
-    margin-left: 7rem;
-    margin-right: 7rem;
+    margin-left: var(--gutter-width);
+    margin-right: var(--gutter-width);
+  }
+  @media (max-width: 1023px) {
+    .content-width {
+      display: none;
+    }
   }
   .bento-card {
     /* transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); */
@@ -144,6 +176,24 @@
     background-image:
       linear-gradient(to right, rgba(139, 9, 10, 0.1) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(139, 9, 10, 0.1) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  .technical-grid-light {
+    background-image:
+      linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  .technical-grid-dark {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  .technical-grid-dark-red {
+    background-image:
+      linear-gradient(to right, rgba(139, 9, 10, 0.2) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(139, 9, 10, 0.2) 1px, transparent 1px);
     background-size: 32px 32px;
   }
   .blueprint-circuit {

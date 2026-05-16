@@ -23,7 +23,7 @@ const AnimatedButton = ({
   ...props 
 }: AnimatedButtonProps) => {
   // Base classes for the button container
-  const baseClasses = "group/btn flex h-12 w-fit items-center gap-4 rounded-full pl-5 pr-6 transition-all duration-300 ease-in-out hover:pl-4 font-headline font-black text-[10px] md:text-xs tracking-[0.2em] uppercase";
+  const baseClasses = "group/btn flex h-12 w-fit items-center gap-4 rounded-full pl-5 pr-6 transition-all duration-300 ease-in-out hover:pl-4 font-headline font-black text-[10px] md:text-xs tracking-[0.2em] uppercase cursor-pointer";
   
   // Background, text, and hover colors based on the theme
   const themeClasses = {

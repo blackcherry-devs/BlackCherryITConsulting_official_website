@@ -53,7 +53,7 @@ export default function HeroImageCarousel() {
   }, { scope: containerRef });
 
   return (
-    <div ref={containerRef} className="relative w-full h-[400px] md:h-[700px] overflow-hidden bg-black">
+    <div ref={containerRef} className="relative w-full h-[75vh] md:h-[100vh] lg:h-[700px] overflow-hidden bg-black">
       {/* Track Container */}
       <div 
         ref={trackRef} 
@@ -62,13 +62,14 @@ export default function HeroImageCarousel() {
         {carouselImages.map((src, idx) => (
           <div 
             key={`img-${idx}`} 
-            className="w-[100vw] md:w-[calc(50vw-7rem)] h-full flex-shrink-0 relative"
+            className="w-[100vw] min-[601px]:w-[calc(100vw-var(--gutter-width)*2)] lg:w-[calc(50vw-var(--gutter-width))] h-full flex-shrink-0 relative"
           >
             <Image 
               src={src} 
-              alt={`Hero Portfolio ${idx}`} 
+              alt={`Proyecto BlackCherry IT - Portfolio ${idx + 1}`} 
               fill 
               priority 
+              sizes="(max-width: 600px) 100vw, (max-width: 1024px) calc(100vw - var(--gutter-width) * 2), calc(50vw - var(--gutter-width))"
               className="object-cover brightness-75" 
             />
             <div className="absolute inset-0 bg-black/20"></div>

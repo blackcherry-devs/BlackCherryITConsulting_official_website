@@ -1,14 +1,12 @@
 'use client';
 
-import GridLines from '@/components/ui/GridLines';
+import Section from '@/components/layout/Section';
+import GlyphRain from '@/components/ui/GlyphRain';
+import BlueprintPattern from '@/components/ui/BlueprintPattern';
+import { useGSAP } from '@gsap/react';
 import { useRef } from 'react';
 import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
-}
+import { ScrollTrigger } from 'gsap/all';
 
 export default function TechStack() {
   const containerRef = useRef<HTMLElement>(null);
@@ -31,82 +29,54 @@ export default function TechStack() {
   const stackBottom = ['TAILWIND', 'GSAP', 'POSTGRES', 'FIGMA'];
 
   return (
-    <section
+    <Section
       id="tecnologias"
-      ref={containerRef}
-      className="w-full py-32 md:py-48 px-4 md:px-[7rem] bg-[#1a1a1a] text-white relative overflow-hidden"
+      theme="dark"
+      className="!bg-[#1a1a1a] !py-6 md:!py-16 lg:!py-24"
     >
-      <GridLines />
       {/* Glyph Rain Background */}
-      <div className="glyph-rain-container">
-        <div className="glyph-column" style={{ animationDelay: '0s' }}>
-          01011101010110101010101111010101010111010101101010101011110101
-        </div>
-        <div className="glyph-column" style={{ animationDelay: '2s' }}>
-          IT_SYSTEMS_BLACKCHERRY_REDUX_01010101101010101011110101
-        </div>
-        <div className="glyph-column" style={{ animationDelay: '5s' }}>
-          1010111010101101010101011110101010111010101101010101011110101
-        </div>
-        <div className="glyph-column" style={{ animationDelay: '1s' }}>
-          0001101010101101010101011110101010111010101101010101011110101
-        </div>
-        <div className="glyph-column" style={{ animationDelay: '4s' }}>
-          MONOLITH_ARCHITECTURE_STABLE_10101010111101010101110101011
-        </div>
-        <div className="glyph-column" style={{ animationDelay: '3s' }}>
-          1110101010111010101101010101011110101010111010101101010101011110101
-        </div>
-      </div>
+      <GlyphRain opacity={0.15} count={8} />
 
       {/* HUD Background Patterns */}
-      <div className="absolute inset-0 blueprint-circuit opacity-[0.08] pointer-events-none z-0"></div>
-      <div className="absolute inset-0 diagonal-blueprint opacity-[0.04] pointer-events-none z-0"></div>
+      <BlueprintPattern type="circuit" opacity={0.08} />
+      <BlueprintPattern type="diagonal" opacity={0.04} />
 
-      <div className="flex flex-col md:flex-row relative z-10 items-stretch min-h-[600px]">
-        {/* Left Side: Content Centered on axis */}
-        <div className="md:w-[35%] flex flex-col justify-center items-start text-left pl-0 md:pl-4 mb-16 md:mb-0">
-          <span className="font-headline font-black text-white text-xs tracking-[0.3em] uppercase mb-6">
+      <div className="w-full min-h-[400px] lg:min-h-[450px] relative z-10 flex flex-col lg:flex-row items-stretch">
+        {/* Left Side: Content Overlapping on Desktop */}
+        <div className="absolute inset-0 z-20 flex flex-col justify-center items-start text-left pl-0 sm:pl-16 lg:pl-12 lg:mb-0 pointer-events-none w-full lg:w-[60%]">
+          <span className="font-headline font-black text-white text-xs tracking-[0.3em] uppercase mb-4 sm:mb-6">
             04 / STACK
           </span>
-          <h2 className="font-headline font-black text-5xl md:text-7xl tracking-tighter leading-[0.85] uppercase">
+          <h2 className="font-headline font-black text-4xl sm:text-5xl lg:text-7xl tracking-tighter leading-[0.85] uppercase w-full">
             TECNOLOGÍAS
           </h2>
-          <p className="mt-10 font-body text-white/50 max-w-sm text-sm uppercase tracking-widest leading-relaxed">
+          <p className="mt-4 sm:mt-6 font-body text-white/50 w-full lg:max-w-md text-sm uppercase tracking-widest leading-relaxed">
             Utilizamos las herramientas más avanzadas y robustas del mercado
             para garantizar un rendimiento excepcional y una escalabilidad sin
             límites en cada proyecto.
           </p>
         </div>
 
-        {/* Right Side: Staggered Carousels */}
+        {/* Right Side: Staggered Carousels (Background layer) */}
         <div
-          className="md:w-[65%] flex gap-4 md:gap-8 items-start h-[400px] md:h-[700px] overflow-hidden pr-0 md:pr-4 relative py-10 md:py-20 w-full"
+          className="w-full lg:w-[70%] lg:ml-auto relative z-10 flex gap-4 lg:gap-8 items-start h-full lg:h-[500px] overflow-hidden px-[var(--gutter-width)] lg:px-0 lg:pr-4 py-10 lg:py-12 justify-center min-[600px]:justify-start lg:justify-end"
           style={{
-            WebkitMaskImage:
-              'linear-gradient(to bottom, transparent, black 30%, black 70%, transparent)',
             maskImage:
-              'linear-gradient(to bottom, transparent, black 30%, black 70%, transparent)',
+              'linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)',
+            WebkitMaskImage:
+              'linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)',
           }}
         >
           {/* Carousel 1 (Scrolls UP) */}
-          <div
-            className="fade-container flex-[1.4] relative h-[400px] md:h-[600px] overflow-hidden bg-transparent -mt-10 md:-mt-20"
-            style={{
-              WebkitMaskImage:
-                'linear-gradient(to bottom, transparent, black 30%, black 70%, transparent)',
-              maskImage:
-                'linear-gradient(to bottom, transparent, black 30%, black 70%, transparent)',
-            }}
-          >
-            <div className="flex flex-col gap-0 py-0 animate-scroll-up">
+          <div className="flex-1 lg:flex-[1.4] relative h-full lg:h-[400px] overflow-hidden bg-transparent flex flex-col items-center min-[600px]:items-start">
+            <div className="flex flex-col gap-0 py-0 animate-scroll-up w-full items-center min-[600px]:items-start">
               {/* Render twice for seamless loop */}
               {[...stackTop, ...stackTop].map((tech, i) => (
                 <div
                   key={i}
-                  className="h-[100px] md:h-[150px] flex items-center justify-start"
+                  className="h-[80px] lg:h-[110px] flex items-center justify-center min-[600px]:justify-start w-full"
                 >
-                  <span className="font-headline font-black text-4xl md:text-7xl tracking-tighter uppercase opacity-20 hover:opacity-100 hover:text-primary-container transition-all cursor-default whitespace-nowrap">
+                  <span className="font-headline font-black text-5xl lg:text-7xl tracking-tighter uppercase opacity-20 hover:opacity-100 hover:text-primary-container transition-all cursor-default whitespace-nowrap">
                     {tech}
                   </span>
                 </div>
@@ -114,24 +84,16 @@ export default function TechStack() {
             </div>
           </div>
 
-          {/* Carousel 2 (Scrolls DOWN) */}
-          <div
-            className="fade-container flex-1 relative h-[400px] md:h-[600px] overflow-hidden bg-transparent mt-10 md:mt-20"
-            style={{
-              WebkitMaskImage:
-                'linear-gradient(to bottom, transparent, black 30%, black 70%, transparent)',
-              maskImage:
-                'linear-gradient(to bottom, transparent, black 30%, black 70%, transparent)',
-            }}
-          >
+          {/* Carousel 2 (Scrolls DOWN) - Hidden on mobile < 600px */}
+          <div className="flex-1 relative h-full lg:h-[400px] overflow-hidden bg-transparent hidden min-[600px]:block">
             <div className="flex flex-col gap-0 py-0 animate-scroll-down">
               {/* Render twice for seamless loop */}
               {[...stackBottom, ...stackBottom].map((tech, i) => (
                 <div
                   key={i}
-                  className="h-[100px] md:h-[150px] flex items-center justify-start"
+                  className="h-[80px] lg:h-[110px] flex items-center justify-start"
                 >
-                  <span className="font-headline font-black text-4xl md:text-7xl tracking-tighter uppercase opacity-20 hover:opacity-100 hover:text-primary-container transition-all cursor-default whitespace-nowrap">
+                  <span className="font-headline font-black text-5xl lg:text-7xl tracking-tighter uppercase opacity-20 hover:opacity-100 hover:text-primary-container transition-all cursor-default whitespace-nowrap">
                     {tech}
                   </span>
                 </div>
@@ -140,6 +102,6 @@ export default function TechStack() {
           </div>
         </div>
       </div>
-    </section>
+    </Section>
   );
 }
