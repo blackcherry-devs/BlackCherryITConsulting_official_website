@@ -1,7 +1,6 @@
 'use client';
 
 import Section from '@/components/layout/Section';
-import GlyphRain from '@/components/ui/GlyphRain';
 import BlueprintPattern from '@/components/ui/BlueprintPattern';
 import { useGSAP } from '@gsap/react';
 import { useRef } from 'react';
@@ -40,7 +39,7 @@ export default function TechStack() {
 
       <div className="w-full min-h-[400px] lg:min-h-[450px] relative z-10 flex flex-col lg:flex-row items-stretch">
         {/* Left Side: Content Overlapping on Desktop */}
-        <div className="info absolute inset-0 my-auto lg:my-0 z-20 flex flex-col justify-center items-center text-center md:items-start md:text-left px-6 sm:px-16 md:px-0 md:pl-16 lg:pl-12 lg:mb-0 pointer-events-none w-full lg:w-[60%] h-[400px]  bg-black/60 backdrop-blur-[2px] rounded-2xl">
+        <div className="info absolute inset-0 my-auto lg:my-0 z-20 flex flex-col justify-center items-center text-center md:items-start md:text-left px-6 sm:px-16 md:px-0 md:pl-16 lg:pl-12 lg:mb-0 pointer-events-none w-full lg:w-[60%] h-[400px]  bg-black/60 backdrop-blur-[3px] rounded-2xl">
           <span className="font-headline font-black text-white text-xs tracking-[0.3em] uppercase mb-4 sm:mb-6">
             04 / STACK
           </span>
@@ -58,14 +57,22 @@ export default function TechStack() {
         <div
           className="w-full lg:w-[70%] lg:ml-auto relative z-10 flex gap-4 lg:gap-8 items-start h-full lg:h-[500px] overflow-hidden px-[var(--gutter-width)] lg:px-0 lg:pr-4 py-10 lg:py-12 justify-center min-[600px]:justify-start lg:justify-end"
           style={{
-            maskImage:
-              'linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)',
             WebkitMaskImage:
-              'linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)',
+              'linear-gradient(to bottom, transparent, black 30%, black 70%, transparent)',
+            maskImage:
+              'linear-gradient(to bottom, transparent, black 30%, black 70%, transparent)',
           }}
         >
           {/* Carousel 1 (Scrolls UP) */}
-          <div className="flex-1 lg:flex-[1.4] relative h-full lg:h-[400px] overflow-hidden bg-transparent flex flex-col items-center min-[600px]:items-start">
+          <div
+            className="flex-1 lg:flex-[1.4] relative h-full lg:h-[400px] overflow-hidden bg-transparent flex flex-col items-center min-[600px]:items-start"
+            style={{
+              WebkitMaskImage:
+                'linear-gradient(to bottom, transparent, black 30%, black 70%, transparent)',
+              maskImage:
+                'linear-gradient(to bottom, transparent, black 30%, black 70%, transparent)',
+            }}
+          >
             <div className="flex flex-col gap-0 py-0 animate-scroll-up w-full items-center min-[600px]:items-start">
               {/* Render twice for seamless loop */}
               {[...stackTop, ...stackTop].map((tech, i) => (
@@ -82,7 +89,15 @@ export default function TechStack() {
           </div>
 
           {/* Carousel 2 (Scrolls DOWN) - Hidden on mobile < 600px */}
-          <div className="flex-1 relative h-full lg:h-[400px] overflow-hidden bg-transparent hidden min-[600px]:block">
+          <div
+            className="flex-1 relative h-full lg:h-[400px] overflow-hidden bg-transparent hidden min-[600px]:block"
+            style={{
+              WebkitMaskImage:
+                'linear-gradient(to bottom, transparent, black 30%, black 70%, transparent)',
+              maskImage:
+                'linear-gradient(to bottom, transparent, black 30%, black 70%, transparent)',
+            }}
+          >
             <div className="flex flex-col gap-0 py-0 animate-scroll-down">
               {/* Render twice for seamless loop */}
               {[...stackBottom, ...stackBottom].map((tech, i) => (
