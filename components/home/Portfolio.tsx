@@ -32,6 +32,28 @@ export default function Portfolio() {
           },
         });
       });
+
+      const mm = gsap.matchMedia();
+      mm.add('(max-width: 1023px)', () => {
+        items.forEach((item) => {
+          const video = item.querySelector('.mobile-bg-video');
+          if (video) {
+            gsap.fromTo(
+              video,
+              { opacity: 1 },
+              {
+                opacity: 0,
+                scrollTrigger: {
+                  trigger: item,
+                  start: 'top 30%',
+                  end: 'top 60%',
+                  scrub: 1,
+                },
+              },
+            );
+          }
+        });
+      });
     },
     { scope: containerRef },
   );
@@ -117,8 +139,9 @@ export default function Portfolio() {
                 </span>
               </div>
 
-              {/* Video reveal - all screens */}
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] min-[600px]:w-[450px] h-[160px] min-[600px]:h-[280px] opacity-0 group-hover:opacity-100 scale-90 group-hover:scale-100 transition-all duration-500 pointer-events-none overflow-hidden z-40 shadow-2xl rounded-xl bg-black">
+              {/* Video reveal */}
+              <div className="mobile-bg-video absolute inset-0 w-full h-full opacity-100 z-0 lg:left-1/2 lg:top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 lg:w-[450px] lg:h-[280px] lg:opacity-0 lg:group-hover:opacity-100 lg:scale-90 lg:group-hover:scale-100 lg:transition-all lg:duration-500 pointer-events-none overflow-hidden lg:z-40 lg:shadow-2xl lg:rounded-xl bg-black">
+                <div className="absolute inset-0 bg-black/40 lg:hidden z-10"></div>
                 <video
                   src={
                     project.video ||
@@ -128,7 +151,7 @@ export default function Portfolio() {
                   loop
                   muted
                   playsInline
-                  className="w-full h-full object-cover object-left transition-all duration-700"
+                  className="w-full h-full object-cover object-center lg:object-left transition-all duration-700 relative z-0"
                 />
               </div>
 
