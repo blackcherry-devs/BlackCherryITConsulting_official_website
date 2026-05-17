@@ -3,6 +3,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import GridLines from '@/components/ui/GridLines';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 const servicesData = {
   default: {
@@ -87,9 +89,33 @@ const servicesData = {
 type ServiceKey = keyof typeof servicesData;
 
 export default function ServicesSection() {
+  const containerRef = useRef<HTMLElement>(null);
   const [activeService, setActiveService] = useState<ServiceKey>('default');
   const [carouselOrder, setCarouselOrder] = useState([0, 1, 2, 3, 4, 5]);
   const [isTablet, setIsTablet] = useState(false);
+
+  const { contextSafe } = useGSAP(() => {
+    // Animate IN from right side
+    gsap.fromTo(".info-text",
+      { x: 50, opacity: 0 },
+      { x: 0, opacity: 1, duration: 0.5, stagger: 0.05, ease: "back.out(1.5)" }
+    );
+  }, { scope: containerRef, dependencies: [activeService] });
+
+  const handleServiceChange = contextSafe((newService: ServiceKey) => {
+    if (newService === activeService) return;
+
+    // Kill existing animations and animate OUT to the left side
+    gsap.killTweensOf(".info-text");
+    gsap.to(".info-text", {
+      x: -50,
+      opacity: 0,
+      duration: 0.25,
+      stagger: 0.04,
+      ease: "power2.in",
+      onComplete: () => setActiveService(newService)
+    });
+  });
 
   useEffect(() => {
     const checkTablet = () => {
@@ -100,13 +126,26 @@ export default function ServicesSection() {
     return () => window.removeEventListener('resize', checkTablet);
   }, []);
 
-  const nextSlide = () =>
-    setCarouselOrder((prev) => [...prev.slice(1), prev[0]]);
-  const prevSlide = () =>
-    setCarouselOrder((prev) => [
-      prev[prev.length - 1],
-      ...prev.slice(0, prev.length - 1),
-    ]);
+  const nextSlide = () => {
+    const newOrder = [...carouselOrder.slice(1), carouselOrder[0]];
+    setCarouselOrder(newOrder);
+    if (typeof window !== 'undefined' && window.innerWidth < 640) {
+      const keys: ServiceKey[] = ['web', 'backend', 'uiux', 'ia', 'wa', 'seo'];
+      handleServiceChange(keys[newOrder[0]]);
+    }
+  };
+
+  const prevSlide = () => {
+    const newOrder = [
+      carouselOrder[carouselOrder.length - 1],
+      ...carouselOrder.slice(0, carouselOrder.length - 1),
+    ];
+    setCarouselOrder(newOrder);
+    if (typeof window !== 'undefined' && window.innerWidth < 640) {
+      const keys: ServiceKey[] = ['web', 'backend', 'uiux', 'ia', 'wa', 'seo'];
+      handleServiceChange(keys[newOrder[0]]);
+    }
+  };
 
   // Tablet Scroll Interaction: Update activeService based on viewport position
   const observerRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
@@ -137,7 +176,7 @@ export default function ServicesSection() {
       });
 
       if (visibleServices.size > 0) {
-        setActiveService(Array.from(visibleServices)[0]);
+        handleServiceChange(Array.from(visibleServices)[0]);
       }
     };
 
@@ -156,13 +195,6 @@ export default function ServicesSection() {
     };
   }, [isTablet]);
 
-  // Keep activeService in sync with the centered card on mobile (< 640px)
-  useEffect(() => {
-    if (window.innerWidth < 640) {
-      const keys: ServiceKey[] = ['web', 'backend', 'uiux', 'ia', 'wa', 'seo'];
-      setActiveService(keys[carouselOrder[0]]);
-    }
-  }, [carouselOrder]);
 
   const CARDS_DATA = [
     {
@@ -207,6 +239,7 @@ export default function ServicesSection() {
 
   return (
     <section
+      ref={containerRef}
       className="w-full py-20 md:py-32 px-6 md:px-[var(--gutter-width)] relative bg-[#1F1F1F]"
       style={{ clipPath: 'inset(0)' }}
     >
@@ -220,7 +253,7 @@ export default function ServicesSection() {
         <div
           className="w-full sm:w-1/2 lg:w-2/3 relative z-20"
           onMouseLeave={() => {
-            if (window.innerWidth >= 1024) setActiveService('default');
+            if (window.innerWidth >= 1024) handleServiceChange('default');
           }}
         >
           {/* Mobile Carousel (< 640px) */}
@@ -297,7 +330,7 @@ export default function ServicesSection() {
                 className={`relative h-[300px] md:h-[600px] lg:h-[800px] overflow-hidden group rounded-lg md:rounded-none ${card.mt}`}
                 onMouseEnter={() => {
                   if (window.innerWidth >= 1024)
-                    setActiveService(card.id as ServiceKey);
+                    handleServiceChange(card.id as ServiceKey);
                 }}
               >
                 <img
@@ -357,7 +390,7 @@ export default function ServicesSection() {
                 {/* Tablet Horizontal Layout (Hidden on LG screens) */}
                 <div
                   className="absolute inset-0 p-8 md:p-12 flex items-end justify-center text-center pb-12 lg:hidden cursor-pointer"
-                  onClick={() => setActiveService(card.id as ServiceKey)}
+                  onClick={() => handleServiceChange(card.id as ServiceKey)}
                 >
                   <h3
                     className="font-headline font-black text-2xl md:text-3xl text-white leading-[0.85] tracking-tighter uppercase break-words px-6 md:px-10"
@@ -372,7 +405,7 @@ export default function ServicesSection() {
         {/* Right Side: Content Block */}
         <div className="w-full sm:w-1/2 lg:w-1/3 min-w-0 sm:sticky sm:top-24 lg:top-32 self-start relative transition-all duration-500 sm:min-h-[500px]">
           <span
-            className="font-headline font-black text-white text-[10px] tracking-[0.4em] uppercase mb-4 block transition-all duration-300"
+            className="info-text font-headline font-black text-white text-[10px] tracking-[0.4em] uppercase mb-4 block"
             key={`sub-${activeService}`}
           >
             {data.subtitle}
