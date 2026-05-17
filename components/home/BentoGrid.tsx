@@ -157,7 +157,7 @@ export default function BentoGrid() {
                 domain
               </span>
             </div>
-            <div className="relative z-10 mix-blend-difference text-white">
+            <div className="relative z-10 text-black">
               <span
                 className="material-symbols-outlined text-primary-container text-3xl min-[600px]:text-4xl mb-4 min-[600px]:mb-6 block transition-transform duration-500 group-hover:-translate-y-3 group-hover:scale-110"
                 aria-hidden="true"
@@ -168,9 +168,9 @@ export default function BentoGrid() {
                 Inmuebles
               </h3>
             </div>
-            <div className="relative z-10 flex gap-4 items-center mt-6 mix-blend-difference text-white">
-              <span className="w-8 min-[600px]:w-12 h-[1.3px] bg-white/40 group-hover:bg-primary-container group-hover:w-24 transition-all duration-500"></span>
-              <p className="font-body text-white/60 uppercase tracking-widest text-[8px] min-[600px]:text-[10px] lg:text-[11px] xl:text-[12px] font-black max-w-[200px] min-[600px]:max-w-md">
+            <div className="relative z-10 flex gap-4 items-center mt-6 text-black">
+              <span className="w-8 min-[600px]:w-12 h-[1.3px] bg-black/40 group-hover:bg-primary-container group-hover:w-24 transition-all duration-500"></span>
+              <p className="font-body text-black/60 uppercase tracking-widest text-[8px] min-[600px]:text-[10px] lg:text-[11px] xl:text-[12px] font-black max-w-[200px] min-[600px]:max-w-md">
                 CAPTACIÓN DE LEADS Y NARRACIÓN DE PROPIEDADES CON VOCES HUMANAS
               </p>
             </div>

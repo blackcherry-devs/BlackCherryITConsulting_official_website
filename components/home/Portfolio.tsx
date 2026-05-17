@@ -79,6 +79,7 @@ export default function Portfolio() {
     <section
       id="portafolio"
       className="w-full py-24 min-[600px]:py-40 px-6 min-[600px]:px-[var(--gutter-width)] bg-white relative overflow-hidden"
+      ref={containerRef}
     >
       <GridLines />
       <div className="lg:px-12 mb-16 min-[600px]:mb-24 relative z-10">
@@ -101,7 +102,7 @@ export default function Portfolio() {
             <Link
               href={`/portafolio/${project.id}`}
               key={project.id}
-              className={`group relative py-10 min-[600px]:py-12 lg:px-12 cursor-pointer transition-all duration-500 block ${bgClasses}`}
+              className={`project-item group relative py-10 min-[600px]:py-12 lg:px-12 cursor-pointer  block ${bgClasses}`}
             >
               <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center relative z-10 gap-2 min-[600px]:gap-4 lg:gap-0">
                 <h3
