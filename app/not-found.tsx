@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/ui/AnimatedLink";
 import GridLines from "@/components/ui/GridLines";
 import AnimatedButton from "@/components/ui/AnimatedButton";
 

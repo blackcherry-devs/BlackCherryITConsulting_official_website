@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, use } from "react";
-import Link from "next/link";
+import Link from "@/components/ui/AnimatedLink";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import GridLines from "@/components/ui/GridLines";

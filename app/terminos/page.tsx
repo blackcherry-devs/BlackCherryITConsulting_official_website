@@ -1,5 +1,5 @@
 import GridLines from "@/components/ui/GridLines";
-import Link from "next/link";
+import Link from "@/components/ui/AnimatedLink";
 import { FiArrowLeft } from "react-icons/fi";
 
 export const metadata = {

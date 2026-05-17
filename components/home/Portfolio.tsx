@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import Link from '@/components/ui/AnimatedLink';
 import Image from 'next/image';
 import GridLines from '@/components/ui/GridLines';
 import AnimatedButton from '@/components/ui/AnimatedButton';

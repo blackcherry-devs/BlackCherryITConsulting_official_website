@@ -7,19 +7,20 @@ import { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
 export default function TechStack() {
   const containerRef = useRef<HTMLElement>(null);
 
   useGSAP(
     () => {
-      const mm = gsap.matchMedia();
-      mm.add('(min-width: 768px)', () => {
-        ScrollTrigger.create({
-          trigger: containerRef.current,
-          start: 'top top',
-          pin: true,
-          pinSpacing: false, // Allows ContactForm to slide over this section
-        });
+      ScrollTrigger.create({
+        trigger: containerRef.current,
+        start: 'top top',
+        pin: true,
+        pinSpacing: false, // Allows ContactForm to slide over this section
       });
     },
     { scope: containerRef },
@@ -32,6 +33,7 @@ export default function TechStack() {
       id="tecnologias"
       theme="dark"
       className="!bg-[#1a1a1a] !py-6 md:!py-16 lg:!py-24"
+      ref={containerRef}
     >
       {/* HUD Background Patterns */}
       <BlueprintPattern type="circuit" opacity={0.08} />

@@ -2,7 +2,7 @@
 
 import React from "react";
 import { FiArrowRight } from "react-icons/fi";
-import Link from "next/link";
+import Link from "@/components/ui/AnimatedLink";
 
 interface AnimatedButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   href?: string;
