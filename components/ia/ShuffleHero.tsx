@@ -110,7 +110,10 @@ const ShuffleGrid = () => {
   const [count, setCount] = useState(16);
 
   useEffect(() => {
-    setMounted(true);
+    const timer = setTimeout(() => {
+      setMounted(true);
+      updateLayout();
+    }, 0);
 
     const updateLayout = () => {
       const w = window.innerWidth;
@@ -125,7 +128,6 @@ const ShuffleGrid = () => {
       }
     };
 
-    updateLayout();
     window.addEventListener("resize", updateLayout);
 
     const interval = setInterval(() => {
@@ -133,6 +135,7 @@ const ShuffleGrid = () => {
     }, 3000);
 
     return () => {
+      clearTimeout(timer);
       clearInterval(interval);
       window.removeEventListener("resize", updateLayout);
     };

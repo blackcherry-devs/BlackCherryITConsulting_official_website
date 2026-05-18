@@ -15,7 +15,7 @@ export const Notification = ({
   text,
   id,
   removeNotif,
-}: NotificationType & { removeNotif: Function }) => {
+}: NotificationType & { removeNotif: (id?: number) => void }) => {
   useEffect(() => {
     const timeoutRef = setTimeout(() => {
       removeNotif();

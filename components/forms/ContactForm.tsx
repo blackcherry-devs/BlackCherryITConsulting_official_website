@@ -56,10 +56,10 @@ export default function ContactForm({
       } else {
         throw new Error(result.error || "Ocurrió un error al enviar el mensaje.");
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       setNotification({
         id: Math.random(),
-        text: error.message || "Error de conexión. Intenta de nuevo.",
+        text: error instanceof Error ? error.message : "Error de conexión. Intenta de nuevo.",
       });
     } finally {
       setLoading(false);

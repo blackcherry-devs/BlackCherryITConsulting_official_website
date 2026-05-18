@@ -20,7 +20,7 @@ export default function Footer() {
       body: (
         <>
           <p className="font-headline font-bold text-white uppercase tracking-widest text-lg">1. Identidad y Domicilio del Responsable</p>
-          <p>BLACKCHERRY IT CONSULTING (en lo sucesivo "BlackCherry"), con domicilio en México, es responsable del tratamiento de sus datos personales conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP).</p>
+          <p>BLACKCHERRY IT CONSULTING (en lo sucesivo &quot;BlackCherry&quot;), con domicilio en México, es responsable del tratamiento de sus datos personales conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP).</p>
           
           <p className="font-headline font-bold text-white uppercase tracking-widest text-lg">2. Datos Personales Recabados</p>
           <p>Para las finalidades señaladas en el presente aviso, recabamos sus datos personales de forma directa cuando usted nos los proporciona a través de nuestros formularios de contacto, interacciones en chats automatizados (ManyChat) y redes sociales. Los datos recabados incluyen: Nombre completo, correo electrónico, número telefónico y perfiles de mensajería instantánea.</p>
