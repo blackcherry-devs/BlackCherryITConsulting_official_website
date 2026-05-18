@@ -236,8 +236,8 @@ export default function RootLayout({
             </main>
             <Footer />
           </SmoothScroll>
+          <CookieBanner />
         </PageTransitionProvider>
-        <CookieBanner />
       </body>
     </html>
   );
