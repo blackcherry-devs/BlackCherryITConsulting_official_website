@@ -7,6 +7,7 @@ import Footer from "@/components/layout/Footer";
 import CookieBanner from "@/components/layout/CookieBanner";
 import Script from "next/script";
 import PageTransitionProvider from "@/components/layout/PageTransitionProvider";
+import Preloader from "@/components/ui/Preloader";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -226,6 +227,7 @@ export default function RootLayout({
         >
           Saltar al contenido principal
         </a>
+        <Preloader />
         <PageTransitionProvider>
           <SmoothScroll>
             <Navbar />
