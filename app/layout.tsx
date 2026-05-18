@@ -8,6 +8,7 @@ import CookieBanner from "@/components/layout/CookieBanner";
 import Script from "next/script";
 import PageTransitionProvider from "@/components/layout/PageTransitionProvider";
 import Preloader from "@/components/ui/Preloader";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -238,6 +239,7 @@ export default function RootLayout({
           </SmoothScroll>
           <CookieBanner />
         </PageTransitionProvider>
+        <SpeedInsights />
       </body>
     </html>
   );
