@@ -8,7 +8,6 @@ export default function Preloader() {
   const [show, setShow] = useState(true);
   const containerRef = useRef<HTMLDivElement>(null);
   const pathRef = useRef<SVGPathElement>(null);
-  const textRef = useRef<HTMLHeadingElement>(null);
 
   const logoRef = useRef<HTMLImageElement>(null);
 
@@ -27,7 +26,8 @@ export default function Preloader() {
     // Check if we already showed it this session
     const hasSeen = sessionStorage.getItem('preloaderShown');
     if (hasSeen) {
-      setShow(false);
+      const timer = setTimeout(() => setShow(false), 0);
+      return () => clearTimeout(timer);
     } else {
       // Prevent scrolling while loading
       document.body.style.overflow = 'hidden';

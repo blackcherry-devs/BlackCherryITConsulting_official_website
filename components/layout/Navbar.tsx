@@ -95,7 +95,10 @@ export default function Navbar() {
 
   // Close mobile menu on route change
   useEffect(() => {
-    setIsMobileMenuOpen(false);
+    const timer = setTimeout(() => {
+      setIsMobileMenuOpen(false);
+    }, 0);
+    return () => clearTimeout(timer);
   }, [pathname]);
 
   // Close mobile menu on desktop resize
@@ -294,7 +297,7 @@ const LinksOverlay = ({
   pathname,
 }: {
   setActive: (val: boolean) => void;
-  navLinks: any[];
+  navLinks: { name: string; href: string }[];
   pathname: string;
 }) => {
   return (

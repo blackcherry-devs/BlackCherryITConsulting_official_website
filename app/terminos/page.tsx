@@ -43,7 +43,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-xl font-headline font-black text-[#1a1a1a] uppercase tracking-tight mb-4">3. Uso del Sitio</h2>
             <p>
-              Usted se compromete a utilizar el sitio únicamente para fines lícitos y de una manera que no infrinja los derechos de terceros ni restrinja o inhiba el uso del sitio por parte de otros. Queda prohibido el uso de técnicas de "scraping" o cualquier método automatizado para extraer datos.
+              Usted se compromete a utilizar el sitio únicamente para fines lícitos y de una manera que no infrinja los derechos de terceros ni restrinja o inhiba el uso del sitio por parte de otros. Queda prohibido el uso de técnicas de &quot;scraping&quot; o cualquier método automatizado para extraer datos.
             </p>
           </section>
 

@@ -7,6 +7,7 @@ import React, {
   useRef,
   useEffect,
   useCallback,
+  Suspense,
 } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import gsap from 'gsap';
@@ -29,6 +30,15 @@ export const usePageTransition = () => {
   return context;
 };
 
+function SearchParamsUpdater({ onUpdate }: { onUpdate: (s: string) => void }) {
+  const searchParams = useSearchParams();
+  const paramsStr = searchParams.toString();
+  useEffect(() => {
+    onUpdate(paramsStr);
+  }, [paramsStr, onUpdate]);
+  return null;
+}
+
 export default function PageTransitionProvider({
   children,
 }: {
@@ -36,19 +46,19 @@ export default function PageTransitionProvider({
 }) {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [targetHref, setTargetHref] = useState<string | null>(null);
+  const [searchParamsStr, setSearchParamsStr] = useState('');
   const startPath = useRef<string | null>(null);
   const dotRef = useRef<HTMLDivElement>(null);
   const logoRef = useRef<HTMLImageElement>(null);
   const router = useRouter();
   const pathname = usePathname();
-  const searchParams = useSearchParams();
 
   const triggerTransition = useCallback(
     (href: string, clickX?: number, clickY?: number) => {
       if (isTransitioning) return;
       setIsTransitioning(true);
       setTargetHref(href);
-      startPath.current = pathname + '?' + searchParams.toString();
+      startPath.current = pathname + '?' + searchParamsStr;
 
       if (dotRef.current) {
         const startX = clickX ?? window.innerWidth / 2;
@@ -100,13 +110,13 @@ export default function PageTransitionProvider({
         });
       }
     },
-    [isTransitioning, router, pathname, searchParams],
+    [isTransitioning, router, pathname, searchParamsStr],
   );
 
   // Phase 3: When the route finishes changing, shrink the dot
   useEffect(() => {
     if (isTransitioning && targetHref) {
-      const currentPath = pathname + '?' + searchParams.toString();
+      const currentPath = pathname + '?' + searchParamsStr;
 
       // Only shrink if the path has actually changed from when we started the transition
       if (startPath.current !== currentPath) {
@@ -141,10 +151,13 @@ export default function PageTransitionProvider({
         return () => clearTimeout(timer);
       }
     }
-  }, [pathname, searchParams, isTransitioning, targetHref]);
+  }, [pathname, searchParamsStr, isTransitioning, targetHref]);
 
   return (
     <PageTransitionContext.Provider value={{ triggerTransition }}>
+      <Suspense fallback={null}>
+        <SearchParamsUpdater onUpdate={setSearchParamsStr} />
+      </Suspense>
       {/* The Red Dot Overlay */}
       <div
         ref={dotRef}

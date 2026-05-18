@@ -55,7 +55,7 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-xl font-headline font-black text-[#1a1a1a] uppercase tracking-tight mb-4">4. Cookies y Tecnologías de Rastreo</h2>
             <p>
-              Nuestro sitio utiliza "cookies" y tecnologías similares para mejorar su experiencia y analizar el tráfico. Específicamente, utilizamos:
+              Nuestro sitio utiliza &quot;cookies&quot; y tecnologías similares para mejorar su experiencia y analizar el tráfico. Específicamente, utilizamos:
             </p>
             <ul className="list-disc pl-5 mt-4 space-y-2">
               <li><strong>Google Tag Manager:</strong> Para la gestión centralizada de scripts de análisis.</li>
