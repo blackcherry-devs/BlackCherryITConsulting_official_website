@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import Link from "next/link";
+import Link from "@/components/ui/AnimatedLink";
 import GridLines from "@/components/ui/GridLines";
 import { ProjectData } from "@/lib/data/portfolio";
 import AnimatedButton from "@/components/ui/AnimatedButton";

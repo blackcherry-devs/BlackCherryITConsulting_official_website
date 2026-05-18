@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import Link from "@/components/ui/AnimatedLink";
 import { usePathname } from "next/navigation";
 import { LegalModal } from "@/components/ui/LegalModal";
 

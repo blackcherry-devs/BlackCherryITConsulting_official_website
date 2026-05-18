@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @plugin "@tailwindcss/forms";
 @plugin "@tailwindcss/container-queries";
@@ -54,9 +54,9 @@
   --radius-custom: 12px;
   --radius-round-four: 4px;
 
-  --font-headline: "Space Grotesk", sans-serif;
-  --font-body: "Inter", sans-serif;
-  --font-label: "Inter", sans-serif;
+  --font-headline: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-label: 'Inter', sans-serif;
 
   --animate-marquee: marquee 40s linear infinite;
   --animate-marquee-fast: marquee 20s linear infinite;
@@ -66,25 +66,43 @@
   --animate-glyph-rain: glyph-rain 10s linear infinite;
 
   @keyframes marquee {
-    0% { transform: translateX(0%); }
-    100% { transform: translateX(-50%); }
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
   }
   @keyframes scroll-up {
-    0% { transform: translateY(0%); }
-    100% { transform: translateY(-50%); }
+    0% {
+      transform: translateY(0%);
+    }
+    100% {
+      transform: translateY(-50%);
+    }
   }
   @keyframes scroll-down {
-    0% { transform: translateY(-50%); }
-    100% { transform: translateY(0%); }
+    0% {
+      transform: translateY(-50%);
+    }
+    100% {
+      transform: translateY(0%);
+    }
   }
   @keyframes glyph-rain {
-    0% { transform: translateY(-100%); }
-    100% { transform: translateY(100%); }
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(100%);
+    }
   }
 }
 
 /* Base interactive elements cursor */
-a, button, [role="button"] {
+a,
+button,
+[role='button'] {
   cursor: pointer;
 }
 
@@ -101,7 +119,11 @@ a, button, [role="button"] {
 /* Custom CSS from the HTML provided */
 @layer utilities {
   .material-symbols-outlined {
-    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24;
   }
 
   .gutter-line {
@@ -113,8 +135,18 @@ a, button, [role="button"] {
       display: none;
     }
   }
-  .gutter-left { left: var(--gutter-width); }
-  .gutter-right { right: var(--gutter-width); }
+  .gutter-left {
+    left: 7rem;
+  }
+  .gutter-right {
+    right: 7rem;
+  }
+  .gutter-left {
+    left: var(--gutter-width);
+  }
+  .gutter-right {
+    right: var(--gutter-width);
+  }
   .content-width {
     margin-left: var(--gutter-width);
     margin-right: var(--gutter-width);
@@ -125,61 +157,73 @@ a, button, [role="button"] {
     }
   }
   .bento-card {
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(255,255,255,0.05);
+    /* transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); */
+    border: 1px solid rgba(255, 255, 255, 0.05);
   }
   .bento-card:hover {
     border-color: rgba(139, 9, 10, 0.4);
     box-shadow: 0 0 40px rgba(139, 9, 10, 0.15);
   }
   .wireframe-overlay {
-    background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
+    background-image: radial-gradient(
+      circle at 2px 2px,
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 0
+    );
     background-size: 24px 24px;
   }
   .technical-grid-red {
-    background-image: 
-        linear-gradient(to right, rgba(139, 9, 10, 0.1) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(139, 9, 10, 0.1) 1px, transparent 1px);
+    background-image:
+      linear-gradient(to right, rgba(139, 9, 10, 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(139, 9, 10, 0.1) 1px, transparent 1px);
     background-size: 32px 32px;
   }
   .technical-grid-light {
-    background-image: 
-        linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+    background-image:
+      linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
     background-size: 32px 32px;
   }
   .technical-grid-dark {
-    background-image: 
-        linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
     background-size: 32px 32px;
   }
   .technical-grid-dark-red {
-    background-image: 
-        linear-gradient(to right, rgba(139, 9, 10, 0.2) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(139, 9, 10, 0.2) 1px, transparent 1px);
+    background-image:
+      linear-gradient(to right, rgba(139, 9, 10, 0.2) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(139, 9, 10, 0.2) 1px, transparent 1px);
     background-size: 32px 32px;
   }
   .blueprint-circuit {
-    background-image: 
-        linear-gradient(90deg, rgba(139, 9, 10, 0.25) 1px, transparent 1px),
-        linear-gradient(180deg, rgba(139, 9, 10, 0.25) 1px, transparent 1px);
+    background-image:
+      linear-gradient(90deg, rgba(139, 9, 10, 0.25) 1px, transparent 1px),
+      linear-gradient(180deg, rgba(139, 9, 10, 0.25) 1px, transparent 1px);
     background-size: 80px 80px;
     background-position: center;
   }
   .blueprint-circuit::after {
-    content: "";
+    content: '';
     position: absolute;
     inset: 0;
-    background-image: 
-        linear-gradient(90deg, rgba(139, 9, 10, 0.1) 1px, transparent 1px),
-        linear-gradient(180deg, rgba(139, 9, 10, 0.1) 1px, transparent 1px);
+    background-image:
+      linear-gradient(90deg, rgba(139, 9, 10, 0.1) 1px, transparent 1px),
+      linear-gradient(180deg, rgba(139, 9, 10, 0.1) 1px, transparent 1px);
     background-size: 16px 16px;
     pointer-events: none;
   }
   .diagonal-blueprint {
-    background: 
-        linear-gradient(45deg, rgba(139, 9, 10, 0.05) 25%, transparent 25%, transparent 50%, rgba(139, 9, 10, 0.05) 50%, rgba(139, 9, 10, 0.05) 75%, transparent 75%, transparent);
+    background: linear-gradient(
+      45deg,
+      rgba(139, 9, 10, 0.05) 25%,
+      transparent 25%,
+      transparent 50%,
+      rgba(139, 9, 10, 0.05) 50%,
+      rgba(139, 9, 10, 0.05) 75%,
+      transparent 75%,
+      transparent
+    );
     background-size: 20px 20px;
   }
   .glyph-rain-container {
@@ -197,7 +241,7 @@ a, button, [role="button"] {
     font-family: monospace;
     font-size: 14px;
     line-height: 1;
-    color: #8B090A;
+    color: #8b090a;
     animation: glyph-rain 15s linear infinite;
   }
   .glass-red {
@@ -220,7 +264,10 @@ a, button, [role="button"] {
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
-  transition: width 0.3s, height 0.3s, background-color 0.3s;
+  transition:
+    width 0.3s,
+    height 0.3s,
+    background-color 0.3s;
   mix-blend-mode: difference;
 }
 .custom-cursor.hovering {

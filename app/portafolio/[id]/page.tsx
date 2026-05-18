@@ -1,21 +1,25 @@
-"use client";
+'use client';
 
-import React, { useEffect, useRef, use } from "react";
-import Link from "next/link";
-import { notFound } from "next/navigation";
-import Image from "next/image";
-import GridLines from "@/components/ui/GridLines";
-import { portfolioData } from "@/lib/data/portfolio";
-import AnimatedButton from "@/components/ui/AnimatedButton";
-import { SwipeCards } from "@/components/ui/SwipeCards";
-export default function ProjectDetail({ params }: { params: Promise<{ id: string }> }) {
+import React, { useEffect, useRef, use } from 'react';
+import Link from '@/components/ui/AnimatedLink';
+import { notFound } from 'next/navigation';
+import Image from 'next/image';
+import GridLines from '@/components/ui/GridLines';
+import { portfolioData } from '@/lib/data/portfolio';
+import AnimatedButton from '@/components/ui/AnimatedButton';
+import { SwipeCards } from '@/components/ui/SwipeCards';
+export default function ProjectDetail({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
   const scrollRef = useRef<HTMLDivElement>(null);
-  
+
   // Unwrap params for Next.js 15+
   const resolvedParams = use(params);
-  
+
   // Find project data
-  const project = portfolioData.find(p => p.id === resolvedParams.id);
+  const project = portfolioData.find((p) => p.id === resolvedParams.id);
 
   useEffect(() => {
     const container = scrollRef.current;
@@ -31,8 +35,8 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
       }
     };
 
-    container.addEventListener("wheel", handleWheel, { passive: false });
-    return () => container.removeEventListener("wheel", handleWheel);
+    container.addEventListener('wheel', handleWheel, { passive: false });
+    return () => container.removeEventListener('wheel', handleWheel);
   }, []);
 
   if (!project) {
@@ -47,24 +51,29 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
       </div>
 
       {/* Back to Portfolio Button (Fixed in Gutter) */}
-      <div className="fixed bottom-12 left-0 w-[var(--gutter-width)] hidden md:flex flex-col items-center justify-center z-[100]">
-        <Link href="/portafolio" className="group flex flex-col items-center gap-6">
-          <span className="font-headline font-black text-[11px] tracking-[0.5em] uppercase vertical-text-up text-primary-container transition-all duration-500 group-hover:scale-110">
+      <div className="bg-black/60 backdrop-blur-md fixed inset-y-0 left-0 w-[var(--gutter-width)] hidden md:flex flex-col items-center justify-center z-[100] transition-colors duration-500 hover:bg-black/80">
+        <Link
+          href="/portafolio"
+          className="group flex flex-col items-center justify-center gap-6 w-full h-full"
+        >
+          <span className="font-headline font-black text-[11px] tracking-[0.5em] uppercase vertical-text-up text-primary-container transition-all duration-500 group-hover:tracking-[0.6em]">
             VOLVER AL PORTAFOLIO
           </span>
-          <div className="w-[1.5px] h-16 bg-primary-container transition-all duration-500 group-hover:h-28"></div>
+          <div className="relative flex flex-col items-center justify-start mt-2 transition-transform duration-500 group-hover:-rotate-90">
+            {/* Arrow Head pointing UP (Rotates to LEFT on hover) */}
+            <div className="absolute top-0 w-[10px] h-[10px] border-t-[1.5px] border-l-[1.5px] border-primary-container rotate-45 opacity-0 group-hover:opacity-100 transition-all duration-500 transform origin-center -translate-y-[2px] mt-[1px]"></div>
+            <div className="w-[1.5px] h-16 bg-primary-container transition-all duration-500 group-hover:h-10"></div>
+          </div>
         </Link>
       </div>
 
-
       {/* Horizontal Scroll Container without snap jumping */}
-      <div 
-        className="flex flex-col md:flex-row w-full h-auto md:h-full md:overflow-x-auto md:[&::-webkit-scrollbar]:hidden md:[-ms-overflow-style:none] md:[scrollbar-width:none]" 
+      <div
+        className="flex flex-col md:flex-row w-full h-auto md:h-full md:overflow-x-auto md:[&::-webkit-scrollbar]:hidden md:[-ms-overflow-style:none] md:[scrollbar-width:none]"
         ref={scrollRef}
       >
         {/* SECTION 1: HERO */}
         <section className="flex-none w-full md:w-screen h-[70vh] md:h-screen relative flex flex-col md:flex-row">
-          
           {/* Mobile Overlay Background Image (Hidden on Desktop) */}
           <div className="absolute inset-0 w-full h-full md:hidden z-0">
             <Image
@@ -81,13 +90,19 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
           {/* Left: Logo Container */}
           <div className="w-full md:w-1/2 h-full relative flex flex-col items-center justify-center z-10">
             {/* Mobile Center Line behind Logo (Removed per request) */}
-            
+
             {/* Desktop Solid Background */}
-            <div className="hidden md:block absolute inset-0 z-0" style={{ backgroundColor: project.heroBgOverride || project.color || "#8B090A" }}></div>
+            <div
+              className="hidden md:block absolute inset-0 z-0"
+              style={{
+                backgroundColor:
+                  project.heroBgOverride || project.color || '#8B090A',
+              }}
+            ></div>
             <div className="hidden md:block absolute inset-0 technical-grid-red opacity-10 z-0"></div>
-            
-            <div 
-              className={`relative z-20 flex items-center justify-center ${project.logoContainerClass || "w-40 h-40 md:w-48 md:h-48 lg:w-56 lg:h-56"} ${project.logoBg === "white" ? `bg-white ${project.logoPadding || "p-4 md:p-6"} rounded-2xl shadow-xl` : ""}`}
+
+            <div
+              className={`relative z-20 flex items-center justify-center ${project.logoContainerClass || 'w-40 h-40 md:w-48 md:h-48 lg:w-56 lg:h-56'} ${project.logoBg === 'white' ? `bg-white ${project.logoPadding || 'p-4 md:p-6'} rounded-2xl shadow-xl` : ''}`}
             >
               <Image
                 alt={`${project.title} Logo`}
@@ -98,7 +113,7 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
               />
             </div>
           </div>
-          
+
           {/* Right: Industrial Image (Hidden on mobile) */}
           <div className="hidden md:block w-1/2 h-full relative overflow-hidden z-10">
             <Image
@@ -117,11 +132,11 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
           {/* Left: Narrative Text */}
           <div className="w-full md:w-1/2 h-auto md:h-full bg-white px-8 py-16 md:px-10 lg:px-14 flex flex-col items-center md:items-start text-center md:text-left justify-center md:pt-16 lg:pt-20 md:pb-8 lg:pb-10 md:overflow-y-auto [&::-webkit-scrollbar]:hidden relative">
             {/* Mobile Center Line behind Text (Removed per request) */}
-            
+
             <div className="max-w-xl md:max-w-md lg:max-w-lg w-full flex flex-col items-center md:items-start relative z-10 bg-white/70 backdrop-blur-sm md:bg-transparent md:backdrop-blur-none p-4 md:p-0 rounded-2xl">
-              <p 
+              <p
                 className="font-headline text-[10px] md:text-[9px] lg:text-[10px] tracking-[0.5em] uppercase mb-4 md:mb-2 lg:mb-3"
-                style={{ color: project.color || "var(--primary-container)" }}
+                style={{ color: project.color || 'var(--primary-container)' }}
               >
                 02 / PROTOCOLO DE DISEÑO
               </p>
@@ -156,7 +171,7 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
                     href={project.url}
                     theme="primary"
                     className="w-full md:w-auto justify-center md:text-xs lg:text-xs md:px-6 md:py-3 lg:px-7 lg:py-3"
-                    style={{ backgroundColor: project.color || "#8B090A" }}
+                    style={{ backgroundColor: project.color || '#8B090A' }}
                   >
                     VISITAR SITIO
                   </AnimatedButton>
@@ -172,39 +187,50 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
               src={project.technicalImage}
               fill
             />
-            <div className="absolute inset-0 opacity-10" style={{ backgroundColor: project.color || "#8B090A" }}></div>
+            <div
+              className="absolute inset-0 opacity-10"
+              style={{ backgroundColor: project.color || '#8B090A' }}
+            ></div>
             <div className="absolute inset-0 technical-grid-red opacity-20 pointer-events-none"></div>
           </div>
         </section>
 
         {/* SECTION 3: GALLERY GRID (Images only, different container sizes) */}
         <section className="flex-none w-full md:w-screen h-auto md:h-screen relative bg-[#1F1F1F] md:bg-white md:px-[7rem] md:py-24 flex flex-col justify-center">
-          
           {/* MOBILE CREATIVE GALLERY: Swipe Cards */}
           <div className="flex flex-col w-full md:hidden relative pb-16 pt-12 overflow-hidden">
             {/* Center line for consistency */}
             <div className="absolute top-0 bottom-0 w-[1.3px] bg-white/10 left-1/2 -translate-x-1/2 z-0 pointer-events-none"></div>
-            
+
             <div className="text-center w-full z-10 mb-8 px-6">
-               <p className="font-headline text-[10px] tracking-[0.5em] uppercase text-white mb-2">03 / ARCHIVO VISUAL</p>
-               <h2 className="font-headline font-black text-2xl text-white tracking-tighter uppercase">DISEÑO DETALLADO</h2>
+              <p className="font-headline text-[10px] tracking-[0.5em] uppercase text-white mb-2">
+                03 / ARCHIVO VISUAL
+              </p>
+              <h2 className="font-headline font-black text-2xl text-white tracking-tighter uppercase">
+                DISEÑO DETALLADO
+              </h2>
             </div>
 
             <div className="w-full flex items-center justify-center z-10">
-                <SwipeCards images={[project.technicalImage, ...project.galleryImages]} />
+              <SwipeCards
+                images={[project.technicalImage, ...project.galleryImages]}
+              />
             </div>
-            
+
             <div className="text-center w-full z-10 mt-6 px-6">
-               <p className="font-headline text-[9px] tracking-widest uppercase text-white/50 mb-12">Desliza las tarjetas para explorar</p>
-               
-               <AnimatedButton
-                 href="/portafolio"
-                 theme="primary"
-                 className="w-full justify-center text-xs px-6 py-4"
-                 style={{ backgroundColor: project.color || "#8B090A" }}
-               >
-                 VOLVER AL PORTAFOLIO
-               </AnimatedButton>
+              <p className="font-headline text-[9px] tracking-widest uppercase text-white/50 mb-12">
+                Desliza las tarjetas para explorar
+              </p>
+
+              <AnimatedButton
+                href="/portafolio"
+                theme="primary"
+                className="w-full justify-center text-xs px-6 py-4"
+                backBtn
+                style={{ backgroundColor: project.color || '#8B090A' }}
+              >
+                VOLVER AL PORTAFOLIO
+              </AnimatedButton>
             </div>
           </div>
 
@@ -240,4 +266,3 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
     </div>
   );
 }
-                

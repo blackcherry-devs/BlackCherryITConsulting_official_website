@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import Link from "next/link";
+import Link from "@/components/ui/AnimatedLink";
 import Image from "next/image";
 import HeroImageCarousel from "@/components/portafolio/HeroImageCarousel";
 import { portfolioData } from "@/lib/data/portfolio";
