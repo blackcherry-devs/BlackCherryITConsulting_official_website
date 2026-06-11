@@ -5,8 +5,8 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/api/"],
+      disallow: "/api/",
     },
-    sitemap: "https://blackcherryitconsulting.com/sitemap.xml",
+    sitemap: "https://www.blackcherryitconsulting.com/sitemap.xml",
   };
 }

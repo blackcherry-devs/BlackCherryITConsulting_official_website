@@ -15,11 +15,11 @@ export const metadata = {
     "solicitar página web profesional México",
     "agencia web contacto",
   ],
-  alternates: { canonical: "https://blackcherryitconsulting.com/contacto" },
+  alternates: { canonical: "https://www.blackcherryitconsulting.com/contacto" },
   openGraph: {
     title: "Contacto | Contratar Agencia Web en México | BlackCherry IT",
     description: "Solicita tu cotización gratis para desarrollo web, chatbots o automatización de WhatsApp en México.",
-    url: "https://blackcherryitconsulting.com/contacto",
+    url: "https://www.blackcherryitconsulting.com/contacto",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
 };

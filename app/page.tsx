@@ -22,12 +22,12 @@ export const metadata: Metadata = {
     "pagina web",
     "sitio web",
   ],
-  alternates: { canonical: "https://blackcherryitconsulting.com" },
+  alternates: { canonical: "https://www.blackcherryitconsulting.com" },
   openGraph: {
     title: "BlackCherry IT Consulting | Desarrollo Web y IA en México",
     description:
       "Creamos sitios web profesionales, chatbots e IA para empresas en México.",
-    url: "https://blackcherryitconsulting.com",
+    url: "https://www.blackcherryitconsulting.com",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
 };

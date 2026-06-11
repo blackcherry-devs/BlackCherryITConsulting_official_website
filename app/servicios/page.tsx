@@ -18,11 +18,11 @@ export const metadata = {
     "Manychat México",
     "consultoría tecnológica México",
   ],
-  alternates: { canonical: "https://blackcherryitconsulting.com/servicios" },
+  alternates: { canonical: "https://www.blackcherryitconsulting.com/servicios" },
   openGraph: {
     title: "Servicios de Desarrollo Web, IA y Automatización | BlackCherry IT",
     description: "Desarrollo web, diseño web, chatbots y automatización de WhatsApp para empresas en México.",
-    url: "https://blackcherryitconsulting.com/servicios",
+    url: "https://www.blackcherryitconsulting.com/servicios",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
 };

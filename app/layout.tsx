@@ -19,7 +19,7 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
-const BASE_URL = "https://blackcherryitconsulting.com";
+const BASE_URL = "https://www.blackcherryitconsulting.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
