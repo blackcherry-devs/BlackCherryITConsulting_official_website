@@ -106,8 +106,8 @@ const Card = ({
 }: {
   id: number;
   url: string;
-  setCards: React.Dispatch<React.SetStateAction<any[]>>;
-  cards: any[];
+  setCards: React.Dispatch<React.SetStateAction<{ id: number; url: string }[]>>;
+  cards: { id: number; url: string }[];
 }) => {
   const isFront = id === cards[cards.length - 1].id;
 

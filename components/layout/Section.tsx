@@ -1,9 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { forwardRef } from "react";
 import GridLines from "@/components/ui/GridLines";
 
-interface SectionProps {
+interface SectionProps extends React.HTMLAttributes<HTMLElement> {
   id?: string;
   className?: string;
   children: React.ReactNode;
@@ -17,7 +17,7 @@ interface SectionProps {
  * Section Component
  * A standardized wrapper for page sections to ensure consistent layout and spacing.
  */
-const Section: React.FC<SectionProps> = ({
+const Section = forwardRef<HTMLElement, SectionProps>(({
   id,
   className = "",
   children,
@@ -25,7 +25,8 @@ const Section: React.FC<SectionProps> = ({
   theme = "light",
   fullHeight = false,
   noPadding = false,
-}) => {
+  ...props
+}, ref) => {
   const getThemeClasses = () => {
     switch (theme) {
       case "dark":
@@ -44,7 +45,9 @@ const Section: React.FC<SectionProps> = ({
   return (
     <section 
       id={id} 
+      ref={ref}
       className={`w-full relative overflow-hidden flex flex-col justify-center ${getThemeClasses()} ${heightClasses} ${paddingClasses} ${className}`}
+      {...props}
     >
       {withGridLines && <GridLines />}
       <div className="relative z-10 w-full">
@@ -52,6 +55,8 @@ const Section: React.FC<SectionProps> = ({
       </div>
     </section>
   );
-};
+});
+
+Section.displayName = "Section";
 
 export default Section;

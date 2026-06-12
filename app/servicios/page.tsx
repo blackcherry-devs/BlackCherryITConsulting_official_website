@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/ui/AnimatedLink";
 import Image from "next/image";
 import GridLines from "@/components/ui/GridLines";
 import ServicesSection from "@/components/servicios/ServicesSection";

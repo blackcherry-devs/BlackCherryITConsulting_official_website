@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
+import Link from "@/components/ui/AnimatedLink";
 import { sendGTMEvent } from "@next/third-parties/google";
 
 export default function CookieBanner() {

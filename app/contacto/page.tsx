@@ -1,7 +1,8 @@
 import React from "react";
-import Link from "next/link";
+import Link from "@/components/ui/AnimatedLink";
 import GridLines from "@/components/ui/GridLines";
 import ContactForm from "@/components/forms/ContactForm";
+import ContactoTerminal from "@/components/contacto/ContactoTerminal";
 
 export const metadata = {
   title: "Contacto | Contratar Agencia Web en México | BlackCherry IT",
@@ -69,10 +70,8 @@ export default function ContactoPage() {
             </div>
             
             {/* Top/Left half of container (Over Image) */}
-            <div className="w-full sm:w-1/2 min-h-[160px] sm:min-h-0 bg-black/40 lg:bg-white/5 backdrop-blur-sm lg:backdrop-blur-xl flex items-center p-6 sm:p-6 md:p-8 lg:p-12 border-none border-white/20">
-              <h2 className="font-headline font-black text-white tracking-tighter uppercase leading-[1.1] text-xl sm:text-xl md:text-2xl lg:text-2xl text-center sm:text-left w-full">
-                HABLEMOS DEL FUTURO DE TU INFRAESTRUCTURA
-              </h2>
+            <div className="w-full sm:w-1/2 min-h-[160px] sm:min-h-0 flex items-center p-0 border-none">
+              <ContactoTerminal />
             </div>
             
             {/* Bottom/Right half of container (Over Red) */}
