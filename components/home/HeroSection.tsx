@@ -146,7 +146,7 @@ export default function HeroSection() {
             <div ref={leftCarouselRef} className="flex h-full w-max absolute top-0 left-0 will-change-transform">
               {carouselImages.map((src, idx) => (
                 <div key={`img-${idx}`} className="w-[50vw] md:w-[calc(50vw-var(--gutter-width))] h-full flex-shrink-0 relative">
-                  <Image src={src} alt={`Servicio BlackCherry IT ${idx + 1}`} fill priority sizes="(max-width: 600px) 100vw, 50vw" className="object-cover brightness-50" />
+                  <Image src={src} alt={`Servicio BlackCherry IT ${idx + 1}`} fill sizes="(max-width: 600px) 100vw, 50vw" className="object-cover brightness-50" />
                 </div>
               ))}
             </div>
