@@ -115,7 +115,7 @@ button,
     --gutter-width: 7rem;
   }
   @media (max-width: 767px) {
-    --animate-marquee: marquee 4s linear infinite;
+    --animate-marquee: marquee 30s linear infinite;
   }
 }
 

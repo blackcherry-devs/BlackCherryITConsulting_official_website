@@ -51,6 +51,19 @@ export default function BentoGrid() {
           );
         },
       });
+
+      // Active class on mobile/tablet when the card is in the center of the viewport
+      const mm = gsap.matchMedia();
+      mm.add("(max-width: 1023px)", () => {
+        cards.forEach((card) => {
+          ScrollTrigger.create({
+            trigger: card,
+            start: "top 85%",
+            end: "bottom 15%",
+            toggleClass: "is-active",
+          });
+        });
+      });
     },
     { scope: containerRef },
   );

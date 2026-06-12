@@ -179,21 +179,26 @@ export default function RootLayout({
       className={`${inter.variable} ${spaceGrotesk.variable} h-full antialiased`}
     >
       <head>
-        {/* Google Tag Manager */}
+        {/* Google Tag (gtag.js) */}
         <Script
-          id="gtm-script"
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=G-P7FJJ24216`}
+        />
+        <Script
+          id="google-analytics"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
-              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','GTM-PHZKCJXR');
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'G-P7FJJ24216');
+              gtag('config', 'AW-18163657828');
             `,
           }}
         />
-        {/* End Google Tag Manager */}
+        {/* End Google Tag */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -213,16 +218,6 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-surface font-body text-on-surface selection:bg-primary-container selection:text-white relative min-h-screen">
-        {/* Google Tag Manager (noscript) */}
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-PHZKCJXR"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          ></iframe>
-        </noscript>
-        {/* End Google Tag Manager (noscript) */}
         <a 
           href="#main-content" 
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:px-4 focus:py-2 focus:bg-primary-container focus:text-white focus:rounded-md focus:outline-none"
