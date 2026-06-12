@@ -15,6 +15,11 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
   useEffect(() => {
     if (isProjectDetail) return;
 
+    // Disable Lenis on touch/mobile devices to avoid blocking the main thread
+    // This is the main cause of the 8000ms INP on mobile
+    const isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+    if (isTouchDevice) return;
+
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
