@@ -213,7 +213,9 @@ export default function RootLayout({
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
 
-              gtag('config', 'G-P7FJJ24216');
+              gtag('config', 'G-P7FJJ24216', {
+                send_page_view: true,
+              });
               gtag('config', 'AW-18163657828');
             `,
           }}
