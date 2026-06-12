@@ -6,6 +6,10 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CookieBanner from "@/components/layout/CookieBanner";
 import Script from "next/script";
+import PageTransitionProvider from "@/components/layout/PageTransitionProvider";
+import Preloader from "@/components/ui/Preloader";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -220,14 +224,19 @@ export default function RootLayout({
         >
           Saltar al contenido principal
         </a>
-        <SmoothScroll>
-          <Navbar />
-          <main id="main-content">
-            {children}
-          </main>
-          <Footer />
-        </SmoothScroll>
-        <CookieBanner />
+        <Preloader />
+        <PageTransitionProvider>
+          <SmoothScroll>
+            <Navbar />
+            <main id="main-content">
+              {children}
+            </main>
+            <Footer />
+          </SmoothScroll>
+          <CookieBanner />
+        </PageTransitionProvider>
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
