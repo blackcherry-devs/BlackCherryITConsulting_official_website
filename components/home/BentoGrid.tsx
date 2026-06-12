@@ -38,9 +38,9 @@ export default function BentoGrid() {
       cards.forEach((card) => {
         ScrollTrigger.create({
           trigger: card,
-          start: "top 60%",
-          end: "bottom 40%",
-          toggleClass: { targets: card, className: "is-active" },
+          start: "top 85%",
+          end: "bottom 15%",
+          toggleClass: "is-active",
         });
       });
     });

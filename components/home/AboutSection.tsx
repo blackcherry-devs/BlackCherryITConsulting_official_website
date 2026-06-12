@@ -68,7 +68,7 @@ export default function AboutSection() {
       {/* Slanted Marquee Banner */}
       <div className="marquee-container absolute bottom-16 left-[-10%] right-[-10%] z-20 pointer-events-none" aria-hidden="true">
         <div className="bg-primary-container overflow-hidden py-3 rotate-[-1.5deg] border-y border-white/10">
-          <div className="flex whitespace-nowrap animate-marquee">
+          <div className="flex w-max whitespace-nowrap animate-marquee">
             {/* Repeated twice for smooth infinite scrolling */}
             {[1, 2].map((i) => (
               <div key={i} className="flex items-center gap-8 px-4">

@@ -131,7 +131,7 @@ const ShuffleGrid = () => {
 
     const interval = setInterval(() => {
       setSquares(prev => shuffle(prev));
-    }, 3000);
+    }, 4000);
 
     return () => {
       clearInterval(interval);
@@ -191,13 +191,12 @@ const ShuffleGrid = () => {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
             transition={{ 
-              duration: 1.5, 
-              type: "spring",
-              bounce: 0,
-              opacity: { duration: 0.5 }
+              duration: 0.8, 
+              ease: "easeInOut",
+              opacity: { duration: 0.3 }
             }}
-            style={cellStyle}
-            className="bg-stone-100 shadow-inner"
+            style={{ ...cellStyle, transform: "translateZ(0)" }}
+            className="bg-stone-100 shadow-inner will-change-transform"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-primary-container/20 to-stone-200" />
             <img
