@@ -64,7 +64,6 @@ export default function BentoGrid() {
           });
         });
       });
-      });
     },
     { scope: containerRef },
   );
