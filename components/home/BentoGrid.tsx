@@ -4,8 +4,11 @@ import { useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import Section from "@/components/layout/Section";
 import DotPattern from "@/components/ui/DotPattern";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function BentoGrid() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -27,6 +30,20 @@ export default function BentoGrid() {
         }
       }
     );
+
+    // Active class on mobile/tablet when the card is in the center of the viewport
+    const mm = gsap.matchMedia();
+    mm.add("(max-width: 1023px)", () => {
+      const cards = gsap.utils.toArray(".bento-card") as HTMLElement[];
+      cards.forEach((card) => {
+        ScrollTrigger.create({
+          trigger: card,
+          start: "top 60%",
+          end: "bottom 40%",
+          toggleClass: { targets: card, className: "is-active" },
+        });
+      });
+    });
   }, { scope: containerRef });
 
   return (
@@ -46,7 +63,7 @@ export default function BentoGrid() {
         {/* Sector Industrial */}
         <div className="bento-card-anim lg:col-span-8 bento-card bg-white/[0.03] backdrop-blur-sm p-6 min-[600px]:p-8 lg:p-12 xl:p-16 flex flex-col justify-between group overflow-hidden relative min-h-[300px] min-[600px]:min-h-[280px] lg:min-h-[400px] rounded-none min-[600px]:rounded-xl">
           <DotPattern opacity={0.2} />
-          <div className="absolute inset-0 opacity-0 group-hover:opacity-60 transition-opacity duration-1000">
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-60 group-[.is-active]:opacity-60 transition-opacity duration-1000">
             <Image 
               src="/sectors/industrial.png" 
               alt="Sector industrial — IA y automatización para manufactura"
@@ -56,33 +73,33 @@ export default function BentoGrid() {
             />
           </div>
           <div className="relative z-10">
-            <span className="material-symbols-outlined text-primary-container text-3xl min-[600px]:text-4xl mb-4 min-[600px]:mb-6 block transition-transform duration-500 group-hover:-translate-y-3 group-hover:scale-110" aria-hidden="true">precision_manufacturing</span>
+            <span className="material-symbols-outlined text-primary-container text-3xl min-[600px]:text-4xl mb-4 min-[600px]:mb-6 block transition-transform duration-500 group-hover:-translate-y-3 group-hover:scale-110 group-[.is-active]:-translate-y-3 group-[.is-active]:scale-110" aria-hidden="true">precision_manufacturing</span>
             <h3 className="font-headline font-black text-3xl min-[600px]:text-4xl lg:text-5xl xl:text-6xl tracking-tighter uppercase leading-none">Industria</h3>
           </div>
-          <p className="relative z-10 font-body text-white/40 max-w-md text-[10px] min-[600px]:text-xs lg:text-sm xl:text-base uppercase tracking-widest leading-relaxed group-hover:text-white/70 transition-colors mt-6">Asistencia por voz y chatbots de soporte técnico integrados para maximizar la eficiencia operativa.</p>
+          <p className="relative z-10 font-body text-white/40 max-w-md text-[10px] min-[600px]:text-xs lg:text-sm xl:text-base uppercase tracking-widest leading-relaxed group-hover:text-white/70 group-[.is-active]:text-white/70 transition-colors mt-6">Asistencia por voz y chatbots de soporte técnico integrados para maximizar la eficiencia operativa.</p>
         </div>
         
         {/* Retail */}
         <div className="bento-card-anim lg:col-span-4 bento-card bg-primary-container/20 p-6 min-[600px]:p-8 lg:p-12 xl:p-16 flex flex-col justify-between group border-primary-container/30 rounded-none min-[600px]:rounded-xl min-h-[250px] min-[600px]:min-h-[280px] lg:min-h-auto">
           <div className="relative z-10">
-            <span className="material-symbols-outlined text-primary-container text-3xl min-[600px]:text-4xl mb-4 min-[600px]:mb-6 block transition-transform duration-500 group-hover:-translate-y-3 group-hover:scale-110" aria-hidden="true">shopping_bag</span>
+            <span className="material-symbols-outlined text-primary-container text-3xl min-[600px]:text-4xl mb-4 min-[600px]:mb-6 block transition-transform duration-500 group-hover:-translate-y-3 group-hover:scale-110 group-[.is-active]:-translate-y-3 group-[.is-active]:scale-110" aria-hidden="true">shopping_bag</span>
             <h3 className="font-headline font-black text-3xl min-[600px]:text-4xl lg:text-5xl xl:text-6xl tracking-tighter uppercase leading-none">Retail</h3>
           </div>
-          <p className="font-body text-white/40 text-[10px] min-[600px]:text-xs lg:text-sm xl:text-base uppercase tracking-widest leading-relaxed group-hover:text-white/70 transition-colors mt-6">Ventas automatizadas y atención al cliente 24/7 mediante agentes conversacionales inteligentes.</p>
+          <p className="font-body text-white/40 text-[10px] min-[600px]:text-xs lg:text-sm xl:text-base uppercase tracking-widest leading-relaxed group-hover:text-white/70 group-[.is-active]:text-white/70 transition-colors mt-6">Ventas automatizadas y atención al cliente 24/7 mediante agentes conversacionales inteligentes.</p>
         </div>
         
         {/* EdTech */}
         <div className="bento-card-anim lg:col-span-4 bento-card bg-white/[0.03] backdrop-blur-sm p-6 min-[600px]:p-8 lg:p-12 xl:p-16 flex flex-col justify-between group min-h-[250px] min-[600px]:min-h-[280px] lg:min-h-[400px] rounded-none min-[600px]:rounded-xl">
           <div>
-            <span className="material-symbols-outlined text-primary-container text-3xl min-[600px]:text-4xl mb-4 min-[600px]:mb-6 block transition-transform duration-500 group-hover:-translate-y-3 group-hover:scale-110" aria-hidden="true">school</span>
+            <span className="material-symbols-outlined text-primary-container text-3xl min-[600px]:text-4xl mb-4 min-[600px]:mb-6 block transition-transform duration-500 group-hover:-translate-y-3 group-hover:scale-110 group-[.is-active]:-translate-y-3 group-[.is-active]:scale-110" aria-hidden="true">school</span>
             <h3 className="font-headline font-black text-3xl min-[600px]:text-4xl lg:text-5xl xl:text-6xl tracking-tighter uppercase leading-none">EdTech</h3>
           </div>
-          <p className="font-body text-white/40 text-[10px] min-[600px]:text-xs lg:text-sm xl:text-base uppercase tracking-widest leading-relaxed group-hover:text-white/70 transition-colors mt-6">Experiencias de aprendizaje con audio de alta fidelidad y asistencia automatizada para estudiantes.</p>
+          <p className="font-body text-white/40 text-[10px] min-[600px]:text-xs lg:text-sm xl:text-base uppercase tracking-widest leading-relaxed group-hover:text-white/70 group-[.is-active]:text-white/70 transition-colors mt-6">Experiencias de aprendizaje con audio de alta fidelidad y asistencia automatizada para estudiantes.</p>
         </div>
         
         {/* Real Estate */}
         <div className="bento-card-anim lg:col-span-8 bento-card bg-white p-6 min-[600px]:p-8 lg:p-12 xl:p-16 flex flex-col justify-between relative overflow-hidden group border-none rounded-none min-[600px]:rounded-xl min-h-[300px] min-[600px]:min-h-[280px] lg:min-h-[400px]">
-          <div className="absolute inset-0 opacity-0 group-hover:opacity-60 transition-opacity duration-1000 z-0">
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-60 group-[.is-active]:opacity-60 transition-opacity duration-1000 z-0">
             <Image 
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYu_vXX1OjkmWglodnptWz5x5ekEhxewB2x4Q6H4acKuceh_Hb8QwAS5NP9V_zRuUaJ1X2h2_33V55FfLLBdj1xmQ4AFv-VF364Y8HuJ7S8KnVierz4eHT_Sg9MyAkw4K-0MURLpWykvkupf5pHu224dSWkBvYwU-tDyn3QrOImEQTI2VoL63_F7NvJiOYP0u6ebnis7fDoHQremTSi0o9wNH115_v-ic2giv553uocrUvYSeQB57qVwKEoixvx3CjzmLrjlIJWcsb" 
               alt="Sector inmobiliario — automatización con IA para bienes raíces" 
@@ -91,15 +108,15 @@ export default function BentoGrid() {
               className="object-cover"
             />
           </div>
-          <div className="absolute top-0 right-0 p-8 min-[600px]:p-12 opacity-5 group-hover:opacity-20 group-hover:translate-x-[-10px] transition-all duration-1000 pointer-events-none z-0">
+          <div className="absolute top-0 right-0 p-8 min-[600px]:p-12 opacity-5 group-hover:opacity-20 group-[.is-active]:opacity-20 group-hover:translate-x-[-10px] group-[.is-active]:translate-x-[-10px] transition-all duration-1000 pointer-events-none z-0">
             <span className="material-symbols-outlined text-[6rem] min-[600px]:text-[10rem] lg:text-[12rem] xl:text-[15rem] text-primary-container leading-none" aria-hidden="true">domain</span>
           </div>
           <div className="relative z-10 mix-blend-difference text-white">
-            <span className="material-symbols-outlined text-primary-container text-3xl min-[600px]:text-4xl mb-4 min-[600px]:mb-6 block transition-transform duration-500 group-hover:-translate-y-3 group-hover:scale-110" aria-hidden="true">real_estate_agent</span>
+            <span className="material-symbols-outlined text-primary-container text-3xl min-[600px]:text-4xl mb-4 min-[600px]:mb-6 block transition-transform duration-500 group-hover:-translate-y-3 group-hover:scale-110 group-[.is-active]:-translate-y-3 group-[.is-active]:scale-110" aria-hidden="true">real_estate_agent</span>
             <h3 className="font-headline font-black text-3xl min-[600px]:text-4xl lg:text-5xl xl:text-6xl tracking-tighter uppercase leading-none">Inmuebles</h3>
           </div>
           <div className="relative z-10 flex gap-4 items-center mt-6 mix-blend-difference text-white">
-            <span className="w-8 min-[600px]:w-12 h-[1.3px] bg-white/40 group-hover:bg-primary-container group-hover:w-24 transition-all duration-500"></span>
+            <span className="w-8 min-[600px]:w-12 h-[1.3px] bg-white/40 group-hover:bg-primary-container group-hover:w-24 group-[.is-active]:bg-primary-container group-[.is-active]:w-24 transition-all duration-500"></span>
             <p className="font-body text-white/60 uppercase tracking-widest text-[8px] min-[600px]:text-[10px] lg:text-[11px] xl:text-[12px] font-black max-w-[200px] min-[600px]:max-w-md">CAPTACIÓN DE LEADS Y NARRACIÓN DE PROPIEDADES CON VOCES HUMANAS</p>
           </div>
         </div>
@@ -107,10 +124,10 @@ export default function BentoGrid() {
         {/* Legal */}
         <div className="bento-card-anim min-[600px]:col-span-2 lg:col-span-12 bento-card bg-white/[0.03] backdrop-blur-sm relative z-20 p-6 min-[600px]:p-8 lg:p-12 flex flex-col lg:flex-row justify-between items-start lg:items-center group rounded-none min-[600px]:rounded-xl min-h-[200px] min-[600px]:min-h-[150px] lg:min-h-auto gap-8">
           <div className="flex items-center gap-4 min-[600px]:gap-10">
-            <span className="material-symbols-outlined text-primary-container text-3xl min-[600px]:text-4xl group-hover:rotate-45 transition-transform duration-700" aria-hidden="true">gavel</span>
+            <span className="material-symbols-outlined text-primary-container text-3xl min-[600px]:text-4xl group-hover:rotate-45 group-[.is-active]:rotate-45 transition-transform duration-700" aria-hidden="true">gavel</span>
             <h3 className="font-headline font-black text-2xl min-[600px]:text-4xl lg:text-5xl xl:text-6xl uppercase tracking-tighter">Legal & Consultoría</h3>
           </div>
-          <p className="font-body text-white/30 max-w-md text-left lg:text-right uppercase tracking-widest text-[8px] min-[600px]:text-[10px] lg:text-xs xl:text-sm font-bold group-hover:text-white/60 transition-colors">Sistemas de agendamiento y triage de clientes automatizado para despachos y consultorías.</p>
+          <p className="font-body text-white/30 max-w-md text-left lg:text-right uppercase tracking-widest text-[8px] min-[600px]:text-[10px] lg:text-xs xl:text-sm font-bold group-hover:text-white/60 group-[.is-active]:text-white/60 transition-colors">Sistemas de agendamiento y triage de clientes automatizado para despachos y consultorías.</p>
         </div>
       </div>
       </div>

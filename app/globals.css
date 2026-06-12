@@ -58,7 +58,7 @@
   --font-body: "Inter", sans-serif;
   --font-label: "Inter", sans-serif;
 
-  --animate-marquee: marquee 40s linear infinite;
+  --animate-marquee: marquee 15s linear infinite;
   --animate-marquee-fast: marquee 20s linear infinite;
   --animate-marquee-slow: marquee 80s linear infinite;
   --animate-scroll-up: scroll-up 15s linear infinite;
@@ -95,6 +95,9 @@ a, button, [role="button"] {
   }
   @media (min-width: 1024px) {
     --gutter-width: 7rem;
+  }
+  @media (max-width: 767px) {
+    --animate-marquee: marquee 4s linear infinite;
   }
 }
 

@@ -1,9 +1,13 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import GridLines from "@/components/ui/GridLines";
 import AnimatedButton from "@/components/ui/AnimatedButton";
 
 export default function Portfolio() {
+  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
+
   const projects = [
     {
       id: "cerato",
@@ -62,6 +66,8 @@ export default function Portfolio() {
             <Link 
               href={`/portafolio/${project.id}`} 
               key={project.id} 
+              onMouseEnter={() => setHoveredIdx(idx)}
+              onMouseLeave={() => setHoveredIdx(null)}
               className={`group relative py-10 min-[600px]:py-12 lg:px-12 cursor-pointer transition-all duration-500 block ${bgClasses}`}
             >
               <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center relative z-10 gap-2 min-[600px]:gap-4 lg:gap-0">
@@ -75,14 +81,16 @@ export default function Portfolio() {
             
             {/* Video reveal - all screens */}
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] min-[600px]:w-[450px] h-[160px] min-[600px]:h-[280px] opacity-0 group-hover:opacity-100 scale-90 group-hover:scale-100 transition-all duration-500 pointer-events-none overflow-hidden z-40 shadow-2xl rounded-xl bg-black">
-              <video 
-                src={project.video || "https://www.w3schools.com/html/mov_bbb.mp4"} 
-                autoPlay 
-                loop 
-                muted 
-                playsInline
-                className="w-full h-full object-cover object-left transition-all duration-700"
-              />
+              {hoveredIdx === idx && (
+                <video 
+                  src={project.video || "https://www.w3schools.com/html/mov_bbb.mp4"} 
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline
+                  className="w-full h-full object-cover object-left transition-all duration-700"
+                />
+              )}
             </div>
 
             {/* Mobile small thumbnail (optional, keeping it simple for now) */}
