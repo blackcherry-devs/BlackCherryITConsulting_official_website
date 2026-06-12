@@ -8,6 +8,8 @@ import Section from '@/components/layout/Section';
 import DotPattern from '@/components/ui/DotPattern';
 import { ScrollTrigger } from 'gsap/all';
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function BentoGrid() {
   const containerRef = useRef<HTMLDivElement>(null);
 

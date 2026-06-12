@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 
-const BASE_URL = "https://blackcherryitconsulting.com";
+const BASE_URL = "https://www.blackcherryitconsulting.com";
 
 const projectSlugs = [
   "gpamex",

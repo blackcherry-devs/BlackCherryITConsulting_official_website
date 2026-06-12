@@ -109,59 +109,28 @@ const Card = ({
   setCards: React.Dispatch<React.SetStateAction<{ id: number; url: string }[]>>;
   cards: { id: number; url: string }[];
 }) => {
-  const x = useMotionValue(0);
-
-  const rotateRaw = useTransform(x, [-150, 150], [-18, 18]);
-  const opacity = useTransform(x, [-150, 0, 150], [0, 1, 0]);
-
   const isFront = id === cards[cards.length - 1].id;
 
-  const rotate = useTransform(() => {
-    const offset = isFront ? 0 : id % 2 ? 6 : -6;
-
-    return `${rotateRaw.get() + offset}deg`;
-  });
-
-  const handleDragEnd = () => {
-    if (Math.abs(x.get()) > 100) {
-      // Move swiped card to the back of the array (index 0)
-      setCards((prev) => {
-        const cardIndex = prev.findIndex((c) => c.id === id);
-        if (cardIndex === -1) return prev;
-        const card = prev[cardIndex];
-        const newCards = prev.filter((c) => c.id !== id);
-        return [card, ...newCards];
-      });
-    }
-  };
+  // Stagger the rotation for cards in the back
+  const offset = isFront ? 0 : id % 2 ? 6 : -6;
+  const rotate = `${offset}deg`;
 
   return (
     <motion.img
       src={url}
       alt="Project Details Gallery Image"
-      className="h-[28rem] w-80 origin-bottom rounded-2xl bg-black object-cover hover:cursor-grab active:cursor-grabbing border border-white/10"
+      className="h-[28rem] w-80 origin-bottom rounded-2xl bg-black object-cover border border-white/10 transition-all duration-300"
       style={{
         gridRow: 1,
         gridColumn: 1,
-        x,
-        opacity,
         rotate,
-        transition: "0.125s transform",
         boxShadow: isFront
           ? "0 20px 25px -5px rgb(0 0 0 / 0.5), 0 8px 10px -6px rgb(0 0 0 / 0.5)"
           : undefined,
-        touchAction: "none", // Prevent scroll interference on mobile
       }}
       animate={{
         scale: isFront ? 1 : 0.98,
       }}
-      drag={isFront ? "x" : false}
-      dragConstraints={{
-        left: 0,
-        right: 0,
-      }}
-      dragElastic={0.8} // Makes it easier to pull on touch devices
-      onDragEnd={handleDragEnd}
     />
   );
 };

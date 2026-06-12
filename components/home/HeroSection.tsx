@@ -6,7 +6,10 @@ import Link from "@/components/ui/AnimatedLink";
 import AnimatedButton from "@/components/ui/AnimatedButton";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import GridLines from "@/components/ui/GridLines";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function HeroSection() {
   const containerRef = useRef<HTMLElement>(null);
@@ -25,23 +28,109 @@ export default function HeroSection() {
     "/video-home3.mp4"
   ];
 
-  const carouselImages = [images[0], images[2], images[1], images[0], images[2], images[1]];
-  const carouselVideos = [...videos, ...videos];
+  const carouselImages = [images[0], images[2], images[1], images[0]];
+  const carouselVideos = [videos[0], videos[1], videos[2], videos[0]];
 
   useGSAP(() => {
+    const videoElements = rightCarouselRef.current?.querySelectorAll("video");
+    let activeIndex = 0;
+
+    const playVideoAt = (index: number) => {
+      activeIndex = index;
+      if (!videoElements) return;
+      videoElements.forEach((vid, idx) => {
+        const videoHtml = vid as HTMLVideoElement;
+        if (idx === index) {
+          videoHtml.play().catch(() => {});
+        } else {
+          videoHtml.pause();
+        }
+      });
+    };
+
+    // Initialize: play only the first video, pause others
+    playVideoAt(0);
+
     // Left Carousel: Moves Right in Steps.
-    gsap.set(leftCarouselRef.current, { x: "-50%" });
-    const tlLeft = gsap.timeline({ repeat: -1 });
-    tlLeft.to(leftCarouselRef.current, { x: "-33.333%", duration: 1.5, ease: "expo.inOut", delay: 4.5, force3D: true, z: 0.01 })
-          .to(leftCarouselRef.current, { x: "-16.666%", duration: 1.5, ease: "expo.inOut", delay: 4.5, force3D: true, z: 0.01 })
+    gsap.set(leftCarouselRef.current, { x: "-75%" });
+    const tlLeft = gsap.timeline({ 
+      onComplete: () => {
+        gsap.set(leftCarouselRef.current, { x: "-75%" });
+        tlLeft.restart();
+      }
+    });
+    tlLeft.to(leftCarouselRef.current, { x: "-50%", duration: 1.5, ease: "expo.inOut", delay: 4.5, force3D: true, z: 0.01 })
+          .to(leftCarouselRef.current, { x: "-25%", duration: 1.5, ease: "expo.inOut", delay: 4.5, force3D: true, z: 0.01 })
           .to(leftCarouselRef.current, { x: "0%", duration: 1.5, ease: "expo.inOut", delay: 4.5, force3D: true, z: 0.01 });
 
     // Right Carousel: Moves Up in Steps.
     gsap.set(rightCarouselRef.current, { y: "0%" });
-    const tlRight = gsap.timeline({ repeat: -1 });
-    tlRight.to(rightCarouselRef.current, { y: "-16.666%", duration: 1.5, ease: "expo.inOut", delay: 4.5, force3D: true, z: 0.01 })
-           .to(rightCarouselRef.current, { y: "-33.333%", duration: 1.5, ease: "expo.inOut", delay: 4.5, force3D: true, z: 0.01 })
-           .to(rightCarouselRef.current, { y: "-50%", duration: 1.5, ease: "expo.inOut", delay: 4.5, force3D: true, z: 0.01 });
+    const tlRight = gsap.timeline({ 
+      onComplete: () => {
+        gsap.set(rightCarouselRef.current, { y: "0%" });
+        playVideoAt(0);
+        tlRight.restart();
+      }
+    });
+    tlRight
+      .to(rightCarouselRef.current, { 
+        y: "-25%", 
+        duration: 1.5, 
+        ease: "expo.inOut", 
+        delay: 4.5, 
+        force3D: true, 
+        z: 0.01,
+        onStart: () => playVideoAt(1)
+      })
+      .to(rightCarouselRef.current, { 
+        y: "-50%", 
+        duration: 1.5, 
+        ease: "expo.inOut", 
+        delay: 4.5, 
+        force3D: true, 
+        z: 0.01,
+        onStart: () => playVideoAt(2)
+      })
+      .to(rightCarouselRef.current, { 
+        y: "-75%", 
+        duration: 1.5, 
+        ease: "expo.inOut", 
+        delay: 4.5, 
+        force3D: true, 
+        z: 0.01,
+        onStart: () => playVideoAt(3)
+      });
+
+    // ScrollTrigger to pause animations & videos when off-screen
+    ScrollTrigger.create({
+      trigger: containerRef.current,
+      start: "top bottom",
+      end: "bottom top",
+      onEnter: () => {
+        tlLeft.play();
+        tlRight.play();
+        playVideoAt(activeIndex);
+      },
+      onLeave: () => {
+        tlLeft.pause();
+        tlRight.pause();
+        if (videoElements) {
+          videoElements.forEach((vid) => (vid as HTMLVideoElement).pause());
+        }
+      },
+      onEnterBack: () => {
+        tlLeft.play();
+        tlRight.play();
+        playVideoAt(activeIndex);
+      },
+      onLeaveBack: () => {
+        tlLeft.pause();
+        tlRight.pause();
+        if (videoElements) {
+          videoElements.forEach((vid) => (vid as HTMLVideoElement).pause());
+        }
+      }
+    });
 
   }, { scope: containerRef });
 
@@ -83,11 +172,11 @@ export default function HeroSection() {
                 <div key={`vid-${idx}`} className="w-full h-[500px] min-[600px]:h-[450px] lg:h-[700px] flex-shrink-0 relative bg-black">
                   <video 
                     src={src} 
-                    autoPlay 
+                    autoPlay={idx === 0} 
                     loop 
                     muted 
                     playsInline 
-                    preload="auto"
+                    preload={idx === 0 ? "auto" : "none"}
                     className="absolute inset-0 w-full h-full object-cover opacity-100 brightness-[0.4] min-[600px]:brightness-75" 
                   />
                 </div>

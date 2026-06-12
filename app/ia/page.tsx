@@ -20,11 +20,11 @@ export const metadata = {
     "automatización de marketing digital",
     "chatbot WhatsApp para empresas",
   ],
-  alternates: { canonical: "https://blackcherryitconsulting.com/ia" },
+  alternates: { canonical: "https://www.blackcherryitconsulting.com/ia" },
   openGraph: {
     title: "Inteligencia Artificial y Automatización de WhatsApp | BlackCherry IT",
     description: "Chatbots, IA y automatización de WhatsApp para empresas en México con Manychat y tecnología de vanguardia.",
-    url: "https://blackcherryitconsulting.com/ia",
+    url: "https://www.blackcherryitconsulting.com/ia",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
 };
